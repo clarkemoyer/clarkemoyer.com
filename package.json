@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Repository for the refactoring of the Clarke Moyer Personal Pages",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
     "lint": "next lint"
   },
