@@ -14,7 +14,7 @@ export default async function Home() {
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
@@ -122,7 +122,15 @@ export default async function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className="text-yellow-400 text-4xl font-bold mb-2">🦉</div>
+                  <div className="relative w-16 h-16 mx-auto mb-4">
+                    <Image
+                      src="/images/wgu-logo.jpg"
+                      alt="Western Governors University Logo"
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
+                  </div>
                   <div className="text-yellow-400 text-2xl font-bold">PROUD</div>
                   <div className="text-yellow-400 text-xl font-bold">WGU GRAD!</div>
                 </div>
@@ -253,7 +261,15 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-6">Click for a WGU Referral</h3>
           <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 text-center">
-            <div className="text-yellow-400 text-6xl mb-4">🦉</div>
+            <div className="relative w-20 h-20 mx-auto mb-4">
+              <Image
+                src="/images/wgu-logo.jpg"
+                alt="Western Governors University Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+              />
+            </div>
             <div className="text-yellow-400 text-3xl font-bold mb-2">PROUD</div>
             <div className="text-yellow-400 text-2xl font-bold">WGU GRAD!</div>
           </div>
