@@ -11,6 +11,8 @@ export default async function Home() {
   const educationContent = await getContentFile('education');
   const certificationContent = await getContentFile('certification');
   const funContent = await getContentFile('fun');
+  const resumeContent = await getContentFile('resume');
+  const wguReferralContent = await getContentFile('wgu-referral');
 
   return (
     <>
@@ -68,6 +70,13 @@ export default async function Home() {
         id="fun" 
         title="Fun & Personal Interests" 
         content={funContent} 
+        showReadMore={true} 
+      />
+
+      <ContentSection 
+        id="resume" 
+        title="Professional Resume" 
+        content={resumeContent} 
         showReadMore={true} 
       />
 
