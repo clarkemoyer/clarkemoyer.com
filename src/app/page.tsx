@@ -10,6 +10,7 @@ export default async function Home() {
   const charityContent = await getContentFile('charity');
   const educationContent = await getContentFile('education');
   const certificationContent = await getContentFile('certification');
+  const funContent = await getContentFile('fun');
 
   return (
     <>
@@ -60,6 +61,13 @@ export default async function Home() {
         id="certification" 
         title="Certification" 
         content={certificationContent} 
+        showReadMore={true} 
+      />
+
+      <ContentSection 
+        id="fun" 
+        title="Fun & Personal Interests" 
+        content={funContent} 
         showReadMore={true} 
       />
 
