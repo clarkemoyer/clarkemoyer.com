@@ -6,9 +6,9 @@ const nextConfig = {
     unoptimized: true
   },
   // GitHub Pages serves from a subdirectory for project pages
-  // This will be overridden by GITHUB_ACTIONS environment variable
-  basePath: process.env.NODE_ENV === 'production' && !process.env.GITHUB_ACTIONS ? '' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' && !process.env.GITHUB_ACTIONS ? '' : '',
+  // For https://clarkemoyer.github.io/clarkemoyer.com/ we need basePath: '/clarkemoyer.com'
+  basePath: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
 };
 
 export default nextConfig;
