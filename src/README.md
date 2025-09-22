@@ -128,11 +128,14 @@ export default async function PageName() {
 
 ### Homepage (`page.tsx`)
 
-The homepage is unique:
-- Custom hero section with personal branding
-- Multiple content sections
-- Embedded call-to-action areas
-- WGU referral section with custom styling
+The homepage is the most sophisticated page with:
+- **Hero section** with family photo background and professional branding
+- **Professional imagery** including logos, bio photos, and certification images
+- **Multiple content sections** with enhanced visual hierarchy
+- **Embedded call-to-action areas** with improved styling
+- **WGU referral section** with university branding
+- **Responsive design** optimized for all device sizes
+- **Professional photography** and consistent visual branding
 
 ## 🔧 Development Guidelines
 
@@ -168,8 +171,9 @@ The homepage is unique:
 
 ### Image Optimization
 - Unoptimized images for static hosting compatibility
-- Responsive image sizing with CSS
-- Lazy loading where appropriate
+- Responsive image sizing with Next.js Image component
+- Professional photography integrated throughout
+- Optimized loading with priority flags for hero images
 
 ### Bundle Optimization
 - Tree shaking eliminates unused code
