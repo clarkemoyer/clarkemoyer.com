@@ -74,6 +74,8 @@ npm run dev      # Start development server with hot reload
 npm run build    # Build for production and export static files
 npm run start    # Start production server (for testing build locally)
 npm run lint     # Run ESLint for code quality checks
+npm run test:images  # Validate image paths for local development
+npm run test:images:github  # Validate image paths for GitHub Pages deployment
 ```
 
 ## 🚀 Deployment
@@ -105,6 +107,27 @@ npm run build
 # The static files will be in the `out` directory
 # These can be deployed to any static hosting service
 ```
+
+## 🧪 Testing
+
+### Image Path Validation
+
+The project includes automated testing to ensure all images load correctly on GitHub Pages:
+
+```bash
+# Test image paths for GitHub Pages deployment
+npm run test:images:github
+
+# Test image paths for local development
+npm run test:images
+```
+
+The image validation test is automatically run in the CI/CD pipeline to prevent broken images from reaching the live site. See [docs/IMAGE_TESTING.md](docs/IMAGE_TESTING.md) for detailed information.
+
+### Development Testing
+- `npm run dev` for hot reload development
+- `npm run build` to test production build
+- `npm run lint` for code quality
 
 ## 📋 Content Management
 
