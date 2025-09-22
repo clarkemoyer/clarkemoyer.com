@@ -1,46 +1,191 @@
 # clarkemoyer.com
 
-Repository for the refactoring of the Clarke Moyer Personal Pages
+A modern personal website built with Next.js, migrated from WordPress to provide better performance, maintainability, and developer experience.
 
-This is a Next.js application configured for static site generation and deployment to GitHub Pages.
+## 🚀 Project Overview
 
-## GitHub Pages Deployment
+This repository contains the complete refactoring of Clarke Moyer's personal website from WordPress to Next.js. The project demonstrates a successful migration strategy that preserves all original content while modernizing the technology stack for better performance and maintenance.
 
-This site is automatically deployed to GitHub Pages using GitHub Actions. The deployment happens automatically when changes are pushed to the `main` branch.
+### Technology Stack
 
-### Setup Required
+- **Frontend**: Next.js 15 with React 19
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript  
+- **Content**: Markdown with Gray Matter frontmatter
+- **Deployment**: Static site generation to GitHub Pages
+- **CI/CD**: GitHub Actions
 
-To enable GitHub Pages deployment for this repository:
+### Migration Approach
 
-1. Go to your repository settings
-2. Navigate to "Pages" in the left sidebar
-3. Under "Source", select "GitHub Actions"
-4. The deployment workflow will automatically run on the next push to main
+The migration from WordPress to Next.js followed a systematic approach:
 
-### Local Development
+1. **Content Extraction**: All WordPress content was extracted and preserved in `content/wordpress-legacy/`
+2. **Content Conversion**: HTML content was converted to Markdown for better maintainability
+3. **Architecture Modernization**: Rebuilt using modern React patterns and TypeScript
+4. **Static Generation**: Configured for optimal performance with static site generation
+5. **Deployment Automation**: Set up automated deployment to GitHub Pages
+6. **Visual Enhancement**: Added professional images and improved responsive design
+
+## 📂 Project Structure
+
+```
+clarkemoyer.com/
+├── .github/              # GitHub Actions workflows and configurations
+├── content/              # Content management system
+│   ├── sections/         # Current site content in Markdown
+│   └── wordpress-legacy/ # Preserved WordPress content and migration artifacts
+├── public/               # Static assets
+├── src/                  # Next.js application source code
+│   ├── app/              # App Router pages and layouts
+│   ├── components/       # Reusable React components
+│   └── lib/              # Utility functions and content management
+├── package.json          # Project dependencies and scripts
+├── next.config.js        # Next.js configuration for static export
+└── tailwind.config.js    # Tailwind CSS configuration
+```
+
+## 🛠️ Local Development
+
+### Prerequisites
+
+- Node.js 20 or later
+- npm (comes with Node.js)
+
+### Getting Started
 
 ```bash
+# Clone the repository
+git clone https://github.com/clarkemoyer/clarkemoyer.com.git
+cd clarkemoyer.com
+
 # Install dependencies
 npm ci
 
-# Run development server
+# Start the development server
 npm run dev
 
-# Build for production
-npm run build
-
-# The static files will be generated in the `out` directory
+# Open http://localhost:3000 in your browser
 ```
 
-### Deployment Process
+### Available Scripts
 
-The deployment uses a GitHub Actions workflow (`.github/workflows/deploy.yml`) that:
+```bash
+npm run dev      # Start development server with hot reload
+npm run build    # Build for production and export static files
+npm run start    # Start production server (for testing build locally)
+npm run lint     # Run ESLint for code quality checks
+```
 
-1. Checks out the code
-2. Sets up Node.js 20
-3. Installs dependencies
-4. Builds the Next.js application with static export
-5. Creates the `.nojekyll` file for GitHub Pages compatibility
-6. Deploys the static files to GitHub Pages
+## 🚀 Deployment
 
-The site will be available at `https://<username>.github.io/<repository-name>` (or your custom domain if configured).
+### Automatic Deployment
+
+The site is automatically deployed to GitHub Pages using GitHub Actions:
+
+- **Trigger**: Every push to the `main` branch
+- **Process**: Build → Static Export → Deploy to GitHub Pages
+- **URL**: https://clarkemoyer.github.io/clarkemoyer.com
+
+### GitHub Pages Setup
+
+To enable GitHub Pages deployment:
+
+1. Go to repository **Settings** → **Pages**
+2. Under **Source**, select **GitHub Actions**
+3. The deployment workflow will run automatically on the next push
+
+### Manual Deployment
+
+For manual deployment or testing:
+
+```bash
+# Build the static site
+npm run build
+
+# The static files will be in the `out` directory
+# These can be deployed to any static hosting service
+```
+
+## 📋 Content Management
+
+Content is managed through Markdown files in the `content/sections/` directory:
+
+- Each page has a corresponding `.md` file (e.g., `about.md`, `resume.md`)
+- Content supports frontmatter for metadata
+- Markdown is processed and converted to HTML at build time
+- Legacy WordPress content is preserved in `content/wordpress-legacy/`
+
+## 🔧 Configuration
+
+### Next.js Configuration
+
+The project is configured for static site generation with GitHub Pages support:
+
+```javascript
+// next.config.js
+const nextConfig = {
+  output: 'export',        // Enable static export
+  trailingSlash: true,     // Required for GitHub Pages
+  images: { unoptimized: true }, // Optimize for static hosting
+  basePath: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+};
+```
+
+**Recent Updates**: The configuration now includes proper GitHub Pages path handling for deployment at `https://clarkemoyer.github.io/clarkemoyer.com/`.
+
+### Tailwind CSS
+
+Tailwind CSS is configured for optimal performance:
+- Purging unused styles in production
+- Custom color scheme and typography
+- Responsive design utilities
+
+## 🔍 Migration Documentation
+
+The migration from WordPress to Next.js involved several key steps:
+
+### 1. Content Extraction
+- Complete WordPress site backup and content extraction
+- Preservation of all pages, media, and metadata
+- Organization of content by type and date
+
+### 2. Content Conversion
+- HTML to Markdown conversion for better maintainability
+- Frontmatter addition for metadata management
+- Media file organization and optimization
+
+### 3. Architecture Design
+- Modern React component architecture
+- TypeScript for type safety
+- Tailwind CSS for consistent styling
+- Static site generation for performance
+
+### 4. Feature Parity and Enhancement
+- All original WordPress functionality preserved
+- Enhanced navigation and user experience
+- Mobile-responsive design with professional imagery
+- SEO optimization
+- Improved visual design with professional photos and branding
+
+### 5. Recent Enhancements (Post-Migration)
+- Professional image integration throughout the site
+- Improved GitHub Pages deployment configuration  
+- Enhanced responsive design and visual consistency
+- Professional branding elements and photography
+
+For detailed migration documentation, see [`content/wordpress-legacy/README.md`](content/wordpress-legacy/README.md).
+
+## 🤝 Contributing
+
+This is a personal website project. For suggestions or bug reports, please open an issue.
+
+## 📄 License
+
+This project is licensed under the AGPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Clarke Moyer**
+- LinkedIn: [@clarkemoyer](https://linkedin.com/in/clarkemoyer)
+- Website: [clarkemoyer.com](https://clarkemoyer.github.io/clarkemoyer.com)
