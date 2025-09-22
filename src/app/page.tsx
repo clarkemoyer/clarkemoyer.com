@@ -70,7 +70,7 @@ export default async function Home() {
             <div className="relative z-10">
               <div className="w-48 h-48 mx-auto mb-8 relative">
                 <Image
-                  src="/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg"
+                  src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
                   alt="Clarke Moyer (CM) Logo 3D Black"
                   width={192}
                   height={192}
@@ -96,7 +96,7 @@ export default async function Home() {
               <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
                 <div className="relative w-24 h-24">
                   <Image
-                    src="/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg"
+                    src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
                     alt="Clarke Moyer Logo"
                     width={96}
                     height={96}
@@ -124,7 +124,7 @@ export default async function Home() {
                 <div className="text-center">
                   <div className="relative w-16 h-16 mx-auto mb-4">
                     <Image
-                      src="/images/wgu-logo.jpg"
+                      src={`${basePath}/images/wgu-logo.jpg`}
                       alt="Western Governors University Logo"
                       width={64}
                       height={64}
@@ -157,7 +157,7 @@ export default async function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-40 relative">
                 <Image
-                  src="/images/Clarke-Moyer-Bio-Picture-2MP.jpg"
+                  src={`${basePath}/images/Clarke-Moyer-Bio-Picture-2MP.jpg`}
                   alt="Clarke Moyer Bio Picture"
                   fill
                   className="object-cover"
@@ -180,7 +180,7 @@ export default async function Home() {
               <div className="h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center p-4">
                 <div className="relative w-20 h-20">
                   <Image
-                    src="/images/ffc-logo.png"
+                    src={`${basePath}/images/ffc-logo.png`}
                     alt="Free For Charity Logo"
                     width={80}
                     height={80}
@@ -203,7 +203,7 @@ export default async function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-40 relative">
                 <Image
-                  src="/images/certification-exam.png"
+                  src={`${basePath}/images/certification-exam.png`}
                   alt="Technical Certification Exam"
                   fill
                   className="object-cover"
@@ -263,7 +263,7 @@ export default async function Home() {
           <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 text-center">
             <div className="relative w-20 h-20 mx-auto mb-4">
               <Image
-                src="/images/wgu-logo.jpg"
+                src={`${basePath}/images/wgu-logo.jpg`}
                 alt="Western Governors University Logo"
                 width={80}
                 height={80}
