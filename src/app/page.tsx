@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default async function Home() {
@@ -13,7 +14,7 @@ export default async function Home() {
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
@@ -67,8 +68,15 @@ export default async function Home() {
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-gray-900/20"></div>
             <div className="relative z-10">
-              <div className="w-48 h-48 mx-auto mb-8 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full flex items-center justify-center shadow-2xl">
-                <div className="text-gray-800 text-6xl font-bold">CM</div>
+              <div className="w-48 h-48 mx-auto mb-8 relative">
+                <Image
+                  src="/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg"
+                  alt="Clarke Moyer (CM) Logo 3D Black"
+                  width={192}
+                  height={192}
+                  className="rounded-full object-cover shadow-2xl"
+                  priority
+                />
               </div>
               <h3 className="text-3xl font-bold mb-4">CLARKE MOYER</h3>
             </div>
@@ -85,9 +93,15 @@ export default async function Home() {
             
             {/* PSU-ARL Referral Program */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full flex items-center justify-center">
-                  <div className="text-gray-800 text-2xl font-bold">CM</div>
+              <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
+                <div className="relative w-24 h-24">
+                  <Image
+                    src="/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg"
+                    alt="Clarke Moyer Logo"
+                    width={96}
+                    height={96}
+                    className="rounded-full object-cover"
+                  />
                 </div>
               </div>
               <div className="p-6">
@@ -108,7 +122,15 @@ export default async function Home() {
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className="text-yellow-400 text-4xl font-bold mb-2">🦉</div>
+                  <div className="relative w-16 h-16 mx-auto mb-4">
+                    <Image
+                      src="/images/wgu-logo.jpg"
+                      alt="Western Governors University Logo"
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                    />
+                  </div>
                   <div className="text-yellow-400 text-2xl font-bold">PROUD</div>
                   <div className="text-yellow-400 text-xl font-bold">WGU GRAD!</div>
                 </div>
@@ -133,7 +155,15 @@ export default async function Home() {
             
             {/* Who I Am */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 bg-gradient-to-br from-blue-600 to-blue-700"></div>
+              <div className="h-40 relative">
+                <Image
+                  src="/images/Clarke-Moyer-Bio-Picture-2MP.jpg"
+                  alt="Clarke Moyer Bio Picture"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-blue-700/80"></div>
+              </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
                 <Link 
@@ -147,9 +177,15 @@ export default async function Home() {
 
             {/* Free For Charity */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                  <div className="text-green-600 text-xl font-bold">FFC</div>
+              <div className="h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center p-4">
+                <div className="relative w-20 h-20">
+                  <Image
+                    src="/images/ffc-logo.png"
+                    alt="Free For Charity Logo"
+                    width={80}
+                    height={80}
+                    className="object-contain"
+                  />
                 </div>
               </div>
               <div className="p-6">
@@ -165,8 +201,16 @@ export default async function Home() {
 
             {/* Certification Guides */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 bg-gradient-to-br from-purple-600 to-purple-700 flex items-center justify-center">
-                <div className="text-white text-3xl">🎯</div>
+              <div className="h-40 relative">
+                <Image
+                  src="/images/certification-exam.png"
+                  alt="Technical Certification Exam"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/70 to-purple-700/70 flex items-center justify-center">
+                  <div className="text-white text-3xl">🎯</div>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
@@ -217,7 +261,15 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-6">Click for a WGU Referral</h3>
           <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 text-center">
-            <div className="text-yellow-400 text-6xl mb-4">🦉</div>
+            <div className="relative w-20 h-20 mx-auto mb-4">
+              <Image
+                src="/images/wgu-logo.jpg"
+                alt="Western Governors University Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+              />
+            </div>
             <div className="text-yellow-400 text-3xl font-bold mb-2">PROUD</div>
             <div className="text-yellow-400 text-2xl font-bold">WGU GRAD!</div>
           </div>
