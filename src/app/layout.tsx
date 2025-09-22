@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Get the basePath for GitHub Pages deployment
+const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+
 export const metadata: Metadata = {
   title: "Clarke Moyer - Personal Website",
   description: "Professional Profile & Personal Journey of Clarke Moyer",
   icons: {
-    icon: '/images/favicon-32x32.jpg',
-    apple: '/images/favicon-192x192.jpg',
+    icon: `${basePath}/images/favicon-32x32.jpg`,
+    apple: `${basePath}/images/favicon-192x192.jpg`,
   },
 };
 
