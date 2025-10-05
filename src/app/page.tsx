@@ -160,7 +160,7 @@ export default async function Home() {
                   src={`${basePath}/images/Clarke-Moyer-Bio-Picture-2MP.jpg`}
                   alt="Clarke Moyer Bio Picture"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -205,7 +205,7 @@ export default async function Home() {
                   src={`${basePath}/images/certification-exam.png`}
                   alt="Technical Certification Exam"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
               <div className="p-6">
