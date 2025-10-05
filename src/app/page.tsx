@@ -238,6 +238,33 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Favorite Quotes Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-800">--Favorite Quotes--</h2>
+          
+          <div className="space-y-8">
+            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
+              <p className="text-xl text-gray-700 italic mb-4">
+                &ldquo;Always Be Caught Doing the Right Thing&rdquo;
+              </p>
+              <cite className="text-gray-600 not-italic font-semibold">
+                Greg Davis - DoD SME
+              </cite>
+            </blockquote>
+            
+            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
+              <p className="text-xl text-gray-700 italic mb-4">
+                &ldquo;The Best Way to Win New Work Is to Do a Good Job on Your Current Work&rdquo;
+              </p>
+              <cite className="text-gray-600 not-italic font-semibold">
+                Bryan Tebo - Semper Valens VP
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* Dialogue Section */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
