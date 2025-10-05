@@ -12,7 +12,7 @@ export default async function WGUReferralPage() {
       
       <main className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="text-blue-600 hover:text-blue-800 font-medium mb-8 inline-block">
+          <Link href="/" className="text-brand hover:text-brand-hover font-medium mb-8 inline-block">
             ← Back to Home
           </Link>
           
