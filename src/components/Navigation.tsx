@@ -5,7 +5,7 @@ export default function Navigation() {
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
       {/* Top Header Bar */}
-      <div className="bg-gradient-to-b from-black/50 to-transparent backdrop-blur-sm">
+      <div className="bg-black/40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Left - Search Icon */}
@@ -41,9 +41,9 @@ export default function Navigation() {
       </div>
 
       {/* Main Navigation Menu */}
-      <div className="hidden lg:block bg-black/30 backdrop-blur-sm border-t border-white/10">
+      <div className="hidden lg:block bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center space-x-8 h-14">
+          <div className="flex justify-center items-center space-x-8 h-12">
             <Link href="/" className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors">
               HOME
             </Link>
@@ -67,9 +67,9 @@ export default function Navigation() {
       </div>
 
       {/* Subtitle Bar */}
-      <div className="hidden lg:block bg-black/20 backdrop-blur-sm border-t border-white/10">
+      <div className="hidden lg:block bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center h-12">
+          <div className="flex justify-center items-center h-10">
             <Link href="/certification" className="text-white hover:text-gray-300 text-xs font-medium tracking-widest transition-colors">
               CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE
             </Link>
