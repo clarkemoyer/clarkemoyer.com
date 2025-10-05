@@ -32,7 +32,7 @@ export default function ContentSection({ id, title, content, showReadMore = fals
           <div className="mt-6">
             <a
               href={`/${id}`}
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="text-brand hover:text-brand-hover font-medium"
             >
               Read More →
             </a>
