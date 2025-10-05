@@ -1,0 +1,16 @@
+/* PSU-ARL Referral Program Button Styles */
+.psu-arl-content p > a {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3373dc;
+  color: white !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  margin: 8px 0;
+}
+
+.psu-arl-content p > a:hover {
+  background-color: #2558b8;
+}
