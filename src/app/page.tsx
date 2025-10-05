@@ -8,8 +8,6 @@ export default async function Home() {
   const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
   return (
     <>
-      <Navigation />
-      
       {/* Hero Section with Family Photo Background */}
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
@@ -19,19 +17,8 @@ export default async function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
         
-        {/* Mobile Menu Button */}
-        <div className="absolute top-6 right-6 lg:hidden">
-          <button className="text-white bg-black/20 backdrop-blur-sm rounded px-3 py-2 font-semibold">
-            ☰ MENU
-          </button>
-        </div>
-        
-        {/* Logo/Brand */}
-        <div className="absolute top-6 left-6 text-white">
-          <h1 className="text-xl font-bold tracking-widest">
-            CLARKE<br />MOYER
-          </h1>
-        </div>
+        {/* Navigation Overlay */}
+        <Navigation />
         
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
