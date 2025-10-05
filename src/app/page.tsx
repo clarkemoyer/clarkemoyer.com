@@ -162,7 +162,6 @@ export default async function Home() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-blue-700/80"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
@@ -208,9 +207,6 @@ export default async function Home() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/70 to-purple-700/70 flex items-center justify-center">
-                  <div className="text-white text-3xl">🎯</div>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
