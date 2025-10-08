@@ -71,8 +71,8 @@ function validateImagePaths(htmlContent, fileName) {
     
     testResults.totalImages++;
     
-    // In GitHub Actions mode, all image paths should include the basePath
-    if (process.env.GITHUB_ACTIONS || process.env.TEST_GITHUB_MODE) {
+    // When USE_BASE_PATH is true, all image paths should include the basePath
+    if (process.env.USE_BASE_PATH === 'true' || process.env.TEST_GITHUB_MODE) {
       if (!imagePath.startsWith(BASE_PATH)) {
         testResults.invalidPaths++;
         errors.push({
@@ -147,7 +147,7 @@ function validateImagePaths(htmlContent, fileName) {
     testResults.totalImages++;
     
     // Apply same validation logic as img src
-    if (process.env.GITHUB_ACTIONS || process.env.TEST_GITHUB_MODE) {
+    if (process.env.USE_BASE_PATH === 'true' || process.env.TEST_GITHUB_MODE) {
       if (!imagePath.startsWith(BASE_PATH)) {
         testResults.invalidPaths++;
         errors.push({
