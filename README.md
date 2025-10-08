@@ -86,7 +86,7 @@ The site is automatically deployed to GitHub Pages using GitHub Actions:
 
 - **Trigger**: Every push to the `main` branch
 - **Process**: Build → Static Export → Deploy to GitHub Pages
-- **URL**: https://clarkemoyer.github.io/clarkemoyer.com
+- **URL**: https://staging.clarkemoyer.com (Custom Domain)
 
 ### GitHub Pages Setup
 
@@ -94,31 +94,35 @@ To enable GitHub Pages deployment:
 
 1. Go to repository **Settings** → **Pages**
 2. Under **Source**, select **GitHub Actions**
-3. The deployment workflow will run automatically on the next push
+3. Under **Custom domain**, enter `staging.clarkemoyer.com`
+4. The deployment workflow will run automatically on the next push
 
 ### Custom Domain Deployment
 
-The site supports two deployment modes:
+⚠️ **Important**: GitHub Pages only allows ONE custom domain per repository. This repository is currently configured for:
+- **Custom Domain**: `staging.clarkemoyer.com`
+- **Build Mode**: WITHOUT `USE_BASE_PATH` (assets load from root path)
 
-#### GitHub Pages Subdirectory Mode
-For deployment at `https://clarkemoyer.github.io/clarkemoyer.com/`:
-- Build with `USE_BASE_PATH=true`
-- All assets will include the `/clarkemoyer.com` basePath
-- This is configured automatically in `.github/workflows/deploy.yml`
+#### Current Configuration
+The site is deployed to `https://staging.clarkemoyer.com`:
+- Build **without** `USE_BASE_PATH` environment variable
+- All assets load from the root path (e.g., `/images/photo.jpg`)
+- CNAME file in `public` directory contains `staging.clarkemoyer.com`
+- Configured automatically in `.github/workflows/deploy.yml`
 
-#### Custom Domain Mode
-For deployment at custom domains like `https://staging.clarkemoyer.com`:
-- Build **without** setting `USE_BASE_PATH` (or set it to `false`)
-- All assets will load from the root path
-- Configure your domain in GitHub Pages settings
-- Add a `CNAME` file to the `public` directory with your domain
+#### Alternative: GitHub Pages Subdirectory Mode
+If you need to deploy to `https://clarkemoyer.github.io/clarkemoyer.com/` instead:
+1. Remove the custom domain from GitHub Pages settings
+2. Delete `public/CNAME` file
+3. Update workflows to build with `USE_BASE_PATH=true`
+4. All assets will include the `/clarkemoyer.com` basePath
 
 ```bash
-# Build for GitHub Pages subdirectory
-USE_BASE_PATH=true npm run build
-
-# Build for custom domain
+# Build for custom domain (current configuration)
 npm run build
+
+# Build for GitHub Pages subdirectory (alternative)
+USE_BASE_PATH=true npm run build
 ```
 
 ### Manual Deployment
