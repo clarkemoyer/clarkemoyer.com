@@ -5,7 +5,9 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment
-  const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+  // For GitHub Pages subdirectory: USE_BASE_PATH=true
+  // For custom domains or local dev: USE_BASE_PATH=false or unset
+  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
   return (
     <>
       {/* Hero Section with Family Photo Background */}

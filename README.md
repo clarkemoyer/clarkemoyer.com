@@ -96,6 +96,31 @@ To enable GitHub Pages deployment:
 2. Under **Source**, select **GitHub Actions**
 3. The deployment workflow will run automatically on the next push
 
+### Custom Domain Deployment
+
+The site supports two deployment modes:
+
+#### GitHub Pages Subdirectory Mode
+For deployment at `https://clarkemoyer.github.io/clarkemoyer.com/`:
+- Build with `USE_BASE_PATH=true`
+- All assets will include the `/clarkemoyer.com` basePath
+- This is configured automatically in `.github/workflows/deploy.yml`
+
+#### Custom Domain Mode
+For deployment at custom domains like `https://staging.clarkemoyer.com`:
+- Build **without** setting `USE_BASE_PATH` (or set it to `false`)
+- All assets will load from the root path
+- Configure your domain in GitHub Pages settings
+- Add a `CNAME` file to the `public` directory with your domain
+
+```bash
+# Build for GitHub Pages subdirectory
+USE_BASE_PATH=true npm run build
+
+# Build for custom domain
+npm run build
+```
+
 ### Manual Deployment
 
 For manual deployment or testing:
@@ -142,7 +167,7 @@ Content is managed through Markdown files in the `content/sections/` directory:
 
 ### Next.js Configuration
 
-The project is configured for static site generation with GitHub Pages support:
+The project is configured for static site generation with flexible deployment options:
 
 ```javascript
 // next.config.js
@@ -150,12 +175,19 @@ const nextConfig = {
   output: 'export',        // Enable static export
   trailingSlash: true,     // Required for GitHub Pages
   images: { unoptimized: true }, // Optimize for static hosting
-  basePath: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+  // Deployment mode controlled by USE_BASE_PATH environment variable:
+  // - USE_BASE_PATH=true: GitHub Pages subdirectory (clarkemoyer.github.io/clarkemoyer.com)
+  // - USE_BASE_PATH unset/false: Custom domain (staging.clarkemoyer.com, clarkemoyer.com)
+  basePath: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
+  assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
 };
 ```
 
-**Recent Updates**: The configuration now includes proper GitHub Pages path handling for deployment at `https://clarkemoyer.github.io/clarkemoyer.com/`.
+**Key Features**:
+- **Dual Deployment Mode**: Supports both GitHub Pages subdirectory and custom domain deployments
+- **Environment-Based Configuration**: Use `USE_BASE_PATH` to control asset path handling
+- **GitHub Pages Compatible**: Proper basePath handling for subdirectory deployments
+- **Custom Domain Ready**: Assets load from root when deployed to custom domains
 
 ### Tailwind CSS
 

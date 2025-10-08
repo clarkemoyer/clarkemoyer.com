@@ -5,7 +5,10 @@ import Link from 'next/link';
 
 export default async function CharityPage() {
   const content = await getContentFile('charity');
-  const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+  // Get the basePath for GitHub Pages deployment
+  // For GitHub Pages subdirectory: USE_BASE_PATH=true
+  // For custom domains or local dev: USE_BASE_PATH=false or unset
+  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
 
   return (
     <>
