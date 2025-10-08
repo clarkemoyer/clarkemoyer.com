@@ -48,9 +48,9 @@ clarkemoyer.com/
 
 ### Prerequisites
 
-- Node.js 20 or later
+- Node.js 20 or later (22.16+ recommended for Canva AI Connector)
 - npm (comes with Node.js)
-- (Optional) Canva API credentials for MCP integration - see [.vscode/README.md](.vscode/README.md)
+- (Optional) Canva account for AI Connector integration - see [.vscode/README.md](.vscode/README.md)
 
 ### Getting Started
 
@@ -201,41 +201,39 @@ Tailwind CSS is configured for optimal performance:
 - Custom color scheme and typography
 - Responsive design utilities
 
-## 🎨 Canva MCP Integration
+## 🎨 Canva AI Connector Integration
 
-This project includes support for the Canva Model Context Protocol (MCP) Server, which enables AI assistants like GitHub Copilot and Claude to interact with Canva's design API.
+This project includes support for the Canva AI Connector, which allows your AI assistant to seamlessly interact with Canva's design capabilities using the Model Context Protocol (MCP).
+
+### Before You Start
+
+To use the Canva AI Connector, you'll need:
+- Node.js 22.16 or later with npm (install from https://nodejs.org/en/download)
+- An AI assistant that supports MCP servers (such as GitHub Copilot in VS Code)
+- A Canva account with any Canva plan
+
+**Note:** Some features require a paid Canva plan (Canva Pro or Enterprise). For example, autofill tools may only be available on Enterprise, while exporting designs is included in all plans.
 
 ### Setup
 
-1. **Get Canva API Credentials**:
-   - Visit [Canva Developers Portal](https://www.canva.com/developers/)
-   - Create a new app to get your Client ID and Client Secret
+The Canva AI Connector is pre-configured in `.vscode/mcp.json` and requires **no API credentials**. The configuration will automatically:
+1. Download the MCP remote server when first accessed
+2. Connect to Canva's hosted MCP server at `https://mcp.canva.com/mcp`
+3. Enable your AI assistant (GitHub Copilot) to interact with Canva
 
-2. **Configure Environment Variables**:
-   ```bash
-   # Copy the example file
-   cp .env.local.example .env.local
-   
-   # Edit .env.local and add your Canva credentials
-   CANVA_CLIENT_ID=your_client_id_here
-   CANVA_CLIENT_SECRET=your_client_secret_here
-   ```
-
-3. **Use with VS Code**:
-   - The MCP server is automatically configured in `.vscode/settings.json`
-   - GitHub Copilot will have access to Canva capabilities when credentials are set
+Simply open VS Code and use GitHub Copilot Chat in **Agent mode** to start using Canva capabilities.
 
 For detailed setup instructions, see [.vscode/README.md](.vscode/README.md).
 
 ### Capabilities
 
-With the Canva MCP integration, you can:
-- Create designs programmatically
-- Search and use Canva templates
-- Manage design assets
-- Automate design workflows
+With the Canva AI Connector, you can:
+- Create new empty designs in Canva
+- Autofill templates with your content
+- Find your existing designs
+- Export designs as PDFs or images
 
-For more information, visit the [Canva MCP Server Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/).
+For more information, visit the [Canva AI Connector Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/).
 
 ## 🔍 Migration Documentation
 
