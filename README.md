@@ -50,6 +50,7 @@ clarkemoyer.com/
 
 - Node.js 20 or later
 - npm (comes with Node.js)
+- (Optional) Canva API credentials for MCP integration - see [.vscode/README.md](.vscode/README.md)
 
 ### Getting Started
 
@@ -199,6 +200,42 @@ Tailwind CSS is configured for optimal performance:
 - Purging unused styles in production
 - Custom color scheme and typography
 - Responsive design utilities
+
+## 🎨 Canva MCP Integration
+
+This project includes support for the Canva Model Context Protocol (MCP) Server, which enables AI assistants like GitHub Copilot and Claude to interact with Canva's design API.
+
+### Setup
+
+1. **Get Canva API Credentials**:
+   - Visit [Canva Developers Portal](https://www.canva.com/developers/)
+   - Create a new app to get your Client ID and Client Secret
+
+2. **Configure Environment Variables**:
+   ```bash
+   # Copy the example file
+   cp .env.local.example .env.local
+   
+   # Edit .env.local and add your Canva credentials
+   CANVA_CLIENT_ID=your_client_id_here
+   CANVA_CLIENT_SECRET=your_client_secret_here
+   ```
+
+3. **Use with VS Code**:
+   - The MCP server is automatically configured in `.vscode/settings.json`
+   - GitHub Copilot will have access to Canva capabilities when credentials are set
+
+For detailed setup instructions, see [.vscode/README.md](.vscode/README.md).
+
+### Capabilities
+
+With the Canva MCP integration, you can:
+- Create designs programmatically
+- Search and use Canva templates
+- Manage design assets
+- Automate design workflows
+
+For more information, visit the [Canva MCP Server Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/).
 
 ## 🔍 Migration Documentation
 

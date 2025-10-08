@@ -1,0 +1,20 @@
+{
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "text": "Use MCP servers when appropriate for tasks"
+    }
+  ],
+  "mcpServers": {
+    "canva": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@canva/mcp-server"
+      ],
+      "env": {
+        "CANVA_CLIENT_ID": "${env:CANVA_CLIENT_ID}",
+        "CANVA_CLIENT_SECRET": "${env:CANVA_CLIENT_SECRET}"
+      }
+    }
+  }
+}
