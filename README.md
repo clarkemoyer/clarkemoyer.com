@@ -48,8 +48,9 @@ clarkemoyer.com/
 
 ### Prerequisites
 
-- Node.js 20 or later
+- Node.js 20 or later (22.16+ recommended for Canva AI Connector)
 - npm (comes with Node.js)
+- (Optional) Canva account for AI Connector integration - see [.vscode/README.md](.vscode/README.md)
 
 ### Getting Started
 
@@ -199,6 +200,40 @@ Tailwind CSS is configured for optimal performance:
 - Purging unused styles in production
 - Custom color scheme and typography
 - Responsive design utilities
+
+## 🎨 Canva AI Connector Integration
+
+This project includes support for the Canva AI Connector, which allows your AI assistant to seamlessly interact with Canva's design capabilities using the Model Context Protocol (MCP).
+
+### Before You Start
+
+To use the Canva AI Connector, you'll need:
+- Node.js 22.16 or later with npm (install from https://nodejs.org/en/download)
+- An AI assistant that supports MCP servers (such as GitHub Copilot in VS Code)
+- A Canva account with any Canva plan
+
+**Note:** Some features require a paid Canva plan (Canva Pro or Enterprise). For example, autofill tools may only be available on Enterprise, while exporting designs is included in all plans.
+
+### Setup
+
+The Canva AI Connector is pre-configured in `.vscode/mcp.json` and requires **no API credentials**. The configuration will automatically:
+1. Download the MCP remote server when first accessed
+2. Connect to Canva's hosted MCP server at `https://mcp.canva.com/mcp`
+3. Enable your AI assistant (GitHub Copilot) to interact with Canva
+
+Simply open VS Code and use GitHub Copilot Chat in **Agent mode** to start using Canva capabilities.
+
+For detailed setup instructions, see [.vscode/README.md](.vscode/README.md).
+
+### Capabilities
+
+With the Canva AI Connector, you can:
+- Create new empty designs in Canva
+- Autofill templates with your content
+- Find your existing designs
+- Export designs as PDFs or images
+
+For more information, visit the [Canva AI Connector Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/).
 
 ## 🔍 Migration Documentation
 
