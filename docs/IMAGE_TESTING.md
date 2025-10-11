@@ -4,11 +4,33 @@ This document describes the automated testing system for validating image paths 
 
 ## Problem Addressed
 
-When deploying to GitHub Pages, the site is served from a subdirectory (e.g., `https://clarkemoyer.github.io/clarkemoyer.com/`). This means all asset paths must include the proper `basePath` prefix to load correctly.
+The site supports two deployment modes, each requiring different asset path handling:
+
+### GitHub Pages Subdirectory Mode
+When deploying to `https://clarkemoyer.github.io/clarkemoyer.com/`, the site is served from a subdirectory. This means all asset paths must include the `/clarkemoyer.com` basePath prefix to load correctly.
 
 Without proper basePath handling:
 - ❌ **Broken**: `/images/photo.jpg` → 404 error on GitHub Pages
 - ✅ **Working**: `/clarkemoyer.com/images/photo.jpg` → Loads correctly
+
+### Custom Domain Mode
+When deploying to a custom domain like `https://staging.clarkemoyer.com` or `https://clarkemoyer.com`, the site is served from the root. Asset paths should NOT include the basePath prefix.
+
+Without proper configuration:
+- ❌ **Broken**: `/clarkemoyer.com/images/photo.jpg` → 404 error on custom domain
+- ✅ **Working**: `/images/photo.jpg` → Loads correctly
+
+## Deployment Configuration
+
+The `USE_BASE_PATH` environment variable controls which mode to build for:
+
+```bash
+# Build for GitHub Pages subdirectory
+USE_BASE_PATH=true npm run build
+
+# Build for custom domain
+npm run build
+```
 
 ## Test Implementation
 
@@ -44,17 +66,20 @@ The image validation test is automatically run in the CI/CD pipeline:
 
 ```yaml
 - name: Build with Next.js
-  run: npx next build
+  run: npm run build
+  env:
+    USE_BASE_PATH: true
 - name: Validate image paths
   run: npm run test:images:github
   env:
-    GITHUB_ACTIONS: true
+    USE_BASE_PATH: true
 ```
 
 This ensures that:
 - Every pull request is tested for proper image paths
 - Deployments are blocked if image paths are incorrect
 - No broken images reach the live site
+- Correct basePath handling for GitHub Pages subdirectory deployment
 
 ## Test Output Example
 
@@ -101,8 +126,10 @@ This ensures that:
 ### Correct Usage in Components
 
 ```typescript
-// Get the basePath for GitHub Pages deployment
-const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+// Get the basePath based on deployment mode
+// USE_BASE_PATH=true: GitHub Pages subdirectory mode
+// USE_BASE_PATH unset/false: Custom domain mode
+const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
 
 // ✅ Correct: Dynamic basePath for all images
 <Image
@@ -119,20 +146,33 @@ const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
 
 // ❌ Incorrect: Hardcoded path
 <Image src="/images/photo.jpg" alt="Description" />
+
+// ❌ Incorrect: Hardcoded basePath
+<Image src="/clarkemoyer.com/images/photo.jpg" alt="Description" />
 ```
 
-### Layout Configuration
+### Configuration Files
 
-The basePath is configured in both:
+The basePath is configured in multiple places:
 
 1. **next.config.js**: For Next.js build configuration
 ```javascript
-basePath: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+basePath: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
+assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
 ```
 
 2. **Component level**: For runtime image paths
 ```typescript
-const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
+```
+
+3. **GitHub Actions workflow**: Set the environment variable
+```yaml
+- name: Build with Next.js
+  run: npm run build
+  env:
+    USE_BASE_PATH: true  # Enable basePath for GitHub Pages subdirectory
+```
 ```
 
 ## Maintenance

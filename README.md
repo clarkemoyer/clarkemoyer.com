@@ -48,8 +48,9 @@ clarkemoyer.com/
 
 ### Prerequisites
 
-- Node.js 20 or later
+- Node.js 20 or later (22.16+ recommended for Canva AI Connector)
 - npm (comes with Node.js)
+- (Optional) Canva account for AI Connector integration - see [.vscode/README.md](.vscode/README.md)
 
 ### Getting Started
 
@@ -86,7 +87,7 @@ The site is automatically deployed to GitHub Pages using GitHub Actions:
 
 - **Trigger**: Every push to the `main` branch
 - **Process**: Build → Static Export → Deploy to GitHub Pages
-- **URL**: https://clarkemoyer.github.io/clarkemoyer.com
+- **URL**: https://staging.clarkemoyer.com (Custom Domain)
 
 ### GitHub Pages Setup
 
@@ -94,7 +95,36 @@ To enable GitHub Pages deployment:
 
 1. Go to repository **Settings** → **Pages**
 2. Under **Source**, select **GitHub Actions**
-3. The deployment workflow will run automatically on the next push
+3. Under **Custom domain**, enter `staging.clarkemoyer.com`
+4. The deployment workflow will run automatically on the next push
+
+### Custom Domain Deployment
+
+⚠️ **Important**: GitHub Pages only allows ONE custom domain per repository. This repository is currently configured for:
+- **Custom Domain**: `staging.clarkemoyer.com`
+- **Build Mode**: WITHOUT `USE_BASE_PATH` (assets load from root path)
+
+#### Current Configuration
+The site is deployed to `https://staging.clarkemoyer.com`:
+- Build **without** `USE_BASE_PATH` environment variable
+- All assets load from the root path (e.g., `/images/photo.jpg`)
+- CNAME file in `public` directory contains `staging.clarkemoyer.com`
+- Configured automatically in `.github/workflows/deploy.yml`
+
+#### Alternative: GitHub Pages Subdirectory Mode
+If you need to deploy to `https://clarkemoyer.github.io/clarkemoyer.com/` instead:
+1. Remove the custom domain from GitHub Pages settings
+2. Delete `public/CNAME` file
+3. Update workflows to build with `USE_BASE_PATH=true`
+4. All assets will include the `/clarkemoyer.com` basePath
+
+```bash
+# Build for custom domain (current configuration)
+npm run build
+
+# Build for GitHub Pages subdirectory (alternative)
+USE_BASE_PATH=true npm run build
+```
 
 ### Manual Deployment
 
@@ -142,7 +172,7 @@ Content is managed through Markdown files in the `content/sections/` directory:
 
 ### Next.js Configuration
 
-The project is configured for static site generation with GitHub Pages support:
+The project is configured for static site generation with flexible deployment options:
 
 ```javascript
 // next.config.js
@@ -150,12 +180,19 @@ const nextConfig = {
   output: 'export',        // Enable static export
   trailingSlash: true,     // Required for GitHub Pages
   images: { unoptimized: true }, // Optimize for static hosting
-  basePath: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '',
+  // Deployment mode controlled by USE_BASE_PATH environment variable:
+  // - USE_BASE_PATH=true: GitHub Pages subdirectory (clarkemoyer.github.io/clarkemoyer.com)
+  // - USE_BASE_PATH unset/false: Custom domain (staging.clarkemoyer.com, clarkemoyer.com)
+  basePath: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
+  assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
 };
 ```
 
-**Recent Updates**: The configuration now includes proper GitHub Pages path handling for deployment at `https://clarkemoyer.github.io/clarkemoyer.com/`.
+**Key Features**:
+- **Dual Deployment Mode**: Supports both GitHub Pages subdirectory and custom domain deployments
+- **Environment-Based Configuration**: Use `USE_BASE_PATH` to control asset path handling
+- **GitHub Pages Compatible**: Proper basePath handling for subdirectory deployments
+- **Custom Domain Ready**: Assets load from root when deployed to custom domains
 
 ### Tailwind CSS
 
@@ -163,6 +200,40 @@ Tailwind CSS is configured for optimal performance:
 - Purging unused styles in production
 - Custom color scheme and typography
 - Responsive design utilities
+
+## 🎨 Canva AI Connector Integration
+
+This project includes support for the Canva AI Connector, which allows your AI assistant to seamlessly interact with Canva's design capabilities using the Model Context Protocol (MCP).
+
+### Before You Start
+
+To use the Canva AI Connector, you'll need:
+- Node.js 22.16 or later with npm (install from https://nodejs.org/en/download)
+- An AI assistant that supports MCP servers (such as GitHub Copilot in VS Code)
+- A Canva account with any Canva plan
+
+**Note:** Some features require a paid Canva plan (Canva Pro or Enterprise). For example, autofill tools may only be available on Enterprise, while exporting designs is included in all plans.
+
+### Setup
+
+The Canva AI Connector is pre-configured in `.vscode/mcp.json` and requires **no API credentials**. The configuration will automatically:
+1. Download the MCP remote server when first accessed
+2. Connect to Canva's hosted MCP server at `https://mcp.canva.com/mcp`
+3. Enable your AI assistant (GitHub Copilot) to interact with Canva
+
+Simply open VS Code and use GitHub Copilot Chat in **Agent mode** to start using Canva capabilities.
+
+For detailed setup instructions, see [.vscode/README.md](.vscode/README.md).
+
+### Capabilities
+
+With the Canva AI Connector, you can:
+- Create new empty designs in Canva
+- Autofill templates with your content
+- Find your existing designs
+- Export designs as PDFs or images
+
+For more information, visit the [Canva AI Connector Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/).
 
 ## 🔍 Migration Documentation
 

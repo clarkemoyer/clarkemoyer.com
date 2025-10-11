@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
-import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+import './psu-arl-referral.css';
 
 export default async function PSUARLReferralPage() {
   const content = await getContentFile('psu-arl-referral');
@@ -16,21 +16,16 @@ export default async function PSUARLReferralPage() {
             ← Back to Home
           </Link>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">PSU-ARL Employee Referral Program</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">PSU-ARL Referral Program</h1>
           
           {content ? (
             <div 
-              className="prose prose-lg max-w-none text-gray-700"
+              className="prose prose-lg max-w-none text-gray-700 psu-arl-content"
               dangerouslySetInnerHTML={{ __html: content.content }}
             />
           ) : (
             <p className="text-gray-600">Content coming soon...</p>
           )}
-          
-          <div className="mt-12 pt-8 border-t">
-            <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
-            <CTAButtons />
-          </div>
         </div>
       </main>
     </>

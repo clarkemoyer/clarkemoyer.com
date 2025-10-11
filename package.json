@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "test:images": "node tests/validate-image-paths.js",
-    "test:images:github": "TEST_GITHUB_MODE=1 node tests/validate-image-paths.js"
+    "test:images:github": "USE_BASE_PATH=true TEST_GITHUB_MODE=1 node tests/validate-image-paths.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

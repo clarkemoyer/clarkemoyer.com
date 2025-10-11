@@ -5,11 +5,11 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment
-  const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+  // For GitHub Pages subdirectory: USE_BASE_PATH=true
+  // For custom domains or local dev: USE_BASE_PATH=false or unset
+  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
   return (
     <>
-      <Navigation />
-      
       {/* Hero Section with Family Photo Background */}
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
@@ -19,19 +19,8 @@ export default async function Home() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
         
-        {/* Mobile Menu Button */}
-        <div className="absolute top-6 right-6 lg:hidden">
-          <button className="text-white bg-black/20 backdrop-blur-sm rounded px-3 py-2 font-semibold">
-            ☰ MENU
-          </button>
-        </div>
-        
-        {/* Logo/Brand */}
-        <div className="absolute top-6 left-6 text-white">
-          <h1 className="text-xl font-bold tracking-widest">
-            CLARKE<br />MOYER
-          </h1>
-        </div>
+        {/* Navigation Overlay */}
+        <Navigation />
         
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
@@ -230,6 +219,33 @@ export default async function Home() {
                 Read More Pages
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Favorite Quotes Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8 text-gray-800">--Favorite Quotes--</h2>
+          
+          <div className="space-y-8">
+            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
+              <p className="text-xl text-gray-700 italic mb-4">
+                &ldquo;Always Be Caught Doing the Right Thing&rdquo;
+              </p>
+              <cite className="text-gray-600 not-italic font-semibold">
+                Greg Davis - DoD SME
+              </cite>
+            </blockquote>
+            
+            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
+              <p className="text-xl text-gray-700 italic mb-4">
+                &ldquo;The Best Way to Win New Work Is to Do a Good Job on Your Current Work&rdquo;
+              </p>
+              <cite className="text-gray-600 not-italic font-semibold">
+                Bryan Tebo - Semper Valens VP
+              </cite>
+            </blockquote>
           </div>
         </div>
       </section>
