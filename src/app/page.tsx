@@ -42,7 +42,7 @@ export default async function Home() {
               </a>
               <a 
                 href="#projects"
-                className="bg-orange-600 text-white px-8 py-3 rounded font-semibold hover:bg-orange-700 transition-colors"
+                className="bg-brand text-white px-8 py-3 rounded font-semibold hover:bg-brand-hover transition-colors"
               >
                 GET MORE INFO
               </a>
@@ -100,7 +100,7 @@ export default async function Home() {
                 </p>
                 <Link 
                   href="/resume"
-                  className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -131,7 +131,7 @@ export default async function Home() {
                 </p>
                 <Link 
                   href="/wgu-referral"
-                  className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -149,15 +149,14 @@ export default async function Home() {
                   src={`${basePath}/images/Clarke-Moyer-Bio-Picture-2MP.jpg`}
                   alt="Clarke Moyer Bio Picture"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-blue-700/80"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
                 <Link 
                   href="/about"
-                  className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -181,7 +180,7 @@ export default async function Home() {
                 <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
                 <Link 
                   href="/charity"
-                  className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -195,17 +194,14 @@ export default async function Home() {
                   src={`${basePath}/images/certification-exam.png`}
                   alt="Technical Certification Exam"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/70 to-purple-700/70 flex items-center justify-center">
-                  <div className="text-white text-3xl">🎯</div>
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
                 <Link 
                   href="/certification"
-                  className="text-orange-600 hover:text-orange-700 font-medium inline-flex items-center"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -265,7 +261,7 @@ export default async function Home() {
             href="https://linkedin.com/in/clarkemoyer"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-orange-600 text-white px-8 py-3 rounded font-semibold hover:bg-orange-700 transition-colors"
+            className="bg-brand text-white px-8 py-3 rounded font-semibold hover:bg-brand-hover transition-colors"
           >
             CONNECT TODAY
           </a>
@@ -308,7 +304,7 @@ export default async function Home() {
           </nav>
           <div className="text-center mt-8 pt-8 border-t text-gray-500">
             <p>Copyright © 2010–2025 Hosted on Free For Charity Hosting · 
-              <a href="/wp-login.php" className="text-orange-600 hover:text-orange-700 ml-2">Log out</a>
+              <a href="/wp-login.php" className="text-brand hover:text-brand-hover ml-2">Log out</a>
             </p>
           </div>
         </div>
