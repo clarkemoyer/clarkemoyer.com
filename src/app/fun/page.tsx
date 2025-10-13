@@ -129,7 +129,7 @@ export default async function FunPage() {
             href="https://www.linkedin.com/in/clarkemoyer/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-brand hover:bg-brand-hover text-white font-semibold px-8 py-3 rounded transition-colors uppercase"
+            className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-3 rounded transition-colors uppercase"
           >
             Connect Today
           </a>
