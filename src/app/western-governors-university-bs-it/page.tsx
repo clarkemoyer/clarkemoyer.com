@@ -5,18 +5,18 @@ import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Family',
-  description: 'Clarke Moyer family life, personal journey, and values.',
+  title: 'Education',
+  description: 'Who I Am | Start your targeting packages here with Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
   openGraph: {
-    title: 'Family | Clarke Moyer',
-    description: 'Clarke Moyer family life, personal journey, and values.',
+    title: 'Education | Clarke Moyer',
+    description: 'Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
     type: 'website',
-    url: 'https://clarkemoyer.com/family',
+    url: 'https://clarkemoyer.com/western-governors-university-bs-it/',
   },
 };
 
-export default async function FamilyPage() {
-  const content = await getContentFile('family');
+export default async function EducationPage() {
+  const content = await getContentFile('education');
 
   return (
     <>
@@ -28,7 +28,7 @@ export default async function FamilyPage() {
             ← Back to Home
           </Link>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Family</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Education</h1>
           
           {content ? (
             <div 

@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+
+export const metadata: Metadata = {
+  title: 'Clarke Moyer Projects',
+  description: 'Homepage of all Clarke Moyer Activities',
+  openGraph: {
+    title: 'Clarke Moyer Projects | Clarke Moyer',
+    description: 'Homepage of all Clarke Moyer Activities',
+    type: 'website',
+    url: 'https://clarkemoyer.com/',
+  },
+};
 
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment
@@ -14,7 +26,7 @@ export default async function Home() {
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
@@ -99,8 +111,7 @@ export default async function Home() {
                   Please connect with me for referrals to work for PSU-ARL. NOTE: I provide referrals only to those that I have personally validated the experience of...
                 </p>
                 <Link 
-                  href="/resume"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+                  href="/psu-arl-referral-program"className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -130,7 +141,7 @@ export default async function Home() {
                   Absolutely free, alumni referral to Western Governors University (WGU). For years now since I started and subsequently graduated from Western Governors University I&apos;ve been referring...
                 </p>
                 <Link 
-                  href="/wgu-referral"
+                  href="/wgu-referral-program"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -179,7 +190,7 @@ export default async function Home() {
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
                 <Link 
-                  href="/charity"
+                  href="/free-for-charity"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -200,7 +211,7 @@ export default async function Home() {
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
                 <Link 
-                  href="/certification"
+                  href="/certification-guides"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -295,16 +306,15 @@ export default async function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">HOME</Link>
               <Link href="/fun" className="text-gray-600 hover:text-gray-800 font-medium">FUN</Link>
-              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CERTIFICATION GUIDES</Link>
-              <Link href="/wgu-referral" className="text-gray-600 hover:text-gray-800 font-medium">WGU REFERRAL PROGRAM</Link>
-              <Link href="/resume" className="text-gray-600 hover:text-gray-800 font-medium">PSU-ARL REFERRAL PROGRAM</Link>
-              <Link href="/charity" className="text-gray-600 hover:text-gray-800 font-medium">FREE FOR CHARITY</Link>
-              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
+              <Link href="/certification-guides" className="text-gray-600 hover:text-gray-800 font-medium">CERTIFICATION GUIDES</Link>
+              <Link href="/wgu-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">WGU REFERRAL PROGRAM</Link>
+              <Link href="/psu-arl-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">PSU-ARL REFERRAL PROGRAM</Link>
+              <Link href="/free-for-charity" className="text-gray-600 hover:text-gray-800 font-medium">FREE FOR CHARITY</Link>
+              <Link href="/certification-guides" className="text-gray-600 hover:text-gray-800 font-medium">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
             </div>
           </nav>
           <div className="text-center mt-8 pt-8 border-t text-gray-500">
-            <p>Copyright © 2010–2025 Hosted on Free For Charity Hosting · 
-              <a href="/wp-login.php" className="text-brand hover:text-brand-hover ml-2">Log out</a>
+            <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting
             </p>
           </div>
         </div>

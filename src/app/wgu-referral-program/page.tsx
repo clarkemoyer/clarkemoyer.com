@@ -5,18 +5,18 @@ import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Family',
-  description: 'Clarke Moyer family life, personal journey, and values.',
+  title: 'WGU Referral Program',
+  description: 'Absolutely free, alumni referral program for Western Governors University. Start your degree today.',
   openGraph: {
-    title: 'Family | Clarke Moyer',
-    description: 'Clarke Moyer family life, personal journey, and values.',
+    title: 'WGU Referral Program | Clarke Moyer',
+    description: 'Absolutely free, alumni referral program for Western Governors University. Start your degree today.',
     type: 'website',
-    url: 'https://clarkemoyer.com/family',
+    url: 'https://clarkemoyer.com/wgu-referral-program/',
   },
 };
 
-export default async function FamilyPage() {
-  const content = await getContentFile('family');
+export default async function WGUReferralPage() {
+  const content = await getContentFile('wgu-referral');
 
   return (
     <>
@@ -28,7 +28,7 @@ export default async function FamilyPage() {
             ← Back to Home
           </Link>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Family</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">WGU Referral Program</h1>
           
           {content ? (
             <div 

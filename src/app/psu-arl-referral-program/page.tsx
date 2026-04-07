@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
-import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+import './psu-arl-referral.css';
 
 export const metadata: Metadata = {
-  title: 'Family',
-  description: 'Clarke Moyer family life, personal journey, and values.',
+  title: 'PSU-ARL Employee Referral Program',
+  description: 'Please connect with me for referrals to open positions at the Penn State Applied Research Laboratory.',
   openGraph: {
-    title: 'Family | Clarke Moyer',
-    description: 'Clarke Moyer family life, personal journey, and values.',
+    title: 'PSU-ARL Employee Referral Program | Clarke Moyer',
+    description: 'Please connect with me for referrals to open positions at the Penn State Applied Research Laboratory.',
     type: 'website',
-    url: 'https://clarkemoyer.com/family',
+    url: 'https://clarkemoyer.com/psu-arl-referral-program/',
   },
 };
 
-export default async function FamilyPage() {
-  const content = await getContentFile('family');
+export default async function PSUARLReferralPage() {
+  const content = await getContentFile('psu-arl-referral');
 
   return (
     <>
@@ -28,21 +28,16 @@ export default async function FamilyPage() {
             ← Back to Home
           </Link>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Family</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">PSU-ARL Referral Program</h1>
           
           {content ? (
             <div 
-              className="prose prose-lg max-w-none text-gray-700"
+              className="prose prose-lg max-w-none text-gray-700 psu-arl-content"
               dangerouslySetInnerHTML={{ __html: content.content }}
             />
           ) : (
             <p className="text-gray-600">Content coming soon...</p>
           )}
-          
-          <div className="mt-12 pt-8 border-t">
-            <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
-            <CTAButtons />
-          </div>
         </div>
       </main>
     </>
