@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'IT Project Management Resume of Clarke Moyer | Clarke Moyer',
     description: 'Professional resume of Clarke Moyer — DoD contractor, Army veteran, IT professional, and entrepreneur.',
     type: 'profile',
-    url: 'https://clarkemoyer.com/it-project-management-resume-of-clarke-moyer/',
+    url: '/it-project-management-resume-of-clarke-moyer/',
   },
 };
 

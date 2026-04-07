@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Certification Guides | Clarke Moyer',
     description: 'Clarke Moyer\'s completed management and technical certifications, with guides and methods for passing.',
     type: 'website',
-    url: 'https://clarkemoyer.com/certification-guides/',
+    url: '/certification-guides/',
   },
 };
 

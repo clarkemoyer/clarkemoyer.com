@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Learn More About Free For Charity | Clarke Moyer',
     description: 'Free For Charity reduces costs and increases revenues for nonprofits — putting that money back into their charitable mission.',
     type: 'website',
-    url: 'https://clarkemoyer.com/learn-free-charity/',
+    url: '/learn-free-charity/',
   },
 };
 

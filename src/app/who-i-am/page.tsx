@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Who I Am | Clarke Moyer',
     description: 'Learn about Clarke Moyer — husband, father, DoD contractor, Army veteran, education supporter, and charity founder.',
     type: 'website',
-    url: 'https://clarkemoyer.com/who-i-am/',
+    url: '/who-i-am/',
   },
 };
 
