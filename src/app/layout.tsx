@@ -12,6 +12,10 @@ export const metadata: Metadata = {
     template: "%s | Clarke Moyer",
   },
   description: "Professional Profile & Personal Journey of Clarke Moyer",
+  metadataBase: new URL('https://clarkemoyer.com'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: `${basePath}/images/favicon-32x32.jpg`,
     apple: `${basePath}/images/favicon-192x192.jpg`,
