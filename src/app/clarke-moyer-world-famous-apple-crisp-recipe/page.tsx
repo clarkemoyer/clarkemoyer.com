@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Clarke Moyer's World Famous Apple Crisp Recipe | Clarke Moyer",
     description: "Clarke Moyer's World Famous Apple Crisp Recipe — a family favorite with Granny Smith and Golden Delicious apples.",
     type: 'article',
-    url: 'https://clarkemoyer.com/clarke-moyer-world-famous-apple-crisp-recipe/',
+    url: '/clarke-moyer-world-famous-apple-crisp-recipe/',
   },
 };
 

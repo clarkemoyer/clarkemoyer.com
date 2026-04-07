@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'PSU-ARL Employee Referral Program | Clarke Moyer',
     description: 'Please connect with me for referrals to open positions at the Penn State Applied Research Laboratory.',
     type: 'website',
-    url: 'https://clarkemoyer.com/psu-arl-referral-program/',
+    url: '/psu-arl-referral-program/',
   },
 };
 

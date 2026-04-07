@@ -6,12 +6,12 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Education',
-  description: 'Who I Am | Start your targeting packages here with Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
+  description: 'Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
   openGraph: {
     title: 'Education | Clarke Moyer',
     description: 'Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
     type: 'website',
-    url: 'https://clarkemoyer.com/western-governors-university-bs-it/',
+    url: '/western-governors-university-bs-it/',
   },
 };
 

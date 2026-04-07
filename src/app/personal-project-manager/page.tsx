@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Personal Project Manager | Clarke Moyer',
     description: 'Clarke Moyer\'s personal project management tools and resources.',
     type: 'website',
-    url: 'https://clarkemoyer.com/personal-project-manager/',
+    url: '/personal-project-manager/',
   },
 };
 

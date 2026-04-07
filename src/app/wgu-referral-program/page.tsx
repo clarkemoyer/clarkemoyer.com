@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'WGU Referral Program | Clarke Moyer',
     description: 'Absolutely free, alumni referral program for Western Governors University. Start your degree today.',
     type: 'website',
-    url: 'https://clarkemoyer.com/wgu-referral-program/',
+    url: '/wgu-referral-program/',
   },
 };
 

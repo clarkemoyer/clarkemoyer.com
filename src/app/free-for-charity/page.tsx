@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Free For Charity | Clarke Moyer',
     description: 'I have been actively involved in providing free IT, business, and marketing services to charitable organizations.',
     type: 'website',
-    url: 'https://clarkemoyer.com/free-for-charity/',
+    url: '/free-for-charity/',
   },
 };
 

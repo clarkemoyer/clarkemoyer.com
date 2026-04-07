@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Clarke Moyer CISSP Certification Passing Guide | Clarke Moyer',
     description: 'Clarke Moyer\'s guide to passing the CISSP certification exam — study materials, training programs, and test strategies.',
     type: 'article',
-    url: 'https://clarkemoyer.com/clarke-moyer-cissp-certification-passing-guide/',
+    url: '/clarke-moyer-cissp-certification-passing-guide/',
   },
 };
 
