@@ -77,10 +77,10 @@ export default async function FunPage() {
                   My wife is a trained chef but she does not have a website! This is where I keep my &lsquo;World Famous&rsquo; recipes.
                 </p>
                 <a
-                  href="/clarke-moyer-world-famous-apple-crisp-recipe/"
+                  href="/cooking/"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
                 >
-                  World Famous Apple Crisp Recipe
+                  Cooking Homepage
                 </a>
               </div>
 
