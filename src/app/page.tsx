@@ -7,6 +7,9 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 export const metadata: Metadata = {
   title: 'Clarke Moyer Projects',
   description: 'Homepage of all Clarke Moyer Activities',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Clarke Moyer Projects | Clarke Moyer',
     type: 'website',
@@ -110,7 +113,7 @@ export default async function Home() {
                   Please connect with me for referrals to work for PSU-ARL. NOTE: I provide referrals only to those that I have personally validated the experience of...
                 </p>
                 <Link 
-                  href="/psu-arl-referral-program"className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+                  href="/psu-arl-referral-program" className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
