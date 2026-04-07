@@ -9,9 +9,8 @@ export const metadata: Metadata = {
   description: 'Homepage of all Clarke Moyer Activities',
   openGraph: {
     title: 'Clarke Moyer Projects | Clarke Moyer',
-    description: 'Homepage of all Clarke Moyer Activities',
     type: 'website',
-    url: 'https://clarkemoyer.com/',
+    url: '/',
   },
 };
 

@@ -8,9 +8,8 @@ export const metadata: Metadata = {
   description: 'An Assortment of Other Fun Things I enjoy, including hobbies, entertainment, and more.',
   openGraph: {
     title: 'Fun | Clarke Moyer',
-    description: 'An Assortment of Other Fun Things I enjoy, including hobbies, entertainment, and more.',
     type: 'website',
-    url: 'https://clarkemoyer.com/fun',
+    url: '/fun/',
   },
 };
 

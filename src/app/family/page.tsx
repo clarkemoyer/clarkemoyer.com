@@ -9,9 +9,8 @@ export const metadata: Metadata = {
   description: 'Clarke Moyer family life, personal journey, and values.',
   openGraph: {
     title: 'Family | Clarke Moyer',
-    description: 'Clarke Moyer family life, personal journey, and values.',
     type: 'website',
-    url: 'https://clarkemoyer.com/family',
+    url: '/family/',
   },
 };
 
