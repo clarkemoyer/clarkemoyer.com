@@ -26,7 +26,7 @@ export default async function FunPage() {
       <section 
         className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${basePath}/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
@@ -77,10 +77,10 @@ export default async function FunPage() {
                   My wife is a trained chef but she does not have a website! This is where I keep my &lsquo;World Famous&rsquo; recipes.
                 </p>
                 <a
-                  href="/cooking/"
+                  href="/clarke-moyer-world-famous-apple-crisp-recipe/"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
                 >
-                  Cooking Homepage
+                  World Famous Apple Crisp Recipe
                 </a>
               </div>
 

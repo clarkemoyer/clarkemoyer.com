@@ -45,7 +45,7 @@ export default function ResumePage() {
             You can freely use this for your own needs.
           </p>
           <a
-            href="/wp-content/uploads/2012/05/DCGS-A-Resume-Clarke-Moyer-10-MAR-2014PDF.pdf"
+            href="/downloads/Clarke-Moyer-Resume.pdf"
             className="inline-block text-blue-600 hover:underline font-medium"
           >
             Example Resume of Clarke Moyer (PDF)
