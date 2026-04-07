@@ -6,6 +6,15 @@ import Link from 'next/link';
 const navLinks = [
   { href: '/', label: 'HOME' },
   {
+    href: '/who-i-am',
+    label: 'ABOUT',
+    children: [
+      { href: '/who-i-am', label: 'WHO I AM' },
+      { href: '/it-project-management-resume-of-clarke-moyer', label: 'RESUME' },
+      { href: '/personal-project-manager', label: 'PERSONAL PROJECT MANAGER' },
+    ],
+  },
+  {
     href: '/fun',
     label: 'FUN',
     children: [
