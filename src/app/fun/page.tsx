@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'Fun',
+  description: 'An Assortment of Other Fun Things I enjoy, including hobbies, entertainment, and more.',
+  openGraph: {
+    title: 'Fun | Clarke Moyer',
+    description: 'An Assortment of Other Fun Things I enjoy, including hobbies, entertainment, and more.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/fun',
+  },
+};
 
 export default async function FunPage() {
   // Get the basePath for GitHub Pages deployment

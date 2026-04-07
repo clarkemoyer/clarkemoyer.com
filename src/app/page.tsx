@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+
+export const metadata: Metadata = {
+  title: 'Clarke Moyer Projects',
+  description: 'Homepage of all Clarke Moyer Activities',
+  openGraph: {
+    title: 'Clarke Moyer Projects | Clarke Moyer',
+    description: 'Homepage of all Clarke Moyer Activities',
+    type: 'website',
+    url: 'https://clarkemoyer.com/',
+  },
+};
 
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment

@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
 import './psu-arl-referral.css';
+
+export const metadata: Metadata = {
+  title: 'PSU-ARL Employee Referral Program',
+  description: 'Please connect with me for referrals to open positions at the Penn State Applied Research Laboratory.',
+  openGraph: {
+    title: 'PSU-ARL Employee Referral Program | Clarke Moyer',
+    description: 'Please connect with me for referrals to open positions at the Penn State Applied Research Laboratory.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/psu-arl-referral',
+  },
+};
 
 export default async function PSUARLReferralPage() {
   const content = await getContentFile('psu-arl-referral');

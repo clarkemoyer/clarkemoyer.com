@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Certification Guides',
+  description: 'List of completed Management and Technical certifications, including a CISSP passing guide and other resources.',
+  openGraph: {
+    title: 'Certification Guides | Clarke Moyer',
+    description: 'List of completed Management and Technical certifications, including a CISSP passing guide and other resources.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/certification',
+  },
+};
 
 export default async function CertificationPage() {
   const content = await getContentFile('certification');

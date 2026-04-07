@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Resume',
+  description: 'Professional resume of Clarke Moyer — DoD contractor, Army veteran, IT professional, and entrepreneur.',
+  openGraph: {
+    title: 'Resume | Clarke Moyer',
+    description: 'Professional resume of Clarke Moyer — DoD contractor, Army veteran, IT professional, and entrepreneur.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/resume',
+  },
+};
 
 export default async function ResumePage() {
   const content = await getContentFile('resume');

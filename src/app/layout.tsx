@@ -7,7 +7,10 @@ import "./globals.css";
 const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
 
 export const metadata: Metadata = {
-  title: "Clarke Moyer - Personal Website",
+  title: {
+    default: "Clarke Moyer",
+    template: "%s | Clarke Moyer",
+  },
   description: "Professional Profile & Personal Journey of Clarke Moyer",
   icons: {
     icon: `${basePath}/images/favicon-32x32.jpg`,

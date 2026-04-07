@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Education',
+  description: 'Who I Am | Start your targeting packages here with Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
+  openGraph: {
+    title: 'Education | Clarke Moyer',
+    description: 'Clarke Moyer\'s education background including WGU degrees and Penn State graduate studies.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/education',
+  },
+};
 
 export default async function EducationPage() {
   const content = await getContentFile('education');

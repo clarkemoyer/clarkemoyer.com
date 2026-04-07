@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Free For Charity',
+  description: 'I have been actively involved in providing free IT, business, and marketing services to charitable organizations.',
+  openGraph: {
+    title: 'Free For Charity | Clarke Moyer',
+    description: 'I have been actively involved in providing free IT, business, and marketing services to charitable organizations.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/charity',
+  },
+};
 
 export default async function CharityPage() {
   const content = await getContentFile('charity');

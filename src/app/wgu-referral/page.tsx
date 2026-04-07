@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'WGU Referral Program',
+  description: 'Absolutely free, alumni referral program for Western Governors University. Start your degree today.',
+  openGraph: {
+    title: 'WGU Referral Program | Clarke Moyer',
+    description: 'Absolutely free, alumni referral program for Western Governors University. Start your degree today.',
+    type: 'website',
+    url: 'https://clarkemoyer.com/wgu-referral',
+  },
+};
 
 export default async function WGUReferralPage() {
   const content = await getContentFile('wgu-referral');
