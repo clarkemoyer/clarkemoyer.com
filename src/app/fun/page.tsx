@@ -25,7 +25,7 @@ export default async function FunPage() {
       <section 
         className="relative min-h-[60vh] bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${basePath}/wp-content/uploads/2020/08/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
