@@ -69,10 +69,22 @@ export default function CookieConsent() {
       previousFocusRef.current = document.activeElement as HTMLElement
       const focusable = modalRef.current.querySelectorAll<HTMLElement>('button, [href], input, [tabindex]:not([tabindex="-1"])')
       if (focusable.length > 0) focusable[0].focus()
-      const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') handleCancelPreferences() }
-      document.addEventListener('keydown', handleEscape)
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') { handleCancelPreferences(); return }
+        if (e.key === 'Tab' && modalRef.current) {
+          const focusableEls = Array.from(modalRef.current.querySelectorAll<HTMLElement>('button, [href], input, [tabindex]:not([tabindex="-1"])'))
+          const first = focusableEls[0]
+          const last = focusableEls[focusableEls.length - 1]
+          if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last?.focus() }
+          } else {
+            if (document.activeElement === last) { e.preventDefault(); first?.focus() }
+          }
+        }
+      }
+      document.addEventListener('keydown', handleKeyDown)
       return () => {
-        document.removeEventListener('keydown', handleEscape)
+        document.removeEventListener('keydown', handleKeyDown)
         previousFocusRef.current?.focus()
       }
     }

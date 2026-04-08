@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CookieConsent from '@/components/cookie-consent';
+import Navigation from '@/components/Navigation';
 
 // Get the basePath for GitHub Pages deployment
 // For GitHub Pages subdirectory: USE_BASE_PATH=true
@@ -34,8 +35,9 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <Navigation />
         {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div id="main-content" tabIndex={-1}>{children}</div>
+        <div id="main-content" tabIndex={-1} className="outline-none">{children}</div>
         <CookieConsent />
       </body>
     </html>

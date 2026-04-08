@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Navigation from '@/components/Navigation'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Clarke Moyer',
@@ -11,8 +11,7 @@ const EFFECTIVE_DATE = 'April 2026'
 export default function PrivacyPolicy() {
   return (
     <>
-      <Navigation />
-      <main id="main-content" className="max-w-4xl mx-auto px-6 py-16 mt-20">
+      <main className="max-w-4xl mx-auto px-6 py-16 mt-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
         <p className="text-sm text-gray-500 mb-8"><em>Effective Date: {EFFECTIVE_DATE}</em></p>
 
@@ -27,7 +26,7 @@ export default function PrivacyPolicy() {
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">3. Cookies</h2>
-            <p className="text-gray-700">See the <a href="/cookie-policy" className="text-blue-600 hover:underline">Cookie Policy</a> for full details on how cookies are used.</p>
+            <p className="text-gray-700">See the <Link href="/cookie-policy" className="text-blue-600 hover:underline">Cookie Policy</Link> for full details on how cookies are used.</p>
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">4. Third-Party Services</h2>
