@@ -3,10 +3,13 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const navLinks = [
+type NavChild = { href: string; label: string };
+type NavLink = { href: string | null; label: string; children?: NavChild[] };
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'HOME' },
   {
-    href: '/who-i-am',
+    href: null,
     label: 'ABOUT',
     children: [
       { href: '/who-i-am', label: 'WHO I AM' },
@@ -85,14 +88,20 @@ export default function Navigation() {
         <div className="lg:hidden bg-black/90 backdrop-blur-sm border-t border-white/20">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-1">
             {navLinks.map((link) => (
-              <React.Fragment key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors py-2 border-b border-white/10"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
+              <React.Fragment key={link.label}>
+                {link.href ? (
+                  <Link
+                    href={link.href}
+                    className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors py-2 border-b border-white/10"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <span className="text-white text-sm font-semibold tracking-wider py-2 border-b border-white/10 cursor-default">
+                    {link.label}
+                  </span>
+                )}
                 {link.children?.map((child) => (
                   <Link
                     key={child.href}
@@ -116,21 +125,30 @@ export default function Navigation() {
             {navLinks.map((link) => (
               link.children ? (
                 <div
-                  key={link.href}
+                  key={link.label}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(link.href)}
+                  onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <Link
-                    href={link.href}
-                    className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1"
-                  >
-                    {link.label}
-                    <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </Link>
-                  {openDropdown === link.href && (
+                  {link.href ? (
+                    <Link
+                      href={link.href}
+                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1"
+                    >
+                      {link.label}
+                      <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </Link>
+                  ) : (
+                    <span className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-default">
+                      {link.label}
+                      <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  )}
+                  {openDropdown === link.label && (
                     <div className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50">
                       {link.children.map((child) => (
                         <Link
@@ -145,13 +163,19 @@ export default function Navigation() {
                   )}
                 </div>
               ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors"
-                >
-                  {link.label}
-                </Link>
+                link.href ? (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <span key={link.label} className="text-white text-sm font-semibold tracking-wider cursor-default">
+                    {link.label}
+                  </span>
+                )
               )
             ))}
           </div>
