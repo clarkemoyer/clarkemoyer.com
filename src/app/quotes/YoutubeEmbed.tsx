@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export function YoutubeEmbed({ youtubeId, title }: { youtubeId: string; title: string }) {
   const [active, setActive] = useState(false);
@@ -15,7 +16,7 @@ export function YoutubeEmbed({ youtubeId, title }: { youtubeId: string; title: s
         allowFullScreen
         loading="lazy"
         referrerPolicy="strict-origin-when-cross-origin"
-        sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+        sandbox="allow-scripts allow-presentation"
       />
     );
   }
@@ -27,11 +28,7 @@ export function YoutubeEmbed({ youtubeId, title }: { youtubeId: string; title: s
       onClick={() => setActive(true)}
       aria-label={`Play ${title}`}
     >
-      <img
-        src={thumbnail}
-        alt={title}
-        className="w-full h-full object-cover"
-      />
+      <Image src={thumbnail} alt={title} fill className="object-cover" />
       <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-colors">
         <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
           <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
