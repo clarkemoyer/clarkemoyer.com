@@ -33,7 +33,7 @@ export default function CookiePolicy() {
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">4. Managing Your Preferences</h2>
-            <p className="text-gray-700">You can update your cookie preferences at any time by clicking the &ldquo;Cookie Preferences&rdquo; link in the footer, or by clearing your browser&apos;s localStorage and reloading the page.</p>
+            <p className="text-gray-700">You can update your cookie preferences at any time using the &ldquo;Customize&rdquo; option in the cookie consent banner. To remove stored preferences, clear your browser&apos;s cookies and localStorage and reload the page.</p>
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">5. Contact</h2>

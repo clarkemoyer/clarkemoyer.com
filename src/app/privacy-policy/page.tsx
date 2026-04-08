@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">5. Your Rights</h2>
-            <p className="text-gray-700">You can withdraw or change your cookie consent at any time using the Cookie Preferences link in the footer. You may also clear your browser data to remove any stored preferences.</p>
+            <p className="text-gray-700">You can withdraw or change your cookie consent at any time using the &ldquo;Customize&rdquo; option in the cookie consent banner. You may also clear your browser&apos;s cookies and localStorage to remove stored preferences.</p>
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-900">6. Contact</h2>

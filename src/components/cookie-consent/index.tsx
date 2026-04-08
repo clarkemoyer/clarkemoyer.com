@@ -55,13 +55,14 @@ export default function CookieConsent() {
   }, [savedPreferencesBackup])
 
   useEffect(() => {
-    window.openCookiePreferences = () => {
+    const win = window as Window & { openCookiePreferences?: () => void }
+    win.openCookiePreferences = () => {
       setShowBanner(true)
       setShowPreferences(true)
       loadPreferencesFromLocalStorage(false)
     }
     loadPreferencesFromLocalStorage(true)
-    return () => { delete window.openCookiePreferences }
+    return () => { delete win.openCookiePreferences }
   }, [loadPreferencesFromLocalStorage])
 
   useEffect(() => {
