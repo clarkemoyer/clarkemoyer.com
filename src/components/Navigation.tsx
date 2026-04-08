@@ -131,6 +131,8 @@ export default function Navigation() {
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(link.id)}
                   onMouseLeave={() => setOpenDropdown(null)}
+                  onFocusCapture={() => setOpenDropdown(link.id)}
+                  onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenDropdown(null); }}
                 >
                   {link.href ? (
                     <Link
@@ -145,12 +147,10 @@ export default function Navigation() {
                   ) : (
                     <button
                       type="button"
-                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-default bg-transparent border-0 p-0"
+                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 p-0"
                       aria-haspopup="true"
                       aria-expanded={openDropdown === link.id}
                       onClick={() => setOpenDropdown(openDropdown === link.id ? null : link.id)}
-                      onFocus={() => setOpenDropdown(link.id)}
-                      onBlur={() => setTimeout(() => setOpenDropdown(null), 150)}
                     >
                       {link.label}
                       <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,21 +159,20 @@ export default function Navigation() {
                     </button>
                   )}
                   {openDropdown === link.id && (
-                    <div
-                      className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50"
-                      role="menu"
+                    <ul
+                      className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50 list-none m-0 p-0"
                     >
                       {link.children.map((child) => (
-                        <Link
-                          key={child.id}
-                          href={child.href}
-                          className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
-                          role="menuitem"
-                        >
-                          {child.label}
-                        </Link>
+                        <li key={child.id}>
+                          <Link
+                            href={child.href}
+                            className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   )}
                 </div>
               ) : (
