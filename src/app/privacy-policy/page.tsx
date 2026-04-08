@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Clarke Moyer',
+  title: 'Privacy Policy',
   description: 'Privacy Policy for clarkemoyer.com',
 }
 

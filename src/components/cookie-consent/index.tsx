@@ -65,15 +65,15 @@ export default function CookieConsent() {
   const handleCancelPreferences = useCallback(() => {
     setPreferences(savedBackup)
     setShowPreferences(false)
+    // If banner wasn't showing before they opened preferences from footer, hide it again
+    if (!bannerWasVisibleRef.current) setShowBanner(false)
   }, [savedBackup])
+
+  // Track whether banner was already visible when preferences were opened from footer
+  const bannerWasVisibleRef = useRef(false)
 
   // On mount: check stored consent
   useEffect(() => {
-    window.openCookiePreferences = () => {
-      setSavedBackup(preferences)
-      setShowBanner(true)
-      setShowPreferences(true)
-    }
     const stored = readStoredConsent()
     if (stored) {
       setPreferences(stored)
@@ -84,6 +84,19 @@ export default function CookieConsent() {
     }
     return () => { delete window.openCookiePreferences }
   }, [persistConsent]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Register openCookiePreferences separately so it reads current preferences via ref
+  const preferencesRef = useRef(preferences)
+  useEffect(() => { preferencesRef.current = preferences }, [preferences])
+
+  useEffect(() => {
+    window.openCookiePreferences = () => {
+      bannerWasVisibleRef.current = showBanner
+      setSavedBackup(preferencesRef.current)
+      setShowBanner(true)
+      setShowPreferences(true)
+    }
+  }) // re-register every render so showBanner is current
 
   // Focus trap for modal
   useEffect(() => {

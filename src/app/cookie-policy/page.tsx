@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Clarke Moyer',
+  title: 'Cookie Policy',
   description: 'Cookie Policy for clarkemoyer.com',
 }
 
