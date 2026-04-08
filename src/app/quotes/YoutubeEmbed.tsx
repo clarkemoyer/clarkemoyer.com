@@ -16,7 +16,7 @@ export function YoutubeEmbed({ youtubeId, title }: { youtubeId: string; title: s
         allowFullScreen
         loading="lazy"
         referrerPolicy="strict-origin-when-cross-origin"
-        sandbox="allow-scripts allow-presentation"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
       />
     );
   }
