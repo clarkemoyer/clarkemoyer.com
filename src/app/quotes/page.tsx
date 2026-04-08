@@ -13,6 +13,93 @@ export const metadata: Metadata = {
   },
 };
 
+type Quote = {
+  lyric: string;
+  song: string;
+  artist: string;
+  youtubeId: string;
+  youtubeTitle: string;
+  insight: React.ReactNode;
+};
+
+function QuoteCard({ quote }: { quote: Quote }) {
+  return (
+    <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <div className="p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-1">{quote.song}</h2>
+        <p className="text-gray-500 text-sm mb-4">
+          <em>{quote.artist}</em>
+        </p>
+
+        <blockquote className="text-2xl md:text-3xl italic text-gray-800 font-serif mb-3 leading-snug">
+          &ldquo;{quote.lyric}&rdquo;
+        </blockquote>
+
+        {/* YouTube Embed */}
+        <div className="relative w-full mb-8" style={{ paddingTop: '56.25%' }}>
+          <iframe
+            className="absolute inset-0 w-full h-full rounded"
+            src={`https://www.youtube.com/embed/${quote.youtubeId}`}
+            title={quote.youtubeTitle}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+          />
+        </div>
+
+        <h3 className="text-xl font-bold text-gray-900 mb-4">The Business Angle</h3>
+        <div className="prose prose-gray max-w-none text-gray-700 space-y-4">
+          {quote.insight}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const quotes: Quote[] = [
+  {
+    lyric: "You can be addicted to a certain kind of sadness.",
+    song: "Somebody That I Used to Know",
+    artist: "Gotye (feat. Kimbra)",
+    youtubeId: "8UVNT4wvIGY",
+    youtubeTitle: "Gotye - Somebody That I Used to Know (feat. Kimbra)",
+    insight: (
+      <>
+        <p>
+          Organizations and individuals become attached to legacy systems, processes, and ways of working — even when they cause friction. The familiar discomfort of the old beats the uncertainty of the new. It&apos;s a strange comfort, choosing the devil you know over the one you don&apos;t.
+        </p>
+        <p>
+          This maps directly to status quo bias, sunk cost fallacy, and resistance to digital transformation. Teams defend aging infrastructure not because it&apos;s better, but because it&apos;s known. Processes persist not because they work, but because rebuilding them feels riskier than tolerating them.
+        </p>
+        <p>
+          Change management isn&apos;t just about deploying new technology — it&apos;s about breaking the emotional dependency on legacy ways of doing things. Acknowledge the grief. Name the attachment. Then move forward anyway.
+        </p>
+      </>
+    ),
+  },
+  {
+    lyric: "People who say money can\u2019t solve their problems must not have had enough money to solve them.",
+    song: "7 Rings",
+    artist: "Ariana Grande",
+    youtubeId: "QYh6mYIJG2Y",
+    youtubeTitle: "Ariana Grande - 7 rings",
+    insight: (
+      <>
+        <p>
+          Underfunded IT teams often treat tool selection, infrastructure upgrades, and talent acquisition as unsolvable problems — when the real constraint is budget. &quot;We can&apos;t fix that&quot; frequently translates to &quot;we haven&apos;t allocated what it would cost to fix that.&quot; Adequate investment unlocks options that didn&apos;t exist before.
+        </p>
+        <p>
+          This speaks directly to IT budget advocacy and the hidden cost of technical debt. Every year an aging system isn&apos;t replaced, the organization pays in productivity loss, security exposure, and engineer burnout. The &quot;savings&quot; from not upgrading are often illusory — they&apos;re just future costs in disguise.
+        </p>
+        <p>
+          Chronically understaffed engineering organizations stay stuck in cycles of firefighting instead of building. You can&apos;t innovate when your whole team is on-call for a system that should have been retired three budget cycles ago. Sometimes the most strategic thing a technology leader can do is make the business case — clearly, loudly, and with data — for simply spending the money.
+        </p>
+      </>
+    ),
+  },
+];
+
 export default function QuotesPage() {
   return (
     <>
@@ -37,83 +124,9 @@ export default function QuotesPage() {
       {/* Quote Cards */}
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 space-y-16">
-
-          {/* Quote 1: Somebody That I Used to Know */}
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="p-8">
-              <blockquote className="text-2xl md:text-3xl italic text-gray-800 font-serif mb-3 leading-snug">
-                &ldquo;You can be addicted to a certain kind of sadness.&rdquo;
-              </blockquote>
-              <p className="text-gray-500 text-sm mb-6">
-                <em>Somebody That I Used to Know</em> &mdash; Gotye (feat. Kimbra)
-              </p>
-
-              {/* YouTube Embed */}
-              <div className="relative w-full mb-8" style={{ paddingTop: '56.25%' }}>
-                <iframe
-                  className="absolute inset-0 w-full h-full rounded"
-                  src="https://www.youtube.com/embed/8UVNT4wvIGY"
-                  title="Gotye - Somebody That I Used to Know (feat. Kimbra)"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-                />
-              </div>
-
-              <h2 className="text-xl font-bold text-gray-900 mb-4">The Business Angle</h2>
-              <div className="prose prose-gray max-w-none text-gray-700 space-y-4">
-                <p>
-                  Organizations and individuals become attached to legacy systems, processes, and ways of working — even when they cause friction. The familiar discomfort of the old beats the uncertainty of the new. It&apos;s a strange comfort, choosing the devil you know over the one you don&apos;t.
-                </p>
-                <p>
-                  This maps directly to status quo bias, sunk cost fallacy, and resistance to digital transformation. Teams defend aging infrastructure not because it&apos;s better, but because it&apos;s known. Processes persist not because they work, but because rebuilding them feels riskier than tolerating them.
-                </p>
-                <p>
-                  Change management isn&apos;t just about deploying new technology — it&apos;s about breaking the emotional dependency on legacy ways of doing things. Acknowledge the grief. Name the attachment. Then move forward anyway.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Quote 2: 7 Rings */}
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="p-8">
-              <blockquote className="text-2xl md:text-3xl italic text-gray-800 font-serif mb-3 leading-snug">
-                &ldquo;People who say money can&apos;t solve their problems must not have had enough money to solve them.&rdquo;
-              </blockquote>
-              <p className="text-gray-500 text-sm mb-6">
-                <em>7 Rings</em> &mdash; Ariana Grande
-              </p>
-
-              {/* YouTube Embed */}
-              <div className="relative w-full mb-8" style={{ paddingTop: '56.25%' }}>
-                <iframe
-                  className="absolute inset-0 w-full h-full rounded"
-                  src="https://www.youtube.com/embed/QYh6mYIJG2Y"
-                  title="Ariana Grande - 7 rings"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-                />
-              </div>
-
-              <h2 className="text-xl font-bold text-gray-900 mb-4">The Business Angle</h2>
-              <div className="prose prose-gray max-w-none text-gray-700 space-y-4">
-                <p>
-                  Underfunded IT teams often treat tool selection, infrastructure upgrades, and talent acquisition as unsolvable problems — when the real constraint is budget. &quot;We can&apos;t fix that&quot; frequently translates to &quot;we haven&apos;t allocated what it would cost to fix that.&quot; Adequate investment unlocks options that didn&apos;t exist before.
-                </p>
-                <p>
-                  This speaks directly to IT budget advocacy and the hidden cost of technical debt. Every year an aging system isn&apos;t replaced, the organization pays in productivity loss, security exposure, and engineer burnout. The &quot;savings&quot; from not upgrading are often illusory — they&apos;re just future costs in disguise.
-                </p>
-                <p>
-                  Chronically understaffed engineering organizations stay stuck in cycles of firefighting instead of building. You can&apos;t innovate when your whole team is on-call for a system that should have been retired three budget cycles ago. Sometimes the most strategic thing a technology leader can do is make the business case — clearly, loudly, and with data — for simply spending the money.
-                </p>
-              </div>
-            </div>
-          </div>
-
+          {quotes.map((quote) => (
+            <QuoteCard key={quote.youtubeId} quote={quote} />
+          ))}
         </div>
       </section>
     </>
