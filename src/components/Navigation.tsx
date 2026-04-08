@@ -130,40 +130,44 @@ export default function Navigation() {
                   key={link.id}
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(link.id)}
-                  onMouseLeave={(e) => { if (!e.currentTarget.contains(document.activeElement)) { setOpenDropdown(null); } }}
+                  onMouseLeave={() => setOpenDropdown(null)}
                   onFocusCapture={() => setOpenDropdown(link.id)}
                   onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenDropdown(null); }}
+                  onKeyDownCapture={(e) => {
+                    if (e.key === 'Escape') {
+                      setOpenDropdown(null);
+                      if (document.activeElement instanceof HTMLElement) {
+                        document.activeElement.blur();
+                      }
+                    }
+                  }}
                 >
-                  {link.href ? (
-                    <Link
-                      href={link.href}
-                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1"
-                      aria-haspopup="true"
-                      aria-expanded={openDropdown === link.id}
-                    >
-                      {link.label}
-                      <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </Link>
-                  ) : (
-                    <button
-                      type="button"
-                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 p-0"
-                      aria-haspopup="true"
-                      aria-expanded={openDropdown === link.id}
-                      onClick={() => setOpenDropdown(openDropdown === link.id ? null : link.id)}
-                    >
-                      {link.label}
-                      <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                  )}
+                  <button
+                    type="button"
+                    className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-pointer bg-transparent border-0 p-0"
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === link.id}
+                    onClick={() => setOpenDropdown(openDropdown === link.id ? null : link.id)}
+                  >
+                    {link.label}
+                    <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
                   {openDropdown === link.id && (
                     <ul
                       className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50 list-none m-0 p-0"
                     >
+                      {link.href && (
+                        <li key={`${link.id}-self`}>
+                          <Link
+                            href={link.href}
+                            className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      )}
                       {link.children.map((child) => (
                         <li key={child.id}>
                           <Link
