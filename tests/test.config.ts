@@ -3,7 +3,7 @@ export const testConfig = {
     searchText: 'Copyright',
     text: '2010',
     linkText: 'Free For Charity Hosting',
-    linkUrl: null, // footer has no link currently
+    linkUrl: null,
   },
   cookieConsent: {
     bannerHeading: 'We Value Your Privacy',
@@ -18,8 +18,10 @@ export const testConfig = {
   },
   navigation: {
     homeUrl: '/',
-    searchLabel: 'Search this site (opens in new tab)',
+    // aria-label on the search control — updated when feat/a11y-nav-fixes merges
+    searchLabel: 'Search',
   },
+  // Only pages that exist on current main branch
   pages: [
     '/',
     '/who-i-am/',
@@ -35,7 +37,5 @@ export const testConfig = {
     '/learn-free-charity/',
     '/personal-project-manager/',
     '/clarke-moyer-world-famous-apple-crisp-recipe/',
-    '/privacy-policy/',
-    '/cookie-policy/',
   ],
 }

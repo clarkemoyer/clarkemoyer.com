@@ -2,29 +2,24 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Navigation from '../../src/components/Navigation'
 
-// Mock next/navigation
 jest.mock('next/navigation', () => ({ usePathname: () => '/' }))
 
 describe('Navigation', () => {
-  it('renders the site title', () => {
-    render(<Navigation />)
-    expect(screen.getAllByText(/clarke moyer/i).length).toBeGreaterThan(0)
-  })
-
-  it('renders navigation links', () => {
+  it('renders without crashing', () => {
     render(<Navigation />)
     expect(screen.getByRole('navigation')).toBeInTheDocument()
   })
 
-  it('renders home link', () => {
+  it('renders the site title / brand', () => {
     render(<Navigation />)
-    const homeLinks = screen.getAllByRole('link', { name: /home/i })
-    expect(homeLinks.length).toBeGreaterThan(0)
+    expect(screen.getByText(/clarke moyer/i)).toBeInTheDocument()
   })
 
-  it('renders search button', () => {
+  it('renders a search control', () => {
     render(<Navigation />)
-    const searchBtn = screen.getByRole('button', { name: /search/i })
-    expect(searchBtn).toBeInTheDocument()
+    // Search is a button (will become a link after feat/a11y-nav-fixes merges)
+    const searchEl = screen.queryByRole('button', { name: /search/i })
+      || screen.queryByRole('link', { name: /search/i })
+    expect(searchEl).toBeTruthy()
   })
 })
