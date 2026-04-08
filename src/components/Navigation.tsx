@@ -24,6 +24,7 @@ const navLinks: NavLink[] = [
     label: 'FUN',
     children: [
       { id: 'fun-cooking', href: '/cooking', label: 'COOKING' },
+      { id: 'fun-quotes', href: '/quotes', label: 'QUOTES' },
     ],
   },
   { id: 'certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
