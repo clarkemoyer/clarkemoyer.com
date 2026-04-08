@@ -3,31 +3,33 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-type NavChild = { href: string; label: string };
-type NavLink = { href: string | null; label: string; children?: NavChild[] };
+type NavChild = { id: string; href: string; label: string };
+type NavLink = { id: string; href: string | null; label: string; children?: NavChild[] };
 
 const navLinks: NavLink[] = [
-  { href: '/', label: 'HOME' },
+  { id: 'home', href: '/', label: 'HOME' },
   {
+    id: 'about',
     href: null,
     label: 'ABOUT',
     children: [
-      { href: '/who-i-am', label: 'WHO I AM' },
-      { href: '/it-project-management-resume-of-clarke-moyer', label: 'RESUME' },
-      { href: '/personal-project-manager', label: 'PERSONAL PROJECT MANAGER' },
+      { id: 'about-who-i-am', href: '/who-i-am', label: 'WHO I AM' },
+      { id: 'about-resume', href: '/it-project-management-resume-of-clarke-moyer', label: 'RESUME' },
+      { id: 'about-ppm', href: '/personal-project-manager', label: 'PERSONAL PROJECT MANAGER' },
     ],
   },
   {
+    id: 'fun',
     href: '/fun',
     label: 'FUN',
     children: [
-      { href: '/cooking', label: 'COOKING' },
+      { id: 'fun-cooking', href: '/cooking', label: 'COOKING' },
     ],
   },
-  { href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
-  { href: '/wgu-referral-program', label: 'WGU REFERRAL PROGRAM' },
-  { href: '/psu-arl-referral-program', label: 'PSU-ARL REFERRAL PROGRAM' },
-  { href: '/free-for-charity', label: 'FREE FOR CHARITY' },
+  { id: 'certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
+  { id: 'wgu-referral', href: '/wgu-referral-program', label: 'WGU REFERRAL PROGRAM' },
+  { id: 'psu-arl-referral', href: '/psu-arl-referral-program', label: 'PSU-ARL REFERRAL PROGRAM' },
+  { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
 ];
 
 export default function Navigation() {
@@ -88,7 +90,7 @@ export default function Navigation() {
         <div className="lg:hidden bg-black/90 backdrop-blur-sm border-t border-white/20">
           <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-1">
             {navLinks.map((link) => (
-              <React.Fragment key={link.label}>
+              <React.Fragment key={link.id}>
                 {link.href ? (
                   <Link
                     href={link.href}
@@ -104,7 +106,7 @@ export default function Navigation() {
                 )}
                 {link.children?.map((child) => (
                   <Link
-                    key={child.href}
+                    key={child.id}
                     href={child.href}
                     className="text-gray-300 hover:text-white text-xs font-medium tracking-wider transition-colors py-1 pl-4 border-b border-white/5"
                     onClick={() => setMenuOpen(false)}
@@ -125,9 +127,9 @@ export default function Navigation() {
             {navLinks.map((link) => (
               link.children ? (
                 <div
-                  key={link.label}
+                  key={link.id}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(link.label)}
+                  onMouseEnter={() => setOpenDropdown(link.id)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {link.href ? (
@@ -141,20 +143,32 @@ export default function Navigation() {
                       </svg>
                     </Link>
                   ) : (
-                    <span className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-default">
+                    <button
+                      type="button"
+                      className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1 cursor-default bg-transparent border-0 p-0"
+                      aria-haspopup="true"
+                      aria-expanded={openDropdown === link.id}
+                      onClick={() => setOpenDropdown(openDropdown === link.id ? null : link.id)}
+                      onFocus={() => setOpenDropdown(link.id)}
+                      onBlur={() => setTimeout(() => setOpenDropdown(null), 150)}
+                    >
                       {link.label}
                       <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                    </span>
+                    </button>
                   )}
-                  {openDropdown === link.label && (
-                    <div className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50">
+                  {openDropdown === link.id && (
+                    <div
+                      className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50"
+                      role="menu"
+                    >
                       {link.children.map((child) => (
                         <Link
-                          key={child.href}
+                          key={child.id}
                           href={child.href}
                           className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
+                          role="menuitem"
                         >
                           {child.label}
                         </Link>
@@ -165,14 +179,14 @@ export default function Navigation() {
               ) : (
                 link.href ? (
                   <Link
-                    key={link.label}
+                    key={link.id}
                     href={link.href}
                     className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors"
                   >
                     {link.label}
                   </Link>
                 ) : (
-                  <span key={link.label} className="text-white text-sm font-semibold tracking-wider cursor-default">
+                  <span key={link.id} className="text-white text-sm font-semibold tracking-wider cursor-default">
                     {link.label}
                   </span>
                 )
