@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
+import { YoutubeEmbed } from './YoutubeEmbed';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -37,15 +38,7 @@ function QuoteCard({ quote }: { quote: Quote }) {
 
         {/* YouTube Embed */}
         <div className="relative w-full mb-8" style={{ paddingTop: '56.25%' }}>
-          <iframe
-            className="absolute inset-0 w-full h-full rounded"
-            src={`https://www.youtube.com/embed/${quote.youtubeId}`}
-            title={quote.youtubeTitle}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-          />
+          <YoutubeEmbed youtubeId={quote.youtubeId} title={quote.youtubeTitle} />
         </div>
 
         <h3 className="text-xl font-bold text-gray-900 mb-4">The Business Angle</h3>
