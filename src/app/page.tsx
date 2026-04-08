@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
+import CookiePreferencesButton from '@/components/cookie-preferences-button';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
@@ -318,6 +319,7 @@ export default async function Home() {
           <div className="text-center mt-8 pt-8 border-t text-gray-500">
             <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting
             </p>
+            <CookiePreferencesButton />
           </div>
         </div>
       </footer>

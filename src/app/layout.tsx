@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieConsent from '@/components/cookie-consent';
 
 // Get the basePath for GitHub Pages deployment
 // For GitHub Pages subdirectory: USE_BASE_PATH=true
@@ -34,6 +35,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <main id="main-content">{children}</main>
+        <CookieConsent />
       </body>
     </html>
   );
