@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Navigation />
-      <main className="max-w-4xl mx-auto px-6 py-16 mt-20">
+      <div className="max-w-4xl mx-auto px-6 py-16 mt-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
         <p className="text-sm text-gray-500 mb-8">
           <em>Effective Date: {EFFECTIVE_DATE}</em>
@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
         </div>
-      </main>
+      </div>
     </>
   )
 }

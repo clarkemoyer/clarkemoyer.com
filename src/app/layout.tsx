@@ -34,7 +34,8 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <main id="main-content">{children}</main>
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+        <div id="main-content" tabIndex={-1}>{children}</div>
         <CookieConsent />
       </body>
     </html>

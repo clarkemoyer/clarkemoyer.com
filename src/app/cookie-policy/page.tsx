@@ -12,7 +12,7 @@ export default function CookiePolicy() {
   return (
     <>
       <Navigation />
-      <main className="max-w-4xl mx-auto px-6 py-16 mt-20">
+      <div className="max-w-4xl mx-auto px-6 py-16 mt-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
         <p className="text-sm text-gray-500 mb-8">
           <em>Last Updated: {LAST_UPDATED}</em>
@@ -80,7 +80,7 @@ export default function CookiePolicy() {
             </p>
           </section>
         </div>
-      </main>
+      </div>
     </>
   )
 }
