@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Famous Business Quotes | Clarke Moyer',
     description: 'Popular song lyrics reframed as business philosophy and technology adoption insights.',
     type: 'website',
-    url: 'https://clarkemoyer.com/quotes/',
+    url: '/quotes/',
   },
 };
 
@@ -57,6 +57,7 @@ export default function QuotesPage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                 />
               </div>
 
@@ -94,6 +95,7 @@ export default function QuotesPage() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   loading="lazy"
+                  sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                 />
               </div>
 

@@ -89,12 +89,12 @@ export default async function FunPage() {
                 <p className="text-gray-700 mb-6">
                   Popular song lyrics reframed as business philosophy and technology adoption insights.
                 </p>
-                <a
-                  href="/quotes/"
+                <Link
+                  href="/quotes"
                   className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
                 >
                   Quotes Homepage
-                </a>
+                </Link>
               </div>
 
               {/* Books & Reading Card */}
