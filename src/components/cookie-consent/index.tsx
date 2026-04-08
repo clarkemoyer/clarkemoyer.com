@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
-import Script from 'next/script'
+// GA fires via GTM — no direct script import needed
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''
 
@@ -64,10 +64,16 @@ export default function CookieConsent() {
     try { localStorage.setItem('cookie-consent', JSON.stringify(prefs)) } catch { /* ignore */ }
   }, [])
 
-  const [loadGA, setLoadGA] = useState(false)
-
   const applyAnalytics = useCallback((prefs: CookiePreferences) => {
-    if (prefs.analytics && GA_ID) setLoadGA(true)
+    // Push consent update to GTM dataLayer — GTM GA4 tag fires based on this
+    if (typeof window !== 'undefined') {
+      window.dataLayer = (window.dataLayer || []) as unknown[]
+      ;(window.dataLayer as unknown[]).push({
+        event: 'consent_update',
+        analytics_consent: prefs.analytics ? 'granted' : 'denied',
+        marketing_consent: prefs.marketing ? 'granted' : 'denied',
+      })
+    }
   }, [])
 
   const handleCancelPreferences = useCallback(() => {
@@ -211,7 +217,7 @@ export default function CookieConsent() {
           </div>
           <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
             <button onClick={handleDeclineAll} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Decline All</button>
-            <button onClick={() => { setSavedBackup(preferences); setShowPreferences(true) }} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Customize</button>
+            <button onClick={() => { bannerWasVisibleRef.current = true; setSavedBackup(preferences); setShowPreferences(true) }} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Customize</button>
             <button onClick={handleAcceptAll} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm whitespace-nowrap">Accept All</button>
           </div>
         </div>
@@ -221,17 +227,6 @@ export default function CookieConsent() {
 
   return (
     <>
-      {loadGA && GA_ID && (
-        <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
-          <Script id="ga-init" strategy="afterInteractive">{`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', { anonymize_ip: true });
-          `}</Script>
-        </>
-      )}
       {showBanner && (showPreferences ? modal : banner)}
     </>
   )

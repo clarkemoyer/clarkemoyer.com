@@ -3,7 +3,7 @@ import Script from "next/script";
 import "./globals.css";
 import CookieConsent from '@/components/cookie-consent';
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || 'GTM-5JL6TDQW';
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // Get the basePath for GitHub Pages deployment
 // For GitHub Pages subdirectory: USE_BASE_PATH=true
