@@ -83,6 +83,20 @@ export default async function FunPage() {
                 </a>
               </div>
 
+              {/* Quotes Card */}
+              <div className="bg-white rounded-lg p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Quotes</h3>
+                <p className="text-gray-700 mb-6">
+                  Popular song lyrics reframed as business philosophy and technology adoption insights.
+                </p>
+                <a
+                  href="/quotes/"
+                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
+                >
+                  Quotes Homepage
+                </a>
+              </div>
+
               {/* Books & Reading Card */}
               <div className="bg-white rounded-lg p-6 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Books &amp; Reading</h3>
