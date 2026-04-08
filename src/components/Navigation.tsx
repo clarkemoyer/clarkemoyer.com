@@ -130,7 +130,7 @@ export default function Navigation() {
                   key={link.id}
                   className="relative"
                   onMouseEnter={() => setOpenDropdown(link.id)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseLeave={(e) => { if (!e.currentTarget.contains(document.activeElement)) { setOpenDropdown(null); } }}
                   onFocusCapture={() => setOpenDropdown(link.id)}
                   onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenDropdown(null); }}
                 >
@@ -138,6 +138,8 @@ export default function Navigation() {
                     <Link
                       href={link.href}
                       className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors flex items-center gap-1"
+                      aria-haspopup="true"
+                      aria-expanded={openDropdown === link.id}
                     >
                       {link.label}
                       <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
