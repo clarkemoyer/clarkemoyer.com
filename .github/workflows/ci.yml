@@ -34,7 +34,7 @@ jobs:
       - run: npm run test:images
         env:
           CI: true
-      - name: Verify build output titles (must match tests/test.config.ts pages)
+      - name: Verify build output titles and descriptions (must match tests/test.config.ts pages)
         run: |
           PAGES=(
             "out/index.html"
@@ -62,10 +62,17 @@ jobs:
               continue
             fi
             TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
+            DESC=$(grep -o 'name="description" content="[^"]*"' "$PAGE" || true)
             if echo "$TITLE" | grep -qi "clarke moyer"; then
-              echo "OK $PAGE: $TITLE"
+              echo "OK title: $PAGE"
             else
-              echo "ERROR: Missing expected title in $PAGE (got: $TITLE)"
+              echo "ERROR: Missing title in $PAGE (got: $TITLE)"
+              ERRORS=$((ERRORS+1))
+            fi
+            if [ -n "$DESC" ]; then
+              echo "OK desc:  $PAGE"
+            else
+              echo "ERROR: Missing description in $PAGE"
               ERRORS=$((ERRORS+1))
             fi
           done
