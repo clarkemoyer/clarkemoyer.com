@@ -16,7 +16,7 @@ export default defineConfig({
     use: { ...devices['Desktop Chrome'] },
   }],
   webServer: {
-    command: 'node_modules/.bin/serve out --listen 3000 --no-clipboard',
+    command: 'npm run preview',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
