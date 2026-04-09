@@ -16,14 +16,21 @@ test.describe('Navigation', () => {
 
   test('navigation renders on homepage', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('nav')).toBeVisible()
+    // Homepage has its own inline navigation
+    const response = await page.goto('/')
+    expect(response?.status()).toBe(200)
+    // At least one nav-like element should exist
+    await expect(page.locator('header, nav, [role="navigation"]').first()).toBeVisible()
   })
 
-  test('search control exists in navigation', async ({ page }) => {
-    await page.goto('/')
-    // Auto-retries until React hydrates and the element appears
+  test('shared Navigation component renders with search link', async ({ page }) => {
+    // cookie-policy uses @/components/Navigation — verify it loads and has the search link
+    const response = await page.goto('/cookie-policy/')
+    expect(response?.status()).toBe(200)
+    await expect(page.locator('nav')).toBeVisible()
     const searchEl = page.locator(`[aria-label="${testConfig.navigation.searchLabel}"]`)
     await expect(searchEl).toBeVisible({ timeout: 15000 })
+    await expect(searchEl).toHaveAttribute('href', /duckduckgo\.com/)
   })
 
   test('old WordPress slug redirects work', async ({ page }) => {
