@@ -20,7 +20,7 @@ export const testConfig = {
     homeUrl: '/',
     searchLabel: 'Search this site (opens in new tab)',
   },
-  // Only pages that exist on current main branch
+  // Must match the PAGES array in .github/workflows/ci.yml (build title verification)
   pages: [
     '/',
     '/who-i-am/',
@@ -36,5 +36,7 @@ export const testConfig = {
     '/learn-free-charity/',
     '/personal-project-manager/',
     '/clarke-moyer-world-famous-apple-crisp-recipe/',
+    '/privacy-policy/',
+    '/cookie-policy/',
   ],
 }

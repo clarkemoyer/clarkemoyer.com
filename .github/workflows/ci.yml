@@ -34,9 +34,8 @@ jobs:
       - run: npm run test:images
         env:
           CI: true
-      - name: Verify build output titles (all pages in testConfig.pages)
+      - name: Verify build output titles (must match tests/test.config.ts pages)
         run: |
-          # Pages must match testConfig.pages in tests/test.config.ts
           PAGES=(
             "out/index.html"
             "out/who-i-am/index.html"
@@ -62,16 +61,16 @@ jobs:
               ERRORS=$((ERRORS+1))
               continue
             fi
-            TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE")
+            TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
             if echo "$TITLE" | grep -qi "clarke moyer"; then
-              echo "✅ $PAGE: $TITLE"
+              echo "OK $PAGE: $TITLE"
             else
               echo "ERROR: Missing expected title in $PAGE (got: $TITLE)"
               ERRORS=$((ERRORS+1))
             fi
           done
+          echo "Checked ${#PAGES[@]} pages, errors: $ERRORS"
           if [ "$ERRORS" -gt "0" ]; then exit 1; fi
-          echo "✅ All ${"${#PAGES[@]}"} page titles verified"
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Run E2E tests
