@@ -36,17 +36,19 @@ jobs:
           CI: true
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
-      - name: Verify build output and serve work
+      - name: Verify serve works before E2E
         run: |
+          trap 'kill $SERVE_PID 2>/dev/null; wait $SERVE_PID 2>/dev/null || true' EXIT
           npm run preview &
           SERVE_PID=$!
-          sleep 3
-          echo "=== Checking serve is running ==="
-          curl -s -o /dev/null -w "HTTP status: %{http_code}\n" http://localhost:3000/
-          echo "=== Title in served HTML ==="
-          curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>' || echo "NO TITLE FOUND"
-          kill $SERVE_PID
-          wait $SERVE_PID 2>/dev/null || true
+          # Wait until server responds (up to 30s)
+          curl --retry 10 --retry-connrefused --retry-delay 1 -s -o /dev/null http://localhost:3000/
+          TITLE=$(curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>')
+          echo "Served title: $TITLE"
+          if [ -z "$TITLE" ]; then
+            echo "ERROR: No title found in served HTML — build may be broken"
+            exit 1
+          fi
       - name: Run E2E tests
         run: npm run test:e2e
         env:
