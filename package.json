@@ -47,6 +47,7 @@
     "jest-environment-jsdom": "^30.3.0",
     "postcss": "^8",
     "prettier": "^3.8.1",
+    "serve": "^14.2.6",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },

@@ -24,11 +24,12 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-        env:
-          CI: true
       - run: npm run build
         env:
           USE_BASE_PATH: false
+      - run: npm run test:images
+        env:
+          CI: true
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
         env:
