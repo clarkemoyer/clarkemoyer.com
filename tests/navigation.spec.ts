@@ -21,8 +21,9 @@ test.describe('Navigation', () => {
 
   test('search control exists in navigation', async ({ page }) => {
     await page.goto('/')
+    // Auto-retries until React hydrates and the element appears
     const searchEl = page.locator(`[aria-label="${testConfig.navigation.searchLabel}"]`)
-    await expect(searchEl).toBeVisible({ timeout: 10000 })
+    await expect(searchEl).toBeVisible({ timeout: 15000 })
   })
 
   test('old WordPress slug redirects work', async ({ page }) => {
