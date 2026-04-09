@@ -1,0 +1,24 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": "./out",
+      "url": [
+        "http://localhost/index.html",
+        "http://localhost/who-i-am/index.html",
+        "http://localhost/fun/index.html",
+        "http://localhost/cookie-policy/index.html",
+        "http://localhost/privacy-policy/index.html"
+      ],
+      "numberOfRuns": 3
+    },
+    "upload": { "target": "filesystem", "outputDir": ".lighthouseci" },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["warn", { "minScore": 0.55 }],
+        "categories:accessibility": ["warn", { "minScore": 0.9 }],
+        "categories:best-practices": ["warn", { "minScore": 0.65 }],
+        "categories:seo": ["warn", { "minScore": 0.95 }]
+      }
+    }
+  }
+}

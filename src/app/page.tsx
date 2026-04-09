@@ -315,9 +315,12 @@ export default async function Home() {
             </div>
           </nav>
           <div className="text-center mt-8 pt-8 border-t text-gray-500">
-            <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting
-            </p>
-            <CookiePreferencesButton />
+            <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting</p>
+            <div className="mt-2 flex justify-center gap-4 text-sm">
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-700 underline">Privacy Policy</Link>
+              <Link href="/cookie-policy" className="text-gray-500 hover:text-gray-700 underline">Cookie Policy</Link>
+              <CookiePreferencesButton />
+            </div>
           </div>
         </div>
       </footer>

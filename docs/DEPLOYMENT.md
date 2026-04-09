@@ -1,294 +1,128 @@
 # Deployment Guide
 
-This guide explains how to deploy the Clarke Moyer website to different environments.
+## Current Configuration
 
-## Current Deployment Configuration
+- **Staging URL:** `https://staging.clarkemoyer.com` ✅ Live
+- **Production URL:** `https://clarkemoyer.com` — pending DNS cutover
+- **Hosting:** GitHub Pages (static export via `next export`)
+- **CDN/Proxy:** Cloudflare
 
-⚠️ **Important**: This repository is currently configured for custom domain deployment.
-
-- **Domain**: `staging.clarkemoyer.com`
-- **Build Mode**: WITHOUT `USE_BASE_PATH`
-- **Asset Paths**: Root-relative (e.g., `/images/photo.jpg`)
-- **CNAME File**: `public/CNAME` contains `staging.clarkemoyer.com`
+---
 
 ## Deployment Modes
 
-The site supports two deployment modes, but **GitHub Pages only allows ONE custom domain per repository**. Choose the mode that matches your deployment target.
+The site supports two modes depending on where it's served from.
 
-### 1. Custom Domain Mode (CURRENT)
+### 1. Custom Domain Mode (Current)
 
-**Use Case**: Deploying to custom domains like:
-- `https://staging.clarkemoyer.com` ✅ Currently Active
-- `https://clarkemoyer.com`
-- Any other custom domain
+Used when serving from a custom domain (`staging.clarkemoyer.com` or `clarkemoyer.com`).
 
-**Configuration**:
-- Build **without** `USE_BASE_PATH` environment variable
-- All assets will load from the root path
-- CNAME file in `public` directory
+- `USE_BASE_PATH=false` (or unset)
+- Asset paths are root-relative: `/images/photo.jpg`
+- `public/CNAME` must contain the domain name
 
-**Setup for GitHub Pages with Custom Domain**:
+### 2. GitHub Pages Subdirectory Mode
 
-1. **Configure Domain in GitHub**:
-   - Go to repository **Settings** → **Pages**
-   - Under **Custom domain**, enter your domain (e.g., `staging.clarkemoyer.com`)
-   - GitHub will verify DNS and may create a CNAME file
+Used when serving from `https://clarkemoyer.github.io/clarkemoyer.com/`.
 
-2. **Add CNAME file to repository**:
-   ```bash
-   # Create CNAME file in public directory
-   echo "staging.clarkemoyer.com" > public/CNAME
-   ```
+- `USE_BASE_PATH=true`
+- Asset paths include the repo prefix: `/clarkemoyer.com/images/photo.jpg`
+- Remove `public/CNAME` if switching to this mode
 
-3. **Update deployment workflow** (already configured in this repository):
-   ```yaml
-   # .github/workflows/deploy.yml
-   name: Deploy to GitHub Pages
+---
 
-   on:
-     push:
-       branches: ["main"]
+## Environment Variables
 
-   jobs:
-     build:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Checkout
-           uses: actions/checkout@v4
+These four variables are used at build time. They are set as plain `env:` entries in the workflow (not GitHub secrets) because they are public-facing tracking IDs.
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v4
-           with:
-             node-version: '20'
-             cache: 'npm'
+| Variable | Value | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ` | Google Analytics 4 |
+| `NEXT_PUBLIC_GTM_ID` | `GTM-5JL6TDQW` | Google Tag Manager |
+| `NEXT_PUBLIC_SITE_URL` | `https://clarkemoyer.com` | Canonical URL / sitemap |
+| `USE_BASE_PATH` | `false` | Deployment mode (see above) |
 
-         - name: Install dependencies
-           run: npm ci
+### google-prod GitHub Environment
 
-         - name: Build without basePath for custom domain
-           run: npm run build
-           env:
-             USE_BASE_PATH: false
-           # NOTE: USE_BASE_PATH must be false for custom domain deployment
+A `google-prod` GitHub Actions environment is planned to hold these vars officially (with environment protection rules). **This environment must be created by the repo owner (`clarkemoyer`) at:**
 
-         - name: Validate image paths for custom domain
-           run: npm run test:images
+> Settings → Environments → New environment → `google-prod`
 
-         - name: Add .nojekyll file
-           run: touch ./out/.nojekyll
+Collaborators cannot create environments on personal repos. Once created, the four vars above should move there from the inline `env:` block in `deploy.yml`.
 
-         - name: Upload artifact
-           uses: actions/upload-pages-artifact@v3
-           with:
-             path: ./out
-   
-     deploy:
-       environment:
-         name: github-pages
-         url: https://staging.clarkemoyer.com
-       runs-on: ubuntu-latest
-       needs: build
-       steps:
-         - name: Deploy to GitHub Pages
-           id: deployment
-           uses: actions/deploy-pages@v4
-   ```
+---
 
-4. **Configure DNS**:
-   - For apex domain (`clarkemoyer.com`):
-     ```
-     A     185.199.108.153
-     A     185.199.109.153
-     A     185.199.110.153
-     A     185.199.111.153
-     ```
-   
-   - For subdomain (`staging.clarkemoyer.com`):
-     ```
-     CNAME staging.clarkemoyer.com -> clarkemoyer.github.io
-     ```
+## Automated Deployment (`deploy.yml`)
 
-5. **Push to `main` branch** - deployment happens automatically
+Triggers on every push to `main` (also supports `workflow_dispatch`).
 
-6. **Verify deployment**:
-   - Visit your custom domain
-   - Check that images and assets load correctly (paths should NOT include `/clarkemoyer.com/`)
-   - Verify no 404 errors in browser console
+**Steps:**
+1. Checkout source
+2. Setup Node.js 20 with npm cache
+3. `npm ci` — install dependencies
+4. `npm run build` — Next.js static export to `out/`; env vars injected here
+5. `touch ./out/.nojekyll` — prevents Jekyll processing on GitHub Pages
+6. Upload `out/` as Pages artifact
+7. Deploy to GitHub Pages
 
-### 2. GitHub Pages Subdirectory Mode (ALTERNATIVE)
+The `deploy` job runs in the `github-pages` environment and requires `pages: write` + `id-token: write` permissions for OIDC deployment.
 
-**Use Case**: Deploying to `https://clarkemoyer.github.io/clarkemoyer.com/`
-
-⚠️ **Note**: To use this mode, you must:
-1. Remove the custom domain from GitHub Pages settings
-2. Delete the `public/CNAME` file
-3. Update the workflow as shown below
-
-**Configuration**:
-- Build with `USE_BASE_PATH=true`
-- All assets will include the `/clarkemoyer.com` basePath prefix
-
-**Setup**:
-1. **Remove custom domain**:
-   - Go to repository **Settings** → **Pages**
-   - Clear the **Custom domain** field
-   - Delete `public/CNAME` file from repository
-
-2. **Update workflow**:
-   ```yaml
-   # .github/workflows/deploy.yml
-   - name: Build with Next.js
-     run: npm run build
-     env:
-       USE_BASE_PATH: true
-   
-   - name: Validate image paths
-     run: npm run test:images:github
-     env:
-       USE_BASE_PATH: true
-   ```
-
-3. **Push to `main` branch** - deployment happens automatically
-
-4. **Site will be available at**: `https://clarkemoyer.github.io/clarkemoyer.com/`
+---
 
 ## Manual Deployment
 
-### Build for GitHub Pages Subdirectory
 ```bash
+# Custom domain build (current mode)
+npm run build
+
+# GitHub Pages subdirectory build (alternative)
 USE_BASE_PATH=true npm run build
-npm run test:images:github
 
-# Deploy the 'out' directory to GitHub Pages
+# Serve locally to verify output
+npx serve out/
 ```
 
-### Build for Custom Domain
-```bash
-npm run build
-npm run test:images
+---
 
-# Deploy the 'out' directory to your hosting service
+## DNS Records for GitHub Pages
+
+When cutting over production, point `clarkemoyer.com` to GitHub Pages:
+
+```
+# Apex domain (A records)
+A   185.199.108.153
+A   185.199.109.153
+A   185.199.110.153
+A   185.199.111.153
+
+# www subdomain
+CNAME   www   clarkemoyer.github.io
+
+# staging (already live)
+CNAME   staging   clarkemoyer.github.io
 ```
 
-## Deployment to Other Hosting Services
+---
 
-The site can be deployed to any static hosting service:
+## Cloudflare Pre-Cutover Checklist
 
-### Netlify
-1. Build command: `npm run build`
-2. Publish directory: `out`
-3. No environment variables needed
+Before switching DNS to point `clarkemoyer.com` at GitHub Pages:
 
-### Vercel
-1. Framework preset: Next.js
-2. Build command: `npm run build`
-3. Output directory: `out`
-4. No environment variables needed
+- [ ] **Bulk Redirects** — add 301 rules for all old WordPress slugs (see `content/gap-analysis.md`)
+- [ ] **Security response headers** — add `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` via Transform Rules or Workers
+- [ ] **SSL/TLS mode** — set to **Full (strict)**
+- [ ] **HSTS** — enable via SSL/TLS → Edge Certificates → HTTP Strict Transport Security
+- [ ] **DNS records** — add A/CNAME records above pointing to GitHub Pages IPs
+- [ ] **Pause Cloudflare proxy** during GitHub Pages SSL provisioning if needed, then re-enable
 
-### AWS S3 / CloudFront
-```bash
-npm run build
-aws s3 sync out/ s3://your-bucket-name/ --delete
-```
-
-### Any Static Host
-```bash
-npm run build
-# Upload contents of 'out' directory to your web server
-```
+---
 
 ## Troubleshooting
 
-### Images Not Loading on Custom Domain
+**Images 404 on custom domain** — site was built with `USE_BASE_PATH=true`. Rebuild with `USE_BASE_PATH=false` (or unset).
 
-**Symptom**: Images return 404 errors, paths include `/clarkemoyer.com/` prefix
+**Images 404 on GitHub Pages subdirectory** — site was built without `USE_BASE_PATH`. Rebuild with `USE_BASE_PATH=true`.
 
-**Root Cause**: Site was built with `USE_BASE_PATH=true` but is deployed to a custom domain
+**SSL not provisioning** — remove custom domain from GitHub Pages settings, wait 5 min, re-add it.
 
-**Solution**: 
-1. Ensure workflows build without `USE_BASE_PATH` (or set to `false`):
-   ```yaml
-   - name: Build with Next.js
-     run: npm run build
-     env:
-       USE_BASE_PATH: false
-   ```
-2. Rebuild and redeploy:
-   ```bash
-   npm run build
-   npm run test:images  # Should pass without errors
-   ```
-3. Verify CNAME file exists in `public` directory
-
-### Images Not Loading on GitHub Pages Subdirectory
-
-**Symptom**: Images return 404 errors, paths don't include `/clarkemoyer.com/` prefix
-
-**Root Cause**: Site was built without `USE_BASE_PATH` but is deployed to subdirectory
-
-**Solution**: Rebuild with `USE_BASE_PATH=true`:
-```bash
-USE_BASE_PATH=true npm run build
-npm run test:images:github  # Should pass without errors
-```
-
-### Custom Domain Not Working
-
-**Checklist**:
-1. ✅ DNS records configured correctly
-2. ✅ CNAME file exists in `public` directory with correct domain
-3. ✅ GitHub Pages settings show custom domain
-4. ✅ Site built without `USE_BASE_PATH` (or set to `false`)
-5. ✅ Workflows updated to use `test:images` instead of `test:images:github`
-6. ✅ Wait 24-48 hours for DNS propagation
-
-**Current Configuration**:
-- Domain: `staging.clarkemoyer.com`
-- CNAME file location: `public/CNAME`
-- Build setting: `USE_BASE_PATH=false`
-- Image validation: `npm run test:images`
-
-### SSL Certificate Issues
-
-GitHub Pages automatically provisions SSL certificates for custom domains. This can take a few minutes after DNS configuration.
-
-If SSL doesn't work after 24 hours:
-1. Remove custom domain from GitHub Pages settings
-2. Wait 5 minutes
-3. Re-add custom domain
-4. Wait for certificate provisioning
-
-## Testing Before Deployment
-
-Always test your build before deploying:
-
-```bash
-# Build for your target environment
-npm run build  # or USE_BASE_PATH=true npm run build
-
-# Run validation tests
-npm run test:images  # or npm run test:images:github
-
-# Run linter
-npm run lint
-
-# Manually check the output
-ls -la out/
-```
-
-## Best Practices
-
-1. **Always validate images** after build
-2. **Use appropriate test** for your deployment mode
-3. **Test locally** before pushing to production
-4. **Monitor deployment logs** in GitHub Actions
-5. **Check browser console** after deployment for any errors
-6. **Document custom configuration** in repository README
-
-## Support
-
-For issues with deployment:
-1. Check GitHub Actions logs
-2. Review this documentation
-3. Verify DNS settings with your domain provider
-4. Open an issue in the repository
+**Custom domain not working** — verify `public/CNAME` file exists and contains the correct domain; confirm DNS has propagated (24–48h).

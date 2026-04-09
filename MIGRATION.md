@@ -1,3 +1,7 @@
+> **Status: Migration Complete — April 2026**
+> All phases complete. DNS cutover to clarkemoyer.com pending final Cloudflare configuration.
+> See `content/gap-analysis.md` for remaining pre-cutover checklist.
+
 # WordPress to Next.js Migration Methodology
 
 This document outlines the comprehensive methodology used to migrate clarkemoyer.com from WordPress to Next.js, serving as a blueprint for similar migrations.

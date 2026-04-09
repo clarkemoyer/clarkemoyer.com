@@ -1,211 +1,73 @@
 # Source Code Architecture
 
-This directory contains the Next.js application source code for the clarkemoyer.com website.
-
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 src/
-├── app/                 # Next.js App Router pages and layouts
-│   ├── globals.css      # Global styles and Tailwind CSS imports
-│   ├── layout.tsx       # Root layout component
-│   ├── page.tsx         # Homepage component
-│   ├── certification/   # Certification page
-│   ├── charity/         # Charity/nonprofit page
-│   ├── education/       # Education page
-│   ├── family/          # Family page
-│   ├── fun/             # Personal interests page
-│   ├── psu-arl-referral/ # PSU ARL referral page
-│   ├── resume/          # Resume/professional page
-│   └── wgu-referral/    # WGU referral page
-├── components/          # Reusable React components
-│   ├── CTAButtons.tsx   # Call-to-action button components
-│   ├── ContentSection.tsx # Content section wrapper component
-│   └── Navigation.tsx   # Site navigation component
-└── lib/                 # Utility functions and business logic
-    └── content.ts       # Content management and Markdown processing
+├── app/                          # Next.js App Router pages and root layout
+│   ├── globals.css               # Global styles, Tailwind imports
+│   ├── layout.tsx                # Root layout (GTM, skip-to-content, CookieConsent)
+│   ├── page.tsx                  # Homepage
+│   ├── who-i-am/                 # About / bio page
+│   ├── family/                   # Family page
+│   ├── fun/                      # Personal interests
+│   ├── cooking/                  # Cooking / recipes
+│   ├── quotes/                   # Quotes page
+│   ├── certification/            # Certifications (redirect)
+│   ├── certification-guides/     # Certification guides
+│   ├── clarke-moyer-cissp-certification-passing-guide/  # CISSP guide
+│   ├── it-project-management-resume-of-clarke-moyer/    # Resume
+│   ├── resume/                   # Resume (redirect)
+│   ├── western-governors-university-bs-it/              # WGU degree page
+│   ├── education/                # Education (redirect)
+│   ├── wgu-referral-program/     # WGU referral
+│   ├── wgu-referral/             # WGU referral (redirect)
+│   ├── psu-arl-referral-program/ # PSU-ARL referral
+│   ├── psu-arl-referral/         # PSU-ARL referral (redirect)
+│   ├── free-for-charity/         # Free For Charity nonprofit page
+│   ├── charity/                  # Charity (redirect)
+│   ├── learn-free-charity/       # Learning resources (nonprofit)
+│   ├── personal-project-manager/ # Personal project manager (stub)
+│   ├── privacy-policy/           # Privacy policy
+│   └── cookie-policy/            # Cookie policy
+├── components/
+│   ├── Navigation.tsx            # Site-wide navigation bar
+│   ├── ContentSection.tsx        # Reusable content section wrapper
+│   ├── CTAButtons.tsx            # Call-to-action buttons (LinkedIn, contact)
+│   ├── cookie-consent/           # Cookie consent banner component
+│   └── cookie-preferences-button/ # Button to re-open cookie preferences
+├── types/
+│   └── global.d.ts               # Global type augmentations
+└── lib/
+    └── content.ts                # Markdown content loader (Gray Matter + Marked)
 ```
 
-## 🏗️ Architecture Patterns
+---
 
-### App Router (Next.js 13+)
+## Key Patterns
 
-The application uses Next.js App Router for:
-- File-based routing system
-- Layout nesting and shared components
-- Static site generation with `output: 'export'`
-- TypeScript integration
+### Root Layout (`layout.tsx`)
 
-### Component Architecture
+The root layout includes:
+- **Google Tag Manager** — `<script>` in `<head>` and `<noscript>` iframe in body, gated on `NEXT_PUBLIC_GTM_ID`
+- **Skip-to-content link** — accessible keyboard shortcut to main content
+- **`<CookieConsent>`** — consent banner rendered at layout level, available on all pages
+- **`<div id="main-content" tabIndex={-1}>`** — wraps page content; receives focus on skip-link activation
 
-#### Layout Components
-- **`layout.tsx`**: Root layout with metadata and global styles
-- **`Navigation.tsx`**: Consistent navigation across all pages
+> **Why `<div>` and not `<main>`?** Pages render their own `<main>` elements. Using `<div>` here avoids a nested `<main>` landmark, which would be invalid HTML and an accessibility violation.
 
-#### Content Components
-- **`ContentSection.tsx`**: Reusable section wrapper for content display
-- **`CTAButtons.tsx`**: Call-to-action buttons for LinkedIn and contact
+### Cookie Consent
 
-#### Page Components
-- Each page in `app/` follows a consistent pattern:
-  - Import navigation and content utilities
-  - Fetch content from Markdown files
-  - Render with consistent layout and styling
+- `cookie-consent/` — banner with Accept/Decline; stores choice in `localStorage`
+- `cookie-preferences-button/` — re-opens preferences (shown in footer/nav after initial choice)
+- `Window.openCookiePreferences` typed in `src/types/global.d.ts`
 
-### Content Management System
+Google Analytics 4 (`NEXT_PUBLIC_GA_MEASUREMENT_ID`) only fires after consent is granted.
 
-The `lib/content.ts` module provides:
+### Content Loading
 
-```typescript
-interface ContentData {
-  title?: string;
-  content: string;
-  [key: string]: any;
-}
+Most newer pages (who-i-am, CISSP guide, etc.) have content written **inline in `page.tsx`** rather than loading from Markdown files. The `lib/content.ts` loader is used by older pages that still read from `content/sections/`. See `content/README.md` for details.
 
-async function getContentFile(fileName: string): Promise<ContentData | null>
-```
+### Static Export
 
-**Features:**
-- Markdown file parsing with Gray Matter frontmatter
-- HTML conversion using Marked.js
-- Error handling for missing content files
-- Type-safe content interface
-
-## 🎨 Styling Architecture
-
-### Tailwind CSS
-
-The project uses Tailwind CSS for styling:
-- **Utility-first**: Classes like `text-3xl`, `font-bold`, `bg-gray-50`
-- **Responsive**: Mobile-first responsive design with `sm:`, `lg:` prefixes
-- **Custom palette**: Consistent color scheme throughout
-- **Typography**: Prose classes for readable content
-
-### Global Styles
-
-`app/globals.css` contains:
-- Tailwind CSS imports
-- Custom CSS variables
-- Global font loading (Inter)
-
-## 📄 Page Architecture
-
-### Static Generation
-
-All pages are statically generated:
-- Content is fetched at build time
-- No runtime server required
-- Optimal performance for GitHub Pages
-
-### Page Pattern
-
-Each page follows this pattern:
-
-```typescript
-export default async function PageName() {
-  const content = await getContentFile('page-name');
-  
-  return (
-    <>
-      <Navigation />
-      <main className="py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl font-bold">{title}</h1>
-          {content && (
-            <div 
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: content.content }}
-            />
-          )}
-          <CTAButtons />
-        </div>
-      </main>
-    </>
-  );
-}
-```
-
-### Homepage (`page.tsx`)
-
-The homepage is the most sophisticated page with:
-- **Hero section** with family photo background and professional branding
-- **Professional imagery** including logos, bio photos, and certification images
-- **Multiple content sections** with enhanced visual hierarchy
-- **Embedded call-to-action areas** with improved styling
-- **WGU referral section** with university branding
-- **Responsive design** optimized for all device sizes
-- **Professional photography** and consistent visual branding
-
-## 🔧 Development Guidelines
-
-### Component Development
-
-1. **Use TypeScript**: All components should have proper typing
-2. **Props Interface**: Define interfaces for component props
-3. **Async/Await**: Use async components for data fetching
-4. **Error Handling**: Handle missing content gracefully
-5. **Responsive Design**: Use Tailwind responsive utilities
-
-### Content Integration
-
-1. **Markdown Files**: Place content in `content/sections/`
-2. **Frontmatter**: Use YAML frontmatter for metadata
-3. **File Naming**: Match filename to page route (kebab-case)
-4. **Content Fetching**: Use `getContentFile()` utility
-
-### Styling Guidelines
-
-1. **Tailwind First**: Use Tailwind utilities over custom CSS
-2. **Consistent Spacing**: Use standardized spacing scale
-3. **Typography**: Use prose classes for content areas
-4. **Color Scheme**: Stick to defined color palette
-5. **Mobile First**: Design for mobile, enhance for desktop
-
-## 🚀 Performance Optimizations
-
-### Static Generation
-- All pages pre-rendered at build time
-- No JavaScript required for content display
-- Optimal Core Web Vitals scores
-
-### Image Optimization
-- Unoptimized images for static hosting compatibility
-- Responsive image sizing with Next.js Image component
-- Professional photography integrated throughout
-- Optimized loading with priority flags for hero images
-
-### Bundle Optimization
-- Tree shaking eliminates unused code
-- Component-level code splitting
-- Minimal JavaScript payload
-
-## 🧪 Testing Strategy
-
-### Development Testing
-- `npm run dev` for hot reload development
-- `npm run build` to test production build
-- `npm run lint` for code quality
-
-### Content Testing
-- Verify all pages render without errors
-- Check content loading from Markdown files
-- Validate responsive design across devices
-
-## 📚 Key Dependencies
-
-- **Next.js 15**: React framework with App Router
-- **React 19**: Component library
-- **TypeScript**: Type safety and developer experience
-- **Tailwind CSS**: Utility-first styling
-- **Gray Matter**: Frontmatter parsing
-- **Marked**: Markdown to HTML conversion
-
-## 🔮 Future Enhancements
-
-Potential improvements to consider:
-- Content validation schema
-- Automated content testing
-- Component library expansion
-- Performance monitoring
-- SEO optimization tools
+All pages are statically generated at build time (`output: 'export'` in `next.config.js`). No server-side rendering or API routes are used.
