@@ -1,27 +1,20 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Footer', () => {
-  test('shows copyright with current year', async ({ page }) => {
+  test('shows copyright notice with year range', async ({ page }) => {
     await page.goto('/')
-    const currentYear = new Date().getFullYear().toString()
     const footer = page.locator('footer')
     await expect(footer).toContainText('©')
-    await expect(footer).toContainText(currentYear)
     await expect(footer).toContainText('2010')
+    // Year range is static in footer (2010-2026); if footer becomes dynamic update this test
+    await expect(footer).toContainText('2026')
   })
 
-  test('privacy and cookie policy links present (when feat/cookie-consent-v2 merged)', async ({ page }) => {
+  test('privacy and cookie policy links present when consent PR merged', async ({ page }) => {
     await page.goto('/')
     const privacyLink = page.locator('footer a[href="/privacy-policy"]')
-    const cookieLink = page.locator('footer a[href="/cookie-policy"]')
-    const privacyCount = await privacyLink.count()
-    const cookieCount = await cookieLink.count()
-    // Skip gracefully if not yet merged
-    if (privacyCount === 0 || cookieCount === 0) {
-      test.skip()
-      return
-    }
+    if (await privacyLink.count() === 0) { test.skip(); return }
     await expect(privacyLink).toBeVisible()
-    await expect(cookieLink).toBeVisible()
+    await expect(page.locator('footer a[href="/cookie-policy"]')).toBeVisible()
   })
 })

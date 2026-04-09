@@ -1,17 +1,4 @@
 import { defineConfig, devices } from '@playwright/test'
-import { execFileSync } from 'child_process'
-
-function findChromium(): string | undefined {
-  for (const name of ['chromium', 'chromium-browser', 'google-chrome', 'google-chrome-stable']) {
-    try {
-      const p = execFileSync('which', [name], { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] }).trim()
-      if (p) return p
-    } catch {
-      /* try next */
-    }
-  }
-  return undefined
-}
 
 export default defineConfig({
   testDir: './tests',
@@ -24,15 +11,10 @@ export default defineConfig({
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        launchOptions: { executablePath: findChromium() },
-      },
-    },
-  ],
+  projects: [{
+    name: 'chromium',
+    use: { ...devices['Desktop Chrome'] },
+  }],
   webServer: {
     command: 'npx serve out -p 3000',
     url: 'http://localhost:3000',

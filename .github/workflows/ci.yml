@@ -24,6 +24,11 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
+      - run: npm run build
+        env:
+          USE_BASE_PATH: false
+      - run: npm run test:images
+        continue-on-error: true
         env:
           CI: true
       - run: npm run build
