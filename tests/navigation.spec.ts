@@ -14,7 +14,7 @@ test.describe('Navigation', () => {
     }
   })
 
-  test('navigation renders on pages using shared Navigation component', async ({ page }) => {
+  test('navigation renders on a page using shared Navigation component', async ({ page }) => {
     // cookie-policy imports Navigation from @/components/Navigation
     await page.goto('/cookie-policy/')
     await expect(page.locator('nav')).toBeVisible()
