@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -19,7 +18,6 @@ export default async function FunPage() {
   
   return (
     <>
-      <Navigation />
       
       {/* Hero Section with Family Photo Background */}
       <section 

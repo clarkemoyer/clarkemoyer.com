@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export const metadata: Metadata = {
 export default function CertificationGuidesPage() {
   return (
     <>
-      <Navigation />
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
           <div className="text-sm mb-2">
