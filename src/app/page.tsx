@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import Link from 'next/link';
+import CookiePreferencesButton from '@/components/cookie-preferences-button';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
@@ -34,7 +34,6 @@ export default async function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
         
         {/* Navigation Overlay */}
-        <Navigation />
         
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
@@ -318,6 +317,7 @@ export default async function Home() {
           <div className="text-center mt-8 pt-8 border-t text-gray-500">
             <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting
             </p>
+            <CookiePreferencesButton />
           </div>
         </div>
       </footer>

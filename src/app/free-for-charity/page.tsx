@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import CTAButtons from '@/components/CTAButtons';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
@@ -24,7 +23,6 @@ export default async function CharityPage() {
 
   return (
     <>
-      <Navigation />
       
       {/* Hero Section with FFC Circle Logo */}
       <section 
