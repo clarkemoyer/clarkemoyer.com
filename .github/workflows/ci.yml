@@ -41,12 +41,17 @@ jobs:
           trap 'kill $SERVE_PID 2>/dev/null; wait $SERVE_PID 2>/dev/null || true' EXIT
           npm run preview &
           SERVE_PID=$!
-          # Wait until server responds (up to ~30s with 30 retries, 1s delay)
-          curl --retry 30 --retry-connrefused --retry-delay 1 -s -o /dev/null http://localhost:3000/
+          # Wait until server responds (up to ~30s)
+          STATUS=$(curl --retry 30 --retry-connrefused --retry-delay 1 -s -o /dev/null -w "%{http_code}" http://localhost:3000/)
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" != "200" ]; then echo "ERROR: Expected 200, got $STATUS"; exit 1; fi
+          # Confirm the site title is the expected one (not a directory listing or error page)
           TITLE=$(curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>' || true)
           echo "Served title: $TITLE"
-          if [ -z "$TITLE" ]; then
-            echo "ERROR: No title found in served HTML"
+          if echo "$TITLE" | grep -qi "clarke moyer"; then
+            echo "✅ Build output confirmed"
+          else
+            echo "ERROR: Expected Clarke Moyer title, got: $TITLE"
             exit 1
           fi
       - name: Run E2E tests
