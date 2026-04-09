@@ -34,18 +34,44 @@ jobs:
       - run: npm run test:images
         env:
           CI: true
-      - name: Verify build output titles (static HTML check)
+      - name: Verify build output titles (all pages in testConfig.pages)
         run: |
-          PAGES="out/index.html out/who-i-am/index.html out/fun/index.html out/certification-guides/index.html"
-          for PAGE in $PAGES; do
-            TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
-            echo "$PAGE: $TITLE"
-            if ! echo "$TITLE" | grep -qi "clarke moyer"; then
-              echo "ERROR: Missing expected title in $PAGE"
-              exit 1
+          # Pages must match testConfig.pages in tests/test.config.ts
+          PAGES=(
+            "out/index.html"
+            "out/who-i-am/index.html"
+            "out/free-for-charity/index.html"
+            "out/psu-arl-referral-program/index.html"
+            "out/wgu-referral-program/index.html"
+            "out/certification-guides/index.html"
+            "out/fun/index.html"
+            "out/quotes/index.html"
+            "out/it-project-management-resume-of-clarke-moyer/index.html"
+            "out/western-governors-university-bs-it/index.html"
+            "out/clarke-moyer-cissp-certification-passing-guide/index.html"
+            "out/learn-free-charity/index.html"
+            "out/personal-project-manager/index.html"
+            "out/clarke-moyer-world-famous-apple-crisp-recipe/index.html"
+            "out/privacy-policy/index.html"
+            "out/cookie-policy/index.html"
+          )
+          ERRORS=0
+          for PAGE in "${PAGES[@]}"; do
+            if [ ! -f "$PAGE" ]; then
+              echo "ERROR: File not found: $PAGE"
+              ERRORS=$((ERRORS+1))
+              continue
+            fi
+            TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE")
+            if echo "$TITLE" | grep -qi "clarke moyer"; then
+              echo "✅ $PAGE: $TITLE"
+            else
+              echo "ERROR: Missing expected title in $PAGE (got: $TITLE)"
+              ERRORS=$((ERRORS+1))
             fi
           done
-          echo "✅ Build output titles verified"
+          if [ "$ERRORS" -gt "0" ]; then exit 1; fi
+          echo "✅ All ${"${#PAGES[@]}"} page titles verified"
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Run E2E tests
