@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function FunPage() {
   // Get the basePath for GitHub Pages deployment
-  const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
+  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
   
   return (
     <>
