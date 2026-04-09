@@ -14,16 +14,20 @@ test.describe('Navigation', () => {
     }
   })
 
-  test('navigation renders on homepage', async ({ page }) => {
-    await page.goto('/')
+  test('navigation renders on pages using shared Navigation component', async ({ page }) => {
+    // cookie-policy imports Navigation from @/components/Navigation
+    await page.goto('/cookie-policy/')
     await expect(page.locator('nav')).toBeVisible()
   })
 
-  test('search control exists in navigation', async ({ page }) => {
-    await page.goto('/')
-    // Auto-retries until React hydrates and the element appears
+  test('search link exists in shared Navigation component', async ({ page }) => {
+    // The shared Navigation component is used on cookie-policy, privacy-policy, quotes pages
+    // (most pages have their own inline navigation)
+    await page.goto('/cookie-policy/')
     const searchEl = page.locator(`[aria-label="${testConfig.navigation.searchLabel}"]`)
     await expect(searchEl).toBeVisible({ timeout: 15000 })
+    const href = await searchEl.getAttribute('href')
+    expect(href).toContain('duckduckgo.com')
   })
 
   test('old WordPress slug redirects work', async ({ page }) => {
