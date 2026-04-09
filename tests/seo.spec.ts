@@ -5,8 +5,9 @@ import { testConfig } from './test.config'
  * SEO E2E Tests
  *
  * These tests verify runtime page availability (HTTP 200) for all routes.
- * Page titles are verified statically in the CI build step (grep out/*/index.html).
- * Meta descriptions and metadata exports are verified by unit tests (__tests__/pages/).
+ * Page titles and meta descriptions are verified statically in the CI build
+ * step by grepping the generated HTML in out/*/index.html for all pages.
+ * Metadata TypeScript exports are verified by __tests__/pages/metadata.test.tsx.
  */
 
 test.describe('SEO', () => {

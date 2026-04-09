@@ -62,7 +62,8 @@ jobs:
               continue
             fi
             TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
-            DESC=$(grep -o 'name="description" content="[^"]*"' "$PAGE" || true)
+            # Require non-empty description (content at least 3 chars)
+            DESC=$(grep -oE 'name="description" content="[^"]{3,}"' "$PAGE" || true)
             if echo "$TITLE" | grep -qi "clarke moyer"; then
               echo "OK title: $PAGE"
             else
