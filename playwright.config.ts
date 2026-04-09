@@ -16,10 +16,11 @@ export default defineConfig({
     use: { ...devices['Desktop Chrome'] },
   }],
   webServer: {
-    // npm exec ensures the locally-installed serve package is used
-    command: 'npm exec -- serve out -p 3000 --no-clipboard',
+    command: 'npm run preview',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
 })
