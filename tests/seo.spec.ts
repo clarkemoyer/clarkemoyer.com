@@ -4,21 +4,18 @@ import { testConfig } from './test.config'
 /**
  * SEO E2E Tests
  *
- * Page titles are verified statically in the CI "Verify build output titles" step
- * for all pages in testConfig.pages. The metadata unit tests (__tests__/pages/)
- * also verify title/description exports. These E2E tests cover HTTP 200 and
- * meta descriptions at runtime.
+ * These tests verify runtime page availability (HTTP 200) for all routes.
+ * Page titles and meta descriptions are verified statically in the CI build
+ * step against the generated HTML for the configured page list.
+ * Metadata TypeScript exports are verified by __tests__/pages/metadata.test.tsx.
  */
 
 test.describe('SEO', () => {
   for (const path of testConfig.pages) {
-    test(`${path} loads with 200 and has meta description`, async ({ page }) => {
+    test(`${path} returns HTTP 200`, async ({ page }) => {
       const response = await page.goto(path)
       expect(response, `${path} response should not be null`).not.toBeNull()
       expect(response!.status(), `${path} should return 200`).toBe(200)
-      const description = await page.locator('meta[name="description"]').getAttribute('content')
-      const trimmed = (description ?? '').trim()
-      expect(trimmed.length, `${path} should have non-empty meta description`).toBeGreaterThan(0)
     })
   }
 
