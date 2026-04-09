@@ -1,212 +1,82 @@
-# Image Path Testing
+# Image Testing
 
-This document describes the automated testing system for validating image paths in the Clarke Moyer website.
+## Current Approach
 
-## Problem Addressed
+Image loading is tested via Playwright E2E: **`tests/image-loading.spec.ts`**
 
-The site supports two deployment modes, each requiring different asset path handling:
+This test runs against the built site and verifies that all key images load without errors (no 404s, no broken `<img>` elements). It is the canonical, authoritative image test.
 
-### GitHub Pages Subdirectory Mode
-When deploying to `https://clarkemoyer.github.io/clarkemoyer.com/`, the site is served from a subdirectory. This means all asset paths must include the `/clarkemoyer.com` basePath prefix to load correctly.
-
-Without proper basePath handling:
-- ❌ **Broken**: `/images/photo.jpg` → 404 error on GitHub Pages
-- ✅ **Working**: `/clarkemoyer.com/images/photo.jpg` → Loads correctly
-
-### Custom Domain Mode
-When deploying to a custom domain like `https://staging.clarkemoyer.com` or `https://clarkemoyer.com`, the site is served from the root. Asset paths should NOT include the basePath prefix.
-
-Without proper configuration:
-- ❌ **Broken**: `/clarkemoyer.com/images/photo.jpg` → 404 error on custom domain
-- ✅ **Working**: `/images/photo.jpg` → Loads correctly
-
-## Deployment Configuration
-
-The `USE_BASE_PATH` environment variable controls which mode to build for:
+Run it via:
 
 ```bash
-# Build for GitHub Pages subdirectory
-USE_BASE_PATH=true npm run build
+# Run all E2E tests (includes image loading)
+npm run test:e2e
 
-# Build for custom domain
-npm run build
+# Or run directly with Playwright
+npx playwright test tests/image-loading.spec.ts
 ```
 
-## Test Implementation
+### Legacy Scripts
 
-### Automated Validation Script
+`npm run test:images` and `npm run test:images:github` may still exist in `package.json`. These were earlier custom validation scripts that checked HTML output for basePath correctness. They are superseded by the Playwright E2E approach and should not be relied on as the primary image test.
 
-The `tests/validate-image-paths.js` script automatically:
+---
 
-1. **Scans** all HTML files in the `out/` directory after build
-2. **Extracts** image paths from:
-   - `<img src="...">` attributes
-   - CSS `background-image: url(...)` properties
-3. **Validates** that paths are appropriate for the deployment mode:
-   - **GitHub Pages mode**: All paths must start with `/clarkemoyer.com`
-   - **Local development**: Paths should NOT include the basePath
-4. **Verifies** that image files actually exist in the output directory
+## How Images Work in This Project
 
-### Test Commands
+### Next.js Image Component
 
-```bash
-# Test for local development (no basePath expected)
-npm run test:images
+All images use the Next.js `<Image>` component. Because the site is a fully static export, image optimization is disabled:
 
-# Test for GitHub Pages deployment (basePath required)
-npm run test:images:github
-
-# Build and test in one command
-npm run build && npm run test:images:github
+```js
+// next.config.js
+images: {
+  unoptimized: true,
+}
 ```
 
-### GitHub Actions Integration
+This means images are served as-is with no server-side resizing or format conversion — required for static hosting on GitHub Pages.
 
-The image validation test is automatically run in the CI/CD pipeline:
+### Local Images
 
-```yaml
-- name: Build with Next.js
-  run: npm run build
-  env:
-    USE_BASE_PATH: true
-- name: Validate image paths
-  run: npm run test:images:github
-  env:
-    USE_BASE_PATH: true
+Static images live in two directories under `public/`:
+
+- **`public/images/`** — primary images (hero photo, logos, headshots, etc.)
+- **`public/wp-content/`** — WordPress legacy assets preserved at their original paths for URL compatibility
+
+These are served at root-relative paths in custom domain mode (e.g., `/images/photo.jpg`).
+
+### YouTube Thumbnails
+
+YouTube thumbnails are fetched at runtime from `img.youtube.com`. This domain is explicitly allowed in `next.config.js` via `remotePatterns`:
+
+```js
+images: {
+  unoptimized: true,
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'img.youtube.com',
+    },
+  ],
+}
 ```
 
-This ensures that:
-- Every pull request is tested for proper image paths
-- Deployments are blocked if image paths are incorrect
-- No broken images reach the live site
-- Correct basePath handling for GitHub Pages subdirectory deployment
+---
 
-## Test Output Example
+## Deployment Modes and Image Paths
 
-### ✅ Success Case
-```
-🖼️  Image Path Validation Test
-================================
+| Mode | `USE_BASE_PATH` | Image path example |
+|---|---|---|
+| Custom domain (current) | `false` / unset | `/images/photo.jpg` |
+| GitHub Pages subdirectory | `true` | `/clarkemoyer.com/images/photo.jpg` |
 
-🔍 Scanning mode: GitHub Pages
-📁 Output directory: /home/project/out
+See `docs/DEPLOYMENT.md` for full details on deployment modes.
 
-📊 Test Results:
-   Total images found: 8
-   Valid paths: 8
-   Invalid paths: 0
-   Missing images: 0
+---
 
-✅ All image paths are valid!
-```
+## Adding New Images
 
-### ❌ Failure Case
-```
-📊 Test Results:
-   Total images found: 8
-   Valid paths: 0
-   Invalid paths: 8
-   Missing images: 1
-
-❌ Issues found:
-   1. index.html:1
-      Path: /images/photo.jpg
-      Issue: Missing basePath prefix. Expected to start with '/clarkemoyer.com'
-
-💡 Total issues: 8
-
-🔧 To fix image path issues:
-   1. Ensure all Image components use the basePath variable
-   2. Example: src={`${basePath}/images/photo.jpg`}
-   3. Verify images exist in the public directory
-```
-
-## Code Implementation
-
-### Correct Usage in Components
-
-```typescript
-// Get the basePath based on deployment mode
-// USE_BASE_PATH=true: GitHub Pages subdirectory mode
-// USE_BASE_PATH unset/false: Custom domain mode
-const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
-
-// ✅ Correct: Dynamic basePath for all images
-<Image
-  src={`${basePath}/images/photo.jpg`}
-  alt="Description"
-  width={200}
-  height={200}
-/>
-
-// ✅ Correct: CSS background images
-<div style={{
-  backgroundImage: `url('${basePath}/images/background.jpg')`
-}} />
-
-// ❌ Incorrect: Hardcoded path
-<Image src="/images/photo.jpg" alt="Description" />
-
-// ❌ Incorrect: Hardcoded basePath
-<Image src="/clarkemoyer.com/images/photo.jpg" alt="Description" />
-```
-
-### Configuration Files
-
-The basePath is configured in multiple places:
-
-1. **next.config.js**: For Next.js build configuration
-```javascript
-basePath: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
-assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
-```
-
-2. **Component level**: For runtime image paths
-```typescript
-const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
-```
-
-3. **GitHub Actions workflow**: Set the environment variable
-```yaml
-- name: Build with Next.js
-  run: npm run build
-  env:
-    USE_BASE_PATH: true  # Enable basePath for GitHub Pages subdirectory
-```
-```
-
-## Maintenance
-
-### Adding New Images
-
-When adding new images to components:
-
-1. Place the image file in the `public/` directory
-2. Use the basePath variable in your component:
-   ```typescript
-   <Image src={`${basePath}/images/new-photo.jpg`} ... />
-   ```
-3. Run the test to verify: `npm run test:images:github`
-
-### Troubleshooting
-
-**Test fails with "Missing basePath prefix"**
-- Ensure you're using `${basePath}` in all image paths
-- Check that the basePath variable is properly defined in your component
-
-**Test fails with "Image file does not exist"**
-- Verify the image file is in the `public/` directory
-- Check file name spelling and case sensitivity
-- Ensure the file is being copied to the `out/` directory during build
-
-**Test passes locally but fails in CI**
-- Make sure you're testing with `npm run test:images:github`
-- Verify the `GITHUB_ACTIONS` environment variable is set properly
-
-## Benefits
-
-✅ **Prevents broken images** on the live site  
-✅ **Catches issues early** in development  
-✅ **Automated testing** in CI/CD pipeline  
-✅ **Clear error messages** for quick fixes  
-✅ **Consistent deployment** across environments
+1. Place the file in `public/images/` (or `public/wp-content/` for legacy paths)
+2. Reference via `<Image src="/images/filename.jpg" ... />` in your component
+3. Run `npm run test:e2e` to confirm it loads without errors

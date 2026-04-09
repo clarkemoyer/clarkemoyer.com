@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import { getContentFile } from '@/lib/content';
 import Link from 'next/link';
 import './psu-arl-referral.css';
@@ -20,7 +19,6 @@ export default async function PSUARLReferralPage() {
 
   return (
     <>
-      <Navigation />
       
       <main className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,214 +2,251 @@
 
 ## Repository Overview
 
-This is a **personal website** built with Next.js 15.1.6, migrated from WordPress to provide better performance and maintainability. The site is a static site generator (SSG) that deploys to GitHub Pages at https://clarkemoyer.github.io/clarkemoyer.com.
+Personal website for Clarke Moyer — Next.js static site deployed to GitHub Pages at **https://staging.clarkemoyer.com** (staging) and **https://clarkemoyer.com** (production post-cutover).
 
-**Repository Type:** Next.js static site with TypeScript  
-**Size:** Small (~306 files, mainly content and assets)  
-**Languages/Frameworks:** TypeScript, React, Next.js, Tailwind CSS  
-**Target Runtime:** Static HTML/CSS/JS (GitHub Pages)  
-**Content:** Personal/professional portfolio with Markdown-based content management
+**Stack:** Next.js 15 + React 19 + TypeScript + Tailwind CSS  
+**Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages  
+**DNS/CDN:** Cloudflare (proxy, security headers, 301 redirects)
 
-## Build and Development Commands
+---
 
-### Prerequisites
-- **Node.js 20 or later** (tested with v20.19.5)
-- **npm** (comes with Node.js, tested with v10.8.2)
+## Environment Variables
 
-**Security Note:** The project has known security vulnerabilities in Next.js dependencies. Run `npm audit` to see current status. These are development dependencies and don't affect the static output.
+These are **public tracking IDs** — not secrets. Hardcoded in `.github/workflows/deploy.yml` and documented here.
 
-### Essential Commands
+> **Note:** GitHub Actions environments require the repo owner to configure via
+> Settings → Environments. Collaborators cannot create environments on personal repos.
+> A `google-prod` environment should be created by the repo owner (clarkemoyer) and
+> these vars moved there once available. Until then they live in the workflow directly.
 
-**ALWAYS run these commands in this exact order:**
+| Variable | Value | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ` | Google Analytics 4 |
+| `NEXT_PUBLIC_GTM_ID` | `GTM-5JL6TDQW` | Google Tag Manager |
+| `NEXT_PUBLIC_SITE_URL` | `https://clarkemoyer.com` | Canonical URL / metadataBase |
+| `USE_BASE_PATH` | `false` (deploy) / `true` (gh-pages subdirectory) | GitHub Pages basePath |
 
-1. **Install dependencies:** `npm ci` (NEVER use `npm install` for production builds)
-2. **Lint code:** `npm run lint` (must pass before any commits)
-3. **Build site:** `npm run build` (creates `out/` directory with static files)
-4. **Validate images:** `npm run test:images:github` (ensures proper GitHub Pages paths)
-
-### Development Workflow
-```bash
-# Start development server (runs on localhost:3000 or next available port)
-npm run dev
-
-# Build and test complete workflow
-npm run build && npm run test:images:github
+### Future: google-prod Environment
+When the repo owner creates the `google-prod` environment in GitHub Settings → Environments,
+move `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_GTM_ID`, and `NEXT_PUBLIC_SITE_URL`
+into that environment's variables, then update `deploy.yml` to reference:
+```yaml
+environment:
+  name: google-prod
 ```
 
-### Command Details
-- **`npm run dev`**: Development server with hot reload, takes ~1-2 seconds to start
-- **`npm run build`**: Production build, takes ~10-15 seconds, outputs to `out/`
-- **`npm run start`**: Production server (rarely needed, for testing build locally)
-- **`npm run lint`**: ESLint validation, must pass with zero errors
-- **`npm run test:images`**: Validate image paths for local development
-- **`npm run test:images:github`**: Validate image paths for GitHub Pages (required for deployment)
+---
 
-### Critical Build Requirements
-- **Always use `npm ci`** instead of `npm install` to ensure reproducible builds
-- **Always run image validation** after build changes that affect images
-- **Clean builds work reliably** - no special environment setup needed
+## Essential Commands
 
-## Project Architecture
+```bash
+npm ci                    # Install dependencies (always use ci, not install)
+npm run dev               # Dev server on localhost:3000
+npm run build             # Production static export to out/
+npm run lint              # ESLint (must pass before commits)
+npm test                  # Jest unit tests
+npm run test:coverage     # Jest with coverage report
+npm run test:e2e          # Playwright E2E (requires built out/ + serve)
+npm run format            # Prettier format
+npm run format:check      # Prettier check (CI)
+npm run preview           # Serve built out/ on port 3000 (for E2E)
+```
 
-### Directory Structure
+---
+
+## Project Structure
+
 ```
 clarkemoyer.com/
-├── .github/workflows/     # GitHub Actions (deploy.yml, nextjs.yml)
-├── content/sections/      # Markdown content files (9 pages)
-├── src/app/              # Next.js App Router pages and layouts
-├── src/components/       # Reusable React components (3 components)
-├── src/lib/              # Utilities (content.ts for Markdown processing)
-├── public/               # Static assets (images, wp-content)
-├── tests/                # Custom validation scripts
-└── out/                  # Build output (created by `npm run build`)
+├── .github/
+│   ├── workflows/
+│   │   ├── deploy.yml         # Main deploy to GitHub Pages
+│   │   ├── ci.yml             # PR checks: lint + test + build + E2E
+│   │   ├── codeql.yml         # Security scanning
+│   │   └── lighthouse.yml     # Perf/a11y/SEO scoring post-deploy
+│   ├── copilot-instructions.md
+│   └── dependabot.yml         # Weekly npm + Actions updates
+├── __tests__/                 # Jest unit tests
+│   └── components/
+│       ├── CookieConsent.test.tsx
+│       └── Navigation.test.tsx
+│   └── pages/
+│       └── metadata.test.tsx
+├── tests/                     # Playwright E2E tests
+│   ├── test.config.ts
+│   ├── navigation.spec.ts
+│   ├── cookie-consent.spec.ts
+│   ├── copyright.spec.ts
+│   ├── image-loading.spec.ts
+│   └── seo.spec.ts
+├── src/
+│   ├── app/                   # Next.js App Router pages
+│   │   ├── layout.tsx         # Root layout: GTM, skip-nav, CookieConsent
+│   │   ├── page.tsx           # Homepage
+│   │   ├── who-i-am/
+│   │   ├── free-for-charity/
+│   │   ├── psu-arl-referral-program/
+│   │   ├── wgu-referral-program/
+│   │   ├── certification-guides/
+│   │   ├── it-project-management-resume-of-clarke-moyer/
+│   │   ├── western-governors-university-bs-it/
+│   │   ├── clarke-moyer-cissp-certification-passing-guide/
+│   │   ├── learn-free-charity/
+│   │   ├── personal-project-manager/
+│   │   ├── clarke-moyer-world-famous-apple-crisp-recipe/
+│   │   ├── fun/
+│   │   ├── quotes/            # YouTube embed + business philosophy
+│   │   ├── privacy-policy/
+│   │   └── cookie-policy/
+│   ├── components/
+│   │   ├── Navigation.tsx     # Nav with ABOUT dropdown, search → DuckDuckGo
+│   │   ├── ContentSection.tsx
+│   │   ├── CTAButtons.tsx
+│   │   ├── cookie-consent/    # Cookie banner + preferences modal (GA4 gated)
+│   │   └── cookie-preferences-button/  # Footer client component
+│   ├── types/
+│   │   └── global.d.ts        # Window.openCookiePreferences type
+│   └── lib/
+│       └── content.ts         # Markdown/frontmatter utilities
+├── public/
+│   ├── sitemap.xml
+│   ├── robots.txt
+│   ├── images/
+│   └── wp-content/            # Legacy WordPress media (preserved)
+├── .env.example               # All env vars documented
+├── jest.config.cjs
+├── jest.setup.js
+├── playwright.config.ts
+├── lighthouserc.json
+└── next.config.js
 ```
 
-### Key Configuration Files
-- **`next.config.js`**: GitHub Pages basePath configuration
-- **`package.json`**: Dependencies and scripts
-- **`tsconfig.json`**: TypeScript configuration with path aliases
-- **`tailwind.config.js`**: Styling configuration
-- **`.eslintrc.json`**: Code quality rules (extends next/core-web-vitals)
+---
 
-### Content Management System
-- **Content location:** `content/sections/*.md`
-- **Content format:** Markdown with YAML frontmatter
-- **Content processing:** `getContentFile()` utility in `src/lib/content.ts`
-- **Supported files:** about.md, certification.md, charity.md, education.md, family.md, fun.md, psu-arl-referral.md, resume.md, wgu-referral.md
+## Analytics & Tracking
 
-### Component Architecture
-1. **`src/app/layout.tsx`**: Root layout with metadata and global styles
-2. **`src/components/Navigation.tsx`**: Site navigation component
-3. **`src/components/ContentSection.tsx`**: Content wrapper component
-4. **`src/components/CTAButtons.tsx`**: Call-to-action buttons (LinkedIn, contact)
+### Google Tag Manager (`GTM-5JL6TDQW`)
+- Loaded via `next/script` in `layout.tsx` with `afterInteractive` strategy
+- Noscript iframe fallback in body
+- Container manages all tags — add new tracking tags via GTM UI, not code
 
-### GitHub Pages Deployment Architecture
-**Critical:** This site uses a complex basePath system for GitHub Pages deployment.
+### Google Analytics 4 (`G-C2Q1HC0GVQ`)
+- Property: 362129069 | Account: 17425922 (www.clarkemoyer.com)
+- Loaded by the `CookieConsent` component **only after user grants analytics consent**
+- Also configurable via GTM (recommended: add GA4 config tag with consent trigger)
+- `anonymize_ip: true` set by default
 
-- **Local development:** Images use paths like `/images/photo.jpg`
-- **GitHub Pages:** Images must use paths like `/clarkemoyer.com/images/photo.jpg`
-- **Implementation:** `const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';`
-- **Validation:** Custom test suite validates all image paths before deployment
+### Consent Architecture
+The `CookieConsent` component (`src/components/cookie-consent/index.tsx`):
+- Shows banner on first visit
+- Stores preferences in `localStorage` + `document.cookie` (dual write for fallback)
+- Fires `consent_update` dataLayer events GTM can listen to
+- `necessary` cookies always forced `true` even if localStorage is tampered
+- Focus trap, Escape-to-close, and proper ARIA on modal
+- `window.openCookiePreferences()` allows footer button to reopen from any page
 
-## GitHub Actions Workflows
+---
 
-### Primary Deployment Pipeline (.github/workflows/deploy.yml)
-1. **Trigger:** Every push to `main` branch
-2. **Steps:**
-   - Checkout code
-   - Setup Node.js 20 with npm cache
-   - Run `npm ci`
-   - Run `npm run build` (with GITHUB_ACTIONS=true)
-   - Add `.nojekyll` file
-   - Deploy to GitHub Pages
+## URL Structure & Redirects
 
-### Secondary Pipeline (.github/workflows/nextjs.yml)
-- More comprehensive Next.js workflow with caching
-- Includes image validation step
-- Both workflows run on main branch pushes
+All canonical WordPress URLs are preserved. Old short slugs redirect client-side:
 
-### Manual Deployment
+| Old slug | Canonical URL |
+|---|---|
+| `/certification/` | `/certification-guides/` |
+| `/charity/` | `/free-for-charity/` |
+| `/education/` | `/western-governors-university-bs-it/` |
+| `/resume/` | `/it-project-management-resume-of-clarke-moyer/` |
+| `/psu-arl-referral/` | `/psu-arl-referral-program/` |
+| `/wgu-referral/` | `/wgu-referral-program/` |
+
+**Note:** These are client-side Next.js redirects (not HTTP 301s). True 301s must be
+configured in **Cloudflare Bulk Redirects** before DNS cutover for SEO link equity transfer.
+
+---
+
+## Cloudflare Configuration (Pre-Cutover Checklist)
+
+### Bulk Redirects (Traffic → Bulk Redirects)
+Add 301s for all old slug pairs listed above.
+
+### Transform Rules — Response Headers (all requests)
+| Header | Value |
+|---|---|
+| `X-Content-Type-Options` | `nosniff` |
+| `X-Frame-Options` | `SAMEORIGIN` |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` |
+
+### SSL/TLS
+- Mode: Full (strict)
+- Always Use HTTPS: On
+- HSTS: On, max-age 6 months
+- Minimum TLS: 1.2
+
+### DNS Cutover
+Point `clarkemoyer.com` A/CNAME records to GitHub Pages IPs:
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+---
+
+## Google Search Console
+
+- Verify via **Cloudflare DNS TXT record** (survives the WordPress→Next.js cutover)
+- DNS record: Type TXT, Name `@`, Value `google-site-verification=XXXXXXX`
+- After cutover: submit `https://clarkemoyer.com/sitemap.xml`
+
+---
+
+## Testing
+
+### Unit Tests (Jest)
 ```bash
-npm run build  # Creates out/ directory
-# Deploy out/ directory to any static hosting service
+npm test                 # Run all unit tests
+npm run test:coverage    # With coverage report
 ```
+- `CookieConsent` — show/hide, localStorage, axe accessibility
+- `Navigation` — renders, search link, ARIA
+- Page `metadata` — title + description on all key pages
 
-## Critical Development Guidelines
-
-### Image Path Handling (VERY IMPORTANT)
-**All image references must use the basePath pattern:**
-```tsx
-// ✅ CORRECT
-const basePath = process.env.GITHUB_ACTIONS ? '/clarkemoyer.com' : '';
-<img src={`${basePath}/images/photo.jpg`} />
-
-// ❌ WRONG (breaks on GitHub Pages)
-<img src="/images/photo.jpg" />
+### E2E Tests (Playwright)
+```bash
+npm run build && npm run test:e2e
 ```
+- All 16 pages return 200
+- Cookie consent full flow (accept/decline/customize/persist/modal)
+- Old slug redirects
+- Footer copyright + policy links
+- No broken images
+- SEO: titles, descriptions, sitemap, robots.txt
 
-### Content Updates
-1. **Edit Markdown files** in `content/sections/`
-2. **Test locally** with `npm run dev`
-3. **Build and validate** with `npm run build && npm run test:images:github`
-4. **Commit and push** - deployment is automatic
+### Lighthouse CI
+Runs post-deploy via `.github/workflows/lighthouse.yml`.
+Thresholds: Performance ≥55%, Accessibility ≥90%, Best Practices ≥65%, SEO ≥95%
 
-### TypeScript Requirements
-- All components must have proper TypeScript typing
-- Use interfaces for component props
-- Content fetching must handle null returns gracefully
+---
 
-### Styling Guidelines
-- **Use Tailwind CSS utilities** (no custom CSS files except globals.css)
-- **Responsive design:** Mobile-first approach
-- **Typography:** Use prose classes for content areas
+## Accessibility
 
-## Common Issues and Solutions
+- Skip-to-content link as first focusable element in `<body>`
+- `<div id="main-content" tabIndex={-1}>` as skip target (avoids nested `<main>` issue)
+- Navigation: search is `<a>` not `<button>`, decorative SVGs have `aria-hidden`
+- Cookie modal: focus trap, Escape-to-close, `aria-modal`, `aria-labelledby`
+- YouTube embeds: focus moves to iframe on activation, play icon `aria-hidden`
 
-### Build Issues
-- **"Cannot find module"**: Run `npm ci` to ensure all dependencies are installed
-- **TypeScript errors**: Check `tsconfig.json` paths and ensure all imports use correct aliases
-- **Image validation failures**: Ensure all images use basePath pattern
-- **Security warnings**: `npm audit` will show vulnerabilities in Next.js dependencies (safe to ignore for static output)
+---
 
-### Development Server Issues
-- **Port 3000 in use**: Next.js automatically tries 3001, 3002, etc.
-- **Hot reload not working**: Restart dev server with `npm run dev`
+## Common Issues
 
-### Deployment Issues
-- **Broken images on GitHub Pages**: Run `npm run test:images:github` to validate paths
-- **404 on GitHub Pages**: Ensure `.nojekyll` file exists in output
-
-## Testing Strategy
-
-### Image Path Validation
-**Critical testing:** The repository includes comprehensive image path validation.
-- **Local testing:** `npm run test:images`
-- **GitHub Pages testing:** `npm run test:images:github`
-- **What it validates:** All img src and CSS background-image URLs
-- **Failure behavior:** Build fails if any image paths are incorrect
-
-### Manual Testing Steps
-1. Build site: `npm run build`
-2. Validate images: `npm run test:images:github`
-3. Check for TypeScript errors: `npm run lint`
-4. Test content loading: `npm run dev` and visit each page
-
-## Performance Characteristics
-
-### Performance Characteristics
-
-### Build Times
-- **Development server start:** ~1.3 seconds
-- **Production build:** ~10-15 seconds
-- **Dependency installation:** ~8-20 seconds (with cache warnings)
-- **Linting:** ~2-3 seconds
-- **Image validation:** ~1-2 seconds
-
-### Output Characteristics
-- **Static site:** All pages pre-rendered as HTML
-- **Bundle sizes:** ~105-115KB first load JS per page
-- **Image optimization:** Uses Next.js Image component with unoptimized flag for static export
-
-## Key Dependencies
-- **Next.js 15.1.6:** Static site framework
-- **React 19.0.0:** UI library
-- **TypeScript 5.x:** Type safety
-- **Tailwind CSS 3.4.1:** Styling
-- **gray-matter 4.0.3:** Markdown frontmatter parsing
-- **marked 16.3.0:** Markdown to HTML conversion
-
-## Files to Ignore
-**Never commit these directories/files** (handled by .gitignore):
-- `node_modules/` - Dependencies
-- `out/` - Build output
-- `.next/` - Next.js cache
-- `*.tsbuildinfo` - TypeScript build cache
-
-## Trust These Instructions
-
-**These instructions are comprehensive and tested.** Only search for additional information if:
-1. You encounter specific error messages not covered here
-2. You need to implement features not described in this guide
-3. The provided commands fail in unexpected ways
-
-**Always start with the documented commands and patterns before exploring alternatives.**
+| Issue | Fix |
+|---|---|
+| `type: module` conflict with Jest | Use `jest.config.cjs` not `jest.config.js` |
+| `marked` ESM breaks jsdom | Mock in `__mocks__/marked.cjs` |
+| `next/script` breaks jsdom | Mock in `__mocks__/next-script.cjs` |
+| Build fails on GitHub Pages | Ensure `USE_BASE_PATH: false` in workflow |
+| Cookie banner shows on return visit | Clear `localStorage` key `cookie-consent` |
