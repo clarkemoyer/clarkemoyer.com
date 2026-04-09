@@ -28,7 +28,7 @@ jobs:
           USE_BASE_PATH: false
       - name: Run Lighthouse CI
         run: |
-          npm install -g @lhci/cli
+          npm install -g @lhci/cli@0.14.0
           lhci autorun
       - uses: actions/upload-artifact@v4
         if: always()
