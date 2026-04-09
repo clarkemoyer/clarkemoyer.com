@@ -16,14 +16,15 @@ test.describe('Navigation', () => {
 
   test('navigation renders on homepage', async ({ page }) => {
     await page.goto('/')
+    await page.waitForLoadState('domcontentloaded')
     await expect(page.locator('nav')).toBeVisible()
   })
 
   test('search control exists in navigation', async ({ page }) => {
     await page.goto('/')
-    // Search is a button currently; will become a link after feat/a11y-nav-fixes merges
+    await page.waitForLoadState('domcontentloaded')
     const searchEl = page.locator(`[aria-label="${testConfig.navigation.searchLabel}"]`)
-    await expect(searchEl).toBeVisible()
+    await expect(searchEl).toBeVisible({ timeout: 10000 })
   })
 
   test('old WordPress slug redirects work', async ({ page }) => {

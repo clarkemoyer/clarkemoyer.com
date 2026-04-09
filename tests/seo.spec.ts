@@ -5,6 +5,8 @@ test.describe('SEO', () => {
   for (const path of testConfig.pages) {
     test(`${path} has title and meta description`, async ({ page }) => {
       await page.goto(path)
+      // Wait for document to be fully parsed
+      await page.waitForLoadState('domcontentloaded')
       const title = await page.title()
       expect(title.length, `${path} title should be non-empty`).toBeGreaterThan(5)
       const description = await page.locator('meta[name="description"]').getAttribute('content')
