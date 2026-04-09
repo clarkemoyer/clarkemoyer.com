@@ -36,8 +36,6 @@ jobs:
           CI: true
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
-      - name: Install serve for E2E web server
-        run: npm install -g serve
       - name: Run E2E tests
         run: npm run test:e2e
         env:
