@@ -14,20 +14,23 @@ test.describe('Navigation', () => {
     }
   })
 
-  test('navigation renders on a page using shared Navigation component', async ({ page }) => {
-    // cookie-policy imports Navigation from @/components/Navigation
-    await page.goto('/cookie-policy/')
-    await expect(page.locator('nav')).toBeVisible()
+  test('navigation renders on homepage', async ({ page }) => {
+    await page.goto('/')
+    // Homepage has its own inline navigation
+    const response = await page.goto('/')
+    expect(response?.status()).toBe(200)
+    // At least one nav-like element should exist
+    await expect(page.locator('header, nav, [role="navigation"]').first()).toBeVisible()
   })
 
-  test('search link exists in shared Navigation component', async ({ page }) => {
-    // The shared Navigation component is used on cookie-policy, privacy-policy, quotes pages
-    // (most pages have their own inline navigation)
-    await page.goto('/cookie-policy/')
+  test('shared Navigation component renders with search link', async ({ page }) => {
+    // cookie-policy uses @/components/Navigation — verify it loads and has the search link
+    const response = await page.goto('/cookie-policy/')
+    expect(response?.status()).toBe(200)
+    await expect(page.locator('nav')).toBeVisible()
     const searchEl = page.locator(`[aria-label="${testConfig.navigation.searchLabel}"]`)
     await expect(searchEl).toBeVisible({ timeout: 15000 })
-    const href = await searchEl.getAttribute('href')
-    expect(href).toContain('duckduckgo.com')
+    await expect(searchEl).toHaveAttribute('href', /duckduckgo\.com/)
   })
 
   test('old WordPress slug redirects work', async ({ page }) => {
