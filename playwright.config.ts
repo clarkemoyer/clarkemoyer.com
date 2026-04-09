@@ -20,6 +20,6 @@ export default defineConfig({
     command: 'npx --no-install serve out -p 3000',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
-    timeout: 60 * 1000,
+    timeout: 120 * 1000,
   },
 })
