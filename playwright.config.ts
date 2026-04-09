@@ -16,7 +16,8 @@ export default defineConfig({
     use: { ...devices['Desktop Chrome'] },
   }],
   webServer: {
-    command: 'npx serve out -p 3000',
+    // Use locally installed serve from node_modules (installed by npm ci)
+    command: 'npx --no-install serve out -p 3000',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
