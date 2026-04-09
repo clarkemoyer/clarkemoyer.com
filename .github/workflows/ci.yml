@@ -26,12 +26,10 @@ jobs:
       - run: npm test
         env:
           CI: true
-      - name: Build site
+      - name: Build site (CI mode — no tracking IDs, no basePath)
         run: npm run build
         env:
           USE_BASE_PATH: false
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-C2Q1HC0GVQ
-          NEXT_PUBLIC_GTM_ID: GTM-5JL6TDQW
           NEXT_PUBLIC_SITE_URL: https://clarkemoyer.com
       - run: npm run test:images
         env:

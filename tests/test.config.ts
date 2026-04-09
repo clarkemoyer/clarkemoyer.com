@@ -18,7 +18,6 @@ export const testConfig = {
   },
   navigation: {
     homeUrl: '/',
-    // aria-label on the search control — updated when feat/a11y-nav-fixes merges
     searchLabel: 'Search this site (opens in new tab)',
   },
   // Only pages that exist on current main branch
