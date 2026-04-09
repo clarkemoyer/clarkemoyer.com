@@ -36,6 +36,17 @@ jobs:
           CI: true
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
+      - name: Verify build output and serve work
+        run: |
+          npm run preview &
+          SERVE_PID=$!
+          sleep 3
+          echo "=== Checking serve is running ==="
+          curl -s -o /dev/null -w "HTTP status: %{http_code}\n" http://localhost:3000/
+          echo "=== Title in served HTML ==="
+          curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>' || echo "NO TITLE FOUND"
+          kill $SERVE_PID
+          wait $SERVE_PID 2>/dev/null || true
       - name: Run E2E tests
         run: npm run test:e2e
         env:
