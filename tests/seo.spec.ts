@@ -5,10 +5,8 @@ test.describe('SEO', () => {
   for (const path of testConfig.pages) {
     test(`${path} has title and meta description`, async ({ page }) => {
       await page.goto(path)
-      // toHaveTitle auto-retries until React hydrates and sets the title
-      await expect(page).toHaveTitle(/.+/, { timeout: 15000 })
-      const title = await page.title()
-      expect(title.length, `${path} title should be non-empty`).toBeGreaterThan(5)
+      // Auto-retries until title is set (handles React hydration delay)
+      await expect(page).toHaveTitle(/.{6,}/, { timeout: 15000 })
       const description = await page.locator('meta[name="description"]').getAttribute('content')
       expect(description, `${path} should have meta description`).toBeTruthy()
     })
