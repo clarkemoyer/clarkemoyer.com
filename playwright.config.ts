@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test'
 import path from 'path'
 
+// Quote path to handle spaces in directory names
+const serveBin = `"${path.join('node_modules', '.bin', 'serve')}"`
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: !process.env.CI,
@@ -18,7 +21,7 @@ export default defineConfig({
     use: { ...devices['Desktop Chrome'] },
   }],
   webServer: {
-    command: `${path.join('node_modules', '.bin', 'serve')} out -p 3000 --no-clipboard`,
+    command: `${serveBin} out -p 3000 --no-clipboard`,
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
