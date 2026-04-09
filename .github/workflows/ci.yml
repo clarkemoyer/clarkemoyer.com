@@ -24,14 +24,20 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-      - run: npm run build
+        env:
+          CI: true
+      - name: Build site (CI mode — no tracking IDs, no basePath)
+        run: npm run build
         env:
           USE_BASE_PATH: false
+          NEXT_PUBLIC_SITE_URL: https://clarkemoyer.com
       - run: npm run test:images
         env:
           CI: true
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Run E2E tests
+        run: npm run test:e2e
         env:
           CI: true
       - if: failure()
