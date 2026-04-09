@@ -34,16 +34,18 @@ jobs:
       - run: npm run test:images
         env:
           CI: true
-      - name: Verify build output contains expected title
+      - name: Verify build output titles (static HTML check)
         run: |
-          TITLE=$(grep -o '<title>[^<]*</title>' out/index.html || true)
-          echo "Title in built HTML: $TITLE"
-          if echo "$TITLE" | grep -qi "clarke moyer"; then
-            echo "✅ Build output verified"
-          else
-            echo "ERROR: Expected Clarke Moyer title in out/index.html, got: $TITLE"
-            exit 1
-          fi
+          PAGES="out/index.html out/who-i-am/index.html out/fun/index.html out/certification-guides/index.html"
+          for PAGE in $PAGES; do
+            TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
+            echo "$PAGE: $TITLE"
+            if ! echo "$TITLE" | grep -qi "clarke moyer"; then
+              echo "ERROR: Missing expected title in $PAGE"
+              exit 1
+            fi
+          done
+          echo "✅ Build output titles verified"
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
       - name: Run E2E tests
