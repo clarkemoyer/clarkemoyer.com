@@ -10,8 +10,6 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
-    // Wait for networkidle so React hydrates before assertions
-    waitForNavigation: 'networkidle',
   },
   projects: [{
     name: 'chromium',
