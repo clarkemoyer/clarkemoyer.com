@@ -6,7 +6,7 @@ import { testConfig } from './test.config'
  *
  * These tests verify runtime page availability (HTTP 200) for all routes.
  * Page titles and meta descriptions are verified statically in the CI build
- * step by grepping the generated HTML in out/*/index.html for all pages.
+ * step against the generated HTML for the configured page list.
  * Metadata TypeScript exports are verified by __tests__/pages/metadata.test.tsx.
  */
 
