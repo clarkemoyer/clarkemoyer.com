@@ -63,14 +63,14 @@ jobs:
             fi
             TITLE=$(grep -o '<title>[^<]*</title>' "$PAGE" || true)
             # Check for meta description tag (any attribute order)
-            DESC=$(grep -c 'name="description"' "$PAGE" 2>/dev/null || true)
+            DESC=$(grep -c 'name="description"' "$PAGE" 2>/dev/null || echo 0)
             if echo "$TITLE" | grep -qi "clarke moyer"; then
               echo "OK title: $PAGE"
             else
               echo "ERROR: Title in $PAGE does not contain 'clarke moyer': $TITLE"
               ERRORS=$((ERRORS+1))
             fi
-            if [ -n "$DESC" ]; then
+            if [ "$DESC" -gt 0 ]; then
               echo "OK desc:  $PAGE"
             else
               echo "ERROR: Missing description in $PAGE"
