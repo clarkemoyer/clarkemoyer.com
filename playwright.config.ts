@@ -1,22 +1,26 @@
 import { defineConfig, devices } from '@playwright/test'
+import path from 'path'
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : 4,
+  workers: 1,
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
+    // Give each action more time in CI
+    actionTimeout: process.env.CI ? 15000 : 5000,
   },
   projects: [{
     name: 'chromium',
     use: { ...devices['Desktop Chrome'] },
   }],
   webServer: {
-    command: 'python3 -m http.server 3000 --directory out',
+    // Use the locally installed serve binary directly (avoids npx startup overhead)
+    command: `${path.join('node_modules', '.bin', 'serve')} out -p 3000 --no-clipboard`,
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
