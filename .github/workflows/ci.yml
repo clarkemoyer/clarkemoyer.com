@@ -41,12 +41,12 @@ jobs:
           trap 'kill $SERVE_PID 2>/dev/null; wait $SERVE_PID 2>/dev/null || true' EXIT
           npm run preview &
           SERVE_PID=$!
-          # Wait until server responds (up to 30s)
-          curl --retry 10 --retry-connrefused --retry-delay 1 -s -o /dev/null http://localhost:3000/
-          TITLE=$(curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>')
+          # Wait until server responds (up to ~30s with 30 retries, 1s delay)
+          curl --retry 30 --retry-connrefused --retry-delay 1 -s -o /dev/null http://localhost:3000/
+          TITLE=$(curl -s http://localhost:3000/ | grep -o '<title>[^<]*</title>' || true)
           echo "Served title: $TITLE"
           if [ -z "$TITLE" ]; then
-            echo "ERROR: No title found in served HTML — build may be broken"
+            echo "ERROR: No title found in served HTML"
             exit 1
           fi
       - name: Run E2E tests
