@@ -10,26 +10,24 @@ describe('Navigation', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument()
   })
 
-  it('renders the brand link', () => {
+  it('renders the brand as a link to home', () => {
     render(<Navigation />)
-    // Brand link is the h1/site title anchor
-    const brandLinks = screen.getAllByText(/clarke moyer/i)
-    expect(brandLinks.length).toBeGreaterThan(0)
+    // Brand link goes to '/'
+    const homeLinks = screen.getAllByRole('link').filter(
+      el => el.getAttribute('href') === '/'
+    )
+    expect(homeLinks.length).toBeGreaterThan(0)
   })
 
-  it('renders a search control', () => {
+  it('renders a search control linking to DuckDuckGo or labelled Search', () => {
     render(<Navigation />)
-    // Search may be a button or anchor depending on branch
-    const searchEl =
-      screen.queryByRole('link', { name: /search/i }) ||
-      screen.queryByRole('button', { name: /search/i })
-    expect(searchEl).toBeTruthy()
+    const searchLink = screen.queryByRole('link', { name: /search/i })
+    const searchBtn = screen.queryByRole('button', { name: /search/i })
+    expect(searchLink || searchBtn).toBeTruthy()
   })
 
-  it('renders navigation links', () => {
+  it('renders the toggle menu button on mobile', () => {
     render(<Navigation />)
-    // At least one nav link should be present
-    const links = screen.getAllByRole('link')
-    expect(links.length).toBeGreaterThan(0)
+    expect(screen.getByRole('button', { name: /toggle menu/i })).toBeInTheDocument()
   })
 })
