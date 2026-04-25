@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO: Replace YOUR_TAG with your Amazon Associates tag (e.g. clarkemoyer-20)
-const AMZN_TAG = 'YOUR_TAG';
+const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
   const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
   return (
@@ -46,11 +45,18 @@ export default function SweetTeaPage() {
             <ul className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B08QS5B8MZ', '2.5 Gallon Glass Beverage Dispenser with Spigot')}
+                {amzn('B07G3LFMBS', '3 Gallon Stainless Steel Brew Pot')}
+                <span className="text-gray-500 text-sm ml-1">— the entire recipe is made in this single pot</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B00004OCNS', 'Large Stockpot (8 Qt) — for the tea concentrate')}
+                {amzn('B08QS5B8MZ', '2.5 Gallon Beverage Dispenser')}
+                <span className="text-gray-500 text-sm ml-1">— thinner plastic, only used for serving</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B0849T9LTQ', 'Pot Pouring Spout / Strainer Insert')}
+                <span className="text-gray-500 text-sm ml-1">— fits over the pot lip for clean pouring into the dispenser</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
@@ -58,7 +64,7 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B07JNLLNF9', 'OXO Good Grips Liquid Measuring Cup Set')}
+                {amzn('B07JNLLNF9', 'Liquid Measuring Cup (1 Gallon marked)')}
               </li>
             </ul>
           </div>
@@ -69,49 +75,80 @@ export default function SweetTeaPage() {
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
                 <span>
-                  {amzn('B00RJCMJPE', 'Lipton Black Tea, Family Size Bags (100 ct)')} — use 16 bags per batch
+                  {amzn('B004G60HHU', 'Lipton Black Tea, 2-Gallon Iced Tea Bags (rectangle family size)')} — 2 bags
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
                 <span>
-                  {amzn('B07QG14XBS', 'Domino Pure Cane Granulated Sugar (10 lb bag)')} — 2½ cups per batch
+                  {amzn('B07QG14XBS', 'Domino Pure Cane Granulated Sugar')} — 3 cups
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                <span>2 Quarts Boiling Water <span className="text-gray-500">(for the concentrate)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 text-gray-400">▸</span>
-                <span>Cold Water to fill — approximately 6 quarts</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1 text-gray-400">▸</span>
-                <span>Optional: 1 TSP Baking Soda <span className="text-gray-500">(takes the bitterness out)</span></span>
+                <span>3 gallons water total: 1 gallon for simple syrup, 1 gallon for tea, ½ gallon cold/iced for cooling</span>
               </li>
             </ul>
           </div>
 
           <div className="mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Directions</h2>
-            <ol className="list-decimal ml-6 space-y-4 text-gray-700">
-              <li>Bring 2 quarts of water to a rolling boil in the stockpot.</li>
-              <li>Remove from heat. Add all 16 Lipton Family Size bags. If using baking soda, add it now — it neutralizes tannins and keeps the tea from going bitter or cloudy. Steep for <strong>15 minutes</strong>. Do not squeeze the bags when removing.</li>
-              <li>Remove tea bags without squeezing. While the tea is still hot, add 2½ cups of sugar and stir until completely dissolved. <strong>The sugar must go in hot</strong> — this is what makes it Sweet Tea, not iced tea with sugar.</li>
-              <li>Pour the concentrate into your 2.5 gallon dispenser.</li>
-              <li>Fill the rest of the dispenser with cold water, leaving a little room at the top. Stir gently to combine.</li>
-              <li>Refrigerate for at least 2 hours before serving. <strong>Best served over ice.</strong> 🍋</li>
-            </ol>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Method</h2>
+
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Phase 1 — Make the Simple Syrup</h3>
+              <ol className="list-decimal ml-6 space-y-2 text-gray-700">
+                <li>Pour 1 gallon of water into the 3-gallon stainless steel pot.</li>
+                <li>Add 3 cups of granulated sugar.</li>
+                <li>Heat over medium-high, stirring until the sugar is completely dissolved. You&rsquo;re making a simple syrup — it does not need to boil, just fully dissolve.</li>
+                <li>Remove from heat and set aside in the pot.</li>
+              </ol>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Phase 2 — Brew the Tea</h3>
+              <ol className="list-decimal ml-6 space-y-2 text-gray-700">
+                <li>Add the second gallon of water directly to the same pot with the syrup.</li>
+                <li>Bring to a boil, then remove from heat.</li>
+                <li>Add both Lipton 2-Gallon rectangle tea bags. Steep for <strong>15 minutes</strong>. Do not squeeze the bags when removing — it makes the tea bitter and cloudy.</li>
+                <li>Remove both bags without squeezing and discard.</li>
+              </ol>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Phase 3 — Cool Down</h3>
+              <ol className="list-decimal ml-6 space-y-2 text-gray-700">
+                <li>Add ½ gallon of cold or iced water directly to the pot. Stir to combine.</li>
+                <li>Allow the tea to cool further until it is no longer steaming. The goal is a temperature safe to pour into the plastic dispenser.</li>
+              </ol>
+            </div>
+
+            {/* Warning box */}
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg p-5 mb-6">
+              <h3 className="font-bold text-yellow-900 mb-2">⚠️ Do Not Skip the Cool-Down Step</h3>
+              <p className="text-yellow-800 text-sm">
+                The 2.5 gallon fridge dispenser is thinner plastic and <strong>will warp or melt</strong> if you pour boiling or near-boiling liquid into it.
+                Always add the ½ gallon of cold water and wait until the tea has cooled to a safe pouring temperature before transferring.
+                The stainless steel pot can hold hot liquid — the dispenser cannot.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">Phase 4 — Transfer &amp; Serve</h3>
+              <ol className="list-decimal ml-6 space-y-2 text-gray-700">
+                <li>Attach the pouring spout/strainer assistant to the lip of the pot. This lets you cleanly pour into the smaller opening of the dispenser without spilling.</li>
+                <li>Pour the cooled tea from the pot into the 2.5 gallon dispenser.</li>
+                <li>Refrigerate for at least 2 hours. <strong>Serve over ice.</strong> 🍋</li>
+              </ol>
+            </div>
           </div>
 
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mb-10">
             <h3 className="font-bold text-amber-900 mb-2">💡 Notes</h3>
             <ul className="list-disc ml-5 space-y-1 text-amber-800 text-sm">
-              <li>Sugar dissolves much better in hot tea — always sweeten before adding cold water.</li>
-              <li>For a stronger brew, steep up to 20 minutes but no longer.</li>
-              <li>Add lemon slices to the dispenser for a classic touch.</li>
-              <li>This recipe produces a classic Southern Sweet Tea — strong and sweet. Cut sugar to 2 cups for a lighter version.</li>
+              <li>This recipe uses 3-gallon sugar ratios but only 2 gallons of tea — intentionally lighter on the tea and heavier on the sweet. Classic Sweet Tea, not watered-down iced tea.</li>
+              <li>The simple syrup method ensures the sugar is fully dissolved before the tea is added. You will never get grainy Sweet Tea this way.</li>
+              <li>The two Lipton 2-gallon rectangle bags are sized to brew exactly 2 gallons — perfect for this method.</li>
+              <li>Add lemon slices to the dispenser for a classic finish.</li>
             </ul>
           </div>
 

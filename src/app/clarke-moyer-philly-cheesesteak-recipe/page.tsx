@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 // TODO: Replace YOUR_TAG with your Amazon Associates tag (e.g. clarkemoyer-20)
-const AMZN_TAG = 'YOUR_TAG';
+const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
   const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
   return (
