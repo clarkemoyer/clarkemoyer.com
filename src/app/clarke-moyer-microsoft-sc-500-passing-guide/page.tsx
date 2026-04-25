@@ -69,6 +69,19 @@ export default function SC500GuidePage() {
             </ol>
           </div>
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-8">
+            <p className="font-bold text-amber-900">📋 A Note on Clarke&rsquo;s Version</p>
+            <p className="text-amber-800 text-sm mt-1">
+              Clarke completed an earlier version of this certification track when it was more heavily focused on
+              core Azure security and Microsoft 365 security administration. The exam has since evolved toward
+              Cloud and AI Security Engineering. The fundamentals and study methodology remain the same, but
+              be aware that current exam objectives place greater emphasis on AI workload security than the
+              version Clarke sat. Always verify current exam objectives at{' '}
+              <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a>{' '}
+              before purchasing study materials.
+            </p>
+          </div>
+
           <h2>About the SC-500 Exam</h2>
           <p>
             The Microsoft SC-500 (Cloud and AI Security Engineer Associate) certification validates skills in securing
