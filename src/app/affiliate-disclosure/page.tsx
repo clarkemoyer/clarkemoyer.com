@@ -70,6 +70,7 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-world-famous-apple-crisp-recipe/" className="text-blue-600 hover:underline">Apple Crisp Recipe</Link></li>
               <li><Link href="/clarke-moyer-sweet-tea-recipe/" className="text-blue-600 hover:underline">Sweet Tea Recipe</Link></li>
               <li><Link href="/clarke-moyer-philly-cheesesteak-recipe/" className="text-blue-600 hover:underline">Philly Cheesesteak Recipe</Link></li>
+              <li><Link href="/clarke-moyer-cissp-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP Certification Passing Guide</Link></li>
             </ul>
             <p className="mt-3">
               Affiliate links on these pages are marked with ↗ and will open Amazon.com in a new tab.

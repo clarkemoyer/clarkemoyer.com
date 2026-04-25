@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   },
 };
 
+const AMZN_TAG = 'clarkemoyer-20';
+function amzn(asin: string, label: string) {
+  const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
+      {label} ↗
+    </a>
+  );
+}
+
 export default function CISSPGuidePage() {
   return (
     <>
@@ -63,14 +73,47 @@ export default function CISSPGuidePage() {
           </p>
           <p><a href="https://docs.wixstatic.com/ugd/dc6afa_fc8dba86e57a4f3cb9aaf66aff6f9d22.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a></p>
 
-          <h3>CISSP: Certified Information Systems Security Professional Study Guide, 8th Edition (Free — Army Skillport)</h3>
-          <p>
-            This is the official book that goes with the official practice exam book mentioned later. Use the online
-            tools provided by the book.
+          <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
+            ISC2 CISSP Official Study Guide, 10th Edition
+          </h3>
+          <p className="not-prose text-gray-700 mt-2 mb-3">
+            Fully updated for the 2024 CISSP Body of Knowledge. The definitive study guide direct from ISC2.
+            Use the online tools provided with the book.
+          </p>
+          <p className="not-prose">
+            {amzn('1394254695', 'ISC2 CISSP Official Study Guide, 10th Edition')}
           </p>
 
-          <h3>CISSP All-in-One Exam Guide, 8th Edition (Free — Army SkillPort)</h3>
-          <p>Alternative vendor not direct from ISC(2). Use the online tools provided by the book.</p>
+          <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
+            ISC2 CISSP Official Practice Tests <span className="text-green-700 text-base font-semibold ml-2">← Must Buy</span>
+          </h3>
+          <p className="not-prose text-gray-700 mt-2 mb-3">
+            I spent literally 15 hours of testing in this online portal. Best value overall. The online options for
+            testing are the best of all the test banks I used. <strong>This is a must-buy for success in my mind.</strong>
+          </p>
+          <p className="not-prose">
+            {amzn('1394255071', 'ISC2 CISSP Official Practice Tests')}
+          </p>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-5 my-6">
+            <h4 className="font-bold text-green-900 mb-2">💡 Buy Both Together and Save</h4>
+            <p className="text-green-800 text-sm mb-3">
+              If you&rsquo;re getting both the study guide and practice tests, the bundle is the better value.
+              Only the practice tests are truly required — but the study guide is a strong companion.
+            </p>
+            {amzn('1394258410', 'ISC2 CISSP Official Study Guide + Practice Tests Bundle (10th Edition)')}
+          </div>
+
+          <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
+            CISSP All-in-One Exam Guide — Audiobook (9th Edition)
+          </h3>
+          <p className="not-prose text-gray-700 mt-2 mb-3">
+            Alternative vendor not direct from ISC2. Great if you learn by listening — commutes, gym, household tasks.
+            Shon Harris is one of the most respected voices in CISSP prep.
+          </p>
+          <p className="not-prose">
+            {amzn('B0C5YW939P', 'CISSP All-in-One Exam Guide, 9th Edition — Audiobook')}
+          </p>
 
           <h2>Training Programs</h2>
 
@@ -94,14 +137,7 @@ export default function CISSPGuidePage() {
           <h3>(ISC)² CISSP Official Study App ($10)</h3>
           <p>
             Great tool for vocabulary and quick mini-tests when you don&rsquo;t have time for a full 125-question test.
-            I would do these tests anywhere and anytime.
-          </p>
-
-          <h3>Official Practice Test Book — ISC2 CISSP Official Practice Tests, 2nd Edition ($25)</h3>
-          <p>
-            I spent literally 15 hours of testing in this online portal. Best value overall. It was just released for
-            the 2018 version and the online options for testing are the best of all the test banks I used. This is a
-            must-buy for success in my mind.
+            I would do these tests anywhere and anytime. Available on iOS and Android.
           </p>
 
           <h3>CISSP SkillSet Pro Subscription ($90)</h3>
@@ -115,8 +151,12 @@ export default function CISSPGuidePage() {
             <a href="https://www.youtube.com/channel/UCwUkAunxT1BNbmKVOSEoqYA" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
           </p>
 
-          <div className="mt-12 text-center not-prose">
-            <Link href="/" className="text-blue-600 hover:underline font-medium">← Back to Home</Link>
+          <p className="not-prose text-xs text-gray-400 mt-12">
+            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
+          </p>
+
+          <div className="mt-8 text-center not-prose">
+            <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>
       </section>
