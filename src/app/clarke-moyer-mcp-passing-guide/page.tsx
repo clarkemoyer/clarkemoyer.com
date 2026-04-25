@@ -30,6 +30,18 @@ export default function MCPGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          {/* WGU / early career context banner */}
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-500 p-5 mb-8">
+            <p className="font-bold text-blue-900">🎓 Early Career Context</p>
+            <p className="text-blue-800 text-sm mt-1">
+              Clarke obtained the MCP in 2009 during the same period he completed his{' '}
+              <strong>BS-IT at Western Governors University</strong>. WGU&apos;s program helped build the
+              foundational Microsoft Windows knowledge that led to this credential. Clarke obtained
+              the MCP specifically as a prerequisite for his hire into SAIC and DCGS — it was
+              a career requirement, not just an academic one.
+            </p>
+          </div>
+
           <h2>The Story</h2>
           <p>
             I got my MCP in March 2009 — and yes, it was a <strong>Windows XP certification</strong>. If you&rsquo;re

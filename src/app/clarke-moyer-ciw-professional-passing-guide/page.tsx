@@ -32,6 +32,20 @@ export default function CIWProfessionalGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          {/* WGU context banner */}
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-500 p-5 mb-8">
+            <p className="font-bold text-blue-900">🎓 WGU Degree Program Context</p>
+            <p className="text-blue-800 text-sm mt-1">
+              Clarke obtained this certification as part of completing his{' '}
+              <strong>BS-IT (Bachelor of Science in Information Technology)</strong> at{' '}
+              <a href="/wgu-referral-program" className="underline">Western Governors University (WGU)</a>.
+              WGU&apos;s IT degree program integrates industry certification preparation directly into the curriculum —{' '}
+              students can earn both the degree and the certifications simultaneously. This is why Clarke holds
+              multiple foundational certifications from the same 2008–2009 period. If you&apos;re considering WGU,
+              the built-in cert prep is a significant part of the value.
+            </p>
+          </div>
+
           <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
             <p className="text-amber-800 font-semibold">📋 Market Recognition Note</p>
             <p className="text-amber-700 text-sm mt-1">

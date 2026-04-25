@@ -39,6 +39,20 @@ export default function ProjectPlusGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          {/* WGU context banner */}
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-500 p-5 mb-8">
+            <p className="font-bold text-blue-900">🎓 WGU Degree Program Context</p>
+            <p className="text-blue-800 text-sm mt-1">
+              Clarke obtained this certification as part of completing his{' '}
+              <strong>BS-IT (Bachelor of Science in Information Technology)</strong> at{' '}
+              <a href="/wgu-referral-program" className="underline">Western Governors University (WGU)</a>.
+              WGU&apos;s IT degree program integrates industry certification preparation directly into the curriculum —{' '}
+              students can earn both the degree and the certifications simultaneously. This is why Clarke holds
+              multiple foundational certifications from the same 2008–2009 period. If you&apos;re considering WGU,
+              the built-in cert prep is a significant part of the value.
+            </p>
+          </div>
+
           {/* Warning callout — SAFe-specific for Project+ */}
           <div className="not-prose bg-orange-50 border-l-4 border-orange-500 p-6 mb-8 rounded-r-lg">
             <p className="text-orange-900 font-semibold text-base leading-relaxed">
