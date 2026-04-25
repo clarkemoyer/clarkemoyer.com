@@ -197,6 +197,11 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
+          <div className="not-prose my-12 border-t-2 border-gray-200 pt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Full Credentials Record</h2>
+            <p className="text-gray-500 text-sm mb-8">Complete listing of all certifications, credentials, and degrees held. For detailed study guides, see the cards above.</p>
+          </div>
+
           <h2>Industry Management Certifications (DFARS)</h2>
           <ul>
             <li>
@@ -242,6 +247,21 @@ export default function CertificationGuidesPage() {
             <li><strong>VMware Certified Professional 6 – Cloud Management and Automation (VCP6-CMA)</strong> (Obtained: 2018-May-15)</li>
             <li><strong>Microsoft Certified Professional (MCP)</strong> (Obtained: 2009-Mar-21)</li>
             <li><strong>CIW Professional</strong> (Obtained: 2009-Apr-22) including CIW Database Design Specialist</li>
+          </ul>
+
+          <h3>Microsoft Azure Certifications</h3>
+          <ul>
+            <li><strong>Microsoft MS-900: Microsoft 365 Fundamentals</strong></li>
+            <li><strong>Microsoft AZ-900: Azure Fundamentals</strong></li>
+            <li><strong>Microsoft AI-900: Azure AI Fundamentals</strong></li>
+            <li><strong>Microsoft SC-900: Security, Compliance, and Identity Fundamentals</strong></li>
+            <li><strong>Microsoft SC-500: Cloud and AI Security Engineer Associate</strong></li>
+            <li><strong>Microsoft Certified Professional (MCP)</strong> (Obtained: 2009-Mar-21)</li>
+          </ul>
+
+          <h3>Service Management</h3>
+          <ul>
+            <li><strong>ITIL 4 Foundation</strong></li>
           </ul>
 
           <h2>Degrees and Graduate Certificates</h2>
