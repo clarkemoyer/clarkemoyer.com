@@ -91,6 +91,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-microsoft-az-900-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-microsoft-ai-900-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-microsoft-sc-900-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-microsoft-sc-500-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://clarkemoyer.com/affiliate-disclosure/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

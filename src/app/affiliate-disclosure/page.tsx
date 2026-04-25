@@ -74,6 +74,10 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-cissp-issep-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP-ISSEP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-pmp-certification-passing-guide/" className="text-blue-600 hover:underline">PMP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-safe-spc-certification-passing-guide/" className="text-blue-600 hover:underline">SAFe SPC Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AZ-900 Azure Fundamentals Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-microsoft-ai-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AI-900 Azure AI Fundamentals Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-microsoft-sc-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC-900 Security Fundamentals Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC Security Certification Track Guide</Link></li>
             </ul>
             <p className="mt-3">
               Affiliate links on these pages are marked with ↗ and will open Amazon.com in a new tab.

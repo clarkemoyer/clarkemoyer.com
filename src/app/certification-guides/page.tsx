@@ -34,6 +34,53 @@ export default function CertificationGuidesPage() {
             <a href="https://linkedin.com/in/clarkemoyer" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em>
           </p>
 
+          <h2>Microsoft Azure Certifications</h2>
+          <p className="text-gray-600 not-prose">Clarke currently recommends these Microsoft Azure certifications — solid entry points for cloud, AI, and security in enterprise and DoD environments.</p>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-bold text-green-900">Microsoft AZ-900 Azure Fundamentals Guide</h2>
+              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
+            </div>
+            <p className="text-green-800 mb-4">The entry point for all Azure certifications — establishes the vocabulary and framework everything else builds on.</p>
+            <Link href="/clarke-moyer-microsoft-az-900-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the AZ-900 Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-bold text-green-900">Microsoft AI-900 Azure AI Fundamentals Guide</h2>
+              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
+            </div>
+            <p className="text-green-800 mb-4">Entry-level Azure AI certification — essential for understanding AI workloads in enterprise and DoD environments before anyone can advise on AI policy or procurement.</p>
+            <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the AI-900 Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-bold text-green-900">Microsoft SC-900 Security Fundamentals Guide</h2>
+              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
+            </div>
+            <p className="text-green-800 mb-4">Entry point to the Microsoft SC security track — covers security, compliance, and identity (SCI) fundamentals. Especially useful for CISSP holders mapping to Azure.</p>
+            <Link href="/clarke-moyer-microsoft-sc-900-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the SC-900 Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-bold text-green-900">Microsoft SC Series (Security Track) Guide</h2>
+              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
+            </div>
+            <p className="text-green-800 mb-4">Clarke&rsquo;s overview of the full Microsoft SC security certification track — SC-900 through SC-100 — and how each cert maps to DoD and enterprise security roles.</p>
+            <Link href="/clarke-moyer-microsoft-sc-500-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the SC Series Guide →
+            </Link>
+          </div>
+
           <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">CISSP Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">I wrote a detailed guide on how I passed the CISSP on my first attempt.</p>
