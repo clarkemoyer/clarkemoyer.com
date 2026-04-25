@@ -145,4 +145,34 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-vcp6-cma-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-vcp-am-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-vcp5-dcv-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-vcp4-dcv-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-mcp-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-ciw-professional-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
