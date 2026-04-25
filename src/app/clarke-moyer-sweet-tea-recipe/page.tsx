@@ -58,7 +58,7 @@ export default function SweetTeaPage() {
               <li>Bring 2 quarts of water to a rolling boil in a large pot.</li>
               <li>Remove from heat. Add all 16 family-size tea bags. If using baking soda, add it now — it neutralizes tannins and keeps the tea from going bitter or cloudy. Steep for <strong>15 minutes</strong>. Do not squeeze the bags when removing — it makes the tea bitter.</li>
               <li>Remove tea bags without squeezing. While the tea is still hot, add 2½ cups of sugar and stir until completely dissolved.</li>
-              <li>Pour the sweet tea concentrate into your 2.5 gallon dispenser.</li>
+              <li>Pour the Sweet Tea concentrate into your 2.5 gallon dispenser.</li>
               <li>Fill the rest of the dispenser with cold water, leaving a little room at the top. Stir gently to combine.</li>
               <li>Refrigerate for at least 2 hours before serving. <strong>Best served over ice.</strong> 🍋</li>
             </ol>
@@ -70,7 +70,7 @@ export default function SweetTeaPage() {
               <li>Sugar dissolves much better in hot tea — always sweeten before adding cold water.</li>
               <li>For a stronger brew, steep up to 20 minutes but no longer.</li>
               <li>Add lemon slices to the dispenser for a classic touch.</li>
-              <li>This recipe produces a classic Southern sweet tea — strong and sweet. Cut sugar to 2 cups for a lighter version.</li>
+              <li>This recipe produces a classic Southern Sweet Tea — strong and sweet. Cut sugar to 2 cups for a lighter version.</li>
             </ul>
           </div>
 
