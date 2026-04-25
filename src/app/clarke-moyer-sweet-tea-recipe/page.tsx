@@ -50,8 +50,8 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                <a href="https://www.amazon.com/s?k=2.5+gallon+glass+beverage+dispenser+with+spigot&tag=clarkemoyer-20" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">2.5 Gallon Glass Beverage Dispenser with Spigot ↗</a>
-                <span className="text-gray-500 text-sm ml-1">— thinner plastic, only used for serving</span>
+                {amzn('B005S4LOYY', 'Arrow Home Products 3 Gallon Drink Dispenser (BPA Free)')}
+                <span className="text-gray-500 text-sm ml-1">— the exact dispenser used in this recipe</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
