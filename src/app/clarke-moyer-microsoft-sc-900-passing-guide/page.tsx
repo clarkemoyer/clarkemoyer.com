@@ -55,6 +55,18 @@ export default function SC900GuidePage() {
             </ol>
           </div>
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-8">
+            <p className="font-bold text-amber-900">📋 A Note on Clarke&rsquo;s Version</p>
+            <p className="text-amber-800 text-sm mt-1">
+              Clarke completed an earlier version of this certification when it was more heavily focused on
+              Azure and Microsoft 365 security fundamentals. The exam has since evolved. If you&rsquo;re deciding
+              where to start in the Microsoft certification track, Clarke now recommends beginning with the{' '}
+              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline font-semibold">AI-900 (Azure AI Fundamentals)</Link>{' '}
+              as it better reflects where enterprise and DoD environments are heading. SC-900 remains a solid
+              credential for compliance and identity fundamentals.
+            </p>
+          </div>
+
           <h2>What Is the SC-900?</h2>
           <p>
             The <strong>Microsoft Security, Compliance, and Identity Fundamentals (SC-900)</strong> is the entry-level

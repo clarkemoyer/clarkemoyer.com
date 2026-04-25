@@ -83,6 +83,7 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-microsoft-ai-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AI-900 Azure AI Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-sc-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC-900 Security Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC Security Certification Track Guide</Link></li>
+              <li><Link href="/clarke-moyer-microsoft-ms-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft MS-900 Microsoft 365 Fundamentals Guide</Link></li>
             </ul>
             <p className="mt-3">
               Affiliate links on these pages are marked with ↗ and will open Amazon.com in a new tab.
