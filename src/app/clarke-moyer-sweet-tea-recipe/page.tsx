@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   },
 };
 
+// TODO: Replace YOUR_TAG with your Amazon Associates tag (e.g. clarkemoyer-20)
+const AMZN_TAG = 'YOUR_TAG';
+function amzn(asin: string, label: string) {
+  const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
+      {label} ↗
+    </a>
+  );
+}
+
 export default function SweetTeaPage() {
   return (
     <>
@@ -32,33 +43,63 @@ export default function SweetTeaPage() {
 
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Tools</h2>
-            <ul className="list-disc ml-6 space-y-1 text-gray-700">
-              <li>2.5 Gallon fridge dispenser</li>
-              <li>Large pot (at least 2 quart capacity)</li>
-              <li>Long stirring spoon</li>
-              <li>Measuring cups: 1 Cup, ½ Cup</li>
-              <li>Measuring spoons: 1 TSP</li>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B08QS5B8MZ', '2.5 Gallon Glass Beverage Dispenser with Spigot')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B00004OCNS', 'Large Stockpot (8 Qt) — for the tea concentrate')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B07D5YWTJY', 'Long-Handle Silicone Stirring Spoon')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B07JNLLNF9', 'OXO Good Grips Liquid Measuring Cup Set')}
+              </li>
             </ul>
           </div>
 
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Ingredients</h2>
-            <ul className="list-disc ml-6 space-y-1 text-gray-700">
-              <li>16 Lipton Family-Size Tea Bags <span className="text-gray-500">(or 32 regular size)</span></li>
-              <li>2½ Cups Granulated Sugar <span className="text-gray-500">(adjust to taste)</span></li>
-              <li>2 Quarts Boiling Water <span className="text-gray-500">(for the concentrate)</span></li>
-              <li>Cold Water to fill <span className="text-gray-500">(approximately 6 quarts)</span></li>
-              <li>Optional: 1 TSP Baking Soda <span className="text-gray-500">(takes the bitterness out)</span></li>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                <span>
+                  {amzn('B00RJCMJPE', 'Lipton Black Tea, Family Size Bags (100 ct)')} — use 16 bags per batch
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                <span>
+                  {amzn('B07QG14XBS', 'Domino Pure Cane Granulated Sugar (10 lb bag)')} — 2½ cups per batch
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                <span>2 Quarts Boiling Water <span className="text-gray-500">(for the concentrate)</span></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                <span>Cold Water to fill — approximately 6 quarts</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                <span>Optional: 1 TSP Baking Soda <span className="text-gray-500">(takes the bitterness out)</span></span>
+              </li>
             </ul>
           </div>
 
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Directions</h2>
             <ol className="list-decimal ml-6 space-y-4 text-gray-700">
-              <li>Bring 2 quarts of water to a rolling boil in a large pot.</li>
-              <li>Remove from heat. Add all 16 family-size tea bags. If using baking soda, add it now — it neutralizes tannins and keeps the tea from going bitter or cloudy. Steep for <strong>15 minutes</strong>. Do not squeeze the bags when removing — it makes the tea bitter.</li>
-              <li>Remove tea bags without squeezing. While the tea is still hot, add 2½ cups of sugar and stir until completely dissolved.</li>
-              <li>Pour the Sweet Tea concentrate into your 2.5 gallon dispenser.</li>
+              <li>Bring 2 quarts of water to a rolling boil in the stockpot.</li>
+              <li>Remove from heat. Add all 16 Lipton Family Size bags. If using baking soda, add it now — it neutralizes tannins and keeps the tea from going bitter or cloudy. Steep for <strong>15 minutes</strong>. Do not squeeze the bags when removing.</li>
+              <li>Remove tea bags without squeezing. While the tea is still hot, add 2½ cups of sugar and stir until completely dissolved. <strong>The sugar must go in hot</strong> — this is what makes it Sweet Tea, not iced tea with sugar.</li>
+              <li>Pour the concentrate into your 2.5 gallon dispenser.</li>
               <li>Fill the rest of the dispenser with cold water, leaving a little room at the top. Stir gently to combine.</li>
               <li>Refrigerate for at least 2 hours before serving. <strong>Best served over ice.</strong> 🍋</li>
             </ol>
@@ -74,7 +115,11 @@ export default function SweetTeaPage() {
             </ul>
           </div>
 
-          <div className="mt-10 text-center">
+          <p className="text-xs text-gray-400 mb-10">
+            As an Amazon Associate I earn from qualifying purchases. Product links above help support this site at no extra cost to you.
+          </p>
+
+          <div className="mt-4 text-center">
             <Link href="/cooking" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
           </div>
         </div>
