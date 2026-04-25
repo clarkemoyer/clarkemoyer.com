@@ -57,6 +57,11 @@ export default function VCP5DCVGuidePage() {
             </ol>
           </div>
 
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-600 p-4 mb-8 rounded">
+            <p className="text-blue-800 font-semibold">🖥️ Continuing the DCGS VMware Track</p>
+            <p className="text-blue-700 text-sm mt-1">Clarke obtained VCP5 as the DCGS program continued to mature its private cloud infrastructure. vSphere 5 was a significant leap in enterprise virtualization capability. See the <Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="underline">VCP4-DCV guide</Link> for where this journey started.</p>
+          </div>
+
           <h2>About VCP5-DCV</h2>
           <p>
             The VMware Certified Professional 5 – Data Center Virtualization (VCP5-DCV) validates core vSphere 5

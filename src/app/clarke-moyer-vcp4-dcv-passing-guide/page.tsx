@@ -47,6 +47,11 @@ export default function VCP4DCVGuidePage() {
             <p className="text-amber-700 text-sm mt-1">All VMware certifications require attending an official VMware authorized training course to be eligible for the exam.</p>
           </div>
 
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-600 p-4 mb-8 rounded">
+            <p className="text-blue-800 font-semibold">🖥️ The VMware Story Begins</p>
+            <p className="text-blue-700 text-sm mt-1">Clarke started his VMware journey with hands-on training before VMware even had a formal certification program (VMware 3 era). This VCP4-DCV represents the formal beginning of a certification track that would span over a decade, driven by real-world work building private clouds and dark clouds on the DCGS program. This cert is the foundation of that story.</p>
+          </div>
+
           <h2>About VCP4-DCV</h2>
           <p>
             The VMware Certified Professional 4 – Data Center Virtualization (VCP4-DCV) was the original DCV

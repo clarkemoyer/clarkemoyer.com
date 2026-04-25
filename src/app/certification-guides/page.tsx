@@ -188,7 +188,8 @@ export default function CertificationGuidesPage() {
           </div>
 
           <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">VMware Certifications</h2>
-          <p className="not-prose text-sm text-gray-500 mb-6">DoD 8570 Computing Environment certifications — VMware data center virtualization and cloud management credentials.</p>
+          <p className="not-prose text-sm text-gray-500 mb-3">DoD 8570 Computing Environment certifications — VMware data center virtualization and cloud management credentials.</p>
+          <p className="not-prose text-gray-600 mb-6">Clarke&rsquo;s VMware track spans over a decade of private cloud and DCGS program work — starting before formal VMware certification existed and culminating in cloud management and application modernization. This era has given way to cloud-native architecture under the CNCF.</p>
 
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP-AM Application Modernization Guide</h3>
