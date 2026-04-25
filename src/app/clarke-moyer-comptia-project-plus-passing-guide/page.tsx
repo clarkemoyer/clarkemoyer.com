@@ -53,6 +53,18 @@ export default function ProjectPlusGuidePage() {
             </p>
           </div>
 
+          {/* CE Renewal callout */}
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-8">
+            <p className="font-bold text-amber-900">📋 Active CE Renewal</p>
+            <p className="text-amber-800 text-sm mt-1">
+              Clarke actively maintains this certification through CompTIA&apos;s Continuing Education (CE) program —
+              which is why you&apos;ll see the &quot;ce&quot; suffix (e.g., Project+<strong>ce</strong>) in his credentials.
+              While Clarke no longer recommends this as a starting path, he keeps it current as part of
+              his professional maintenance discipline. An active CE certification requires ongoing education
+              and renewal — it&apos;s not a one-time achievement left to expire.
+            </p>
+          </div>
+
           {/* BLUF */}
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
             <h2 className="text-2xl font-bold text-blue-900 mb-3">BLUF: To pass the Project+, do 4 things</h2>
