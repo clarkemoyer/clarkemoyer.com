@@ -44,6 +44,18 @@ export default function SAFeSPCGuidePage() {
             <p className="text-yellow-900 font-semibold text-sm">⚠️ This is NOT a self-study certification. The SAFe SPC requires attending an official <strong>4-day Scaled Agile instructor-led training event</strong>. Self-study alone will not make you eligible to sit for the exam. The exam is taken at the conclusion of the course.</p>
           </div>
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-8">
+            <p className="font-bold text-amber-900">📋 About Clarke&rsquo;s SAFe Journey</p>
+            <p className="text-amber-800 text-sm mt-1">
+              Clarke originally obtained the SAFe SPC certification at version 5 and has been renewing and
+              maintaining it through version 6. This page covers the current exam but Clarke&rsquo;s journey
+              started with SAFe 5 — the credential shown in his LinkedIn headline reflects the most recent
+              active version (SPC6). Note that LinkedIn shows the <em>original certification date</em>, not the
+              renewal date — a 2020 SAFe SPC that&rsquo;s still active in 2025 represents five-plus years of
+              maintained professional standing, not a one-time achievement.
+            </p>
+          </div>
+
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
             <h2 className="text-2xl font-bold text-blue-900 mb-3">BLUF: To earn the SAFe SPC, do 4 things</h2>
             <ol className="list-decimal ml-6 space-y-2 text-blue-800">

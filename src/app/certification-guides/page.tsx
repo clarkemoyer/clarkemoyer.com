@@ -187,6 +187,66 @@ export default function CertificationGuidesPage() {
             </div>
           </div>
 
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">VMware Certifications</h2>
+          <p className="not-prose text-sm text-gray-500 mb-6">DoD 8570 Computing Environment certifications — VMware data center virtualization and cloud management credentials.</p>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP-AM Application Modernization Guide</h3>
+            <p className="text-gray-700 mb-4">VCP-AM covers Tanzu, Kubernetes, and container orchestration — VMware&rsquo;s modern cloud-native platform. License: VMW-02637767W.</p>
+            <Link href="/clarke-moyer-vcp-am-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the VCP-AM Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP6-CMA Cloud Management &amp; Automation Guide</h3>
+            <p className="text-gray-700 mb-4">VCP6-CMA validates skills in vRealize Automation, vRealize Operations, and cloud management. Obtained May 2018.</p>
+            <Link href="/clarke-moyer-vcp6-cma-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the VCP6-CMA Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP5-DCV Data Center Virtualization Guide</h3>
+            <p className="text-gray-700 mb-4">VCP5-DCV covers vSphere 5 — ESXi, vCenter, HA, DRS, and vMotion. Legacy credential. Obtained February 2012.</p>
+            <Link href="/clarke-moyer-vcp5-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the VCP5-DCV Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP4-DCV Data Center Virtualization Guide</h3>
+            <p className="text-gray-700 mb-4">VCP4-DCV — the original DCV credential, based on vSphere 4. Historical cert. Obtained November 2010.</p>
+            <Link href="/clarke-moyer-vcp4-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the VCP4-DCV Guide →
+            </Link>
+          </div>
+
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">Legacy &amp; Retired Certifications</h2>
+          <p className="not-prose text-sm text-gray-500 mb-6">Credentials that are retired or have limited current market value. Included for completeness and historical context.</p>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="text-xl font-bold text-gray-900">Microsoft MCP Passing Guide</h3>
+              <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired</span>
+            </div>
+            <p className="text-gray-700 mb-4">The original Microsoft Certified Professional credential — a Windows XP era cert required for SAIC/DCGS hiring in 2009. Retired by Microsoft. Historical context only.</p>
+            <Link href="/clarke-moyer-mcp-passing-guide" className="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the MCP Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="text-xl font-bold text-gray-900">CIW Professional &amp; Database Design Specialist Guide</h3>
+              <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Legacy</span>
+            </div>
+            <p className="text-gray-700 mb-4">Foundational web technology credential from 2009. Limited current market recognition. Clarke recommends Microsoft or CompTIA certs instead for market value today.</p>
+            <Link href="/clarke-moyer-ciw-professional-passing-guide" className="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the CIW Professional Guide →
+            </Link>
+          </div>
+
           <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">Service Management Certifications</h2>
 
           <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">

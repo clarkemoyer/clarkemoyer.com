@@ -37,6 +37,17 @@ export default function CISSPGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-8">
+            <p className="font-bold text-amber-900">📋 About Clarke&rsquo;s CISSP</p>
+            <p className="text-amber-800 text-sm mt-1">
+              Clarke obtained the CISSP in 2018 and has maintained it continuously through CPE (Continuing
+              Professional Education) credits and renewal cycles. An active CISSP in good standing represents
+              not just passing an exam but ongoing commitment to the security profession. Clarke&rsquo;s
+              credential has been active for 7+ years — LinkedIn shows the original certification date, not
+              the most recent renewal.
+            </p>
+          </div>
+
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
             <h2 className="text-2xl font-bold text-blue-900 mb-3">BLUF: To pass the CISSP, do 4 things</h2>
             <ol className="list-decimal ml-6 space-y-2 text-blue-800">

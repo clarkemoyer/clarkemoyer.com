@@ -49,6 +49,14 @@ export default function MS900GuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-6">
+            <p className="text-amber-800 text-sm">
+              Clarke holds this certification and maintains Microsoft credentials as the platform evolves.
+              The exam content and objectives are updated regularly by Microsoft — always verify current
+              objectives at <a href="https://learn.microsoft.com" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a> before purchasing study materials.
+            </p>
+          </div>
+
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
             <p className="font-bold text-green-900">✅ Currently Recommended by Clarke</p>
             <p className="text-green-800 text-sm mt-1">

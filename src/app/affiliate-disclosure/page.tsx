@@ -84,6 +84,10 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-microsoft-sc-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC-900 Security Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC Security Certification Track Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-ms-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft MS-900 Microsoft 365 Fundamentals Guide</Link></li>
+              <li><Link href="/clarke-moyer-vcp6-cma-passing-guide/" className="text-blue-600 hover:underline">VMware VCP6-CMA Cloud Management &amp; Automation Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-vcp-am-passing-guide/" className="text-blue-600 hover:underline">VMware VCP-AM Application Modernization Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-vcp5-dcv-passing-guide/" className="text-blue-600 hover:underline">VMware VCP5-DCV Data Center Virtualization Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="text-blue-600 hover:underline">VMware VCP4-DCV Data Center Virtualization Passing Guide</Link></li>
             </ul>
             <p className="mt-3">
               Affiliate links on these pages are marked with ↗ and will open Amazon.com in a new tab.

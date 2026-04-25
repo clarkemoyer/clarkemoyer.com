@@ -40,6 +40,14 @@ export default function AZ900GuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-6">
+            <p className="text-amber-800 text-sm">
+              Clarke holds this certification and maintains Microsoft credentials as the platform evolves.
+              The exam content and objectives are updated regularly by Microsoft — always verify current
+              objectives at <a href="https://learn.microsoft.com" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a> before purchasing study materials.
+            </p>
+          </div>
+
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8 rounded-r-lg">
             <p className="text-green-800 font-semibold text-lg">✅ Currently Recommended by Clarke</p>
             <p className="text-green-700 mt-1">Clarke recommends AZ-900 before any other Azure certification — it establishes the vocabulary and conceptual framework everything else builds on.</p>
