@@ -146,6 +146,10 @@ export default function AI900GuidePage() {
             <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
           </p>
 
+          <p className="not-prose text-sm text-gray-500 mt-2">
+            📅 See also: <a href="/industry-conferences/" className="underline hover:text-gray-700">Industry Conferences</a>
+          </p>
+
           <div className="mt-8 text-center not-prose">
             <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

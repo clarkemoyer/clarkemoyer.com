@@ -62,6 +62,18 @@ export default function VCP5DCVGuidePage() {
             <p className="text-blue-700 text-sm mt-1">Clarke obtained VCP5 as the DCGS program continued to mature its private cloud infrastructure. vSphere 5 was a significant leap in enterprise virtualization capability. See the <Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="underline">VCP4-DCV guide</Link> for where this journey started.</p>
           </div>
 
+          <div className="not-prose bg-teal-50 border-l-4 border-teal-500 p-5 mb-8">
+            <p className="font-bold text-teal-900">🏟️ VMworld Testing Center</p>
+            <p className="text-teal-800 text-sm mt-1">
+              Clarke completed several VMware certifications at the <strong>VMworld testing centers</strong> &mdash;
+              on-site Pearson VUE testing facilities available to conference attendees. VMworld conference
+              tickets historically included exam vouchers, making the conference itself a cost-effective
+              way to both learn and certify. This is a model Clarke strongly endorses: industry conferences
+              that bundle certification opportunities with attendance. It&rsquo;s efficient, motivating, and
+              puts you in the room with the community at the same time.
+            </p>
+          </div>
+
           <h2>About VCP5-DCV</h2>
           <p>
             The VMware Certified Professional 5 – Data Center Virtualization (VCP5-DCV) validates core vSphere 5

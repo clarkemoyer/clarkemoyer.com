@@ -59,6 +59,18 @@ export default function VCP6CMAGuidePage() {
             <p className="text-blue-700 text-sm mt-1">The VCP6-CMA represents the peak of Clarke&rsquo;s VMware specialization track. After years building private and dark clouds on DCGS, this cert validated cloud management and automation at the platform level — vRealize Automation, vRealize Operations, and the VMware cloud management stack. This was the endpoint of an era.</p>
           </div>
 
+          <div className="not-prose bg-teal-50 border-l-4 border-teal-500 p-5 mb-8">
+            <p className="font-bold text-teal-900">🏟️ VMworld Testing Center</p>
+            <p className="text-teal-800 text-sm mt-1">
+              Clarke completed several VMware certifications at the <strong>VMworld testing centers</strong> &mdash;
+              on-site Pearson VUE testing facilities available to conference attendees. VMworld conference
+              tickets historically included exam vouchers, making the conference itself a cost-effective
+              way to both learn and certify. This is a model Clarke strongly endorses: industry conferences
+              that bundle certification opportunities with attendance. It&rsquo;s efficient, motivating, and
+              puts you in the room with the community at the same time.
+            </p>
+          </div>
+
           <h2>About VCP6-CMA</h2>
           <p>
             The VMware Certified Professional 6 – Cloud Management and Automation (VCP6-CMA) validates skills
@@ -114,6 +126,10 @@ export default function VCP6CMAGuidePage() {
             As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
           </p>
 
+          <p className="not-prose text-sm text-gray-500 mt-2">
+            📅 See also: <a href="/industry-conferences/" className="underline hover:text-gray-700">Industry Conferences</a>
+          </p>
+
           <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-6 mb-8 rounded">
             <p className="text-amber-800 font-bold text-lg mb-3">🚀 What Comes Next</p>
             <p className="text-amber-700 mb-3">The VMware cloud management era is over. The industry has moved decisively to cloud-native architecture under the CNCF. Clarke&rsquo;s recommendation for anyone entering cloud today:</p>
@@ -121,12 +137,14 @@ export default function VCP6CMAGuidePage() {
               <li>Focus on application and network service delivery, not underlying infrastructure components</li>
               <li>The underlying cloud is now commoditized — AWS, Azure, GCP, and private clouds built on OpenStack/Kubernetes are fungible</li>
               <li>Certify on what runs ON the cloud, not what the cloud runs on</li>
-              <li>Attend KubeCon + CloudNativeCon (the CNCF annual conference) — Clarke attended last year in Atlanta. It is the best single signal of where cloud-native is heading.</li>
+              <li><strong>KubeCon + CloudNativeCon</strong> (commonly called KubeCon) is co-located with <strong>CNCFCon</strong> &mdash; both run simultaneously at the same venue. Clarke recommends attending both. KubeCon is the Kubernetes-focused track; CNCFCon covers the broader CNCF project ecosystem. Clarke attended last year in Atlanta.</li>
             </ul>
             <p className="text-amber-700">
-              <a href="https://www.cncf.io" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">Cloud Native Computing Foundation →</a>
+              <a href="https://www.cncf.io" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">Cloud Native Computing Foundation &rarr;</a>
               {' | '}
-              <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">KubeCon + CloudNativeCon →</a>
+              <a href="https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">KubeCon + CloudNativeCon &rarr;</a>
+              {' | '}
+              <a href="https://events.linuxfoundation.org/cncf-con/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline">CNCFCon &rarr;</a>
             </p>
           </div>
 
