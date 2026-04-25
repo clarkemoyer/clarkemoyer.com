@@ -55,7 +55,7 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                <a href="https://www.amazon.com/s?k=pot+pouring+spout+strainer+insert+for+large+pot&tag=clarkemoyer-20" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">Pot Pouring Spout / Strainer Insert ↗</a>
+                {amzn('B0CN73MHZ8', 'Duckbill Silicone Pot Pour Spout')}
                 <span className="text-gray-500 text-sm ml-1">— fits over the pot lip for clean pouring into the dispenser</span>
               </li>
               <li className="flex items-start gap-2">
