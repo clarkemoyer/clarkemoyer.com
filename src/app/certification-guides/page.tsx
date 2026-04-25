@@ -34,11 +34,35 @@ export default function CertificationGuidesPage() {
             <a href="https://linkedin.com/in/clarkemoyer" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em>
           </p>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">CISSP Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">I wrote a detailed guide on how I passed the CISSP on my first attempt.</p>
             <Link href="/clarke-moyer-cissp-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the CISSP Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+            <h2 className="text-2xl font-bold text-blue-900 mb-2">CISSP-ISSEP Certification Passing Guide</h2>
+            <p className="text-blue-800 mb-4">The ISSEP concentration — Systems Security Engineering Professional. Requires active CISSP. Earned November 2019.</p>
+            <Link href="/clarke-moyer-cissp-issep-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the CISSP-ISSEP Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+            <h2 className="text-2xl font-bold text-blue-900 mb-2">PMP Certification Passing Guide</h2>
+            <p className="text-blue-800 mb-4">PMI&rsquo;s flagship project management credential. Study method, Rita Mulcahy resources, and test strategy. Earned December 2012.</p>
+            <Link href="/clarke-moyer-pmp-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the PMP Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+            <h2 className="text-2xl font-bold text-blue-900 mb-2">SAFe SPC Certification Passing Guide</h2>
+            <p className="text-blue-800 mb-4">SAFe Program Consultant — the 4-day instructor-led path to leading enterprise Lean-Agile transformations. Earned October 2020.</p>
+            <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the SAFe SPC Guide →
             </Link>
           </div>
 

@@ -26,6 +26,21 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-cissp-issep-certification-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-pmp-certification-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-safe-spc-certification-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://clarkemoyer.com/wgu-referral-program/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
