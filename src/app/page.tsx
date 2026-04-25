@@ -319,8 +319,12 @@ export default async function Home() {
             <div className="mt-2 flex justify-center gap-4 text-sm">
               <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-700 underline">Privacy Policy</Link>
               <Link href="/cookie-policy" className="text-gray-500 hover:text-gray-700 underline">Cookie Policy</Link>
+              <Link href="/affiliate-disclosure" className="text-gray-500 hover:text-gray-700 underline">Affiliate Disclosure</Link>
               <CookiePreferencesButton />
             </div>
+            <p className="mt-3 text-xs text-gray-400 max-w-2xl mx-auto">
+              This site contains affiliate links. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.
+            </p>
           </div>
         </div>
       </footer>
