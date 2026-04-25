@@ -137,6 +137,12 @@ export default function MCPGuidePage() {
           </ul>
 
           <div className="mt-12 text-center not-prose">
+            <p className="text-sm text-gray-600 mb-3">
+              📅 Related training:{' '}
+              <Link href="/professional-development/" className="text-blue-600 hover:underline">
+                Professional Development Events
+              </Link>
+            </p>
             <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>

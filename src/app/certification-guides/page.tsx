@@ -72,12 +72,23 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
             <div className="flex items-center gap-2 mb-1">
-              <h2 className="text-2xl font-bold text-green-900">Microsoft SC Series (Security Track) Guide</h2>
+              <h2 className="text-2xl font-bold text-green-900">SC-500: Cloud &amp; AI Security Engineer</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
             </div>
             <p className="text-green-800 mb-4">Clarke&rsquo;s overview of the full Microsoft SC security certification track — SC-900 through SC-100 — and how each cert maps to DoD and enterprise security roles.</p>
             <Link href="/clarke-moyer-microsoft-sc-500-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the SC Series Guide →
+            </Link>
+          </div>
+
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-bold text-green-900">AZ-500: Azure Security Technologies</h2>
+              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">🔒 Security</span>
+            </div>
+            <p className="text-green-800 mb-4">Associate-level Azure security cert for security engineers implementing security controls, managing identity/access, and securing Azure workloads. Clarke holds this certification.</p>
+            <Link href="/clarke-moyer-microsoft-az-500-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the AZ-500 Guide →
             </Link>
           </div>
 
@@ -317,7 +328,6 @@ export default function CertificationGuidesPage() {
             <li><strong>Microsoft AI-900: Azure AI Fundamentals</strong></li>
             <li><strong>Microsoft SC-900: Security, Compliance, and Identity Fundamentals</strong></li>
             <li><strong>Microsoft SC-500: Cloud and AI Security Engineer Associate</strong></li>
-            <li><strong>Microsoft Certified Professional (MCP)</strong> (Obtained: 2009-Mar-21)</li>
           </ul>
 
           <h3>Service Management</h3>

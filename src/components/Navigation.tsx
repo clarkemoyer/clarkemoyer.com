@@ -26,6 +26,7 @@ const navLinks: NavLink[] = [
       { id: 'fun-cooking', href: '/cooking', label: 'COOKING' },
       { id: 'fun-quotes', href: '/quotes', label: 'QUOTES' },
       { id: 'fun-conferences', href: '/industry-conferences', label: 'INDUSTRY CONFERENCES' },
+      { id: 'fun-professional-development', href: '/professional-development', label: 'PROFESSIONAL DEVELOPMENT' },
     ],
   },
   { id: 'certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },

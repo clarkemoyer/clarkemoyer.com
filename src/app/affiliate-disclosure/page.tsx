@@ -58,7 +58,7 @@ export default function AffiliateDisclosurePage() {
                 Federal Trade Commission&apos;s guidelines
               </a>
               , I disclose that this site contains affiliate links. I only link to products I
-              actually use and recommend. My opinions and recipe content are entirely my own and
+              actually use and recommend. My opinions and content are entirely my own and
               are not influenced by affiliate relationships.
             </p>
           </section>

@@ -20,6 +20,11 @@ export default function IndustryConferencesPage() {
       {/* Hero */}
       <section className="relative bg-gray-900 text-white py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="text-sm mb-4">
+            <Link href="/" className="hover:underline text-gray-300">Home</Link>{' / '}
+            <Link href="/fun" className="hover:underline text-gray-300">Fun</Link>{' / '}
+            Industry Conferences
+          </div>
           <h1 className="text-4xl font-bold tracking-tight mb-4">Industry Conferences</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Clarke is a strong advocate for in-person industry conferences &mdash; for learning,
@@ -30,6 +35,16 @@ export default function IndustryConferencesPage() {
 
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
+
+          {/* Cross-link to Professional Development */}
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded p-4 mb-8 text-sm text-blue-800">
+            For the complete record of all professional development events including academic residencies
+            and chapter meetings, see the{' '}
+            <Link href="/professional-development/" className="font-medium text-blue-700 hover:underline">
+              Professional Development page
+            </Link>
+            .
+          </div>
 
           {/* Why Conferences Matter */}
           <h2>Why Conferences Matter</h2>
@@ -63,9 +78,9 @@ export default function IndustryConferencesPage() {
 
           {/* KubeCon */}
           <div className="not-prose bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded">
-            <p className="font-bold text-blue-900 text-xl mb-2">☸️ KubeCon + CloudNativeCon — Atlanta (2024/2025)</p>
+            <p className="font-bold text-blue-900 text-xl mb-2">☸️ KubeCon + CloudNativeCon — Atlanta (2025)</p>
             <p className="text-blue-800 text-sm mb-3">
-              The CNCF&rsquo;s flagship annual conference. Clarke attended last year in Atlanta.{' '}
+              The CNCF&rsquo;s flagship annual conference. Clarke attended in 2025 in Atlanta.{' '}
               <strong>KubeCon + CloudNativeCon</strong> is co-located with <strong>CNCFCon</strong> &mdash; both run
               simultaneously at the same venue. KubeCon is the Kubernetes-focused track; CNCFCon covers the
               broader CNCF project ecosystem. Clarke recommends attending both.
@@ -114,7 +129,7 @@ export default function IndustryConferencesPage() {
           </div>
 
           <div className="mt-8 text-center not-prose">
-            <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
+            <Link href="/fun" className="text-blue-600 hover:underline font-medium">← Back to Fun</Link>
           </div>
         </div>
       </section>

@@ -28,7 +28,9 @@ export default function CISSPGuidePage() {
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
           <div className="text-sm mb-2">
-            <Link href="/" className="hover:underline text-gray-300">Home</Link> / CISSP Certification Passing Guide
+            <Link href="/" className="hover:underline text-gray-300">Home</Link>{' / '}
+            <Link href="/certification-guides" className="hover:underline text-gray-300">Certification Guides</Link>{' / '}
+            CISSP Certification Passing Guide
           </div>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer CISSP Certification Passing Guide</h1>
         </div>
@@ -167,6 +169,12 @@ export default function CISSPGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <p className="text-sm text-gray-600 mb-3">
+              📅 IEEE Zero Trust lecture (2019):{' '}
+              <Link href="/professional-development/" className="text-blue-600 hover:underline">
+                Professional Development Events
+              </Link>
+            </p>
             <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>

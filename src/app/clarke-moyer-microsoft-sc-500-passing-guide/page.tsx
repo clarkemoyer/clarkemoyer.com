@@ -56,6 +56,9 @@ export default function SC500GuidePage() {
               <a href="https://learn.microsoft.com" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a>{' '}
               before purchasing study materials.
             </p>
+            <p className="text-amber-800 text-sm mt-2">
+              <strong>Note:</strong> Clarke holds this credential — verify the current exam code at Microsoft Learn before purchasing study materials, as Microsoft periodically updates exam numbers and objectives.
+            </p>
           </div>
 
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">

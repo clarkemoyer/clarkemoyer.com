@@ -189,6 +189,12 @@ export default function PMPGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <p className="text-sm text-gray-600 mb-3">
+              📅 PMI chapter meeting:{' '}
+              <Link href="/professional-development/" className="text-blue-600 hover:underline">
+                Professional Development Events
+              </Link>
+            </p>
             <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>
