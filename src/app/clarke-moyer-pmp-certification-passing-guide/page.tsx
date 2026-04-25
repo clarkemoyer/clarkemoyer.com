@@ -40,6 +40,18 @@ export default function PMPGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
+          <div className="bg-red-50 border-l-4 border-red-600 p-6 mb-8 not-prose">
+            <h2 className="text-xl font-bold text-red-900 mb-2">⚠️ A Note From Clarke</h2>
+            <p className="text-red-800">
+              I no longer recommend pursuing the PMP as a primary project management certification.
+              I recommend going directly to the{' '}
+              <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="underline font-semibold">SAFe SPC certification</Link>{' '}
+              instead — it reflects how modern software delivery and enterprise Lean-Agile transformation
+              actually work, and carries more weight in current DoD and tech environments.
+              This guide remains here for those already committed to the PMP path.
+            </p>
+          </div>
+
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
             <h2 className="text-2xl font-bold text-blue-900 mb-3">BLUF: To pass the PMP, do 4 things</h2>
             <ol className="list-decimal ml-6 space-y-2 text-blue-800">
