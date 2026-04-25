@@ -54,7 +54,7 @@ export default function PhillyCheesesteakPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B09BGFXS4K', 'Stainless Steel Griddle Spatulas (2-Pack) — for chopping and moving meat')}
+                <a href="https://www.amazon.com/s?k=stainless+steel+griddle+spatula+set+flat+top&tag=clarkemoyer-20" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">Stainless Steel Griddle Spatulas (2-Pack) ↗</a>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>

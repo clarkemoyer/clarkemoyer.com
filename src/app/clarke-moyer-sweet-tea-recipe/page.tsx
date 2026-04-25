@@ -50,12 +50,12 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B08QS5B8MZ', '2.5 Gallon Beverage Dispenser')}
+                <a href="https://www.amazon.com/s?k=2.5+gallon+glass+beverage+dispenser+with+spigot&tag=clarkemoyer-20" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">2.5 Gallon Glass Beverage Dispenser with Spigot ↗</a>
                 <span className="text-gray-500 text-sm ml-1">— thinner plastic, only used for serving</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B0849T9LTQ', 'Pot Pouring Spout / Strainer Insert')}
+                <a href="https://www.amazon.com/s?k=pot+pouring+spout+strainer+insert+for+large+pot&tag=clarkemoyer-20" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">Pot Pouring Spout / Strainer Insert ↗</a>
                 <span className="text-gray-500 text-sm ml-1">— fits over the pot lip for clean pouring into the dispenser</span>
               </li>
               <li className="flex items-start gap-2">
