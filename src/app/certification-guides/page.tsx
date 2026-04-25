@@ -113,6 +113,79 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">CompTIA Certifications</h2>
+          <p className="not-prose text-sm text-gray-500 mb-6">Legacy path — see the <Link href="/clarke-moyer-cissp-certification-passing-guide" className="text-blue-600 hover:underline">CISSP guide</Link> for the recommended security track and the <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="text-blue-600 hover:underline">SAFe SPC guide</Link> for the recommended project management track.</p>
+
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900">CompTIA Security+ Passing Guide</h3>
+                  <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
+                </div>
+                <p className="text-gray-700 mb-4">DoD 8570 IAT Level II baseline qualifier. Earned November 2008. See CISSP guide for the recommended security track.</p>
+                <Link href="/clarke-moyer-comptia-security-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+                  Read the Security+ Guide →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900">CompTIA Network+ Passing Guide</h3>
+                  <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
+                </div>
+                <p className="text-gray-700 mb-4">DoD 8570 IAT Level I baseline qualifier. Earned October 2008. Solid networking foundation but superseded by CISSP for career leverage.</p>
+                <Link href="/clarke-moyer-comptia-network-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+                  Read the Network+ Guide →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+            <div className="flex items-start gap-3">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900">CompTIA A+ Passing Guide</h3>
+                  <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
+                </div>
+                <p className="text-gray-700 mb-4">DoD 8570 IAT Level I baseline qualifier. Earned August 2008. Hardware and OS fundamentals — a common career starting point.</p>
+                <Link href="/clarke-moyer-comptia-a-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+                  Read the A+ Guide →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
+            <div className="flex items-start gap-3">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-gray-900">CompTIA Project+ Passing Guide</h3>
+                  <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
+                </div>
+                <p className="text-gray-700 mb-4">Entry-level project management credential. Earned January 2009. Clarke recommends SAFe SPC instead for enterprise and DoD environments.</p>
+                <Link href="/clarke-moyer-comptia-project-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+                  Read the Project+ Guide →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">Service Management Certifications</h2>
+
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+            <h3 className="text-xl font-bold text-blue-900 mb-2">ITIL 4 Foundation Passing Guide</h3>
+            <p className="text-blue-800 mb-4">Entry-level IT service management credential — required on certain DoD and enterprise contracts. Covers the ITIL service value system, four dimensions model, and guiding principles.</p>
+            <Link href="/clarke-moyer-itil-4-foundation-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
+              Read the ITIL 4 Foundation Guide →
+            </Link>
+          </div>
+
           <h2>Industry Management Certifications (DFARS)</h2>
           <ul>
             <li>

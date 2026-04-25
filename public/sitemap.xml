@@ -41,6 +41,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-comptia-security-plus-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-comptia-network-plus-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-comptia-a-plus-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-comptia-project-plus-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/clarke-moyer-itil-4-foundation-passing-guide/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://clarkemoyer.com/wgu-referral-program/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

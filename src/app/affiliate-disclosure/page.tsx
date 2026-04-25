@@ -74,6 +74,11 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-cissp-issep-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP-ISSEP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-pmp-certification-passing-guide/" className="text-blue-600 hover:underline">PMP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-safe-spc-certification-passing-guide/" className="text-blue-600 hover:underline">SAFe SPC Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-comptia-security-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA Security+ Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-comptia-network-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA Network+ Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-comptia-a-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA A+ Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-comptia-project-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA Project+ Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-itil-4-foundation-passing-guide/" className="text-blue-600 hover:underline">ITIL 4 Foundation Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AZ-900 Azure Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-ai-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AI-900 Azure AI Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-sc-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft SC-900 Security Fundamentals Passing Guide</Link></li>
