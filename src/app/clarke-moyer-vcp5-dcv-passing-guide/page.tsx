@@ -32,7 +32,7 @@ export default function VCP5DCVGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded">
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
             <p className="text-amber-800 font-semibold">📋 Legacy Certification Note</p>
             <p className="text-amber-700 text-sm mt-1">
               The VCP5-DCV is a legacy credential based on vSphere 5, which has been end-of-lifed by VMware.
@@ -40,10 +40,7 @@ export default function VCP5DCVGuidePage() {
               Computing Environment track history. It demonstrates foundational data center virtualization knowledge
               that carries forward to modern vSphere versions.
             </p>
-          </div>
-
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
-            <p className="text-amber-800 font-semibold">⚠️ VMware Training Prerequisite</p>
+            <p className="text-amber-800 font-semibold mt-3">⚠️ VMware Training Prerequisite</p>
             <p className="text-amber-700 text-sm mt-1">All VMware certifications require attending an official VMware authorized training course to be eligible for the exam.</p>
           </div>
 

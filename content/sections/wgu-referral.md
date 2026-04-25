@@ -10,6 +10,8 @@ For years now since I started and subsequently graduated from Western Governors 
 
 One of the underrated benefits of WGU's IT program is that certification preparation is built directly into the coursework. Clarke earned his [CompTIA A+](/clarke-moyer-comptia-a-plus-passing-guide), [Network+](/clarke-moyer-comptia-network-plus-passing-guide), [Security+](/clarke-moyer-comptia-security-plus-passing-guide), [Project+](/clarke-moyer-comptia-project-plus-passing-guide), and [CIW Professional](/clarke-moyer-ciw-professional-passing-guide) certifications as part of completing the BS-IT degree — not separately. If you're planning to pursue these certs anyway, the WGU path lets you get both the degree and the certifications at the same time. Clarke held all of these before finishing the degree program, thanks to WGU's integrated curriculum.
 
+[See all certification guides →](/certification-guides/)
+
 ### Referral Information
 
 **NOTE:** If WGU no longer has direct referral links you have to fill out a form.

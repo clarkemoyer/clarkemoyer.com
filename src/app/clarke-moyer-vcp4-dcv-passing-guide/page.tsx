@@ -32,7 +32,7 @@ export default function VCP4DCVGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded">
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
             <p className="text-amber-800 font-semibold">📋 Historical / Legacy Certification</p>
             <p className="text-amber-700 text-sm mt-1">
               The VCP4-DCV is a historical credential based on vSphere 4 — a version of VMware&rsquo;s platform
@@ -40,10 +40,7 @@ export default function VCP4DCVGuidePage() {
               part of his DoD 8570 Computing Environment track and as the foundation on which his VCP5-DCV and
               later VMware credentials were built.
             </p>
-          </div>
-
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
-            <p className="text-amber-800 font-semibold">⚠️ VMware Training Prerequisite</p>
+            <p className="text-amber-800 font-semibold mt-3">⚠️ VMware Training Prerequisite</p>
             <p className="text-amber-700 text-sm mt-1">All VMware certifications require attending an official VMware authorized training course to be eligible for the exam.</p>
           </div>
 

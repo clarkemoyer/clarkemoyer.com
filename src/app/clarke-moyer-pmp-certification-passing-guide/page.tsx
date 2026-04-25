@@ -50,6 +50,18 @@ export default function PMPGuidePage() {
               actually work, and carries more weight in current DoD and tech environments.
               This guide remains here for those already committed to the PMP path.
             </p>
+            <div className="mt-4 pt-4 border-t border-red-200">
+              <p className="font-bold text-amber-900">📋 About Clarke&rsquo;s PMP Journey</p>
+              <p className="text-amber-800 text-sm mt-1">
+                Clarke obtained the PMP in 2012 under an earlier version of the PMBOK and has renewed and
+                maintained it since. The study materials linked here reflect the current exam format, but the
+                core project management principles that Clarke tested on have remained consistent through
+                multiple PMBOK versions. Longevity in certification maintenance is itself a professional
+                signal — LinkedIn shows the <em>original certification date</em>, not the renewal date, so a
+                2012 PMP that&rsquo;s still active today represents 10+ years of maintained professional standing,
+                not a one-time achievement.
+              </p>
+            </div>
           </div>
 
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
@@ -62,20 +74,7 @@ export default function PMPGuidePage() {
             </ol>
           </div>
 
-          <div className="bg-amber-50 border-l-4 border-amber-500 p-5 mb-8 not-prose">
-            <p className="font-bold text-amber-900">📋 About Clarke&rsquo;s PMP Journey</p>
-            <p className="text-amber-800 text-sm mt-1">
-              Clarke obtained the PMP in 2012 under an earlier version of the PMBOK and has renewed and
-              maintained it since. The study materials linked here reflect the current exam format, but the
-              core project management principles that Clarke tested on have remained consistent through
-              multiple PMBOK versions. Longevity in certification maintenance is itself a professional
-              signal — LinkedIn shows the <em>original certification date</em>, not the renewal date, so a
-              2012 PMP that&rsquo;s still active today represents 10+ years of maintained professional standing,
-              not a one-time achievement.
-            </p>
-          </div>
-
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-5 mb-8 not-prose">
+<div className="bg-yellow-50 border-l-4 border-yellow-500 p-5 mb-8 not-prose">
             <p className="text-yellow-900 font-semibold text-sm">📋 Eligibility Requirements: Before you can sit for the PMP, PMI requires <strong>36 months of experience leading projects</strong> (60 months if you don&rsquo;t have a four-year degree) plus <strong>35 contact hours of project management education</strong>. Verify your eligibility at <a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener noreferrer" className="underline">pmi.org</a> before purchasing study materials.</p>
           </div>
 
