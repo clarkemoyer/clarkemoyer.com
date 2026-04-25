@@ -60,7 +60,7 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B07D5YWTJY', 'Long-Handle Silicone Stirring Spoon')}
+                {amzn('B0BQMTMV2Z', 'Flat Wooden Spatula for Stirring')}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>

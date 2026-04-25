@@ -54,7 +54,7 @@ export default function PhillyCheesesteakPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                {amzn('B0BQMTMV2Z', 'Flat Wooden Spatula for Cooking')}
+                {amzn('B07H4TDDX7', 'Stainless Steel Griddle Spatula / Hamburger Turner (2 needed)')}
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
