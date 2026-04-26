@@ -6,12 +6,6 @@ title: WGU Referral Program
 
 For years now since I started and subsequently graduated from Western Governors University I've been referring my friends family and colleagues to enroll in the university with the WGU referral program. I have done this due to how much I enjoyed my experience as well as how much I feel that I have actually gained from the completion of my degrees. While I have attended two ground-based colleges and three different online colleges, both before and after my degrees with Western Governors University; Western Governors University is the only one who really rises to the top and deserves my undivided recommendation.
 
-### 🎓 Built-In Certification Prep — A Major Hidden Benefit
-
-One of the underrated benefits of WGU's IT program is that certification preparation is built directly into the coursework. Clarke earned his [CompTIA A+](/clarke-moyer-comptia-a-plus-passing-guide), [Network+](/clarke-moyer-comptia-network-plus-passing-guide), [Security+](/clarke-moyer-comptia-security-plus-passing-guide), [Project+](/clarke-moyer-comptia-project-plus-passing-guide), and [CIW Professional](/clarke-moyer-ciw-professional-passing-guide) certifications as part of completing the BS-IT degree — not separately. If you're planning to pursue these certs anyway, the WGU path lets you get both the degree and the certifications at the same time. Clarke held all of these before finishing the degree program, thanks to WGU's integrated curriculum.
-
-[See all certification guides →](/certification-guides/)
-
 ### Referral Information
 
 **NOTE:** If WGU no longer has direct referral links you have to fill out a form.
