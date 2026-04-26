@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { amznUrl } from '@/lib/amazon';
 
 export const metadata: Metadata = {
   title: "Clarke Moyer's Sweet Tea Recipe",
@@ -12,11 +13,9 @@ export const metadata: Metadata = {
   },
 };
 
-const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
-  const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
+    <a href={amznUrl(asin)} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
       {label} ↗
     </a>
   );
@@ -27,11 +26,11 @@ export default function SweetTeaPage() {
     <>
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
-          <div className="text-sm mb-2">
+          <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link> /{' '}
-            <Link href="/fun" className="hover:underline text-gray-300">Fun</Link> /{' '}
-            <Link href="/cooking" className="hover:underline text-gray-300">Cooking</Link> / Sweet Tea
-          </div>
+            <Link href="/fun/" className="hover:underline text-gray-300">Fun</Link> /{' '}
+            <Link href="/cooking/" className="hover:underline text-gray-300">Cooking</Link> / Sweet Tea
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer&rsquo;s Sweet Tea Recipe</h1>
           <p className="mt-4 text-gray-300 text-lg">Sized for a 2.5 Gallon Fridge Dispenser</p>
         </div>
@@ -51,7 +50,7 @@ export default function SweetTeaPage() {
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
                 {amzn('B005S4LOYY', 'Arrow Home Products 3 Gallon Drink Dispenser (BPA Free)')}
-                <span className="text-gray-500 text-sm ml-1">— the exact dispenser used in this recipe</span>
+                <span className="text-gray-500 text-sm ml-1">— we fill it to 2.5 gallons, leaving room to breathe and making it easy to top off without overflow.</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
@@ -86,7 +85,7 @@ export default function SweetTeaPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 text-gray-400">▸</span>
-                <span>3 gallons water total: 1 gallon for simple syrup, 1 gallon for tea, ½ gallon cold/iced for cooling</span>
+                <span>2.5 gallons water total: 1 gallon for simple syrup, 1 gallon for tea, ½ gallon cold/iced for cooling</span>
               </li>
             </ul>
           </div>
@@ -157,7 +156,7 @@ export default function SweetTeaPage() {
           </p>
 
           <div className="mt-4 text-center">
-            <Link href="/cooking" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
+            <Link href="/cooking/" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
           </div>
         </div>
       </section>

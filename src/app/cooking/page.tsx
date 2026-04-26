@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Cooking | Clarke Moyer',
     description: "Clarke Moyer's cooking page — recipes from a household where the wife is a trained chef.",
     type: 'website',
-    url: '/cooking/',
+    url: 'https://clarkemoyer.com/cooking/',
   },
 };
 
@@ -62,7 +62,7 @@ export default function CookingPage() {
                 key={recipe.href}
                 className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow flex flex-col"
               >
-                <div className="text-4xl mb-3">{recipe.emoji}</div>
+                <div className="text-4xl mb-3" aria-hidden="true">{recipe.emoji}</div>
                 <h2 className="text-xl font-bold text-gray-900 mb-2">{recipe.title}</h2>
                 <p className="text-gray-600 mb-4 flex-1">{recipe.description}</p>
                 <Link

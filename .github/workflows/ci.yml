@@ -51,6 +51,10 @@ jobs:
             "out/learn-free-charity/index.html"
             "out/personal-project-manager/index.html"
             "out/clarke-moyer-world-famous-apple-crisp-recipe/index.html"
+            "out/clarke-moyer-sweet-tea-recipe/index.html"
+            "out/clarke-moyer-philly-cheesesteak-recipe/index.html"
+            "out/cooking/index.html"
+            "out/affiliate-disclosure/index.html"
             "out/privacy-policy/index.html"
             "out/cookie-policy/index.html"
           )

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { amznUrl } from '@/lib/amazon';
 
 export const metadata: Metadata = {
   title: "Clarke Moyer's World Famous Apple Crisp Recipe",
@@ -12,11 +13,9 @@ export const metadata: Metadata = {
   },
 };
 
-const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
-  const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
+    <a href={amznUrl(asin)} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
       {label} ↗
     </a>
   );
@@ -27,11 +26,11 @@ export default function AppleCrispPage() {
     <>
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
-          <div className="text-sm mb-2">
+          <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link> /{' '}
-            <Link href="/fun" className="hover:underline text-gray-300">Fun</Link> /{' '}
-            <Link href="/cooking" className="hover:underline text-gray-300">Cooking</Link> / Apple Crisp
-          </div>
+            <Link href="/fun/" className="hover:underline text-gray-300">Fun</Link> /{' '}
+            <Link href="/cooking/" className="hover:underline text-gray-300">Cooking</Link> / Apple Crisp
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer&rsquo;s World Famous Apple Crisp Recipe</h1>
         </div>
       </section>
@@ -109,7 +108,7 @@ export default function AppleCrispPage() {
           </p>
 
           <div className="mt-4 text-center">
-            <Link href="/cooking" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
+            <Link href="/cooking/" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
           </div>
         </div>
       </section>
