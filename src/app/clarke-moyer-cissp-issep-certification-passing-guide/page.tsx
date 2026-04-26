@@ -34,12 +34,12 @@ export default function CISSPISSEPGuidePage() {
     <>
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
-          <div className="text-sm mb-2">
+          <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link>{' '}
             /{' '}
             <Link href="/certification-guides" className="hover:underline text-gray-300">Certification Guides</Link>{' '}
             / CISSP-ISSEP Guide
-          </div>
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer CISSP-ISSEP Certification Passing Guide</h1>
         </div>
       </section>
