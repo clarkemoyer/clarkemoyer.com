@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 };
 
 const BOOK_MAIN = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83499a2218eec3@moyermanagement.com?anonymous&ismsaljsauthenabled&ep=plink';
-const BOOK_45  = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83499a2218eec3@moyermanagement.com/meetingtype/_nIXzgFu8kOM6hivevxXOQ2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile';
-const BOOK_60  = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83499a2218eec3@moyermanagement.com/meetingtype/iidM9O3-JkOFO5c_F3ZpVg2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile';
+const BOOK_45 = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83499a2218eec3@moyermanagement.com/meetingtype/_nIXzgFu8kOM6hivevxXOQ2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile';
+const BOOK_60 = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83499a2218eec3@moyermanagement.com/meetingtype/iidM9O3-JkOFO5c_F3ZpVg2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile';
 
 export default function WalkAndTalkPage() {
   return (
