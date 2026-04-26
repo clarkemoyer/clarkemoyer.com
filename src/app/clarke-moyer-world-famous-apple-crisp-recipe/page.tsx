@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { amznUrl } from '@/lib/amazon';
 
 export const metadata: Metadata = {
   title: "Clarke Moyer's World Famous Apple Crisp Recipe",
@@ -12,15 +13,24 @@ export const metadata: Metadata = {
   },
 };
 
+function amzn(asin: string, label: string) {
+  return (
+    <a href={amznUrl(asin)} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline">
+      {label} ↗
+    </a>
+  );
+}
+
 export default function AppleCrispPage() {
   return (
     <>
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
-          <div className="text-sm mb-2">
+          <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link> /{' '}
-            <Link href="/fun" className="hover:underline text-gray-300">Fun</Link> / Apple Crisp Recipe
-          </div>
+            <Link href="/fun/" className="hover:underline text-gray-300">Fun</Link> /{' '}
+            <Link href="/cooking/" className="hover:underline text-gray-300">Cooking</Link> / Apple Crisp
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer&rsquo;s World Famous Apple Crisp Recipe</h1>
         </div>
       </section>
@@ -30,13 +40,27 @@ export default function AppleCrispPage() {
 
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Tools</h2>
-            <ul className="list-disc ml-6 space-y-1 text-gray-700">
-              <li>Apple Peeler, Cutter, &amp; Corer</li>
-              <li>8×8 inch wide 2.75 inch deep Pyrex baking pan</li>
-              <li>4 Quart Pyrex Mixing Bowl</li>
-              <li>Measuring Spoons: 1/8th TSP, 1 TSP, 1 TBSP</li>
-              <li>Measuring Cups: ½ Cup and 1/3rd Cup</li>
-              <li>6 Inch Chef&rsquo;s Knife</li>
+            <ul className="space-y-2 text-gray-700">
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B000YEP7AK', 'Apple Peeler, Cutter & Corer (Victorio)')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B00BPNQ46C', 'Pyrex 8×8 inch Glass Baking Dish')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B00LGLHUA0', 'Pyrex 4 Quart Glass Mixing Bowl')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B07JNLLNF9', 'Measuring Cup & Spoon Set')}
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="mt-1 text-gray-400">▸</span>
+                {amzn('B07B94SYCZ', "6-Inch Chef's Knife")}
+              </li>
             </ul>
           </div>
 
@@ -45,22 +69,22 @@ export default function AppleCrispPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Filling</h3>
-                <ul className="list-disc ml-6 space-y-1 text-gray-700">
-                  <li>3 Granny Smith Apples</li>
-                  <li>3 Golden Delicious Apples</li>
-                  <li>3 TBSP Granulated Sugar</li>
-                  <li>1 TSP Ground Cinnamon</li>
-                  <li>1/8th TSP Fine Salt</li>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>3 Granny Smith Apples</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>3 Golden Delicious Apples</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>3 TBSP {amzn('B07QG14XBS', 'Granulated Sugar')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1 TSP {amzn('B00NYDYQ2C', 'Ground Cinnamon')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1/8th TSP Fine Salt</span></li>
                 </ul>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Crumble</h3>
-                <ul className="list-disc ml-6 space-y-1 text-gray-700">
-                  <li>1 Cup Quaker Old Fashioned Oats</li>
-                  <li>1 Cup Compacted Light Brown Sugar</li>
-                  <li>2/3rd Cup All-purpose Flour</li>
-                  <li>1 Stick Unsalted Butter</li>
-                  <li>1/4th TSP Fine Salt</li>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1 Cup {amzn('B00032GKQO', 'Quaker Old Fashioned Oats')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1 Cup Compacted {amzn('B07QKP99GD', 'Light Brown Sugar')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>2/3rd Cup {amzn('B000YI0LC8', 'All-purpose Flour')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1 Stick {amzn('B07T9BQB19', 'Unsalted Butter')}</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-gray-400">▸</span><span>1/4th TSP Fine Salt</span></li>
                 </ul>
               </div>
             </div>
@@ -79,8 +103,12 @@ export default function AppleCrispPage() {
             </ol>
           </div>
 
-          <div className="mt-10 text-center">
-            <Link href="/fun" className="text-blue-600 hover:underline font-medium">← Back to Fun</Link>
+          <p className="text-xs text-gray-400 mb-10">
+            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
+          </p>
+
+          <div className="mt-4 text-center">
+            <Link href="/cooking/" className="text-blue-600 hover:underline font-medium">← Back to Cooking</Link>
           </div>
         </div>
       </section>
