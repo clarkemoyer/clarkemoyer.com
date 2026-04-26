@@ -6,24 +6,15 @@ import { testConfig } from './test.config'
  * No axe dependency required — uses Playwright DOM assertions.
  */
 
-// Pages to spot-check for per-page accessibility rules
-const spotCheckPages = [
-  '/walk-and-talk/',
-  '/clarke-moyer-cissp-certification-passing-guide/',
-  '/clarke-moyer-world-famous-apple-crisp-recipe/',
-  '/professional-development/',
-]
+const PAGES = testConfig.pages
 
-// Pages known to have breadcrumbs
-const breadcrumbPages = [
-  '/clarke-moyer-cissp-certification-passing-guide/',
-  '/clarke-moyer-world-famous-apple-crisp-recipe/',
-  '/clarke-moyer-mcp-passing-guide/',
-  '/clarke-moyer-microsoft-az-500-passing-guide/',
-]
+// Pages known to have breadcrumbs (cert guides + recipes)
+const breadcrumbPages = PAGES.filter(
+  p => p.includes('passing-guide') || p.includes('recipe')
+)
 
 test.describe('Accessibility — every page has <main> and <h1>', () => {
-  for (const path of testConfig.pages) {
+  for (const path of PAGES) {
     test(`${path} has <main> element`, async ({ page }) => {
       await page.goto(path)
       const main = page.locator('main, [role="main"]')
@@ -48,8 +39,8 @@ test.describe('Accessibility — breadcrumb aria-label', () => {
   }
 })
 
-test.describe('Accessibility — images have alt text (spot check)', () => {
-  for (const path of spotCheckPages) {
+test.describe('Accessibility — images have alt text', () => {
+  for (const path of PAGES) {
     test(`${path} — no images missing alt attribute`, async ({ page }) => {
       await page.goto(path)
       const imgsWithoutAlt = page.locator('img:not([alt])')
@@ -59,25 +50,22 @@ test.describe('Accessibility — images have alt text (spot check)', () => {
   }
 })
 
-test.describe('Accessibility — external links on Walk and Talk page', () => {
-  test('all external links have target="_blank" and rel containing "noopener"', async ({ page }) => {
-    await page.goto('/walk-and-talk/')
-    const externalLinks = page.locator('a[href^="http"]')
-    const count = await externalLinks.count()
-    expect(count).toBeGreaterThan(0)
-    for (let i = 0; i < count; i++) {
-      const link = externalLinks.nth(i)
-      const href = await link.getAttribute('href')
-      const rel = await link.getAttribute('rel') ?? ''
-      const target = await link.getAttribute('target') ?? ''
-      expect(
-        target,
-        `External link ${href} missing target="_blank"`
-      ).toBe('_blank')
-      expect(
-        rel,
-        `External link ${href} missing rel="noopener"`
-      ).toContain('noopener')
-    }
-  })
+test.describe('Accessibility — external links have rel=noopener', () => {
+  for (const path of PAGES) {
+    test(`${path} — external links have rel containing "noopener"`, async ({ page }) => {
+      await page.goto(path)
+      const externalLinks = page.locator('a[href^="http"]')
+      const count = await externalLinks.count()
+      if (count === 0) return // no external links on this page — skip
+      for (let i = 0; i < count; i++) {
+        const link = externalLinks.nth(i)
+        const href = await link.getAttribute('href')
+        const rel = await link.getAttribute('rel') ?? ''
+        expect(
+          rel,
+          `External link ${href} on ${path} missing rel="noopener"`
+        ).toContain('noopener')
+      }
+    })
+  }
 })

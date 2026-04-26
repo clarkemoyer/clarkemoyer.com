@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 import fs from 'fs'
 import path from 'path'
+import { testConfig } from './test.config'
 
 /**
  * Build output validation tests
@@ -25,21 +26,16 @@ test.describe('Build output validation', () => {
     expect(outExists).toBe(true)
   })
 
-  test('key pages exist in build output', () => {
+  test('all pages exist in build output', () => {
     if (!outExists) {
       test.skip()
       return
     }
-    const expectedPaths = [
-      'index.html',
-      'walk-and-talk/index.html',
-      'cooking/index.html',
-      'certification-guides/index.html',
-      'clarke-moyer-cissp-certification-passing-guide/index.html',
-      'clarke-moyer-mcp-passing-guide/index.html',
-      'professional-development/index.html',
-      'affiliate-disclosure/index.html',
-    ]
+    // Convert /foo/ → foo/index.html, / → index.html
+    const expectedPaths = testConfig.pages.map(p => {
+      if (p === '/') return 'index.html'
+      return p.replace(/^\//, '').replace(/\/$/, '') + '/index.html'
+    })
     for (const p of expectedPaths) {
       const fullPath = path.join(outDir, p)
       expect(fs.existsSync(fullPath), `Missing: out/${p}`).toBe(true)
@@ -90,19 +86,23 @@ test.describe('Build output validation', () => {
       test.skip()
       return
     }
-    const filesToCheck = [
-      'index.html',
-      'walk-and-talk/index.html',
-      'clarke-moyer-world-famous-apple-crisp-recipe/index.html',
-      'clarke-moyer-mcp-passing-guide/index.html',
-    ]
-    for (const f of filesToCheck) {
-      const full = path.join(outDir, f)
-      if (!fs.existsSync(full)) continue // skip pages that don't exist yet
+    // Walk ALL html files in out/ directory
+    const htmlFiles: string[] = []
+    function walkForMojibake(dir: string) {
+      for (const f of fs.readdirSync(dir)) {
+        const full = path.join(dir, f)
+        if (fs.statSync(full).isDirectory()) walkForMojibake(full)
+        else if (f.endsWith('.html')) htmlFiles.push(full)
+      }
+    }
+    walkForMojibake(outDir)
+    expect(htmlFiles.length, 'No HTML files found in out/').toBeGreaterThan(0)
+    for (const full of htmlFiles) {
+      const relPath = path.relative(outDir, full)
       const content = fs.readFileSync(full, 'utf-8')
       // Check for common UTF-8 double-encoding mojibake patterns
-      expect(content, `Mojibake (Ã¢â‚¬ pattern) in out/${f}`).not.toMatch(/Ã¢â‚¬/)
-      expect(content, `Mojibake (â€ pattern) in out/${f}`).not.toMatch(/â€[™˜"â€]/)
+      expect(content, `Mojibake (Ã¢â‚¬ pattern) in out/${relPath}`).not.toMatch(/Ã¢â‚¬/)
+      expect(content, `Mojibake (â€ pattern) in out/${relPath}`).not.toMatch(/â€[™˜"â€]/)
     }
   })
 
