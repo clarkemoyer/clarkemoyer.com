@@ -79,7 +79,7 @@ export default function WalkAndTalkPage() {
               {
                 n: '01',
                 title: 'Book a session',
-                body: 'Select your preferred time via Microsoft Bookings. You'll receive a calendar invite and a brief intake form. No prep required.',
+                body: "Select your preferred time via Microsoft Bookings. You'll receive a calendar invite and a brief intake form. No prep required.",
               },
               {
                 n: '02',

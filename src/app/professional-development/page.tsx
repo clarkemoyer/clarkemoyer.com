@@ -83,7 +83,7 @@ export default function ProfessionalDevelopmentPage() {
                   Full write-up on the Industry Conferences page &rarr;
                 </Link>
                 {' | '}
-                <Link href="/clarke-moyer-vcp-am-passing-guide/" className="font-medium hover:underline text-blue-600">
+                <Link href="/certification-guides" className="font-medium hover:underline text-blue-600">
                   VCP-AM Certification &rarr;
                 </Link>
               </p>
@@ -109,11 +109,11 @@ export default function ProfessionalDevelopmentPage() {
               </p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp5-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp6-cma-passing-guide/" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
@@ -124,11 +124,11 @@ export default function ProfessionalDevelopmentPage() {
               <p className="text-gray-700 text-sm mb-2">20 Hours CPE. Virtual edition during the pandemic year.</p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp5-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp6-cma-passing-guide/" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
@@ -151,11 +151,11 @@ export default function ProfessionalDevelopmentPage() {
               </p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/clarke-moyer-vcp4-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp5-dcv-passing-guide/" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/clarke-moyer-vcp6-cma-passing-guide/" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
