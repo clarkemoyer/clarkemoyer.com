@@ -43,6 +43,12 @@ export default function AffiliateDisclosurePage() {
             <li>You pay the same price whether you use an affiliate link or not.</li>
           </ul>
 
+          <h2>FTC Disclosure</h2>
+          <p>
+            In accordance with the Federal Trade Commission (FTC) guidelines, this site discloses any material
+            connections between content and any products or services recommended or linked.
+          </p>
+
           <h2>Questions</h2>
           <p>
             If you have questions about this disclosure, contact{' '}

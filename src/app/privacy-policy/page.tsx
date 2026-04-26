@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-bold text-gray-900">1. Introduction</h2>
             <p className="text-gray-700">
               This is the personal website of Clarke Moyer at{' '}
-              <a href="https://clarkemoyer.com" className="text-blue-600 hover:underline">
+              <a href="https://clarkemoyer.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
                 clarkemoyer.com
               </a>
               . Your privacy matters. This policy explains what data is collected and how it is used.
