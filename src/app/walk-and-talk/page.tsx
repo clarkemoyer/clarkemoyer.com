@@ -169,7 +169,7 @@ export default function WalkAndTalkPage() {
             {/* 45-min card */}
             <div className="bg-white border border-gray-200 rounded-xl p-8 flex flex-col shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-1">45-Minute Walk and Talk</h3>
-              <p className="text-sm text-amber-700 font-medium mb-4">Available once daily — lunch hour (EST)</p>
+              <p className="text-sm text-amber-700 font-medium mb-4">Mon–Fri · 1:30–2:30 PM EST · One session daily</p>
               <p className="text-4xl font-black text-gray-900 mb-1">$562.50</p>
               <p className="text-gray-500 text-sm mb-6">per session</p>
               <a
@@ -185,7 +185,7 @@ export default function WalkAndTalkPage() {
             {/* 1-hour card */}
             <div className="bg-gray-900 border border-gray-700 rounded-xl p-8 flex flex-col shadow-sm">
               <h3 className="text-xl font-bold text-white mb-1">1-Hour Walk and Talk</h3>
-              <p className="text-sm text-amber-300 font-medium mb-4">Available once daily — after hours (EST)</p>
+              <p className="text-sm text-amber-300 font-medium mb-4">Mon–Fri · 5:30–7:00 PM EST · One session daily</p>
               <p className="text-4xl font-black text-white mb-1">$750</p>
               <p className="text-gray-400 text-sm mb-6">per session</p>
               <a
@@ -201,7 +201,7 @@ export default function WalkAndTalkPage() {
 
           {/* Scarcity note */}
           <p className="text-gray-600 text-sm leading-relaxed mb-4">
-            Clarke limits Walk and Talk to two sessions per day by design — one at lunch, one after hours. This keeps
+            Clarke limits Walk and Talk to two sessions per day by design — one at lunch (1:30 PM EST) and one after hours (5:30 PM EST), Monday through Friday. This keeps
             the quality of conversation high and ensures he is fully present for each call. Availability is limited;
             book in advance.
           </p>
