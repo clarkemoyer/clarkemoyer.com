@@ -158,7 +158,7 @@ export default function SC500GuidePage() {
           </ol>
 
           <p className="not-prose text-xs text-gray-400 mt-12">
-            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you.{' '}
+            This page contains affiliate links. As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you.{' '}
             <Link href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</Link>.
           </p>
 
