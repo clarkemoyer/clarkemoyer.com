@@ -45,11 +45,17 @@ export default async function Home() {
               Thank you for visiting my site. Please scroll down to check out my featured projects below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family and I click &quot;Get More Info&quot;.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/walk-and-talk"
+                className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Book a Walk and Talk →
+              </Link>
               <a 
                 href="https://linkedin.com/in/clarkemoyer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+                className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white/10 transition-colors"
               >
                 CONNECT ON LINKEDIN
               </a>

@@ -19,17 +19,25 @@ const navLinks: NavLink[] = [
     ],
   },
   {
+    id: 'consulting',
+    href: null,
+    label: 'CONSULTING',
+    children: [
+      { id: 'consulting-walk-and-talk', href: '/walk-and-talk', label: 'WALK AND TALK' },
+      { id: 'consulting-certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
+      { id: 'consulting-professional-development', href: '/professional-development', label: 'PROFESSIONAL DEVELOPMENT' },
+      { id: 'consulting-conferences', href: '/industry-conferences', label: 'INDUSTRY CONFERENCES' },
+    ],
+  },
+  {
     id: 'fun',
     href: '/fun',
     label: 'FUN',
     children: [
       { id: 'fun-cooking', href: '/cooking', label: 'COOKING' },
       { id: 'fun-quotes', href: '/quotes', label: 'QUOTES' },
-      { id: 'fun-conferences', href: '/industry-conferences', label: 'INDUSTRY CONFERENCES' },
-      { id: 'fun-professional-development', href: '/professional-development', label: 'PROFESSIONAL DEVELOPMENT' },
     ],
   },
-  { id: 'certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
   { id: 'wgu-referral', href: '/wgu-referral-program', label: 'WGU REFERRAL PROGRAM' },
   { id: 'psu-arl-referral', href: '/psu-arl-referral-program', label: 'PSU-ARL REFERRAL PROGRAM' },
   { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
