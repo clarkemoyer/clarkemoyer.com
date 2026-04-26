@@ -59,7 +59,7 @@ export default function AZ500GuidePage() {
             </p>
           </div>
 
-          <h2>About AZ-500</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">About AZ-500</h2>
           <p>
             The <strong>AZ-500: Microsoft Azure Security Technologies</strong> exam validates your ability to
             implement platform protections, manage security operations, and secure data and applications in Azure.
@@ -111,7 +111,7 @@ export default function AZ500GuidePage() {
             </a>
           </p>
 
-          <h2>Study Materials</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">Study Materials</h2>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
             AZ-500 Study Guides <span className="text-green-700 text-base font-semibold ml-2">← Search for Current Edition</span>
@@ -149,7 +149,7 @@ export default function AZ500GuidePage() {
             </a>
           </p>
 
-          <h2>See Also</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">See Also</h2>
           <ul>
             <li><Link href="/clarke-moyer-cissp-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP Certification Passing Guide</Link> — pairs well with AZ-500 for a complete security credentials stack</li>
             <li><Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="text-blue-600 hover:underline">AZ-900 Azure Fundamentals Guide</Link> — start here if you&rsquo;re new to Azure</li>

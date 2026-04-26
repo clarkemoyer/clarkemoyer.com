@@ -65,7 +65,7 @@ export default function CISSPGuidePage() {
             follow my methods, but I did pass the first attempt and don&rsquo;t think that I over-studied.
           </p>
 
-          <h2>Timeline</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">Timeline</h2>
           <p>
             Each year I try and do at least one educational objective for my company performance review. I do this for several reasons:
           </p>
@@ -76,7 +76,7 @@ export default function CISSPGuidePage() {
           </ol>
           <p>In most years this educational objective aligns to an industry certification.</p>
 
-          <h2>Books / Materials</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">Books / Materials</h2>
 
           <h3>Sunflower CISSP Study Guide 2.0 (Free)</h3>
           <p>
@@ -128,7 +128,7 @@ export default function CISSPGuidePage() {
             {amzn('B0C5YW939P', 'CISSP All-in-One Exam Guide, 9th Edition — Audiobook')}
           </p>
 
-          <h2>Training Programs</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">Training Programs</h2>
 
           <h3>CIO/G-6 NETCOM IA – CISSP 2018 (Free with CAC)</h3>
           <p>
@@ -145,7 +145,7 @@ export default function CISSPGuidePage() {
             person. This course alone will not get it done.
           </p>
 
-          <h2>Test / Quiz Options</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">Test / Quiz Options</h2>
 
           <h3>(ISC)² CISSP Official Study App ($10)</h3>
           <p>

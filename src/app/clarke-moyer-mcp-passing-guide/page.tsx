@@ -42,29 +42,35 @@ export default function MCPGuidePage() {
             </p>
           </div>
 
-          <h2>The Story</h2>
-          <p>
-            I got my MCP in March 2009 — and yes, it was a <strong>Windows XP certification</strong>. If you&rsquo;re
-            wondering how long ago that was: the &ldquo;P&rdquo; in XP stood for &ldquo;Professional,&rdquo; not
-            &ldquo;Please upgrade already.&rdquo;
-          </p>
-          <p>
-            At the time, the MCP was a hard prerequisite. SAIC and DCGS required it before they&rsquo;d even consider
-            hiring you. It wasn&rsquo;t optional, it wasn&rsquo;t a nice-to-have — it was the ticket you had to punch
-            to get in the door. So I punched it.
-          </p>
-          <p>
-            This was the <strong>before cloud era</strong>. Microsoft certifications in 2009 meant knowing your way
-            around a domain controller and Active Directory. You didn&rsquo;t &ldquo;spin up resources&rdquo; — you
-            physically racked servers. Group Policy was the closest thing to infrastructure-as-code, and DNS was
-            something you fixed at 2am with a prayer and a server reboot.
-          </p>
-          <p>
-            The MCP was the entry credential to everything else in the Microsoft ecosystem at the time: MCSA, MCSE,
-            MCDBA. It said &ldquo;this person passed at least one Microsoft exam and can be trusted near a Windows
-            server.&rdquo; That was the bar.
-          </p>
-          <p>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-gray-400 pl-4">The Story</h2>
+
+          {/* Retro Windows XP card */}
+          <div className="not-prose bg-gray-100 border border-gray-300 rounded-xl p-6 mb-6 font-mono relative overflow-hidden">
+            <div className="absolute top-3 right-3 bg-gray-200 border border-gray-400 text-gray-600 text-xs px-2 py-0.5 rounded font-sans font-semibold">🖥️ Vintage Credential</div>
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+              I got my MCP in March 2009 — and yes, it was a <strong>Windows XP certification</strong>. If you&rsquo;re
+              wondering how long ago that was: the &ldquo;P&rdquo; in XP stood for &ldquo;Professional,&rdquo; not
+              &ldquo;Please upgrade already.&rdquo;
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+              At the time, the MCP was a hard prerequisite. SAIC and DCGS required it before they&rsquo;d even consider
+              hiring you. It wasn&rsquo;t optional, it wasn&rsquo;t a nice-to-have — it was the ticket you had to punch
+              to get in the door. So I punched it.
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed mb-3">
+              This was the <strong>before cloud era</strong>. Microsoft certifications in 2009 meant knowing your way
+              around a domain controller and Active Directory. You didn&rsquo;t &ldquo;spin up resources&rdquo; — you
+              physically racked servers. Group Policy was the closest thing to infrastructure-as-code, and DNS was
+              something you fixed at 2am with a prayer and a server reboot.
+            </p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              The MCP was the entry credential to everything else in the Microsoft ecosystem at the time: MCSA, MCSE,
+              MCDBA. It said &ldquo;this person passed at least one Microsoft exam and can be trusted near a Windows
+              server.&rdquo; That was the bar.
+            </p>
+          </div>
+
+          <p className="text-gray-700 mb-6">
             I earned it, it served its purpose, and then Microsoft eventually retired the entire track when they
             shifted to the role-based cloud certification model. No complaints — the new track is genuinely better
             and more useful.
@@ -81,7 +87,7 @@ export default function MCPGuidePage() {
             </p>
           </div>
 
-          <h2>What I Recommend Instead</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-blue-500 pl-4">What I Recommend Instead</h2>
           <p>
             Microsoft&rsquo;s current certification track is genuinely excellent — role-based, cloud-focused, and
             actually relevant to what enterprises and DoD environments are running today. I&rsquo;ve completed all

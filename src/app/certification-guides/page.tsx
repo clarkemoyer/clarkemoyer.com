@@ -34,10 +34,17 @@ export default function CertificationGuidesPage() {
             <a href="https://linkedin.com/in/clarkemoyer" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em>
           </p>
 
-          <h2>Microsoft Azure Certifications</h2>
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-5 mb-8">
+            <p className="text-blue-900 text-base leading-relaxed">
+              Clarke holds 23+ active certifications across security, cloud, project management, and infrastructure.
+              Each guide below reflects personal experience — not just exam prep.
+            </p>
+          </div>
+
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-green-500 pl-4">Microsoft Azure Certifications</h2>
           <p className="text-gray-600 not-prose">Clarke currently recommends these Microsoft Azure certifications — solid entry points for cloud, AI, and security in enterprise and DoD environments.</p>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">Microsoft AZ-900 Azure Fundamentals Guide</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
@@ -48,7 +55,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">Microsoft AI-900 Azure AI Fundamentals Guide</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
@@ -59,7 +66,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">Microsoft SC-900 Security Fundamentals Guide</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
@@ -70,7 +77,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">SC-500: Cloud &amp; AI Security Engineer</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
@@ -81,7 +88,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">AZ-500: Azure Security Technologies</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">🔒 Security</span>
@@ -92,7 +99,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-3 mb-2">
               <h2 className="text-2xl font-bold text-green-900">Microsoft MS-900 Microsoft 365 Fundamentals Guide</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
@@ -103,7 +110,10 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-blue-500 pl-4">Security &amp; Management Certifications</h2>
+          <p className="not-prose text-sm text-gray-500 mb-6">DoD 8570 IAM III qualified certifications — CISSP, CISSP-ISSEP, PMP, and SAFe SPC.</p>
+
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">CISSP Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">I wrote a detailed guide on how I passed the CISSP on my first attempt.</p>
             <Link href="/clarke-moyer-cissp-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -111,7 +121,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">CISSP-ISSEP Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">The ISSEP concentration — Systems Security Engineering Professional. Requires active CISSP. Earned November 2019.</p>
             <Link href="/clarke-moyer-cissp-issep-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -119,7 +129,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">PMP Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">PMI&rsquo;s flagship project management credential. Study method, Rita Mulcahy resources, and test strategy. Earned December 2012.</p>
             <Link href="/clarke-moyer-pmp-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -127,7 +137,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <h2 className="text-2xl font-bold text-blue-900 mb-2">SAFe SPC Certification Passing Guide</h2>
             <p className="text-blue-800 mb-4">SAFe Program Consultant — the 4-day instructor-led path to leading enterprise Lean-Agile transformations. Earned October 2020.</p>
             <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -135,10 +145,10 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">CompTIA Certifications</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-orange-400 pl-4">CompTIA Certifications</h2>
           <p className="not-prose text-sm text-gray-500 mb-6">Legacy path — see the <Link href="/clarke-moyer-cissp-certification-passing-guide" className="text-blue-600 hover:underline">CISSP guide</Link> for the recommended security track and the <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="text-blue-600 hover:underline">SAFe SPC guide</Link> for the recommended project management track.</p>
 
-          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -153,7 +163,7 @@ export default function CertificationGuidesPage() {
             </div>
           </div>
 
-          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -168,7 +178,7 @@ export default function CertificationGuidesPage() {
             </div>
           </div>
 
-          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -183,7 +193,7 @@ export default function CertificationGuidesPage() {
             </div>
           </div>
 
-          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <div className="flex items-start gap-3">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
@@ -198,11 +208,11 @@ export default function CertificationGuidesPage() {
             </div>
           </div>
 
-          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">VMware Certifications</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-gray-400 pl-4">VMware Certifications</h2>
           <p className="not-prose text-sm text-gray-500 mb-3">DoD 8570 Computing Environment certifications — VMware data center virtualization and cloud management credentials.</p>
           <p className="not-prose text-gray-600 mb-6">Clarke&rsquo;s VMware track spans over a decade of private cloud and DCGS program work — starting before formal VMware certification existed and culminating in cloud management and application modernization. This era has given way to cloud-native architecture under the CNCF.</p>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP-AM Application Modernization Guide</h3>
             <p className="text-gray-700 mb-4">VCP-AM covers Tanzu, Kubernetes, and container orchestration — VMware&rsquo;s modern cloud-native platform. License: VMW-02637767W.</p>
             <Link href="/clarke-moyer-vcp-am-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -210,7 +220,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP6-CMA Cloud Management &amp; Automation Guide</h3>
             <p className="text-gray-700 mb-4">VCP6-CMA validates skills in vRealize Automation, vRealize Operations, and cloud management. Obtained May 2018.</p>
             <Link href="/clarke-moyer-vcp6-cma-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -218,7 +228,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP5-DCV Data Center Virtualization Guide</h3>
             <p className="text-gray-700 mb-4">VCP5-DCV covers vSphere 5 — ESXi, vCenter, HA, DRS, and vMotion. Legacy credential. Obtained February 2012.</p>
             <Link href="/clarke-moyer-vcp5-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -226,7 +236,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP4-DCV Data Center Virtualization Guide</h3>
             <p className="text-gray-700 mb-4">VCP4-DCV — the original DCV credential, based on vSphere 4. Historical cert. Obtained November 2010.</p>
             <Link href="/clarke-moyer-vcp4-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
@@ -234,10 +244,10 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">Legacy &amp; Retired Certifications</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-gray-300 pl-4">Legacy &amp; Retired Certifications</h2>
           <p className="not-prose text-sm text-gray-500 mb-6">Credentials that are retired or have limited current market value. Included for completeness and historical context.</p>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-4">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="text-xl font-bold text-gray-900">Microsoft MCP Passing Guide</h3>
               <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired</span>
@@ -248,7 +258,7 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="text-xl font-bold text-gray-900">CIW Professional &amp; Database Design Specialist Guide</h3>
               <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Legacy</span>
@@ -259,9 +269,9 @@ export default function CertificationGuidesPage() {
             </Link>
           </div>
 
-          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4">Service Management Certifications</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-blue-400 pl-4">Service Management Certifications</h2>
 
-          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+          <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <h3 className="text-xl font-bold text-blue-900 mb-2">ITIL 4 Foundation Passing Guide</h3>
             <p className="text-blue-800 mb-4">Entry-level IT service management credential — required on certain DoD and enterprise contracts. Covers the ITIL service value system, four dimensions model, and guiding principles.</p>
             <Link href="/clarke-moyer-itil-4-foundation-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">

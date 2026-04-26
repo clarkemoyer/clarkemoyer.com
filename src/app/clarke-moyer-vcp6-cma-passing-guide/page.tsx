@@ -71,7 +71,7 @@ export default function VCP6CMAGuidePage() {
             </p>
           </div>
 
-          <h2>About VCP6-CMA</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-gray-400 pl-4">About VCP6-CMA</h2>
           <p>
             The VMware Certified Professional 6 – Cloud Management and Automation (VCP6-CMA) validates skills
             in vRealize Automation, vRealize Operations Manager, and cloud management at the vSphere 6 level.
@@ -83,7 +83,7 @@ export default function VCP6CMAGuidePage() {
             certification track.
           </p>
 
-          <h2>Key Topics Covered</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-gray-400 pl-4">Key Topics Covered</h2>
           <ul>
             <li>vRealize Automation (vRA) — blueprint design, tenant management, and catalog services</li>
             <li>vRealize Operations Manager (vROps) — performance analytics, capacity planning, and compliance</li>
@@ -92,7 +92,7 @@ export default function VCP6CMAGuidePage() {
             <li>Identity management and multi-tenancy</li>
           </ul>
 
-          <h2>Study Materials</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-gray-400 pl-4">Study Materials</h2>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">VMware vRealize Automation Study Guide</h3>
           <p className="not-prose text-gray-700 mt-2 mb-3">
@@ -111,7 +111,7 @@ export default function VCP6CMAGuidePage() {
             {amznSearch(`https://www.amazon.com/s?k=VMware+VCP+cloud+management+exam+prep&tag=${AMZN_TAG}`, 'Search: VMware VCP Cloud Management Exam Prep')}
           </p>
 
-          <h2>Training Options</h2>
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-gray-400 pl-4">Training Options</h2>
           <p>
             VMware requires completing an authorized training course before you can sit for the exam.
             Options include:
