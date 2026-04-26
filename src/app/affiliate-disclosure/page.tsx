@@ -70,6 +70,7 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-world-famous-apple-crisp-recipe/" className="text-blue-600 hover:underline">Apple Crisp Recipe</Link></li>
               <li><Link href="/clarke-moyer-sweet-tea-recipe/" className="text-blue-600 hover:underline">Sweet Tea Recipe</Link></li>
               <li><Link href="/clarke-moyer-philly-cheesesteak-recipe/" className="text-blue-600 hover:underline">Philly Cheesesteak Recipe</Link></li>
+              <li><Link href="/clarke-moyer-cissp-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-cissp-issep-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP-ISSEP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-pmp-certification-passing-guide/" className="text-blue-600 hover:underline">PMP Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-safe-spc-certification-passing-guide/" className="text-blue-600 hover:underline">SAFe SPC Certification Passing Guide</Link></li>
@@ -77,6 +78,7 @@ export default function AffiliateDisclosurePage() {
               <li><Link href="/clarke-moyer-comptia-network-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA Network+ Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-comptia-a-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA A+ Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-comptia-project-plus-passing-guide/" className="text-blue-600 hover:underline">CompTIA Project+ Certification Passing Guide</Link></li>
+              <li><Link href="/clarke-moyer-ciw-professional-passing-guide/" className="text-blue-600 hover:underline">CIW Professional Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-itil-4-foundation-passing-guide/" className="text-blue-600 hover:underline">ITIL 4 Foundation Certification Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="text-blue-600 hover:underline">Microsoft AZ-900 Azure Fundamentals Passing Guide</Link></li>
               <li><Link href="/clarke-moyer-microsoft-az-500-passing-guide/" className="text-blue-600 hover:underline">Microsoft AZ-500 Azure Security Technologies Passing Guide</Link></li>
