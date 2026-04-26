@@ -153,7 +153,7 @@ export default function AZ900GuidePage() {
 
           <p className="not-prose text-xs text-gray-400 mt-12">
             As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See{' '}
-            <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
+            <Link href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</Link>.
           </p>
 
           <p className="not-prose text-sm text-gray-500 mt-2">
