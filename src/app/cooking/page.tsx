@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Cooking | Clarke Moyer',
     description: "Clarke Moyer's cooking page — recipes from a household where the wife is a trained chef.",
     type: 'website',
-    url: 'https://clarkemoyer.com/cooking/',
+    url: '/cooking/',
   },
 };
 

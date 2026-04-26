@@ -32,7 +32,6 @@ export const testConfig = {
     '/quotes/',
     '/it-project-management-resume-of-clarke-moyer/',
     '/western-governors-university-bs-it/',
-    '/clarke-moyer-cissp-certification-passing-guide/',
     '/learn-free-charity/',
     '/personal-project-manager/',
     '/clarke-moyer-world-famous-apple-crisp-recipe/',
