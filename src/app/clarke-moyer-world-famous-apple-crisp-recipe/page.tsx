@@ -38,6 +38,12 @@ export default function AppleCrispPage() {
       <section className="bg-white py-16">
         <div className="max-w-3xl mx-auto px-4">
 
+          <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-8 pb-4 border-b">
+            <span><strong>Prep:</strong> 20 min</span>
+            <span><strong>Bake:</strong> 50–60 min</span>
+            <span><strong>Serves:</strong> 8</span>
+          </div>
+
           <div className="mb-10">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b pb-2">Tools</h2>
             <ul className="space-y-2 text-gray-700">
