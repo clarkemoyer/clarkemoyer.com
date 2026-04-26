@@ -49,8 +49,7 @@ export default function ProfessionalDevelopmentPage() {
           </div>
 
           {/* ── Section 1: Major Industry Conferences ── */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-12 border-b border-gray-200 pb-2">
-            🏟️ Major Industry Conferences &amp; Summits
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-12 border-l-4 border-blue-500 pl-4">🏟️ Major Conferences &amp; Summits
           </h2>
 
           <div className="space-y-6 mt-6">
@@ -162,8 +161,7 @@ export default function ProfessionalDevelopmentPage() {
           </div>
 
           {/* ── Section 2: Academic Residencies ── */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-b border-gray-200 pb-2">
-            🎓 Academic Residencies — Penn State Smeal College of Business
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-l-4 border-purple-500 pl-4">🎓 Academic Residencies — Penn State Smeal College of Business
           </h2>
 
           <p className="text-gray-700 mt-4 mb-6">
@@ -173,15 +171,8 @@ export default function ProfessionalDevelopmentPage() {
           </p>
 
           <div className="overflow-x-auto mb-6">
-            <table className="min-w-full border border-gray-200 text-sm rounded">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Event</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Date</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Location</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {[
                   { event: 'Spisak Endowed Lecture Series', date: 'March 26–27, 2026', location: 'Nittany Lion Inn, State College, PA' },
                   { event: 'Smeal DBA Residency #7', date: 'August 16–20, 2025', location: 'State College, PA' },
@@ -194,14 +185,14 @@ export default function ProfessionalDevelopmentPage() {
                   { event: 'Smeal DBA Residency #1', date: 'August 12–20, 2023', location: 'State College, PA' },
                   { event: 'Smeal DBA Orientation', date: 'July 10, 2023', location: 'State College, PA' },
                 ].map((row) => (
-                  <tr key={row.event} className="hover:bg-gray-50">
-                    <td className="px-4 py-2 text-gray-900 font-medium">{row.event}</td>
-                    <td className="px-4 py-2 text-gray-600 whitespace-nowrap">{row.date}</td>
-                    <td className="px-4 py-2 text-gray-600">{row.location}</td>
-                  </tr>
+                  <div key={row.event} className="bg-white border border-blue-100 rounded-lg p-4">
+                    <p className="font-semibold text-blue-900 text-sm mb-1">{row.event}</p>
+                    <p className="text-blue-700 text-xs">{row.date}</p>
+                    <p className="text-blue-600 text-xs">{row.location}</p>
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
 
           <p className="text-sm text-gray-600 mb-2">
@@ -213,8 +204,7 @@ export default function ProfessionalDevelopmentPage() {
           </p>
 
           {/* ── Section 3: Professional Chapter Meetings ── */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-b border-gray-200 pb-2">
-            🤝 Professional Chapter Meetings
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-l-4 border-green-500 pl-4">🤝 Professional Chapter Meetings
           </h2>
 
           <p className="text-gray-700 mt-4 mb-8">
@@ -327,68 +317,39 @@ export default function ProfessionalDevelopmentPage() {
           </div>
 
           {/* ── Section 4: Technical Training ── */}
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-b border-gray-200 pb-2">
-            🛠️ Technical Training
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 mt-16 border-l-4 border-amber-500 pl-4">🔧 Technical Training
           </h2>
 
           <p className="text-gray-700 mt-4 mb-6">
             Formal training courses and workshops &mdash; separate from certification exams.
           </p>
 
-          <div className="overflow-x-auto mb-8">
-            <table className="min-w-full border border-gray-200 text-sm rounded">
-              <thead className="bg-gray-100">
-                <tr>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Course</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Date</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Location</th>
-                  <th className="text-left px-4 py-2 font-semibold text-gray-700 border-b border-gray-200">Notes</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-2 text-gray-900 font-medium">SCYIHA Concessions Stand Training</td>
-                  <td className="px-4 py-2 text-gray-600 whitespace-nowrap">January 14, 2026</td>
-                  <td className="px-4 py-2 text-gray-600">State College, PA</td>
-                  <td className="px-4 py-2 text-gray-600 text-xs">Clarke volunteers with youth hockey in State College.</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-2 text-gray-900 font-medium">
-                    Microsoft: 70-410 Installing &amp; Configuring Windows Server 2012
-                  </td>
-                  <td className="px-4 py-2 text-gray-600 whitespace-nowrap">March 26, 2015</td>
-                  <td className="px-4 py-2 text-gray-600">&mdash;</td>
-                  <td className="px-4 py-2 text-gray-600 text-xs">
-                    This training directly preceded Clarke&rsquo;s{' '}
-                    <Link href="/clarke-moyer-mcp-passing-guide/" className="text-blue-600 hover:underline">
-                      MCP certification
-                    </Link>
-                    .
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-2 text-gray-900 font-medium">
-                    Cisco: CCENT (Cisco Certified Entry Networking Technician)
-                  </td>
-                  <td className="px-4 py-2 text-gray-600 whitespace-nowrap">March 25, 2015</td>
-                  <td className="px-4 py-2 text-gray-600">&mdash;</td>
-                  <td className="px-4 py-2 text-gray-600 text-xs">&mdash;</td>
-                </tr>
-                <tr className="hover:bg-gray-50">
-                  <td className="px-4 py-2 text-gray-900 font-medium">
-                    Cisco: Interconnecting Cisco Networking Devices Part 1 (ICND1)
-                  </td>
-                  <td className="px-4 py-2 text-gray-600 whitespace-nowrap">March 25, 2015</td>
-                  <td className="px-4 py-2 text-gray-600">&mdash;</td>
-                  <td className="px-4 py-2 text-gray-600 text-xs">&mdash;</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="space-y-4 mb-8">
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4">
+              <p className="font-semibold text-amber-900 text-sm">SCYIHA Concessions Stand Training</p>
+              <p className="text-amber-700 text-xs mt-1">January 14, 2026 · State College, PA</p>
+              <p className="text-amber-700 text-xs mt-1">Clarke volunteers with youth hockey in State College.</p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4">
+              <p className="font-semibold text-amber-900 text-sm">Microsoft: 70-410 Installing &amp; Configuring Windows Server 2012</p>
+              <p className="text-amber-700 text-xs mt-1">March 26, 2015</p>
+              <p className="text-amber-700 text-xs mt-1">This training directly preceded Clarke&rsquo;s{' '}
+                <Link href="/clarke-moyer-mcp-passing-guide/" className="text-blue-600 hover:underline">MCP certification</Link>.
+              </p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4">
+              <p className="font-semibold text-amber-900 text-sm">Cisco: CCENT (Cisco Certified Entry Networking Technician)</p>
+              <p className="text-amber-700 text-xs mt-1">March 25, 2015</p>
+            </div>
+            <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4">
+              <p className="font-semibold text-amber-900 text-sm">Cisco: Interconnecting Cisco Networking Devices Part 1 (ICND1)</p>
+              <p className="text-amber-700 text-xs mt-1">March 25, 2015</p>
+            </div>
           </div>
 
           {/* Back links */}
           <div className="mt-12 text-center">
-            <Link href="/" className="text-blue-600 hover:underline font-medium">← Back to Home</Link>
+            <Link href="/" className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-700 transition-colors">← Back to Home</Link>
           </div>
 
         </div>

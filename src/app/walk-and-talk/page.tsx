@@ -74,7 +74,7 @@ export default function WalkAndTalkPage() {
       <section className="bg-gray-50 py-16">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-10">How It Works</h2>
-          <ol className="space-y-8">
+          <div className="space-y-4">
             {[
               {
                 n: '01',
@@ -97,17 +97,17 @@ export default function WalkAndTalkPage() {
                 body: 'Within 24 hours, you receive a full AI-generated summary of the conversation including key insights, decisions discussed, and recommended next steps. Delivered via Microsoft Teams.',
               },
             ].map((step) => (
-              <li key={step.n} className="flex gap-6">
-                <span className="text-4xl font-black text-gray-200 leading-none select-none w-12 shrink-0 pt-1">
+              <div key={step.n} className="relative bg-white border border-gray-100 rounded-xl p-5 pl-20 shadow-sm">
+                <span className="absolute left-4 top-4 text-6xl font-black text-gray-100 leading-none select-none">
                   {step.n}
                 </span>
-                <div>
+                <div className="relative z-10">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.body}</p>
+                  <p className="text-gray-600 leading-relaxed text-sm">{step.body}</p>
                 </div>
-              </li>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
@@ -140,7 +140,7 @@ export default function WalkAndTalkPage() {
           </div>
 
           {/* Topics grid */}
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
               'Technology adoption barriers and implementation failures',
               'AI strategy: what to actually implement vs. what to ignore',
@@ -151,12 +151,11 @@ export default function WalkAndTalkPage() {
               'Building internal technology capability vs. buying it',
               'Any strategic technology problem',
             ].map((topic) => (
-              <li key={topic} className="flex items-start gap-2 text-gray-700">
-                <span className="text-blue-500 mt-1 shrink-0">▸</span>
+              <div key={topic} className="bg-blue-50 border border-blue-100 rounded-lg px-4 py-3 text-blue-900 text-sm font-medium leading-snug">
                 {topic}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -270,10 +269,11 @@ export default function WalkAndTalkPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="bg-gray-900 py-20 px-4 text-center text-white">
+      <section className="bg-gray-900 py-24 px-4 text-center text-white">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Talk?</h2>
-          <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+          <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-3">Premium Technology Consulting</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">Ready to Talk?</h2>
+          <p className="text-gray-300 text-xl mb-10 leading-relaxed">
             Book a Walk and Talk session and get expert perspective on your hardest technology problem — delivered on
             a walk, with no screens required.
           </p>
@@ -281,10 +281,11 @@ export default function WalkAndTalkPage() {
             href={BOOK_MAIN}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-gray-900 px-10 py-4 rounded font-bold text-lg hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-gray-900 px-12 py-5 rounded font-bold text-xl hover:bg-blue-50 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5"
           >
-            Book Now →
+            Book a Session Now →
           </a>
+          <p className="text-gray-500 text-sm mt-6">Two sessions available daily · Mon–Fri · Limited availability</p>
         </div>
       </section>
     </>
