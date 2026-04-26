@@ -45,11 +45,17 @@ export default async function Home() {
               Thank you for visiting my site. Please scroll down to check out my featured projects below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family and I click &quot;Get More Info&quot;.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/walk-and-talk"
+                className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+              >
+                Book a Walk and Talk →
+              </Link>
               <a 
                 href="https://linkedin.com/in/clarkemoyer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
+                className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white/10 transition-colors"
               >
                 CONNECT ON LINKEDIN
               </a>
@@ -319,8 +325,12 @@ export default async function Home() {
             <div className="mt-2 flex justify-center gap-4 text-sm">
               <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-700 underline">Privacy Policy</Link>
               <Link href="/cookie-policy" className="text-gray-500 hover:text-gray-700 underline">Cookie Policy</Link>
+              <Link href="/affiliate-disclosure" className="text-gray-500 hover:text-gray-700 underline">Affiliate Disclosure</Link>
               <CookiePreferencesButton />
             </div>
+            <p className="mt-3 text-xs text-gray-400 max-w-2xl mx-auto">
+              This site contains affiliate links. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.
+            </p>
           </div>
         </div>
       </footer>
