@@ -47,9 +47,12 @@ test.describe('Smoke — page titles', () => {
   for (const path of allPages) {
     test(`${path} has a title containing "Clarke Moyer"`, async ({ page }) => {
       await page.goto(path)
-      // Use toHaveTitle which retries automatically until title is set
-      // (React 19 App Router streaming may update title asynchronously)
-      await expect(page).toHaveTitle(/Clarke Moyer/i)
+      // Use toHaveTitle which retries automatically until title is set.
+      // React 19 App Router manages <title> via streaming metadata which
+      // may take longer in CI environments (2 vCPU GitHub Actions runners).
+      await expect(page).toHaveTitle(/Clarke Moyer/i,
+        { timeout: process.env.CI ? 10000 : 5000 }
+      )
     })
   }
 })
