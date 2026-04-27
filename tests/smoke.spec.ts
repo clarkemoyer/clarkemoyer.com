@@ -47,14 +47,12 @@ test.describe('Smoke — page titles', () => {
   for (const path of allPages) {
     test(`${path} has a title containing "Clarke Moyer"`, async ({ page }) => {
       await page.goto(path)
-      // Wait for all network requests to complete (JS bundles loaded)
-      // before checking title. React 19 App Router sets title async.
-      await page.waitForLoadState('networkidle')
       // Use toHaveTitle which retries automatically until title is set.
       // React 19 App Router manages <title> via streaming metadata which
       // may take longer in CI environments (2 vCPU GitHub Actions runners).
-      // The timeout is set globally in playwright.config.ts expect.timeout.
-      await expect(page).toHaveTitle(/Clarke Moyer/i)
+      await expect(page).toHaveTitle(/Clarke Moyer/i,
+        { timeout: process.env.CI ? 10000 : 5000 }
+      )
     })
   }
 })
