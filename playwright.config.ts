@@ -20,7 +20,13 @@ export default defineConfig({
   },
   projects: [{
     name: 'chromium',
-    use: { ...devices['Desktop Chrome'] },
+    use: {
+      ...devices['Desktop Chrome'],
+      // Required for CI environments (GitHub Actions) where sandbox is restricted
+      launchOptions: {
+        args: process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] : [],
+      },
+    },
   }],
   webServer: {
     command: 'npm run preview',

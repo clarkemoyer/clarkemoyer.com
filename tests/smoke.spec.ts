@@ -46,16 +46,12 @@ test.describe('Smoke — HTTP 200 for all pages', () => {
 test.describe('Smoke — page titles', () => {
   for (const path of allPages) {
     test(`${path} has a title containing "Clarke Moyer"`, async ({ page }) => {
-      await page.goto(path)
-      // Wait for all network activity to settle (JS bundles fully loaded)
-      // before checking title. React 19 sets <title> after streaming scripts run.
-      await page.waitForLoadState('networkidle')
+      // Navigate and wait for network to be completely idle
+      // (ensures React 19 streaming JS has fully loaded and executed)
+      await page.goto(path, { waitUntil: 'networkidle' })
       // Use toHaveTitle which retries automatically until title is set.
-      // React 19 App Router manages <title> via streaming metadata which
-      // may take longer in CI environments (2 vCPU GitHub Actions runners).
-      await expect(page).toHaveTitle(/Clarke Moyer/i,
-        { timeout: process.env.CI ? 10000 : 5000 }
-      )
+      // React 19 App Router manages <title> via streaming metadata.
+      await expect(page).toHaveTitle(/Clarke Moyer/i)
     })
   }
 })
