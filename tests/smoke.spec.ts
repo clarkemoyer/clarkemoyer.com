@@ -49,8 +49,10 @@ test.describe('Smoke — page titles', () => {
       // Navigate and wait for network to be completely idle
       // (ensures React 19 streaming JS has fully loaded and executed)
       await page.goto(path, { waitUntil: 'networkidle' })
-      // Use toHaveTitle which retries automatically until title is set.
-      // React 19 App Router manages <title> via streaming metadata.
+      // Force a small delay to allow React's scheduler to flush pending work
+      // (React 19 defers title hydration via its scheduler, not network activity)
+      await page.waitForTimeout(process.env.CI ? 2000 : 500)
+      // Use toHaveTitle which retries automatically until title is set
       await expect(page).toHaveTitle(/Clarke Moyer/i)
     })
   }
