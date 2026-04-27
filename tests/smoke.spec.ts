@@ -47,8 +47,9 @@ test.describe('Smoke — page titles', () => {
   for (const path of allPages) {
     test(`${path} has a title containing "Clarke Moyer"`, async ({ page }) => {
       await page.goto(path)
-      const title = await page.title()
-      expect(title, `${path} title: "${title}"`).toMatch(/Clarke Moyer/i)
+      // Use toHaveTitle which retries automatically until title is set
+      // (React 19 App Router streaming may update title asynchronously)
+      await expect(page).toHaveTitle(/Clarke Moyer/i)
     })
   }
 })
