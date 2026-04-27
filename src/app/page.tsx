@@ -23,7 +23,7 @@ export default async function Home() {
   // For custom domains or local dev: USE_BASE_PATH=false or unset
   const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
   return (
-    <>
+    <main>
       {/* Hero Section with Family Photo Background */}
       <section 
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
@@ -334,6 +334,6 @@ export default async function Home() {
           </div>
         </div>
       </footer>
-    </>
+    </main>
   );
 }
