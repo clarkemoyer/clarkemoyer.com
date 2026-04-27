@@ -152,7 +152,7 @@ export default function SweetTeaPage() {
           </div>
 
           <p className="text-xs text-gray-400 mb-10">
-            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
+            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. This page contains affiliate links. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
           </p>
 
           <div className="mt-4 text-center">

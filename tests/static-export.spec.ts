@@ -25,9 +25,21 @@ test.describe('Image loading — static export compliance', () => {
   for (const path of PAGES) {
     test(`[${path}] no broken images`, async ({ page }) => {
       await page.goto(path)
+      // Wait for images to finish loading (handles lazy loading)
+      await page.waitForLoadState('networkidle')
       const broken = await page.evaluate(() => {
         const imgs = Array.from(document.querySelectorAll('img'))
         return imgs
+          // Only check same-origin/relative images — skip external CDN images
+          // (e.g., YouTube thumbnails) that may not load in test environments
+          .filter(img => {
+            try {
+              const url = new URL(img.src)
+              return url.hostname === window.location.hostname
+            } catch {
+              return true // relative URL — check it
+            }
+          })
           .filter(img => !img.complete || img.naturalWidth === 0)
           .map(img => img.src)
       })

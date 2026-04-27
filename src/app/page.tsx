@@ -38,9 +38,9 @@ export default async function Home() {
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
           <div className="text-center text-white max-w-4xl">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">
               Clarke Moyer Projects
-            </h2>
+            </h1>
             <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-3xl mx-auto text-shadow">
               Thank you for visiting my site. Please scroll down to check out my featured projects below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family and I click &quot;Get More Info&quot;.
             </p>

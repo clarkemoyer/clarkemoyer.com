@@ -19,12 +19,12 @@ export default function VCP4DCVGuidePage() {
     <>
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
-          <div className="text-sm mb-2">
+          <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link>
             {' / '}
             <Link href="/certification-guides" className="hover:underline text-gray-300">Certification Guides</Link>
             {' / '}VCP4-DCV Guide
-          </div>
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer VMware VCP4-DCV Certification Passing Guide</h1>
         </div>
       </section>
@@ -116,7 +116,7 @@ export default function VCP4DCVGuidePage() {
           </p>
 
           <p className="not-prose text-xs text-gray-400 mt-12">
-            As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See{' '}
+            This page contains affiliate links. As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See{' '}
             <Link href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</Link>.
           </p>
 

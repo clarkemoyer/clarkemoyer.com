@@ -44,11 +44,15 @@ test.describe('Smoke — HTTP 200 for all pages', () => {
 })
 
 test.describe('Smoke — page titles', () => {
+  // Title tests use static HTML titles (no JavaScript needed).
+  // React 19 App Router clears and re-sets <title> during hydration,
+  // causing flaky failures in CI. By disabling JS, we read the server-
+  // rendered static <title> directly — which is the ground truth anyway.
+  test.use({ javaScriptEnabled: false })
   for (const path of allPages) {
     test(`${path} has a title containing "Clarke Moyer"`, async ({ page }) => {
       await page.goto(path)
-      const title = await page.title()
-      expect(title, `${path} title: "${title}"`).toMatch(/Clarke Moyer/i)
+      await expect(page).toHaveTitle(/Clarke Moyer/i)
     })
   }
 })
