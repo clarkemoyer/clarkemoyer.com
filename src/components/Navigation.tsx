@@ -15,6 +15,7 @@ const navLinks: NavLink[] = [
     children: [
       { id: 'about-who-i-am', href: '/who-i-am', label: 'WHO I AM' },
       { id: 'about-resume', href: '/it-project-management-resume-of-clarke-moyer', label: 'RESUME' },
+      { id: 'about-education', href: '/education', label: 'EDUCATION' },
       { id: 'about-ppm', href: '/personal-project-manager', label: 'PERSONAL PROJECT MANAGER' },
     ],
   },
@@ -38,8 +39,8 @@ const navLinks: NavLink[] = [
       { id: 'fun-quotes', href: '/quotes', label: 'QUOTES' },
     ],
   },
-  { id: 'wgu-referral', href: '/wgu-referral-program', label: 'WGU REFERRAL PROGRAM' },
-  { id: 'psu-arl-referral', href: '/psu-arl-referral-program', label: 'PSU-ARL REFERRAL PROGRAM' },
+  { id: 'wgu-referral', href: '/wgu-referral', label: 'WGU REFERRAL PROGRAM' },
+  { id: 'psu-arl-referral', href: '/psu-arl-referral', label: 'PSU-ARL REFERRAL PROGRAM' },
   { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
   { id: 'contact', href: '/contact/', label: 'CONTACT' },
 ];
