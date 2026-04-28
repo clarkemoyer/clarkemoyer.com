@@ -100,7 +100,8 @@ export default function CochiseCollegePage() {
             <p className="text-amber-800 leading-relaxed">
               The general education requirements were subsequently fulfilled through Clarke&rsquo;s BS in Information
               Technology and MBA at Western Governors University — completing the degree requirements and allowing
-              Cochise College to confer the AAS in December 2013.
+              Cochise College to confer the AAS in December 2013. A fitting consequence of returning to Sierra Vista
+              mid-career: a credential loop that had been open since 2005 quietly closed.
             </p>
           </div>
         </div>
