@@ -55,7 +55,7 @@ export default function CochiseCollegePage() {
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Context</div>
-              <div className="text-gray-800 font-medium">Completed during US Army service</div>
+              <div className="text-gray-800 font-medium">Completed in Sierra Vista, AZ</div>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Started</div>
@@ -89,13 +89,11 @@ export default function CochiseCollegePage() {
             </div>
             <p className="text-amber-800 leading-relaxed mb-3">
               Cochise College&rsquo;s Sierra Vista campus is co-located with <strong>Fort Huachuca</strong> — a major US Army
-              intelligence installation and home of the Army Intelligence Center. Clarke completed this degree alongside
-              his military training as a <strong>33W Military Intelligence Systems Maintainer &amp; Integrator</strong>.
+              intelligence installation and home of the Army Intelligence Center.
             </p>
             <p className="text-amber-800 leading-relaxed">
-              The 33W MOS training was conducted at Cochise College as part of the Army&rsquo;s long-standing partnership
-              with the institution — making it a natural academic home for soldiers stationed at Fort Huachuca. Clarke
-              earned his degree with honors while serving in this technically demanding intelligence role.
+              The AAS was awarded based on Clarke&rsquo;s completed BS and MBA coursework and the core classes from his
+              33W (Military Intelligence Systems Maintainer &amp; Integrator) MOS training at Cochise College.
             </p>
           </div>
         </div>
