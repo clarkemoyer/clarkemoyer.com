@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <>
+    <main>
       {/* Dark hero */}
       <section className="relative min-h-[60vh] bg-gray-900 flex items-center justify-center px-4">
         <div className="text-center text-white max-w-2xl">
@@ -39,6 +39,6 @@ export default function NotFound() {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 }
