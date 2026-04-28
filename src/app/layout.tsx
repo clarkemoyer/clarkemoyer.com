@@ -18,6 +18,13 @@ export const metadata: Metadata = {
   },
   description: "Professional Profile & Personal Journey of Clarke Moyer",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://clarkemoyer.com'),
+  openGraph: {
+    images: [{ url: '/og/default.png', width: 1200, height: 630, alt: 'Clarke Moyer — Technology Consultant & Researcher' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og/default.png'],
+  },
   icons: {
     icon: `${basePath}/images/favicon-32x32.jpg`,
     apple: `${basePath}/images/favicon-192x192.jpg`,

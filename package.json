@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate-og": "node scripts/generate-og-images.js",
     "dev": "next dev",
     "build": "next build",
     "export": "next build",
