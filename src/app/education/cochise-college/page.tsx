@@ -91,9 +91,16 @@ export default function CochiseCollegePage() {
               Cochise College&rsquo;s Sierra Vista campus is co-located with <strong>Fort Huachuca</strong> — a major US Army
               intelligence installation and home of the Army Intelligence Center.
             </p>
+            <p className="text-amber-800 leading-relaxed mb-3">
+              Clarke&rsquo;s 33W (Military Intelligence Systems Maintainer &amp; Integrator) MOS training at Cochise College
+              carried dual credit — counting toward both the MOS qualification and the technical core requirements of
+              the AAS in Electronics Technology. This integration between the Army&rsquo;s MOS program and Cochise
+              College&rsquo;s curriculum is a deliberate feature of the Fort Huachuca partnership.
+            </p>
             <p className="text-amber-800 leading-relaxed">
-              The AAS was awarded based on Clarke&rsquo;s completed BS and MBA coursework and the core classes from his
-              33W (Military Intelligence Systems Maintainer &amp; Integrator) MOS training at Cochise College.
+              The general education requirements were subsequently fulfilled through Clarke&rsquo;s BS in Information
+              Technology and MBA at Western Governors University — completing the degree requirements and allowing
+              Cochise College to confer the AAS in December 2013.
             </p>
           </div>
         </div>
