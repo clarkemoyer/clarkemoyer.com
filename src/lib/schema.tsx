@@ -1,10 +1,12 @@
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://clarkemoyer.com';
+
 // Base Person schema for Clarke Moyer — include on every page
 export function personSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Clarke Moyer',
-    url: 'https://clarkemoyer.com',
+    url: SITE_URL,
     jobTitle: 'DoD R&D Program Manager & Technology Adoption Researcher',
     description:
       'Clarke Moyer is a DoD contractor at PSU-ARL, DBA candidate at Penn State Smeal College of Business, and founder of Free For Charity. Specializes in technology adoption barriers.',
@@ -31,11 +33,11 @@ export function walkAndTalkServiceSchema() {
     name: 'Walk and Talk Consulting',
     description:
       'Premium technology consulting with Clarke Moyer. No laptops, no slides — a focused conversation on a walk with an AI-generated summary delivered within 24 hours.',
-    url: 'https://clarkemoyer.com/walk-and-talk/',
+    url: `${SITE_URL}/walk-and-talk/`,
     provider: {
       '@type': 'Person',
       name: 'Clarke Moyer',
-      url: 'https://clarkemoyer.com',
+      url: SITE_URL,
     },
     serviceType: 'Technology Consulting',
     areaServed: 'Worldwide',
@@ -69,7 +71,7 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://clarkemoyer.com${item.url}`,
+      item: `${SITE_URL}${item.url}`,
     })),
   }
 }
