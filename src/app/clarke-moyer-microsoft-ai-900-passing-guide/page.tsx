@@ -28,7 +28,7 @@ export default function AI900GuidePage() {
     <>
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
-        { name: 'Certification Guides', url: '/certification-guides/' },
+        { name: 'Certification Guides', url: '/certification/' },
         { name: 'AI-900 Guide', url: '/clarke-moyer-microsoft-ai-900-passing-guide/' },
       ])} />
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
@@ -36,7 +36,7 @@ export default function AI900GuidePage() {
           <nav aria-label="Breadcrumb" className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link>
             {' / '}
-            <Link href="/certification-guides" className="hover:underline text-gray-300">Certification Guides</Link>
+            <Link href="/certification" className="hover:underline text-gray-300">Certification Guides</Link>
             {' / '}AI-900 Guide
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold">Clarke Moyer Microsoft AI-900 Azure AI Fundamentals Passing Guide</h1>
@@ -157,7 +157,7 @@ export default function AI900GuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
-            <Link href="/certification-guides" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
+            <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>
       </section>

@@ -99,7 +99,7 @@ export default function EducationPage() {
               CLARKE RECOMMENDS WGU — SEE HIS REFERRAL PAGE →
             </Link>
             <Link
-              href="/certification-guides/"
+              href="/certification/"
               className="inline-block bg-white border border-gray-900 text-gray-900 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition-colors text-sm tracking-wider"
             >
               SEE CLARKE&rsquo;S CERT GUIDES →
@@ -134,7 +134,7 @@ export default function EducationPage() {
             not a checkbox — it&rsquo;s how he keeps his advice grounded in real, working knowledge.
           </p>
           <Link
-            href="/certification-guides/"
+            href="/certification/"
             className="inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded hover:bg-gray-700 transition-colors text-sm tracking-wider"
           >
             VIEW CERTIFICATION GUIDES →

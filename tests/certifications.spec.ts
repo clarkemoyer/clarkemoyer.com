@@ -6,9 +6,9 @@ import { test, expect } from '@playwright/test'
  * and unique copy (terminal card, era context, etc.).
  */
 
-test.describe('Certification hub (/certification-guides/)', () => {
+test.describe('Certification hub (/certification/)', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/certification-guides/')
+    await page.goto('/certification/')
   })
 
   test('has "CISSP" in content', async ({ page }) => {

@@ -16,7 +16,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/certification-guides/</loc>
+    <loc>https://clarkemoyer.com/certification/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -151,7 +151,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/it-project-management-resume-of-clarke-moyer/</loc>
+    <loc>https://clarkemoyer.com/resume/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

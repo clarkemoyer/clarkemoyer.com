@@ -14,7 +14,7 @@ const navLinks: NavLink[] = [
     label: 'ABOUT',
     children: [
       { id: 'about-who-i-am', href: '/who-i-am', label: 'WHO I AM' },
-      { id: 'about-resume', href: '/it-project-management-resume-of-clarke-moyer', label: 'RESUME' },
+      { id: 'about-resume', href: '/resume', label: 'RESUME' },
       { id: 'about-education', href: '/education', label: 'EDUCATION' },
       { id: 'about-ppm', href: '/personal-project-manager', label: 'PERSONAL PROJECT MANAGER' },
     ],
@@ -25,7 +25,7 @@ const navLinks: NavLink[] = [
     label: 'CONSULTING',
     children: [
       { id: 'consulting-walk-and-talk', href: '/walk-and-talk', label: 'WALK AND TALK' },
-      { id: 'consulting-certification-guides', href: '/certification-guides', label: 'CERTIFICATION GUIDES' },
+      { id: 'consulting-certification-guides', href: '/certification', label: 'CERTIFICATION GUIDES' },
       { id: 'consulting-professional-development', href: '/professional-development', label: 'PROFESSIONAL DEVELOPMENT' },
       { id: 'consulting-conferences', href: '/industry-conferences', label: 'INDUSTRY CONFERENCES' },
     ],
