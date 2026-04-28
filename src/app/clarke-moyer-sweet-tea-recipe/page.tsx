@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { amznUrl } from '@/lib/amazon';
+import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: "Clarke Moyer's Sweet Tea Recipe",
@@ -24,6 +25,12 @@ function amzn(asin: string, label: string) {
 export default function SweetTeaPage() {
   return (
     <>
+      <SchemaScript schema={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Fun', url: '/fun/' },
+        { name: 'Cooking', url: '/cooking/' },
+        { name: 'Sweet Tea', url: '/clarke-moyer-sweet-tea-recipe/' },
+      ])} />
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
           <nav aria-label="Breadcrumb" className="text-sm mb-2">

@@ -56,3 +56,13 @@ test.describe('Smoke — page titles', () => {
     })
   }
 })
+
+test.describe('Custom 404 page', () => {
+  test('renders custom not-found page on unknown route', async ({ page }) => {
+    const response = await page.goto('/this-page-does-not-exist-at-all/')
+    // Next.js not-found returns 404 status
+    expect(response?.status()).toBe(404)
+    await expect(page.locator('h1')).toContainText('Page Not Found')
+    await expect(page.locator('text=Back to Home')).toBeVisible()
+  })
+})

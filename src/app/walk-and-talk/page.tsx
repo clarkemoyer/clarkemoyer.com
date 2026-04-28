@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { walkAndTalkServiceSchema, breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Walk and Talk Consulting | Clarke Moyer',
@@ -21,6 +22,11 @@ const BOOK_60 = 'https://outlook.office.com/bookwithme/user/6a2b9209a2654d8e9f83
 export default function WalkAndTalkPage() {
   return (
     <>
+      <SchemaScript schema={walkAndTalkServiceSchema()} />
+      <SchemaScript schema={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Walk and Talk', url: '/walk-and-talk/' },
+      ])} />
       {/* ── Hero ── */}
       <section className="relative min-h-[52vh] bg-gray-900 flex items-center justify-center pt-36 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
@@ -265,6 +271,12 @@ export default function WalkAndTalkPage() {
           >
             Inquire About Speaking →
           </a>
+          <p className="text-gray-500 text-sm mt-4">
+            Have questions first?{' '}
+            <Link href="/contact/" className="text-gray-700 underline hover:text-gray-900">
+              Contact Clarke →
+            </Link>
+          </p>
         </div>
       </section>
 

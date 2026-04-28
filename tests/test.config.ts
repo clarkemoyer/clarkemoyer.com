@@ -66,5 +66,7 @@ export const testConfig = {
     '/clarke-moyer-vcp5-dcv-passing-guide/',
     '/clarke-moyer-vcp6-cma-passing-guide/',
     '/clarke-moyer-vcp-am-passing-guide/',
+    '/contact/',
+    '/404',
   ],
 }

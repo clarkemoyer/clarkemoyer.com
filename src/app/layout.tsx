@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import CookieConsent from '@/components/cookie-consent';
+import { personSchema, SchemaScript } from '@/lib/schema';
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <SchemaScript schema={personSchema()} />
         {/* Google Tag Manager — only loaded when GTM_ID is configured */}
         {GTM_ID && (
           <Script id="gtm-head" strategy="afterInteractive">{`
