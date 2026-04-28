@@ -82,7 +82,7 @@ export default function ProfessionalDevelopmentPage() {
                   Full write-up on the Industry Conferences page &rarr;
                 </Link>
                 {' | '}
-                <Link href="/certification-guides" className="font-medium hover:underline text-blue-600">
+                <Link href="/certification" className="font-medium hover:underline text-blue-600">
                   VCP-AM Certification &rarr;
                 </Link>
               </p>
@@ -108,11 +108,11 @@ export default function ProfessionalDevelopmentPage() {
               </p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
@@ -123,11 +123,11 @@ export default function ProfessionalDevelopmentPage() {
               <p className="text-gray-700 text-sm mb-2">20 Hours CPE. Virtual edition during the pandemic year.</p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
@@ -150,11 +150,11 @@ export default function ProfessionalDevelopmentPage() {
               </p>
               <p className="text-gray-600 text-sm">
                 See VMware certifications &rarr;{' '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP4</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP4</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP5</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP5</Link>
                 {', '}
-                <Link href="/certification-guides" className="text-blue-600 hover:underline">VCP6-CMA</Link>
+                <Link href="/certification" className="text-blue-600 hover:underline">VCP6-CMA</Link>
               </p>
             </div>
 
@@ -197,7 +197,7 @@ export default function ProfessionalDevelopmentPage() {
 
           <p className="text-sm text-gray-600 mb-2">
             Clarke&rsquo;s academic background &rarr;{' '}
-            <Link href="/it-project-management-resume-of-clarke-moyer/" className="text-blue-600 hover:underline font-medium">
+            <Link href="/resume/" className="text-blue-600 hover:underline font-medium">
               see the PSU Smeal eDBA section on the Resume page
             </Link>
             .

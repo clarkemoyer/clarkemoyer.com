@@ -16,7 +16,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/certification-guides/</loc>
+    <loc>https://clarkemoyer.com/certification/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -131,12 +131,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/wgu-referral-program/</loc>
+    <loc>https://clarkemoyer.com/wgu-referral/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/psu-arl-referral-program/</loc>
+    <loc>https://clarkemoyer.com/psu-arl-referral/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -151,7 +151,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clarkemoyer.com/it-project-management-resume-of-clarke-moyer/</loc>
+    <loc>https://clarkemoyer.com/resume/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -199,6 +199,31 @@
     <loc>https://clarkemoyer.com/affiliate-disclosure/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/wgu/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/cochise-college/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/umuc/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/smeal-dba/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://clarkemoyer.com/contact/</loc>
