@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer CompTIA Project+ Certification Passing Guide',
@@ -24,6 +25,11 @@ function amzn(url: string, label: string) {
 export default function ProjectPlusGuidePage() {
   return (
     <>
+      <SchemaScript schema={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Certification Guides', url: '/certification-guides/' },
+        { name: 'Project+ Guide', url: '/clarke-moyer-comptia-project-plus-passing-guide/' },
+      ])} />
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
           <nav aria-label="Breadcrumb" className="text-sm mb-2">

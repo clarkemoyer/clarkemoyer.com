@@ -41,6 +41,7 @@ const navLinks: NavLink[] = [
   { id: 'wgu-referral', href: '/wgu-referral-program', label: 'WGU REFERRAL PROGRAM' },
   { id: 'psu-arl-referral', href: '/psu-arl-referral-program', label: 'PSU-ARL REFERRAL PROGRAM' },
   { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
+  { id: 'contact', href: '/contact', label: 'CONTACT' },
 ];
 
 export default function Navigation() {
