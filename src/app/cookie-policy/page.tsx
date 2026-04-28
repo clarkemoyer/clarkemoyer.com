@@ -33,7 +33,7 @@ export default function CookiePolicy() {
             <h2 className="text-xl font-bold text-gray-900">2. How This Site Uses Cookies</h2>
             <p className="text-gray-700">
               This site uses cookies to store your cookie consent preferences, and optionally to
-              analyze traffic and support marketing — only with your explicit consent.
+              analyze traffic — only with your explicit consent.
             </p>
           </section>
 
@@ -48,10 +48,7 @@ export default function CookiePolicy() {
                 <strong>Analytics:</strong> Help understand how visitors use the site (e.g. Google
                 Analytics, Microsoft Clarity). Opt-in only.
               </li>
-              <li>
-                <strong>Marketing:</strong> Used for retargeting and advertising (e.g. Meta Pixel).
-                Opt-in only.
-              </li>
+
             </ul>
           </section>
 
