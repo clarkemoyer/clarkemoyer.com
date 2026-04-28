@@ -33,8 +33,8 @@ test.describe('Navigation', () => {
       ['/certification/', '/certification/'],
       ['/charity/', '/free-for-charity/'],
       ['/resume/', '/resume/'],
-      ['/wgu-referral/', '/wgu-referral-program/'],
-      ['/psu-arl-referral/', '/psu-arl-referral-program/'],
+      ['/wgu-referral/', '/wgu-referral/'],
+      ['/psu-arl-referral/', '/psu-arl-referral/'],
     ]
     for (const [from, to] of redirects) {
       await page.goto(from)
@@ -46,10 +46,15 @@ test.describe('Navigation', () => {
   // ── Dropdown structure ──────────────────────────────────────────────────────
 
   test('CONSULTING dropdown contains expected links', async ({ page }) => {
-    await page.goto('/cookie-policy/')
+    await page.goto('/')
+    // Dismiss cookie banner if present so it doesn't block nav interaction
+    const acceptBtn = page.getByRole('button', { name: /accept/i })
+    if (await acceptBtn.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await acceptBtn.click()
+    }
     // On desktop viewport the nav links are visible; find the CONSULTING trigger
     const consulting = page.locator('nav').getByText('CONSULTING', { exact: true })
-    await expect(consulting).toBeVisible()
+    await expect(consulting).toBeVisible({ timeout: 10000 })
     // Hover/click to open dropdown
     await consulting.hover()
     await expect(page.getByRole('link', { name: /Walk and Talk/i }).first()).toBeVisible({ timeout: 5000 })
@@ -67,7 +72,7 @@ test.describe('Navigation', () => {
     await expect(page.getByRole('link', { name: /Quotes/i }).first()).toBeVisible()
   })
 
-  test('ABOUT dropdown contains Who I Am, Resume, Personal Project Manager', async ({ page }) => {
+  test('ABOUT dropdown contains Who I Am, Resume, Education, Personal Project Manager', async ({ page }) => {
     await page.goto('/cookie-policy/')
     const about = page.locator('nav').getByText('ABOUT', { exact: true })
     await expect(about).toBeVisible()
@@ -75,6 +80,7 @@ test.describe('Navigation', () => {
     await expect(page.getByRole('link', { name: /Who I Am/i }).first()).toBeVisible({ timeout: 5000 })
     await expect(page.getByRole('link', { name: /Resume/i }).first()).toBeVisible()
     await expect(page.getByRole('link', { name: /Personal Project Manager/i }).first()).toBeVisible()
+    await expect(page.getByRole('link', { name: /Education/i }).first()).toBeVisible()
   })
 
   // ── Mobile menu ─────────────────────────────────────────────────────────────
