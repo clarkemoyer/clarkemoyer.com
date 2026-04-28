@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Walk and Talk — premium technology consulting with Clarke Moyer. No laptops, no slides. Just a focused conversation on a walk, with an AI-generated summary delivered within 24 hours. $750/hour, 4-hour minimum.',
     type: 'website',
     url: '/walk-and-talk/',
+    images: [{ url: '/og/walk-and-talk.png', width: 1200, height: 630, alt: 'Walk and Talk Consulting with Clarke Moyer' }],
   },
 };
 

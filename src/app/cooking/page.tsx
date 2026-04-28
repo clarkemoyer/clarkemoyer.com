@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description: "Clarke Moyer's cooking page — recipes from a household where the wife is a trained chef.",
     type: 'website',
     url: '/cooking/',
+    images: [{ url: '/og/cooking.png', width: 1200, height: 630, alt: 'Clarke Moyer — Recipes & Cooking' }],
   },
 };
 
