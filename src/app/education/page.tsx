@@ -3,14 +3,53 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Education | Clarke Moyer',
-  description: 'Clarke Moyer\'s academic journey: Penn State Smeal eDBA (in progress), WGU BS-IT, MBA-ITM, UMUC graduate certificate, and ongoing professional certifications.',
+  description: "Clarke Moyer's academic journey: Penn State Smeal eDBA (in progress), WGU BS-IT, MBA-ITM, UMUC graduate certificate, and Cochise College AAS in Electronics Technology.",
   openGraph: {
     title: 'Education | Clarke Moyer',
-    description: 'Clarke Moyer\'s academic journey: Penn State Smeal eDBA (in progress), WGU BS-IT, MBA-ITM, and ongoing professional certifications.',
+    description: "Clarke Moyer's academic journey from electronics fundamentals to doctoral research.",
     type: 'website',
     url: '/education/',
   },
 };
+
+const degrees = [
+  {
+    href: '/education/cochise-college/',
+    institution: 'Cochise College',
+    credential: 'AAS in Electronics Technology',
+    year: 'With Honors',
+    description: 'Completed during US Army service at Fort Huachuca — the foundation of a technical career.',
+  },
+  {
+    href: '/education/wgu/',
+    institution: 'Western Governors University',
+    credential: 'BS in Information Technology',
+    year: '2009',
+    description: 'Competency-based degree with integrated industry cert prep (A+, Network+, Security+, and more).',
+  },
+  {
+    href: '/education/wgu/',
+    institution: 'Western Governors University',
+    credential: 'MBA in IT Management',
+    year: '2010',
+    description: 'IT management, business strategy, and organizational leadership — one year after the BS-IT.',
+  },
+  {
+    href: '/education/umuc/',
+    institution: 'University of Maryland University College',
+    credential: 'Graduate Certificate — Project Management',
+    year: '2012',
+    description: 'Graduate-level PM credential paired with PMP certification to establish formal PM credentials.',
+  },
+  {
+    href: '/education/smeal-dba/',
+    institution: 'Penn State Smeal College of Business',
+    credential: 'Executive DBA (eDBA)',
+    year: 'In Progress',
+    description: 'Doctoral research on technology adoption barriers — TABS platform at technologyadoptionbarriers.org.',
+    inProgress: true,
+  },
+];
 
 export default function EducationPage() {
   return (
@@ -28,103 +67,42 @@ export default function EducationPage() {
         </div>
       </section>
 
-      {/* Section 1: Penn State Smeal eDBA */}
+      {/* Degree cards */}
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-start gap-4 mb-6">
-            <div>
-              <span className="inline-block bg-blue-800 text-white text-xs font-bold tracking-wider px-3 py-1 rounded mb-3">IN PROGRESS</span>
-              <h2 className="text-3xl font-bold text-gray-900">Penn State Smeal College of Business — eDBA</h2>
-              <p className="text-gray-500 text-sm mt-1">Executive Doctor of Business Administration</p>
-            </div>
-          </div>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Clarke is currently pursuing a Doctor of Business Administration (eDBA) at Penn State&rsquo;s Smeal College of
-            Business, with research focused on technology adoption barriers in organizations.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Program</div>
-              <div className="text-gray-800 font-medium">Executive DBA (eDBA)</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Institution</div>
-              <div className="text-gray-800 font-medium">Penn State Smeal College of Business</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Status</div>
-              <div className="text-gray-800 font-medium">In Progress (started 2023)</div>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Research Focus</div>
-              <div className="text-gray-800 font-medium">Technology adoption barriers in organizations</div>
-            </div>
-          </div>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            Clarke runs the <strong>TABS (Technology Adoption Barriers Study)</strong> research platform at{' '}
-            <a
-              href="https://technologyadoptionbarriers.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-700 hover:underline"
-            >
-              technologyadoptionbarriers.org
-            </a>{' '}
-            as part of his doctoral research.
-          </p>
-          <Link
-            href="/professional-development/"
-            className="inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded hover:bg-gray-700 transition-colors text-sm tracking-wider"
-          >
-            VIEW DBA RESIDENCY DATES →
-          </Link>
-        </div>
-      </section>
-
-      {/* Section 2: WGU BS-IT */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Western Governors University — BS-IT</h2>
-          <p className="text-gray-500 text-sm mb-6">Bachelor of Science in Information Technology</p>
-          <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Clarke earned his Bachelor of Science in Information Technology from Western Governors University (WGU).
-            WGU&rsquo;s competency-based program integrates industry certification preparation directly into the curriculum —
-            Clarke earned CompTIA A+, Network+, Security+, Project+, and CIW certifications as part of completing the degree.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/wgu-referral/"
-              className="inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded hover:bg-gray-700 transition-colors text-sm tracking-wider"
-            >
-              CLARKE RECOMMENDS WGU — SEE HIS REFERRAL PAGE →
-            </Link>
-            <Link
-              href="/certification/"
-              className="inline-block bg-white border border-gray-900 text-gray-900 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition-colors text-sm tracking-wider"
-            >
-              SEE CLARKE&rsquo;S CERT GUIDES →
-            </Link>
+          <div className="grid grid-cols-1 gap-6">
+            {degrees.map((d, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow bg-white"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{d.institution}</p>
+                    <h2 className="text-xl font-bold text-gray-900">{d.credential}</h2>
+                  </div>
+                  <div className="shrink-0">
+                    {d.inProgress ? (
+                      <span className="inline-block bg-amber-500 text-white text-xs font-bold tracking-wider px-3 py-1 rounded-full">IN PROGRESS</span>
+                    ) : (
+                      <span className="inline-block bg-green-700 text-white text-xs font-bold tracking-wider px-3 py-1 rounded">{d.year}</span>
+                    )}
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{d.description}</p>
+                <Link
+                  href={d.href}
+                  className="inline-block text-blue-700 font-semibold text-sm hover:underline"
+                >
+                  Learn more →
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Section 3: Additional Credentials */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Additional Credentials</h2>
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            Clarke also holds a <strong>Graduate Certificate in Project Management</strong> from the University of
-            Maryland University College (UMUC) and an <strong>MBA in IT Management (MBA-ITM)</strong> from Western
-            Governors University.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Together these credentials reflect a deliberate academic path from technical practitioner to executive-level
-            research, spanning IT operations, business strategy, and organizational behavior.
-          </p>
-        </div>
-      </section>
-
-      {/* Section 4: Continuing Education */}
+      {/* Continuing Education */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Continuing Education</h2>

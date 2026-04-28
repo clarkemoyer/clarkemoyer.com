@@ -206,6 +206,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://clarkemoyer.com/education/wgu/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/cochise-college/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/umuc/</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://clarkemoyer.com/education/smeal-dba/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://clarkemoyer.com/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
