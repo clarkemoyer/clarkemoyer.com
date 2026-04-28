@@ -57,6 +57,14 @@ export default function CochiseCollegePage() {
               <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Context</div>
               <div className="text-gray-800 font-medium">Completed during US Army service</div>
             </div>
+            <div className="bg-gray-50 rounded-lg p-4">
+              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Started</div>
+              <div className="text-gray-800 font-medium">2005</div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4">
+              <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Conferred</div>
+              <div className="text-gray-800 font-medium">December 2013</div>
+            </div>
           </div>
 
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
