@@ -14,6 +14,10 @@ interface CookiePreferences {
 
 const DEFAULT_PREFS: CookiePreferences = { necessary: true, analytics: false, marketing: false }
 
+// Note: marketing cookies are not currently used on this site.
+// The marketing field is retained in the data model for forward-compatibility
+// but the toggle is hidden from the UI.
+
 /** Read consent from localStorage with cookie fallback */
 function readStoredConsent(): CookiePreferences | null {
   try {
@@ -151,7 +155,7 @@ export default function CookieConsent() {
     setShowPreferences(false)
   }, [persistConsent])
 
-  const handleAcceptAll = () => saveAndClose({ necessary: true, analytics: true, marketing: true })
+  const handleAcceptAll = () => saveAndClose({ necessary: true, analytics: true, marketing: false })
   const handleDeclineAll = () => saveAndClose({ necessary: true, analytics: false, marketing: false })
   const handleSavePreferences = () => saveAndClose(preferences)
 
@@ -182,18 +186,9 @@ export default function CookieConsent() {
                 <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
               </label>
             </div>
-            <p className="text-sm text-gray-600">Helps understand how visitors use the site (e.g. Google Analytics, Microsoft Clarity).</p>
+            <p className="text-sm text-gray-600">Helps understand how visitors use the site. Uses Google Analytics 4, loaded via Google Tag Manager.</p>
           </div>
-          <div className="mb-4 p-4 bg-gray-50 rounded-lg">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-lg font-semibold text-gray-900">Marketing Cookies</h3>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" checked={preferences.marketing} onChange={(e) => setPreferences({ ...preferences, marketing: e.target.checked })} className="sr-only peer" aria-label="Enable marketing cookies" />
-                <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </label>
-            </div>
-            <p className="text-sm text-gray-600">Used for retargeting and advertising (e.g. Meta Pixel).</p>
-          </div>
+          {/* Marketing cookies toggle intentionally omitted: no marketing/retargeting tracking is active on this site */}
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <button onClick={handleSavePreferences} className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">Save Preferences</button>
             <button onClick={handleCancelPreferences} className="flex-1 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors">Cancel</button>
