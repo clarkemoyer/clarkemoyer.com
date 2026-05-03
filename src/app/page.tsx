@@ -173,7 +173,7 @@ export default async function Home() {
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
                 <Link 
-                  href="/about"
+                  href="/who-i-am"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
