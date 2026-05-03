@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Industry Conferences | Clarke Moyer',
+  title: 'Industry Conferences',
   description:
     'Industry conferences Clarke Moyer has attended — VMworld, KubeCon + CloudNativeCon, and others. Clarke is a strong advocate for in-person industry conferences as a learning and certification accelerator.',
   openGraph: {

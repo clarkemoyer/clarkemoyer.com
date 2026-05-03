@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { walkAndTalkServiceSchema, breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Walk and Talk Consulting | Clarke Moyer',
+  title: 'Walk and Talk Consulting',
   description:
     'Walk and Talk — premium technology consulting with Clarke Moyer. No laptops, no slides. Just a focused conversation on a walk, with an AI-generated summary delivered within 24 hours. $750/hour, 4-hour minimum.',
   openGraph: {

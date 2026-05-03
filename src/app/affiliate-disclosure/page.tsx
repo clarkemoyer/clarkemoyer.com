@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure | Clarke Moyer',
+  title: 'Affiliate Disclosure',
   description:
     'Affiliate disclosure for clarkemoyer.com. This site participates in the Amazon Associates program and may earn commissions from qualifying purchases.',
 };
