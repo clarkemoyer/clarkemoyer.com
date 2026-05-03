@@ -218,7 +218,7 @@ export default async function Home() {
               <div className="p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
                 <Link 
-                  href="/certification-guides"
+                  href="/certification"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -313,11 +313,11 @@ export default async function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">HOME</Link>
               <Link href="/fun" className="text-gray-600 hover:text-gray-800 font-medium">FUN</Link>
-              <Link href="/certification-guides" className="text-gray-600 hover:text-gray-800 font-medium">CERTIFICATION GUIDES</Link>
+              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CERTIFICATION GUIDES</Link>
               <Link href="/wgu-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">WGU REFERRAL PROGRAM</Link>
               <Link href="/psu-arl-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">PSU-ARL REFERRAL PROGRAM</Link>
               <Link href="/free-for-charity" className="text-gray-600 hover:text-gray-800 font-medium">FREE FOR CHARITY</Link>
-              <Link href="/certification-guides" className="text-gray-600 hover:text-gray-800 font-medium">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
+              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
             </div>
           </nav>
           <div className="text-center mt-8 pt-8 border-t text-gray-500">

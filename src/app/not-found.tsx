@@ -31,7 +31,7 @@ export default function NotFound() {
               Book a Walk and Talk
             </Link>
             <Link
-              href="/certification-guides/"
+              href="/certification/"
               className="border border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition-colors"
             >
               Certification Guides
