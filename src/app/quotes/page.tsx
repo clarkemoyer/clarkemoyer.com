@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Navigation from '@/components/Navigation';
 import { YoutubeEmbed } from './YoutubeEmbed';
 import Link from 'next/link';
 
@@ -96,8 +95,6 @@ const quotes: Quote[] = [
 export default function QuotesPage() {
   return (
     <>
-      <Navigation />
-
       {/* Hero Section */}
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">

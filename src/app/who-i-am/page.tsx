@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function WhoIAmPage() {
   return (
     <>
-      <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
+      <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center py-24 px-4">
         <div className="text-center text-white">
           <div className="text-sm mb-2">
             <Link href="/" className="hover:underline text-gray-300">Home</Link> / Who I Am

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -11,7 +10,6 @@ const EFFECTIVE_DATE = 'April 27, 2026'
 export default function PrivacyPolicy() {
   return (
     <>
-      <Navigation />
       <div className="max-w-4xl mx-auto px-6 py-16 mt-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Privacy Policy</h1>
         <p className="text-sm text-gray-500 mb-8">

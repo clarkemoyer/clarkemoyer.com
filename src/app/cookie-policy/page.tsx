@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Navigation from '@/components/Navigation'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
@@ -11,7 +10,6 @@ const LAST_UPDATED = 'April 2026'
 export default function CookiePolicy() {
   return (
     <>
-      <Navigation />
       <div className="max-w-4xl mx-auto px-6 py-16 mt-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Cookie Policy</h1>
         <p className="text-sm text-gray-500 mb-8">
