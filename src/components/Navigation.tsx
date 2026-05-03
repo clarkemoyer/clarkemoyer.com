@@ -50,7 +50,7 @@ export default function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-50">
       {/* Top Header Bar */}
       <div className="bg-black/40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,9 +74,9 @@ export default function Navigation() {
             {/* Center - Brand */}
             <div className="text-center">
               <Link href="/" className="text-white hover:text-gray-200 transition-colors">
-                <h1 className="text-xl font-bold tracking-widest leading-tight">
+                <span className="text-xl font-bold tracking-widest leading-tight">
                   CLARKE MOYER
-                </h1>
+                </span>
               </Link>
             </div>
 

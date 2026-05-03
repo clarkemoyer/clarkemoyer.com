@@ -72,7 +72,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Navigation />
-        <main id="main-content" tabIndex={-1} className="outline-none">{children}</main>
+        <main id="main-content" tabIndex={-1} className="outline-none pt-40">{children}</main>
         <CookieConsent />
       </body>
     </html>
