@@ -101,12 +101,7 @@ export default async function FunPage() {
                 <p className="text-gray-700 mb-6">
                   I don&rsquo;t read many books but when I do I sometimes add them here.
                 </p>
-                <a
-                  href="#"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
-                >
-                  Books &amp; Reading Homepage
-                </a>
+
               </div>
 
               {/* Travel & Events Card */}
@@ -115,12 +110,7 @@ export default async function FunPage() {
                 <p className="text-gray-700 mb-6">
                   We love to travel and do local things. I will try and list them here.
                 </p>
-                <a
-                  href="#"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
-                >
-                  Travel &amp; Events homepage
-                </a>
+
               </div>
 
               {/* Speaking & Publishing Card */}
@@ -129,12 +119,7 @@ export default async function FunPage() {
                 <p className="text-gray-700 mb-6">
                   I am always looking for speaking and publishing opportunities. If I get them I post them here.
                 </p>
-                <a
-                  href="#"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors"
-                >
-                  Speaking &amp; Publishing Homepage
-                </a>
+
               </div>
             </div>
           </div>

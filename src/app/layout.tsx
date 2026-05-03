@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import CookieConsent from '@/components/cookie-consent';
+import Navigation from '@/components/Navigation';
 import { personSchema, SchemaScript } from '@/lib/schema';
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
@@ -70,6 +71,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <Navigation />
         <main id="main-content" tabIndex={-1} className="outline-none">{children}</main>
         <CookieConsent />
       </body>
