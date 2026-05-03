@@ -74,9 +74,9 @@ export default function Navigation() {
             {/* Center - Brand */}
             <div className="text-center">
               <Link href="/" className="text-white hover:text-gray-200 transition-colors">
-                <h1 className="text-xl font-bold tracking-widest leading-tight">
+                <span className="text-xl font-bold tracking-widest leading-tight">
                   CLARKE MOYER
-                </h1>
+                </span>
               </Link>
             </div>
 
