@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Professional Development | Clarke Moyer',
+  title: 'Professional Development',
   description:
     'Clarke Moyer\'s complete record of professional development — industry conferences, academic residencies, professional chapter meetings, and technical training events spanning 2015–2026.',
   openGraph: {

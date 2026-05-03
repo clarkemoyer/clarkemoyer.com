@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Contact | Clarke Moyer',
+  title: 'Contact',
   description:
     'Get in touch with Clarke Moyer for Walk and Talk consulting sessions, speaking engagements, or Free For Charity nonprofit assistance.',
   openGraph: {
