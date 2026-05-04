@@ -71,7 +71,7 @@ const quotes: Quote[] = [
     ),
   },
   {
-    lyric: "People who say money can\u2019t solve their problems must not have had enough money to solve them.",
+    lyric: "Whoever said money can\u2019t solve your problems must not have had enough money to solve \u2019em.",
     song: "7 Rings",
     artist: "Ariana Grande",
     youtubeId: "QYh6mYIJG2Y",
