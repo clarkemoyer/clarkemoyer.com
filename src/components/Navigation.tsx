@@ -50,7 +50,7 @@ export default function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-[999]">
       {/* Top Header Bar */}
       <div className="bg-black/40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -140,7 +140,7 @@ export default function Navigation() {
       )}
 
       {/* Main Navigation Menu (desktop) */}
-      <div className="hidden lg:block bg-black/40 backdrop-blur-sm border-t border-white/20">
+      <div className="hidden lg:block relative z-40 overflow-visible bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center space-x-8 h-12">
             {navLinks.map((link) => (
@@ -173,14 +173,15 @@ export default function Navigation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  {openDropdown === link.id && (
-                    <ul
-                      className="absolute top-full left-0 mt-0 bg-black/90 backdrop-blur-sm border border-white/20 rounded-b min-w-[140px] z-50 list-none m-0 p-0"
-                    >
-                      {link.href && (
+                  <ul
+                    className={`absolute top-full left-0 mt-0 bg-black/95 backdrop-blur-sm border border-white/30 rounded-b min-w-[140px] z-[1000] list-none m-0 p-0 shadow-2xl transition-opacity ${openDropdown === link.id ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                    style={{ zIndex: 1000 }}
+                  >
+                      {link.href && openDropdown === link.id && (
                         <li key={`${link.id}-self`}>
                           <Link
                             href={link.href}
+                            tabIndex={openDropdown === link.id ? 0 : -1}
                             className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
                           >
                             {link.label}
@@ -191,14 +192,14 @@ export default function Navigation() {
                         <li key={child.id}>
                           <Link
                             href={child.href}
+                            tabIndex={openDropdown === link.id ? 0 : -1}
                             className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
                           >
                             {child.label}
                           </Link>
                         </li>
                       ))}
-                    </ul>
-                  )}
+                  </ul>
                 </div>
               ) : (
                 link.href ? (
@@ -221,7 +222,7 @@ export default function Navigation() {
       </div>
 
       {/* Subtitle Bar */}
-      <div className="hidden lg:block bg-black/40 backdrop-blur-sm border-t border-white/20">
+      <div className="hidden lg:block relative z-0 bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-10">
             <Link href="/clarke-moyer-cissp-certification-passing-guide" className="text-white hover:text-gray-300 text-xs font-medium tracking-widest transition-colors">

@@ -11,12 +11,14 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/*
+ * Keep the default site palette light even when a visitor's OS/browser prefers
+ * dark mode. The migrated pages use explicit white/light-gray section
+ * backgrounds, so switching the inherited foreground to a light color makes
+ * uncolored headings and card titles nearly invisible. A future full dark theme
+ * should change backgrounds and foregrounds together instead of only changing
+ * the global text color.
+ */
 
 body {
   color: var(--foreground);
