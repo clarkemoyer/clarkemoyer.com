@@ -2,7 +2,7 @@ describe('Page metadata', () => {
   const pages: [string, () => Promise<{ metadata?: { title?: unknown; description?: unknown } }>][] = [
     ['Home', () => import('../../src/app/page')],
     ['Who I Am', () => import('../../src/app/who-i-am/page')],
-    ['Free For Charity', () => import('../../src/app/free-for-charity/page')],
+    ['Free For Charity', () => import('../../src/app/charity/page')],
     ['Fun', () => import('../../src/app/fun/page')],
     ['Quotes', () => import('../../src/app/quotes/page')],
     ['CISSP Guide', () => import('../../src/app/clarke-moyer-cissp-certification-passing-guide/page')],

@@ -31,10 +31,24 @@ test.describe('Navigation', () => {
   test('old WordPress slug redirects work', async ({ page }) => {
     const redirects: [string, string][] = [
       ['/certification/', '/certification/'],
-      ['/charity/', '/free-for-charity/'],
+      ['/charity/', '/charity/'],
       ['/resume/', '/resume/'],
       ['/wgu-referral/', '/wgu-referral/'],
       ['/psu-arl-referral/', '/psu-arl-referral/'],
+    ]
+    for (const [from, to] of redirects) {
+      await page.goto(from)
+      await page.waitForURL(`**${to}`, { timeout: 5000 })
+      expect(page.url()).toContain(to)
+    }
+  })
+
+  test('long URLs redirect to short canonical URLs', async ({ page }) => {
+    const redirects: [string, string][] = [
+      ['/free-for-charity/', '/charity/'],
+      ['/certification-guides/', '/certification/'],
+      ['/wgu-referral-program/', '/wgu-referral/'],
+      ['/psu-arl-referral-program/', '/psu-arl-referral/'],
     ]
     for (const [from, to] of redirects) {
       await page.goto(from)

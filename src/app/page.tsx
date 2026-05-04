@@ -118,7 +118,7 @@ export default async function Home() {
                   Please connect with me for referrals to work for PSU-ARL. NOTE: I provide referrals only to those that I have personally validated the experience of...
                 </p>
                 <Link 
-                  href="/psu-arl-referral-program" className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+                  href="/psu-arl-referral" className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -148,7 +148,7 @@ export default async function Home() {
                   Absolutely free, alumni referral to Western Governors University (WGU). For years now since I started and subsequently graduated from Western Governors University I&apos;ve been referring...
                 </p>
                 <Link 
-                  href="/wgu-referral-program"
+                  href="/wgu-referral"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -197,7 +197,7 @@ export default async function Home() {
               <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
                 <Link 
-                  href="/free-for-charity"
+                  href="/charity"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -314,9 +314,9 @@ export default async function Home() {
               <Link href="/" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">HOME</Link>
               <Link href="/fun" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FUN</Link>
               <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">CERTIFICATION GUIDES</Link>
-              <Link href="/wgu-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">WGU REFERRAL PROGRAM</Link>
-              <Link href="/psu-arl-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">PSU-ARL REFERRAL PROGRAM</Link>
-              <Link href="/free-for-charity" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FREE FOR CHARITY</Link>
+              <Link href="/wgu-referral" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">WGU REFERRAL PROGRAM</Link>
+              <Link href="/psu-arl-referral" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">PSU-ARL REFERRAL PROGRAM</Link>
+              <Link href="/charity" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FREE FOR CHARITY</Link>
               <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
             </div>
           </nav>

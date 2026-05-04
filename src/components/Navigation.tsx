@@ -41,7 +41,7 @@ const navLinks: NavLink[] = [
   },
   { id: 'wgu-referral', href: '/wgu-referral', label: 'WGU REFERRAL PROGRAM' },
   { id: 'psu-arl-referral', href: '/psu-arl-referral', label: 'PSU-ARL REFERRAL PROGRAM' },
-  { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
+  { id: 'charity', href: '/charity', label: 'FREE FOR CHARITY' },
   { id: 'contact', href: '/contact/', label: 'CONTACT' },
 ];
 
