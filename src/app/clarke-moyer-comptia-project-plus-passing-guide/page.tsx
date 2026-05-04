@@ -51,7 +51,7 @@ export default function ProjectPlusGuidePage() {
             <p className="text-blue-800 text-sm mt-1">
               Clarke obtained this certification as part of completing his{' '}
               <strong>BS-IT (Bachelor of Science in Information Technology)</strong> at{' '}
-              <a href="/wgu-referral-program" className="underline">Western Governors University (WGU)</a>.
+              <a href="/wgu-referral" className="underline">Western Governors University (WGU)</a>.
               WGU&apos;s IT degree program integrates industry certification preparation directly into the curriculum —{' '}
               students can earn both the degree and the certifications simultaneously. This is why Clarke holds
               multiple foundational certifications from the same 2008–2009 period. If you&apos;re considering WGU,

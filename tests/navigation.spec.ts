@@ -31,7 +31,7 @@ test.describe('Navigation', () => {
   test('old WordPress slug redirects work', async ({ page }) => {
     const redirects: [string, string][] = [
       ['/certification/', '/certification/'],
-      ['/charity/', '/free-for-charity/'],
+      ['/charity/', '/charity/'],
       ['/resume/', '/resume/'],
       ['/wgu-referral/', '/wgu-referral/'],
       ['/psu-arl-referral/', '/psu-arl-referral/'],
