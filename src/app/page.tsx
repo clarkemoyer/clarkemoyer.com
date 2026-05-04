@@ -71,12 +71,12 @@ export default async function Home() {
       </section>
 
       {/* CM Logo Section */}
-      <section className="bg-gray-100 py-16">
+      <section className="bg-gray-100 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 sm:p-12 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-gray-900/20"></div>
             <div className="relative z-10">
-              <div className="w-48 h-48 mx-auto mb-8 relative">
+              <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 sm:mb-8 relative">
                 <Image
                   src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
                   alt="Clarke Moyer (CM) Logo 3D Black"
@@ -86,22 +86,22 @@ export default async function Home() {
                   priority
                 />
               </div>
-              <h3 className="text-3xl font-bold mb-4">CLARKE MOYER</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-0 sm:mb-4">CLARKE MOYER</h3>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Projects Grid */}
-      <section id="projects" className="py-16 bg-white">
+      <section id="projects" className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           
           {/* Main Featured Projects - 2 Column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 sm:mb-16">
             
             {/* PSU-ARL Referral Program */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
+              <div className="h-36 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
                 <div className="relative w-24 h-24">
                   <Image
                     src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
@@ -112,7 +112,7 @@ export default async function Home() {
                   />
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-xl font-bold mb-3">PSU-ARL Referral Program</h3>
                 <p className="text-gray-600 mb-4">
                   Please connect with me for referrals to work for PSU-ARL. NOTE: I provide referrals only to those that I have personally validated the experience of...
@@ -127,7 +127,7 @@ export default async function Home() {
 
             {/* WGU Referral Program */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center p-6">
+              <div className="h-36 sm:h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center p-6">
                 <div className="text-center">
                   <div className="relative w-16 h-16 mx-auto mb-4">
                     <Image
@@ -142,7 +142,7 @@ export default async function Home() {
                   <div className="text-yellow-400 text-xl font-bold">WGU GRAD!</div>
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-xl font-bold mb-3">WGU Referral Program</h3>
                 <p className="text-gray-600 mb-4">
                   Absolutely free, alumni referral to Western Governors University (WGU). For years now since I started and subsequently graduated from Western Governors University I&apos;ve been referring...
@@ -158,11 +158,11 @@ export default async function Home() {
           </div>
 
           {/* Secondary Projects - 3 Column */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             
             {/* Who I Am */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 relative">
+              <div className="h-32 sm:h-40 relative">
                 <Image
                   src={`${basePath}/images/Clarke-Moyer-Bio-Picture-2MP.jpg`}
                   alt="Clarke Moyer Bio Picture"
@@ -170,7 +170,7 @@ export default async function Home() {
                   className="object-cover object-top"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
                 <Link 
                   href="/who-i-am"
@@ -183,7 +183,7 @@ export default async function Home() {
 
             {/* Free For Charity */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center p-4">
+              <div className="h-32 sm:h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center p-4">
                 <div className="relative w-20 h-20">
                   <Image
                     src={`${basePath}/images/ffc-logo.png`}
@@ -194,7 +194,7 @@ export default async function Home() {
                   />
                 </div>
               </div>
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
                 <Link 
                   href="/free-for-charity"
@@ -207,7 +207,7 @@ export default async function Home() {
 
             {/* Certification Guides */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-40 relative">
+              <div className="h-32 sm:h-40 relative">
                 <Image
                   src={`${basePath}/images/certification-exam.png`}
                   alt="Technical Certification Exam"
@@ -215,7 +215,7 @@ export default async function Home() {
                   className="object-cover object-center"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
                 <Link 
                   href="/certification"
@@ -228,7 +228,7 @@ export default async function Home() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-12 sm:mt-16">
             <div className="inline-block bg-gray-100 rounded-lg px-6 py-3">
               <a 
                 href="#menu-footer"
@@ -242,9 +242,9 @@ export default async function Home() {
       </section>
 
       {/* Favorite Quotes Section */}
-      <section className="bg-gray-100 py-16">
+      <section className="bg-gray-100 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8 text-gray-800">--Favorite Quotes--</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800">Favorite Quotes</h2>
           
           <div className="space-y-8">
             <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
@@ -269,10 +269,10 @@ export default async function Home() {
       </section>
 
       {/* Dialogue Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-6">Let&apos;s Start a Dialogue</h3>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-6">Let&apos;s Start a Dialogue</h3>
+          <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
             At the basic level I am a Husband and Father, a DoD Contractor, a Charity Supporter, and an Education Supporter. I am seeking to expand upon my existing experiences and relationships by representing what I am involved in and taking inputs from the greater community. Please contact me if you see some common ground.
           </p>
           <a 
@@ -287,9 +287,9 @@ export default async function Home() {
       </section>
 
       {/* WGU Referral CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-6">Click for a WGU Referral</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold mb-6">Click for a WGU Referral</h3>
           <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 text-center">
             <div className="relative w-20 h-20 mx-auto mb-4">
               <Image
@@ -307,28 +307,28 @@ export default async function Home() {
       </section>
 
       {/* Footer Navigation */}
-      <footer id="menu-footer" className="bg-gray-100 py-12">
+      <footer id="menu-footer" className="bg-gray-100 py-10 sm:py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <nav className="text-center space-y-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Link href="/" className="text-gray-600 hover:text-gray-800 font-medium">HOME</Link>
-              <Link href="/fun" className="text-gray-600 hover:text-gray-800 font-medium">FUN</Link>
-              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CERTIFICATION GUIDES</Link>
-              <Link href="/wgu-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">WGU REFERRAL PROGRAM</Link>
-              <Link href="/psu-arl-referral-program" className="text-gray-600 hover:text-gray-800 font-medium">PSU-ARL REFERRAL PROGRAM</Link>
-              <Link href="/free-for-charity" className="text-gray-600 hover:text-gray-800 font-medium">FREE FOR CHARITY</Link>
-              <Link href="/certification" className="text-gray-600 hover:text-gray-800 font-medium">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
+          <nav className="text-center space-y-4" aria-label="Footer navigation">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <Link href="/" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">HOME</Link>
+              <Link href="/fun" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FUN</Link>
+              <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">CERTIFICATION GUIDES</Link>
+              <Link href="/wgu-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">WGU REFERRAL PROGRAM</Link>
+              <Link href="/psu-arl-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">PSU-ARL REFERRAL PROGRAM</Link>
+              <Link href="/free-for-charity" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FREE FOR CHARITY</Link>
+              <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
             </div>
           </nav>
-          <div className="text-center mt-8 pt-8 border-t text-gray-500">
-            <p>Copyright © 2010–2026 Hosted on Free For Charity Hosting</p>
-            <div className="mt-2 flex justify-center gap-4 text-sm">
-              <Link href="/privacy-policy" className="text-gray-500 hover:text-gray-700 underline">Privacy Policy</Link>
-              <Link href="/cookie-policy" className="text-gray-500 hover:text-gray-700 underline">Cookie Policy</Link>
-              <Link href="/affiliate-disclosure" className="text-gray-500 hover:text-gray-700 underline">Affiliate Disclosure</Link>
-              <CookiePreferencesButton />
+          <div className="text-center mt-8 pt-8 border-t border-gray-300 text-gray-700">
+            <p className="text-sm sm:text-base">Copyright © 2010–2026 Hosted on Free For Charity Hosting</p>
+            <div className="mt-4 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-x-5 sm:gap-y-2 text-sm">
+              <Link href="/privacy-policy" className="text-gray-700 hover:text-gray-900 underline">Privacy Policy</Link>
+              <Link href="/cookie-policy" className="text-gray-700 hover:text-gray-900 underline">Cookie Policy</Link>
+              <Link href="/affiliate-disclosure" className="text-gray-700 hover:text-gray-900 underline">Affiliate Disclosure</Link>
+              <CookiePreferencesButton className="text-gray-700 hover:text-gray-900 text-sm underline" />
             </div>
-            <p className="mt-3 text-xs text-gray-400 max-w-2xl mx-auto">
+            <p className="mt-4 text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed">
               This site contains affiliate links. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.
             </p>
           </div>
