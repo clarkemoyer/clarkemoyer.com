@@ -31,10 +31,26 @@ test.describe('Navigation', () => {
   test('old WordPress slug redirects work', async ({ page }) => {
     const redirects: [string, string][] = [
       ['/certification/', '/certification/'],
-      ['/charity/', '/free-for-charity/'],
+      ['/charity/', '/charity/'],
       ['/resume/', '/resume/'],
       ['/wgu-referral/', '/wgu-referral/'],
       ['/psu-arl-referral/', '/psu-arl-referral/'],
+    ]
+    for (const [from, to] of redirects) {
+      await page.goto(from)
+      await page.waitForURL(`**${to}`, { timeout: 5000 })
+      expect(page.url()).toContain(to)
+    }
+  })
+
+  test('long URLs redirect to short canonical URLs', async ({ page }) => {
+    const redirects: [string, string][] = [
+      ['/free-for-charity/', '/charity/'],
+      ['/certification-guides/', '/certification/'],
+      ['/wgu-referral-program/', '/wgu-referral/'],
+      ['/psu-arl-referral-program/', '/psu-arl-referral/'],
+      ['/western-governors-university-bs-it/', '/education/'],
+      ['/it-project-management-resume-of-clarke-moyer/', '/resume/'],
     ]
     for (const [from, to] of redirects) {
       await page.goto(from)
@@ -51,7 +67,9 @@ test.describe('Navigation', () => {
     const nav = page.locator('nav')
     await expect(nav.getByRole('link', { name: /Walk and Talk/i }).first()).toBeAttached()
     await expect(nav.getByRole('link', { name: /Certification/i }).first()).toBeAttached()
-    await expect(nav.getByRole('link', { name: /Professional Development/i }).first()).toBeAttached()
+    await expect(
+      nav.getByRole('link', { name: /Professional Development/i }).first()
+    ).toBeAttached()
     await expect(nav.getByRole('link', { name: /Industry Conferences/i }).first()).toBeAttached()
   })
 
@@ -60,16 +78,22 @@ test.describe('Navigation', () => {
     const fun = page.locator('nav').getByText('FUN', { exact: true })
     await expect(fun).toBeVisible()
     await fun.hover()
-    await expect(page.getByRole('link', { name: /Cooking/i }).first()).toBeVisible({ timeout: 5000 })
+    await expect(page.getByRole('link', { name: /Cooking/i }).first()).toBeVisible({
+      timeout: 5000,
+    })
     await expect(page.getByRole('link', { name: /Quotes/i }).first()).toBeVisible()
   })
 
-  test('ABOUT dropdown contains Who I Am, Resume, Education, Personal Project Manager', async ({ page }) => {
+  test('ABOUT dropdown contains Who I Am, Resume, Education, Personal Project Manager', async ({
+    page,
+  }) => {
     await page.goto('/')
     const nav = page.locator('nav')
     await expect(nav.getByRole('link', { name: /Who I Am/i }).first()).toBeAttached()
     await expect(nav.getByRole('link', { name: /Resume/i }).first()).toBeAttached()
-    await expect(nav.getByRole('link', { name: /Personal Project Manager/i }).first()).toBeAttached()
+    await expect(
+      nav.getByRole('link', { name: /Personal Project Manager/i }).first()
+    ).toBeAttached()
     await expect(nav.getByRole('link', { name: /Education/i }).first()).toBeAttached()
   })
 
@@ -79,7 +103,9 @@ test.describe('Navigation', () => {
     await page.setViewportSize({ width: 375, height: 812 })
     await page.goto('/cookie-policy/')
     // Hamburger button should be visible on mobile
-    const hamburger = page.locator('button[aria-label*="menu" i], button[aria-label*="Menu" i], button[aria-expanded]').first()
+    const hamburger = page
+      .locator('button[aria-label*="menu" i], button[aria-label*="Menu" i], button[aria-expanded]')
+      .first()
     await expect(hamburger).toBeVisible({ timeout: 10000 })
     // Open
     await hamburger.click()
@@ -93,14 +119,20 @@ test.describe('Navigation', () => {
 
   test('HOME link navigates to /', async ({ page }) => {
     await page.goto('/cookie-policy/')
-    await page.getByRole('link', { name: /^HOME$/i }).first().click()
+    await page
+      .getByRole('link', { name: /^HOME$/i })
+      .first()
+      .click()
     await expect(page).toHaveURL('/')
   })
 
   test('logo/brand link navigates to /', async ({ page }) => {
     await page.goto('/cookie-policy/')
     // The brand link contains "CLARKE MOYER" text
-    await page.getByRole('link', { name: /Clarke Moyer/i }).first().click()
+    await page
+      .getByRole('link', { name: /Clarke Moyer/i })
+      .first()
+      .click()
     await expect(page).toHaveURL('/')
   })
 
@@ -108,7 +140,10 @@ test.describe('Navigation', () => {
     await page.goto('/cookie-policy/')
     const consulting = page.locator('nav').getByText('CONSULTING', { exact: true })
     await consulting.hover()
-    await page.getByRole('link', { name: /Walk and Talk/i }).first().click()
+    await page
+      .getByRole('link', { name: /Walk and Talk/i })
+      .first()
+      .click()
     await page.waitForURL('**/walk-and-talk**', { timeout: 8000 })
     expect(page.url()).toContain('/walk-and-talk')
   })
@@ -117,7 +152,10 @@ test.describe('Navigation', () => {
     await page.goto('/cookie-policy/')
     const about = page.locator('nav').getByText('ABOUT', { exact: true })
     await about.hover()
-    await page.getByRole('link', { name: /Who I Am/i }).first().click()
+    await page
+      .getByRole('link', { name: /Who I Am/i })
+      .first()
+      .click()
     await page.waitForURL('**/who-i-am**', { timeout: 8000 })
     expect(page.url()).toContain('/who-i-am')
   })
@@ -126,7 +164,10 @@ test.describe('Navigation', () => {
     await page.goto('/cookie-policy/')
     const fun = page.locator('nav').getByText('FUN', { exact: true })
     await fun.hover()
-    await page.getByRole('link', { name: /^COOKING$/i }).first().click()
+    await page
+      .getByRole('link', { name: /^COOKING$/i })
+      .first()
+      .click()
     await page.waitForURL('**/cooking**', { timeout: 8000 })
     expect(page.url()).toContain('/cooking')
   })

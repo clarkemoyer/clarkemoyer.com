@@ -147,17 +147,17 @@ See `.github/copilot-instructions.md` for the full Cloudflare checklist includin
 
 ## URL Structure
 
-All 14 canonical WordPress URLs are preserved. Old short slugs redirect client-side
-(Next.js) and should have Cloudflare 301s added before DNS cutover.
+The original short WordPress URLs are canonical for readability when shared verbally.
+Longer descriptive routes remain available as redirect aliases for backlinks/bookmarks.
 
-| Canonical URL | Old slug (redirect from) |
+| Canonical URL | Redirect alias |
 |---|---|
-| `/certification-guides/` | `/certification/` |
-| `/free-for-charity/` | `/charity/` |
-| `/western-governors-university-bs-it/` | `/education/` |
-| `/it-project-management-resume-of-clarke-moyer/` | `/resume/` |
-| `/psu-arl-referral-program/` | `/psu-arl-referral/` |
-| `/wgu-referral-program/` | `/wgu-referral/` |
+| `/certification/` | `/certification-guides/` |
+| `/charity/` | `/free-for-charity/` |
+| `/education/` | `/western-governors-university-bs-it/` |
+| `/resume/` | `/it-project-management-resume-of-clarke-moyer/` |
+| `/psu-arl-referral/` | `/psu-arl-referral-program/` |
+| `/wgu-referral/` | `/wgu-referral-program/` |
 
 ---
 

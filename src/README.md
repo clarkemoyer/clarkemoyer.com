@@ -13,19 +13,19 @@ src/
 │   ├── fun/                      # Personal interests
 │   ├── cooking/                  # Cooking / recipes
 │   ├── quotes/                   # Quotes page
-│   ├── certification/            # Certifications (redirect)
-│   ├── certification-guides/     # Certification guides
+│   ├── certification/            # Certification guides (canonical)
+│   ├── certification-guides/     # Certification guides (redirect alias)
 │   ├── clarke-moyer-cissp-certification-passing-guide/  # CISSP guide
-│   ├── it-project-management-resume-of-clarke-moyer/    # Resume
-│   ├── resume/                   # Resume (redirect)
-│   ├── western-governors-university-bs-it/              # WGU degree page
-│   ├── education/                # Education (redirect)
-│   ├── wgu-referral-program/     # WGU referral
-│   ├── wgu-referral/             # WGU referral (redirect)
-│   ├── psu-arl-referral-program/ # PSU-ARL referral
-│   ├── psu-arl-referral/         # PSU-ARL referral (redirect)
-│   ├── free-for-charity/         # Free For Charity nonprofit page
-│   ├── charity/                  # Charity (redirect)
+│   ├── it-project-management-resume-of-clarke-moyer/    # Resume (redirect alias)
+│   ├── resume/                   # Resume (canonical)
+│   ├── western-governors-university-bs-it/              # Education/WGU (redirect alias)
+│   ├── education/                # Education (canonical)
+│   ├── wgu-referral-program/     # WGU referral (redirect alias)
+│   ├── wgu-referral/             # WGU referral (canonical)
+│   ├── psu-arl-referral-program/ # PSU-ARL referral (redirect alias)
+│   ├── psu-arl-referral/         # PSU-ARL referral (canonical)
+│   ├── free-for-charity/         # Free For Charity (redirect alias)
+│   ├── charity/                  # Free For Charity (canonical)
 │   ├── learn-free-charity/       # Learning resources (nonprofit)
 │   ├── personal-project-manager/ # Personal project manager (stub)
 │   ├── privacy-policy/           # Privacy policy
