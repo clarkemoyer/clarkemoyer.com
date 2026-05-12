@@ -14,7 +14,18 @@ See the closed issue for history: https://github.com/clarkemoyer/clarkemoyer.com
 - Full test suite: Jest + Playwright + Lighthouse CI ✅
 
 ## Remaining Before DNS Cutover
-- Add Cloudflare 301 redirect rules for old WP slugs
+- Verify Cloudflare DNS points apex/www to GitHub Pages after staging approval
 - Add Cloudflare security response headers
 - Create google-prod GitHub environment (repo owner only)
 - Submit sitemap to Google Search Console after cutover
+
+## Canonical URL Decision (May 2026)
+Clarke requested the original short WordPress URLs remain canonical for phone readability:
+- `/certification/`
+- `/charity/`
+- `/education/`
+- `/resume/`
+- `/psu-arl-referral/`
+- `/wgu-referral/`
+
+The longer descriptive URLs are retained as in-app redirects/backward-compatible aliases, not as canonical URLs.

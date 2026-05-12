@@ -1,10 +1,10 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import Link from 'next/link'
 
-type NavChild = { id: string; href: string; label: string };
-type NavLink = { id: string; href: string | null; label: string; children?: NavChild[] };
+type NavChild = { id: string; href: string; label: string }
+type NavLink = { id: string; href: string | null; label: string; children?: NavChild[] }
 
 const navLinks: NavLink[] = [
   { id: 'home', href: '/', label: 'HOME' },
@@ -25,9 +25,21 @@ const navLinks: NavLink[] = [
     label: 'CONSULTING',
     children: [
       { id: 'consulting-walk-and-talk', href: '/walk-and-talk', label: 'WALK AND TALK' },
-      { id: 'consulting-certification-guides', href: '/certification', label: 'CERTIFICATION GUIDES' },
-      { id: 'consulting-professional-development', href: '/professional-development', label: 'PROFESSIONAL DEVELOPMENT' },
-      { id: 'consulting-conferences', href: '/industry-conferences', label: 'INDUSTRY CONFERENCES' },
+      {
+        id: 'consulting-certification-guides',
+        href: '/certification',
+        label: 'CERTIFICATION GUIDES',
+      },
+      {
+        id: 'consulting-professional-development',
+        href: '/professional-development',
+        label: 'PROFESSIONAL DEVELOPMENT',
+      },
+      {
+        id: 'consulting-conferences',
+        href: '/industry-conferences',
+        label: 'INDUSTRY CONFERENCES',
+      },
     ],
   },
   {
@@ -41,13 +53,13 @@ const navLinks: NavLink[] = [
   },
   { id: 'wgu-referral', href: '/wgu-referral', label: 'WGU REFERRAL PROGRAM' },
   { id: 'psu-arl-referral', href: '/psu-arl-referral', label: 'PSU-ARL REFERRAL PROGRAM' },
-  { id: 'free-for-charity', href: '/free-for-charity', label: 'FREE FOR CHARITY' },
+  { id: 'charity', href: '/charity', label: 'FREE FOR CHARITY' },
   { id: 'contact', href: '/contact/', label: 'CONTACT' },
-];
+]
 
 export default function Navigation() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[999]">
@@ -64,8 +76,20 @@ export default function Navigation() {
                 className="text-white hover:text-gray-300 transition-colors flex items-center"
                 aria-label="Search this site (opens in new tab)"
               >
-                <svg className="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                <svg
+                  className="w-5 h-5 inline"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
                 </svg>
                 <span className="ml-2 text-sm font-medium tracking-wider">SEARCH</span>
               </a>
@@ -90,11 +114,21 @@ export default function Navigation() {
               >
                 {menuOpen ? (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 ) : (
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
                   </svg>
                 )}
                 <span className="ml-2 text-sm font-medium tracking-wider">MENU</span>
@@ -143,7 +177,7 @@ export default function Navigation() {
       <div className="hidden lg:block relative z-40 overflow-visible bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center space-x-8 h-12">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.children ? (
                 <div
                   key={link.id}
@@ -151,12 +185,15 @@ export default function Navigation() {
                   onMouseEnter={() => setOpenDropdown(link.id)}
                   onMouseLeave={() => setOpenDropdown(null)}
                   onFocusCapture={() => setOpenDropdown(link.id)}
-                  onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenDropdown(null); }}
+                  onBlurCapture={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node | null))
+                      setOpenDropdown(null)
+                  }}
                   onKeyDownCapture={(e) => {
                     if (e.key === 'Escape') {
-                      setOpenDropdown(null);
+                      setOpenDropdown(null)
                       if (document.activeElement instanceof HTMLElement) {
-                        document.activeElement.blur();
+                        document.activeElement.blur()
                       }
                     }
                   }}
@@ -169,54 +206,65 @@ export default function Navigation() {
                     onClick={() => setOpenDropdown(openDropdown === link.id ? null : link.id)}
                   >
                     {link.label}
-                    <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <svg
+                      className="w-3 h-3 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                   <ul
                     className={`absolute top-full left-0 mt-0 bg-black/95 backdrop-blur-sm border border-white/30 rounded-b min-w-[140px] z-[1000] list-none m-0 p-0 shadow-2xl transition-opacity ${openDropdown === link.id ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                     style={{ zIndex: 1000 }}
                   >
-                      {link.href && openDropdown === link.id && (
-                        <li key={`${link.id}-self`}>
-                          <Link
-                            href={link.href}
-                            tabIndex={openDropdown === link.id ? 0 : -1}
-                            className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
-                          >
-                            {link.label}
-                          </Link>
-                        </li>
-                      )}
-                      {link.children.map((child) => (
-                        <li key={child.id}>
-                          <Link
-                            href={child.href}
-                            tabIndex={openDropdown === link.id ? 0 : -1}
-                            className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
-                          >
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
+                    {link.href && openDropdown === link.id && (
+                      <li key={`${link.id}-self`}>
+                        <Link
+                          href={link.href}
+                          tabIndex={openDropdown === link.id ? 0 : -1}
+                          className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    )}
+                    {link.children.map((child) => (
+                      <li key={child.id}>
+                        <Link
+                          href={child.href}
+                          tabIndex={openDropdown === link.id ? 0 : -1}
+                          className="block px-4 py-2 text-white hover:bg-white/10 text-sm font-medium tracking-wider transition-colors whitespace-nowrap"
+                        >
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
+              ) : link.href ? (
+                <Link
+                  key={link.id}
+                  href={link.href}
+                  className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors"
+                >
+                  {link.label}
+                </Link>
               ) : (
-                link.href ? (
-                  <Link
-                    key={link.id}
-                    href={link.href}
-                    className="text-white hover:text-gray-300 text-sm font-semibold tracking-wider transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <span key={link.id} className="text-white text-sm font-semibold tracking-wider cursor-default">
-                    {link.label}
-                  </span>
-                )
+                <span
+                  key={link.id}
+                  className="text-white text-sm font-semibold tracking-wider cursor-default"
+                >
+                  {link.label}
+                </span>
               )
-            ))}
+            )}
           </div>
         </div>
       </div>
@@ -225,12 +273,15 @@ export default function Navigation() {
       <div className="hidden lg:block relative z-0 bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center h-10">
-            <Link href="/clarke-moyer-cissp-certification-passing-guide" className="text-white hover:text-gray-300 text-xs font-medium tracking-widest transition-colors">
+            <Link
+              href="/clarke-moyer-cissp-certification-passing-guide"
+              className="text-white hover:text-gray-300 text-xs font-medium tracking-widest transition-colors"
+            >
               CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE
             </Link>
           </div>
         </div>
       </div>
     </nav>
-  );
+  )
 }

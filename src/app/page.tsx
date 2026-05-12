@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import CookiePreferencesButton from '@/components/cookie-preferences-button';
-import Image from 'next/image';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import CookiePreferencesButton from '@/components/cookie-preferences-button'
+import Image from 'next/image'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer Projects',
@@ -15,26 +15,26 @@ export const metadata: Metadata = {
     type: 'website',
     url: '/',
   },
-};
+}
 
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment
   // For GitHub Pages subdirectory: USE_BASE_PATH=true
   // For custom domains or local dev: USE_BASE_PATH=false or unset
-  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '';
+  const basePath = process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : ''
   return (
     <>
       {/* Hero Section with Family Photo Background */}
-      <section 
+      <section
         className="relative min-h-screen bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
-        
+
         {/* Navigation Overlay */}
-        
+
         {/* Hero Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
           <div className="text-center text-white max-w-4xl">
@@ -42,7 +42,9 @@ export default async function Home() {
               Clarke Moyer Projects
             </h1>
             <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-3xl mx-auto text-shadow">
-              Thank you for visiting my site. Please scroll down to check out my featured projects below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family and I click &quot;Get More Info&quot;.
+              Thank you for visiting my site. Please scroll down to check out my featured projects
+              below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family
+              and I click &quot;Get More Info&quot;.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -51,7 +53,7 @@ export default async function Home() {
               >
                 Book a Walk and Talk →
               </Link>
-              <a 
+              <a
                 href="https://linkedin.com/in/clarkemoyer"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -59,7 +61,7 @@ export default async function Home() {
               >
                 CONNECT ON LINKEDIN
               </a>
-              <a 
+              <a
                 href="#projects"
                 className="bg-brand text-white px-8 py-3 rounded font-semibold hover:bg-brand-hover transition-colors"
               >
@@ -95,10 +97,8 @@ export default async function Home() {
       {/* Featured Projects Grid */}
       <section id="projects" className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          
           {/* Main Featured Projects - 2 Column */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 sm:mb-16">
-            
             {/* PSU-ARL Referral Program */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-36 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
@@ -115,10 +115,12 @@ export default async function Home() {
               <div className="p-5 sm:p-6">
                 <h3 className="text-xl font-bold mb-3">PSU-ARL Referral Program</h3>
                 <p className="text-gray-600 mb-4">
-                  Please connect with me for referrals to work for PSU-ARL. NOTE: I provide referrals only to those that I have personally validated the experience of...
+                  Please connect with me for referrals to work for PSU-ARL. NOTE: I provide
+                  referrals only to those that I have personally validated the experience of...
                 </p>
-                <Link 
-                  href="/psu-arl-referral-program" className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+                <Link
+                  href="/psu-arl-referral"
+                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
                 </Link>
@@ -145,10 +147,12 @@ export default async function Home() {
               <div className="p-5 sm:p-6">
                 <h3 className="text-xl font-bold mb-3">WGU Referral Program</h3>
                 <p className="text-gray-600 mb-4">
-                  Absolutely free, alumni referral to Western Governors University (WGU). For years now since I started and subsequently graduated from Western Governors University I&apos;ve been referring...
+                  Absolutely free, alumni referral to Western Governors University (WGU). For years
+                  now since I started and subsequently graduated from Western Governors University
+                  I&apos;ve been referring...
                 </p>
-                <Link 
-                  href="/wgu-referral-program"
+                <Link
+                  href="/wgu-referral"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -159,7 +163,6 @@ export default async function Home() {
 
           {/* Secondary Projects - 3 Column */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            
             {/* Who I Am */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
               <div className="h-32 sm:h-40 relative">
@@ -172,7 +175,7 @@ export default async function Home() {
               </div>
               <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Who I Am</h3>
-                <Link 
+                <Link
                   href="/who-i-am"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
@@ -196,8 +199,8 @@ export default async function Home() {
               </div>
               <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
-                <Link 
-                  href="/free-for-charity"
+                <Link
+                  href="/charity"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
                   Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
@@ -217,7 +220,7 @@ export default async function Home() {
               </div>
               <div className="p-5 sm:p-6">
                 <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
-                <Link 
+                <Link
                   href="/certification"
                   className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
                 >
@@ -230,10 +233,7 @@ export default async function Home() {
           {/* Call to Action */}
           <div className="text-center mt-12 sm:mt-16">
             <div className="inline-block bg-gray-100 rounded-lg px-6 py-3">
-              <a 
-                href="#menu-footer"
-                className="text-gray-600 hover:text-gray-800 font-medium"
-              >
+              <a href="#menu-footer" className="text-gray-600 hover:text-gray-800 font-medium">
                 Read More Pages
               </a>
             </div>
@@ -245,17 +245,15 @@ export default async function Home() {
       <section className="bg-gray-100 py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800">Favorite Quotes</h2>
-          
+
           <div className="space-y-8">
             <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
               <p className="text-xl text-gray-700 italic mb-4">
                 &ldquo;Always Be Caught Doing the Right Thing&rdquo;
               </p>
-              <cite className="text-gray-600 not-italic font-semibold">
-                Greg Davis - DoD SME
-              </cite>
+              <cite className="text-gray-600 not-italic font-semibold">Greg Davis - DoD SME</cite>
             </blockquote>
-            
+
             <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
               <p className="text-xl text-gray-700 italic mb-4">
                 &ldquo;The Best Way to Win New Work Is to Do a Good Job on Your Current Work&rdquo;
@@ -273,9 +271,12 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-2xl sm:text-3xl font-bold mb-6">Let&apos;s Start a Dialogue</h3>
           <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
-            At the basic level I am a Husband and Father, a DoD Contractor, a Charity Supporter, and an Education Supporter. I am seeking to expand upon my existing experiences and relationships by representing what I am involved in and taking inputs from the greater community. Please contact me if you see some common ground.
+            At the basic level I am a Husband and Father, a DoD Contractor, a Charity Supporter, and
+            an Education Supporter. I am seeking to expand upon my existing experiences and
+            relationships by representing what I am involved in and taking inputs from the greater
+            community. Please contact me if you see some common ground.
           </p>
-          <a 
+          <a
             href="https://linkedin.com/in/clarkemoyer"
             target="_blank"
             rel="noopener noreferrer"
@@ -311,29 +312,76 @@ export default async function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <nav className="text-center space-y-4" aria-label="Footer navigation">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              <Link href="/" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">HOME</Link>
-              <Link href="/fun" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FUN</Link>
-              <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">CERTIFICATION GUIDES</Link>
-              <Link href="/wgu-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">WGU REFERRAL PROGRAM</Link>
-              <Link href="/psu-arl-referral-program" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">PSU-ARL REFERRAL PROGRAM</Link>
-              <Link href="/free-for-charity" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900">FREE FOR CHARITY</Link>
-              <Link href="/certification" className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2">CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE</Link>
+              <Link
+                href="/"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                HOME
+              </Link>
+              <Link
+                href="/fun"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                FUN
+              </Link>
+              <Link
+                href="/certification"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                CERTIFICATION GUIDES
+              </Link>
+              <Link
+                href="/wgu-referral"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                WGU REFERRAL PROGRAM
+              </Link>
+              <Link
+                href="/psu-arl-referral"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                PSU-ARL REFERRAL PROGRAM
+              </Link>
+              <Link
+                href="/charity"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+              >
+                FREE FOR CHARITY
+              </Link>
+              <Link
+                href="/certification"
+                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2"
+              >
+                CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE
+              </Link>
             </div>
           </nav>
           <div className="text-center mt-8 pt-8 border-t border-gray-300 text-gray-700">
-            <p className="text-sm sm:text-base">Copyright © 2010–2026 Hosted on Free For Charity Hosting</p>
+            <p className="text-sm sm:text-base">
+              Copyright © 2010–2026 Hosted on Free For Charity Hosting
+            </p>
             <div className="mt-4 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-x-5 sm:gap-y-2 text-sm">
-              <Link href="/privacy-policy" className="text-gray-700 hover:text-gray-900 underline">Privacy Policy</Link>
-              <Link href="/cookie-policy" className="text-gray-700 hover:text-gray-900 underline">Cookie Policy</Link>
-              <Link href="/affiliate-disclosure" className="text-gray-700 hover:text-gray-900 underline">Affiliate Disclosure</Link>
+              <Link href="/privacy-policy" className="text-gray-700 hover:text-gray-900 underline">
+                Privacy Policy
+              </Link>
+              <Link href="/cookie-policy" className="text-gray-700 hover:text-gray-900 underline">
+                Cookie Policy
+              </Link>
+              <Link
+                href="/affiliate-disclosure"
+                className="text-gray-700 hover:text-gray-900 underline"
+              >
+                Affiliate Disclosure
+              </Link>
               <CookiePreferencesButton className="text-gray-700 hover:text-gray-900 text-sm underline" />
             </div>
             <p className="mt-4 text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              This site contains affiliate links. As an Amazon Associate I earn from qualifying purchases at no extra cost to you.
+              This site contains affiliate links. As an Amazon Associate I earn from qualifying
+              purchases at no extra cost to you.
             </p>
           </div>
         </div>
       </footer>
     </>
-  );
+  )
 }
