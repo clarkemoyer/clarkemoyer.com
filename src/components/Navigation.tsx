@@ -176,7 +176,7 @@ export default function Navigation() {
       {/* Main Navigation Menu (desktop) */}
       <div className="hidden lg:block relative z-40 overflow-visible bg-black/40 backdrop-blur-sm border-t border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center items-center space-x-8 h-12">
+          <div className="flex h-auto min-h-12 flex-wrap items-center justify-center gap-x-4 gap-y-1 py-1">
             {navLinks.map((link) =>
               link.children ? (
                 <div
