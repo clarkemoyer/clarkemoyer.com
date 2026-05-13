@@ -1,6 +1,6 @@
-> **Status: Migration Complete — April 2026**
-> All phases complete. DNS cutover to clarkemoyer.com pending final Cloudflare configuration.
-> See `content/gap-analysis.md` for remaining pre-cutover checklist.
+> **Status: Migration Complete — Live on GitHub Pages (May 2026)**
+> The `clarkemoyer.com` DNS cutover is complete and the live site serves the Next.js/GitHub Pages build.
+> Remaining work is owner-side console polish documented in `README.md`, `docs/DEPLOYMENT.md`, and `content/gap-analysis.md`.
 
 # WordPress to Next.js Migration Methodology
 
@@ -88,7 +88,7 @@ This document outlines the comprehensive methodology used to migrate clarkemoyer
 - **Special functionality**: Referral programs, certification guides
 
 #### Technology Stack Selection
-- **Framework**: Next.js 15 (latest stable)
+- **Framework**: Next.js 16
 - **Language**: TypeScript for type safety
 - **Styling**: Tailwind CSS for utility-first design
 - **Content**: Markdown with frontmatter
