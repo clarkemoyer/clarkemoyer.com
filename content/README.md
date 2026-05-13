@@ -22,8 +22,8 @@ Pages that still use `sections/` files: resume, family, fun, and a few others �
 
 ```markdown
 ---
-title: "Page Title"
-description: "Meta description for SEO"
+title: 'Page Title'
+description: 'Meta description for SEO'
 ---
 
 Markdown content here...
@@ -36,6 +36,7 @@ Markdown content here...
 Complete preservation of the original WordPress site content, retained for reference. This directory is **not used at runtime** — the Next.js build does not read from it.
 
 Contents:
+
 - `pages/` — original WordPress page HTML files
 - `uploads/` — WordPress media files organized by year (2012, 2020, 2021, 2023)
 - `extracted-content/` — Markdown versions converted from WordPress HTML
@@ -47,4 +48,4 @@ These files serve as a historical archive and fallback reference if content ques
 
 ## `content/gap-analysis.md`
 
-Tracks migration parity between WordPress and Next.js. As of April 2026, all original gap analysis items from Issue #41 have been resolved. See the file for current pre-cutover checklist.
+Tracks migration parity between WordPress and Next.js. As of May 2026, the live cutover is complete; remaining notes are owner-side console polish.

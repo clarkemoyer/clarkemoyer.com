@@ -2,10 +2,9 @@
 
 ## Current Configuration
 
-- **Staging URL:** `https://staging.clarkemoyer.com` ✅ Live
-- **Production URL:** `https://clarkemoyer.com` — pending DNS cutover
-- **Hosting:** GitHub Pages (static export via `next export`)
-- **CDN/Proxy:** Cloudflare
+- **Production URL:** `https://clarkemoyer.com` — live on GitHub Pages
+- **Hosting:** GitHub Pages (static export via `next build`)
+- **CDN/Proxy:** GitHub Pages direct serving today; Cloudflare may be re-enabled for edge headers/redirects
 
 ---
 
@@ -15,7 +14,7 @@ The site supports two modes depending on where it's served from.
 
 ### 1. Custom Domain Mode (Current)
 
-Used when serving from a custom domain (`staging.clarkemoyer.com` or `clarkemoyer.com`).
+Used when serving from the custom production domain (`clarkemoyer.com`).
 
 - `USE_BASE_PATH=false` (or unset)
 - Asset paths are root-relative: `/images/photo.jpg`
@@ -35,12 +34,12 @@ Used when serving from `https://clarkemoyer.github.io/clarkemoyer.com/`.
 
 These four variables are used at build time. They are set as plain `env:` entries in the workflow (not GitHub secrets) because they are public-facing tracking IDs.
 
-| Variable | Value | Purpose |
-|---|---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ` | Google Analytics 4 |
-| `NEXT_PUBLIC_GTM_ID` | `GTM-5JL6TDQW` | Google Tag Manager |
-| `NEXT_PUBLIC_SITE_URL` | `https://clarkemoyer.com` | Canonical URL / sitemap |
-| `USE_BASE_PATH` | `false` | Deployment mode (see above) |
+| Variable                        | Value                     | Purpose                     |
+| ------------------------------- | ------------------------- | --------------------------- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ`            | Google Analytics 4          |
+| `NEXT_PUBLIC_GTM_ID`            | `GTM-5JL6TDQW`            | Google Tag Manager          |
+| `NEXT_PUBLIC_SITE_URL`          | `https://clarkemoyer.com` | Canonical URL / sitemap     |
+| `USE_BASE_PATH`                 | `false`                   | Deployment mode (see above) |
 
 ### google-prod GitHub Environment
 
@@ -57,8 +56,9 @@ Collaborators cannot create environments on personal repos. Once created, the fo
 Triggers on every push to `main` (also supports `workflow_dispatch`).
 
 **Steps:**
+
 1. Checkout source
-2. Setup Node.js 20 with npm cache
+2. Setup Node.js 24 with npm cache
 3. `npm ci` — install dependencies
 4. `npm run build` — Next.js static export to `out/`; env vars injected here
 5. `touch ./out/.nojekyll` — prevents Jekyll processing on GitHub Pages
@@ -86,7 +86,7 @@ npx serve out/
 
 ## DNS Records for GitHub Pages
 
-When cutting over production, point `clarkemoyer.com` to GitHub Pages:
+Production currently resolves to GitHub Pages. Expected records are:
 
 ```
 # Apex domain (A records)
@@ -97,23 +97,19 @@ A   185.199.111.153
 
 # www subdomain
 CNAME   www   clarkemoyer.github.io
-
-# staging (already live)
-CNAME   staging   clarkemoyer.github.io
 ```
 
 ---
 
-## Cloudflare Pre-Cutover Checklist
+## Owner-Side Post-Cutover Checklist
 
-Before switching DNS to point `clarkemoyer.com` at GitHub Pages:
+The live custom domain is already serving the GitHub Pages build. Remaining console tasks:
 
-- [ ] **Bulk Redirects** — add 301 rules for all old WordPress slugs (see `content/gap-analysis.md`)
-- [ ] **Security response headers** — add `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` via Transform Rules or Workers
-- [ ] **SSL/TLS mode** — set to **Full (strict)**
-- [ ] **HSTS** — enable via SSL/TLS → Edge Certificates → HTTP Strict Transport Security
-- [ ] **DNS records** — add A/CNAME records above pointing to GitHub Pages IPs
-- [ ] **Pause Cloudflare proxy** during GitHub Pages SSL provisioning if needed, then re-enable
+- [ ] **GitHub Pages HTTPS** — confirm Enforce HTTPS is enabled. The Pages API currently reports `enforce_https: null` even though HTTPS works.
+- [ ] **Cloudflare posture** — decide whether to keep direct GitHub Pages serving or re-enable Cloudflare proxy.
+- [ ] **Security response headers** — if Cloudflare is used, add `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options` or equivalent, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` via Transform Rules or Workers.
+- [ ] **Edge redirects** — if Cloudflare is used, add 301 redirects from long alias URLs to the short canonical URLs for cleaner SEO.
+- [ ] **Search Console** — submit/refresh `https://clarkemoyer.com/sitemap.xml` and inspect/request indexing for key canonical pages.
 
 ---
 

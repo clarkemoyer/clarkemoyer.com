@@ -1,19 +1,19 @@
 # clarkemoyer.com
 
-Personal website for Clarke Moyer — built with Next.js, deployed to GitHub Pages via Cloudflare.
+Personal website for Clarke Moyer — built with Next.js and deployed to GitHub Pages.
 
-- **Staging:** https://staging.clarkemoyer.com
-- **Production:** https://clarkemoyer.com (post DNS cutover)
+- **Production:** https://clarkemoyer.com — live on the Next.js/GitHub Pages build
 - **Repo:** https://github.com/clarkemoyer/clarkemoyer.com
+- **Status:** migration/cutover code work is complete; remaining items are owner-side console polish
 
 ---
 
 ## Technology Stack
 
-- **Framework:** Next.js 15 + React 19 + TypeScript
+- **Framework:** Next.js 16 + React 19 + TypeScript
 - **Styling:** Tailwind CSS
 - **Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages
-- **DNS/CDN:** Cloudflare (proxy, security headers, 301 redirects)
+- **DNS/CDN:** GitHub Pages direct serving today; Cloudflare may be re-enabled for edge headers/redirects
 - **Analytics:** Google Tag Manager (`GTM-5JL6TDQW`) + Google Analytics 4 (`G-C2Q1HC0GVQ`)
 - **Testing:** Jest + Playwright + Lighthouse CI
 
@@ -23,12 +23,12 @@ Personal website for Clarke Moyer — built with Next.js, deployed to GitHub Pag
 
 These are **public tracking IDs** — not secrets. They are hardcoded in `.github/workflows/deploy.yml`.
 
-| Variable | Value | Purpose |
-|---|---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ` | Google Analytics 4 |
-| `NEXT_PUBLIC_GTM_ID` | `GTM-5JL6TDQW` | Google Tag Manager |
-| `NEXT_PUBLIC_SITE_URL` | `https://clarkemoyer.com` | Canonical URL / metadataBase |
-| `USE_BASE_PATH` | `false` | GitHub Pages basePath (false = custom domain) |
+| Variable                        | Value                     | Purpose                                       |
+| ------------------------------- | ------------------------- | --------------------------------------------- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ`            | Google Analytics 4                            |
+| `NEXT_PUBLIC_GTM_ID`            | `GTM-5JL6TDQW`            | Google Tag Manager                            |
+| `NEXT_PUBLIC_SITE_URL`          | `https://clarkemoyer.com` | Canonical URL / metadataBase                  |
+| `USE_BASE_PATH`                 | `false`                   | GitHub Pages basePath (false = custom domain) |
 
 ### google-prod Environment (Pending)
 
@@ -118,16 +118,19 @@ clarkemoyer.com/
 ## Analytics & Tracking
 
 ### Google Tag Manager (`GTM-5JL6TDQW`)
+
 Loaded in `layout.tsx` via `next/script afterInteractive`. Manages all tracking tags.
 Add new tags via the GTM UI — no code deploys required.
 
 ### Google Analytics 4 (`G-C2Q1HC0GVQ`)
+
 - Property: `362129069` | Account: `17425922`
 - Loaded **only after user grants analytics consent** via the cookie banner
 - `anonymize_ip: true` set by default
 - Recommended: also configure a GA4 tag in GTM with a consent trigger
 
 ### Cookie Consent
+
 Bottom banner with Accept All / Decline All / Customize.
 Stores preferences in `localStorage` + `document.cookie`.
 Fires `consent_update` dataLayer events for GTM consent mode.
@@ -135,13 +138,21 @@ Footer "Cookie Preferences" button reopens the modal from any page.
 
 ---
 
-## Cloudflare Setup (Pre-Cutover)
+## Owner-Side Post-Cutover Polish
 
-See `.github/copilot-instructions.md` for the full Cloudflare checklist including:
-- Bulk Redirects (301s for old WordPress slugs)
-- Response header Transform Rules (security headers)
-- SSL/TLS settings
-- DNS cutover records
+The live site is already serving from GitHub Pages at `https://clarkemoyer.com`. Remaining items require owner access to GitHub, Cloudflare, or Google Search Console:
+
+- Confirm **Enforce HTTPS** in GitHub Pages settings. HTTPS works, but the Pages API currently returns `enforce_https: null`.
+- Decide whether to keep direct GitHub Pages serving or place Cloudflare proxy back in front.
+- If using Cloudflare, add response-header Transform Rules / Workers for security headers:
+  - `Strict-Transport-Security`
+  - `Content-Security-Policy`
+  - `X-Frame-Options` or equivalent frame policy
+  - `X-Content-Type-Options`
+  - `Referrer-Policy`
+  - `Permissions-Policy`
+- If using Cloudflare, add edge 301 redirects from long alias URLs to short canonical URLs for cleaner SEO.
+- Submit or refresh `https://clarkemoyer.com/sitemap.xml` in Google Search Console.
 
 ---
 
@@ -150,14 +161,14 @@ See `.github/copilot-instructions.md` for the full Cloudflare checklist includin
 The original short WordPress URLs are canonical for readability when shared verbally.
 Longer descriptive routes remain available as redirect aliases for backlinks/bookmarks.
 
-| Canonical URL | Redirect alias |
-|---|---|
-| `/certification/` | `/certification-guides/` |
-| `/charity/` | `/free-for-charity/` |
-| `/education/` | `/western-governors-university-bs-it/` |
-| `/resume/` | `/it-project-management-resume-of-clarke-moyer/` |
-| `/psu-arl-referral/` | `/psu-arl-referral-program/` |
-| `/wgu-referral/` | `/wgu-referral-program/` |
+| Canonical URL        | Redirect alias                                   |
+| -------------------- | ------------------------------------------------ |
+| `/certification/`    | `/certification-guides/`                         |
+| `/charity/`          | `/free-for-charity/`                             |
+| `/education/`        | `/western-governors-university-bs-it/`           |
+| `/resume/`           | `/it-project-management-resume-of-clarke-moyer/` |
+| `/psu-arl-referral/` | `/psu-arl-referral-program/`                     |
+| `/wgu-referral/`     | `/wgu-referral-program/`                         |
 
 ---
 
@@ -170,6 +181,7 @@ npm run build && npm run test:e2e   # E2E tests (Playwright)
 ```
 
 Lighthouse CI runs automatically post-deploy. Thresholds:
+
 - Performance ≥ 55%
 - Accessibility ≥ 90%
 - Best Practices ≥ 65%

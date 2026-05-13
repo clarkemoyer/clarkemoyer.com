@@ -4,16 +4,14 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-    remotePatterns: [
-      { protocol: 'https', hostname: 'img.youtube.com' },
-    ],
+    remotePatterns: [{ protocol: 'https', hostname: 'img.youtube.com' }],
   },
   // GitHub Pages serves from a subdirectory for project pages
   // For https://clarkemoyer.github.io/clarkemoyer.com/ we need basePath: '/clarkemoyer.com'
-  // For custom domains (e.g., staging.clarkemoyer.com) we need NO basePath
+  // For custom domains (e.g., clarkemoyer.com) we need NO basePath
   // Use USE_BASE_PATH environment variable to control this explicitly
   basePath: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
   assetPrefix: process.env.USE_BASE_PATH === 'true' ? '/clarkemoyer.com' : '',
-};
+}
 
-export default nextConfig;
+export default nextConfig
