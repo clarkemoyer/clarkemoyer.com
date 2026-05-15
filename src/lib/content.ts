@@ -6,7 +6,7 @@ import { marked, Renderer } from 'marked';
 export interface ContentData {
   title?: string;
   content: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 // Custom renderer: add rel="noopener noreferrer" to external links
@@ -34,7 +34,7 @@ export async function getContentFile(fileName: string): Promise<ContentData | nu
       ...parsed.data,
       content: html
     };
-  } catch (error) {
+  } catch {
     console.warn(`Could not read content file: ${fileName}.md`);
     return null;
   }

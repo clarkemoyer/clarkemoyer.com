@@ -14,15 +14,6 @@ export const metadata: Metadata = {
 };
 
 const AMZN_TAG = 'clarkemoyer-20';
-function amzn(asin: string, label: string) {
-  const url = `https://www.amazon.com/dp/${asin}?tag=${AMZN_TAG}`;
-  return (
-    <a href={url} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
-      {label} ↗
-    </a>
-  );
-}
-
 function amznSearch(query: string, label: string) {
   const url = `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMZN_TAG}`;
   return (
