@@ -91,14 +91,14 @@ export default function Navigation() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-                <span className="ml-2 text-sm font-medium tracking-wider">SEARCH</span>
+                <span className="ml-2 hidden text-sm font-medium tracking-wider sm:inline">SEARCH</span>
               </a>
             </div>
 
             {/* Center - Brand */}
             <div className="text-center">
               <Link href="/" className="text-white hover:text-gray-200 transition-colors">
-                <span className="text-xl font-bold tracking-widest leading-tight">
+                <span className="text-lg font-bold tracking-wider leading-tight sm:text-xl sm:tracking-widest">
                   CLARKE MOYER
                 </span>
               </Link>
@@ -131,7 +131,7 @@ export default function Navigation() {
                     />
                   </svg>
                 )}
-                <span className="ml-2 text-sm font-medium tracking-wider">MENU</span>
+                <span className="ml-2 hidden text-sm font-medium tracking-wider sm:inline">MENU</span>
               </button>
             </div>
           </div>
