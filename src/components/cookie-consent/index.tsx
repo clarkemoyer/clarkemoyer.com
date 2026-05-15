@@ -4,8 +4,6 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 // GA fires via GTM — no direct script import needed
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''
-
 interface CookiePreferences {
   necessary: boolean
   analytics: boolean
@@ -94,6 +92,8 @@ export default function CookieConsent() {
   useEffect(() => {
     const stored = readStoredConsent()
     if (stored) {
+      // Stored cookie consent is external browser state; hydrate React state once on mount.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPreferences(stored)
       setSavedBackup(stored)
       persistConsent(stored)
@@ -102,7 +102,7 @@ export default function CookieConsent() {
       setShowBanner(true)
     }
     return () => { delete window.openCookiePreferences }
-  }, [persistConsent]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [persistConsent, applyAnalytics])
 
   // Register openCookiePreferences separately so it reads current preferences via ref
   const preferencesRef = useRef(preferences)
@@ -153,11 +153,18 @@ export default function CookieConsent() {
     setSavedBackup(normalized)
     setShowBanner(false)
     setShowPreferences(false)
-  }, [persistConsent])
+  }, [persistConsent, applyAnalytics])
 
   const handleAcceptAll = () => saveAndClose({ necessary: true, analytics: true, marketing: false })
   const handleDeclineAll = () => saveAndClose({ necessary: true, analytics: false, marketing: false })
   const handleSavePreferences = () => saveAndClose(preferences)
+  const handleCustomize = useCallback(() => {
+    // Track whether the banner was visible before opening the modal so Cancel can restore it.
+    // eslint-disable-next-line react-hooks/immutability
+    bannerWasVisibleRef.current = true
+    setSavedBackup(preferences)
+    setShowPreferences(true)
+  }, [preferences])
 
   const modal = (
     <div
@@ -212,7 +219,7 @@ export default function CookieConsent() {
           </div>
           <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
             <button onClick={handleDeclineAll} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Decline All</button>
-            <button onClick={() => { bannerWasVisibleRef.current = true; setSavedBackup(preferences); setShowPreferences(true) }} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Customize</button>
+            <button onClick={handleCustomize} className="px-6 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-colors text-sm whitespace-nowrap">Customize</button>
             <button onClick={handleAcceptAll} className="px-6 py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm whitespace-nowrap">Accept All</button>
           </div>
         </div>
