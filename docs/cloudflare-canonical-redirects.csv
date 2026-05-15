@@ -1,0 +1,8 @@
+source_url,target_url,status_code,preserve_query_string
+https://clarkemoyer.com/about/,https://clarkemoyer.com/who-i-am/,301,true
+https://clarkemoyer.com/certification-guides/,https://clarkemoyer.com/certification/,301,true
+https://clarkemoyer.com/free-for-charity/,https://clarkemoyer.com/charity/,301,true
+https://clarkemoyer.com/western-governors-university-bs-it/,https://clarkemoyer.com/education/,301,true
+https://clarkemoyer.com/it-project-management-resume-of-clarke-moyer/,https://clarkemoyer.com/resume/,301,true
+https://clarkemoyer.com/psu-arl-referral-program/,https://clarkemoyer.com/psu-arl-referral/,301,true
+https://clarkemoyer.com/wgu-referral-program/,https://clarkemoyer.com/wgu-referral/,301,true
