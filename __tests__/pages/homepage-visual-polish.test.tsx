@@ -8,12 +8,13 @@ describe('Clarke Moyer homepage visual polish', () => {
     expect(
       screen.getByText(/Projects, referrals, certification guides, and community initiatives/i)
     ).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /Connect on LinkedIn/i })).toHaveClass('bg-white')
+    expect(screen.getByRole('link', { name: /Book a Walk and Talk/i })).toHaveClass('bg-white')
+    expect(screen.getByRole('link', { name: /Connect on LinkedIn/i })).toHaveClass('border')
+    expect(screen.getByRole('link', { name: /View Projects/i })).toHaveClass('border')
     expect(screen.getByRole('link', { name: /View Projects/i })).toHaveAttribute(
       'href',
       '#projects'
     )
-    expect(screen.getByRole('link', { name: /Book a Walk and Talk/i })).toHaveClass('border')
   })
 
   it('renders standardized project cards with specific CTA labels and no generic learn-more copy', async () => {
