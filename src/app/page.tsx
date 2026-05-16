@@ -17,6 +17,62 @@ export const metadata: Metadata = {
   },
 }
 
+const featuredProjects = [
+  {
+    title: 'PSU-ARL Referral Program',
+    category: 'Referral',
+    description:
+      'Connect for PSU-ARL referrals when I can personally validate your experience and fit for the opportunity.',
+    href: '/psu-arl-referral',
+    cta: 'View PSU-ARL Referral Details',
+    media: 'cm',
+  },
+  {
+    title: 'WGU Referral Program',
+    category: 'Education',
+    description:
+      'Request a free alumni referral to Western Governors University and learn what to expect next.',
+    href: '/wgu-referral',
+    cta: 'Request a WGU Referral',
+    media: 'wgu',
+  },
+]
+
+const secondaryProjects = [
+  {
+    title: 'Who I Am',
+    category: 'About',
+    description:
+      'A concise bio covering family, service, education, technology, and community work.',
+    href: '/who-i-am',
+    cta: 'Read Clarke’s Bio',
+    image: '/images/Clarke-Moyer-Bio-Picture-2MP.jpg',
+    alt: 'Clarke Moyer Bio Picture',
+    imageClass: 'object-cover object-[center_28%]',
+  },
+  {
+    title: 'Free For Charity',
+    category: 'Community',
+    description: 'Nonprofit technology and business support work connected to Free For Charity.',
+    href: '/charity',
+    cta: 'View Charity Work',
+    image: '/images/ffc-logo.png',
+    alt: 'Free For Charity Logo',
+    imageClass: 'object-contain p-8 bg-gradient-to-br from-emerald-700 to-emerald-900',
+  },
+  {
+    title: 'Certification Guides',
+    category: 'Guides',
+    description:
+      'Study notes, certification reflections, and practical guide material for IT professionals.',
+    href: '/certification',
+    cta: 'View Certification Guides',
+    image: '/images/certification-exam.png',
+    alt: 'Technical Certification Exam',
+    imageClass: 'object-cover object-center',
+  },
+]
+
 export default async function Home() {
   // Get the basePath for GitHub Pages deployment
   // For GitHub Pages subdirectory: USE_BASE_PATH=true
@@ -26,239 +82,210 @@ export default async function Home() {
     <>
       {/* Hero Section with Family Photo Background */}
       <section
-        className="relative -mt-16 min-h-screen bg-cover bg-center bg-no-repeat lg:-mt-40"
+        className="relative -mt-16 min-h-[88vh] bg-cover bg-[center_34%] bg-no-repeat lg:-mt-40"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.46)), url('${basePath}/images/Grand-Canyon-2019-Family-Photo.jpg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
-
-        {/* Navigation Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55"></div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
-          <div className="text-center text-white max-w-4xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-shadow-lg">
+        <div className="relative z-10 flex min-h-[88vh] items-center justify-center px-4 py-24">
+          <div className="max-w-4xl text-center text-white">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-orange-200">
+              Personal projects and community work
+            </p>
+            <h1 className="mb-6 text-4xl font-bold text-shadow-lg md:text-6xl">
               Clarke Moyer Projects
             </h1>
-            <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-3xl mx-auto text-shadow">
-              Thank you for visiting my site. Please scroll down to check out my featured projects
-              below. You can also &quot;Connect on LinkedIn&quot; or to learn more about my family
-              and I click &quot;Get More Info&quot;.
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-shadow md:text-xl">
+              Projects, referrals, certification guides, and community initiatives from Clarke
+              Moyer.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/walk-and-talk"
-                className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Book a Walk and Talk →
-              </Link>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <a
                 href="https://linkedin.com/in/clarkemoyer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white/10 transition-colors"
+                className="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
               >
-                CONNECT ON LINKEDIN
+                Connect on LinkedIn
               </a>
               <a
                 href="#projects"
-                className="bg-brand text-white px-8 py-3 rounded font-semibold hover:bg-brand-hover transition-colors"
+                className="rounded-full bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
               >
-                GET MORE INFO
+                View Projects
               </a>
+              <Link
+                href="/walk-and-talk"
+                className="rounded-full border border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+              >
+                Book a Walk and Talk
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CM Logo Section */}
-      <section className="bg-gray-100 py-10 sm:py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 sm:p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-700/20 to-gray-900/20"></div>
-            <div className="relative z-10">
-              <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-6 sm:mb-8 relative">
-                <Image
-                  src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
-                  alt="Clarke Moyer (CM) Logo 3D Black"
-                  width={192}
-                  height={192}
-                  className="rounded-full object-cover shadow-2xl"
-                  priority
-                />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-0 sm:mb-4">CLARKE MOYER</h3>
+      {/* Credibility Section */}
+      <section className="bg-gray-100 py-10 sm:py-14">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 md:grid-cols-[0.8fr_1.2fr] md:items-center">
+          <div className="relative mx-auto h-32 w-32 md:h-44 md:w-44">
+            <Image
+              src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
+              alt="Clarke Moyer (CM) Logo 3D Black"
+              width={176}
+              height={176}
+              className="rounded-full object-cover shadow-2xl"
+              priority
+            />
+          </div>
+          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand">
+              Clarke Moyer
+            </p>
+            <h2 className="mb-4 text-2xl font-bold text-gray-900 sm:text-3xl">
+              Husband, father, DoD contractor, education supporter, and charity supporter.
+            </h2>
+            <div className="grid gap-3 text-sm text-gray-700 sm:grid-cols-2 sm:text-base">
+              <p>WGU graduate and alumni referral supporter</p>
+              <p>PSU-ARL referral contact for personally validated candidates</p>
+              <p>Certification guide creator and CISSP holder</p>
+              <p>Founder and supporter of Free For Charity</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Projects Grid */}
-      <section id="projects" className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          {/* Main Featured Projects - 2 Column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 sm:mb-16">
-            {/* PSU-ARL Referral Program */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-36 sm:h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center p-6">
-                <div className="relative w-24 h-24">
-                  <Image
-                    src={`${basePath}/images/Clarke-Moyer-CM-Logo-3D-Black-scaled.jpg`}
-                    alt="Clarke Moyer Logo"
-                    width={96}
-                    height={96}
-                    className="rounded-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <h3 className="text-xl font-bold mb-3">PSU-ARL Referral Program</h3>
-                <p className="text-gray-600 mb-4">
-                  Please connect with me for referrals to work for PSU-ARL. NOTE: I provide
-                  referrals only to those that I have personally validated the experience of...
-                </p>
-                <Link
-                  href="/psu-arl-referral"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
-                >
-                  Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* WGU Referral Program */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-36 sm:h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center p-6">
-                <div className="text-center">
-                  <div className="relative w-16 h-16 mx-auto mb-4">
-                    <Image
-                      src={`${basePath}/images/wgu-logo.jpg`}
-                      alt="Western Governors University Logo"
-                      width={64}
-                      height={64}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="text-yellow-400 text-2xl font-bold">PROUD</div>
-                  <div className="text-yellow-400 text-xl font-bold">WGU GRAD!</div>
-                </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <h3 className="text-xl font-bold mb-3">WGU Referral Program</h3>
-                <p className="text-gray-600 mb-4">
-                  Absolutely free, alumni referral to Western Governors University (WGU). For years
-                  now since I started and subsequently graduated from Western Governors University
-                  I&apos;ve been referring...
-                </p>
-                <Link
-                  href="/wgu-referral"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
-                >
-                  Continue Reading <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
+      <section id="projects" className="bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-brand">
+              Featured paths
+            </p>
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              Choose the project or referral path that fits your visit.
+            </h2>
           </div>
 
-          {/* Secondary Projects - 3 Column */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Who I Am */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-32 sm:h-40 relative">
-                <Image
-                  src={`${basePath}/images/Clarke-Moyer-Bio-Picture-2MP.jpg`}
-                  alt="Clarke Moyer Bio Picture"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="p-5 sm:p-6">
-                <h3 className="text-lg font-bold mb-3">Who I Am</h3>
-                <Link
-                  href="/who-i-am"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+          <div data-testid="project-grid" className="space-y-6 md:space-y-8">
+            {/* Main Featured Projects - 2 Column */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+              {featuredProjects.map((project) => (
+                <article
+                  key={project.title}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-shadow hover:shadow-xl"
                 >
-                  Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
+                  <div className="flex h-40 items-center justify-center bg-gradient-to-br from-gray-800 to-gray-950 p-6 sm:h-48">
+                    {project.media === 'wgu' ? (
+                      <div className="text-center">
+                        <div className="relative mx-auto mb-4 h-16 w-16">
+                          <Image
+                            src={`${basePath}/images/wgu-logo.jpg`}
+                            alt="Western Governors University Logo"
+                            width={64}
+                            height={64}
+                            className="object-contain"
+                          />
+                        </div>
+                        <div className="text-2xl font-bold text-yellow-400">PROUD</div>
+                        <div className="text-xl font-bold text-yellow-400">WGU GRAD!</div>
+                      </div>
+                    ) : (
+                      <div className="rounded-2xl border border-white/15 bg-white/10 px-8 py-6 text-center text-white">
+                        <div className="text-sm font-bold uppercase tracking-[0.2em] text-orange-200">
+                          Referral
+                        </div>
+                        <div className="mt-2 text-2xl font-bold">PSU-ARL</div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">
+                      {project.category}
+                    </p>
+                    <h3 className="mb-3 text-xl font-bold text-gray-900">{project.title}</h3>
+                    <p className="mb-5 flex-1 text-gray-600">{project.description}</p>
+                    <Link
+                      href={project.href}
+                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover"
+                    >
+                      {project.cta} <ArrowRightIcon className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
 
-            {/* Free For Charity */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-32 sm:h-40 bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center p-4">
-                <div className="relative w-20 h-20">
-                  <Image
-                    src={`${basePath}/images/ffc-logo.png`}
-                    alt="Free For Charity Logo"
-                    width={80}
-                    height={80}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-              <div className="p-5 sm:p-6">
-                <h3 className="text-lg font-bold mb-3">Free For Charity</h3>
-                <Link
-                  href="/charity"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
+            {/* Secondary Projects - 3 Column */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+              {secondaryProjects.map((project) => (
+                <article
+                  key={project.title}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-shadow hover:shadow-xl"
                 >
-                  Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Certification Guides */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-32 sm:h-40 relative">
-                <Image
-                  src={`${basePath}/images/certification-exam.png`}
-                  alt="Technical Certification Exam"
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-              <div className="p-5 sm:p-6">
-                <h3 className="text-lg font-bold mb-3">Certification Guides</h3>
-                <Link
-                  href="/certification"
-                  className="text-brand hover:text-brand-hover font-medium inline-flex items-center"
-                >
-                  Learn More <ArrowRightIcon className="w-4 h-4 ml-1" />
-                </Link>
-              </div>
+                  <div className="relative h-40 bg-gray-900 sm:h-44">
+                    <Image
+                      src={`${basePath}${project.image}`}
+                      alt={project.alt}
+                      fill
+                      className={project.imageClass}
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-brand">
+                      {project.category}
+                    </p>
+                    <h3 className="mb-3 text-lg font-bold text-gray-900">{project.title}</h3>
+                    <p className="mb-5 flex-1 text-sm leading-6 text-gray-600">
+                      {project.description}
+                    </p>
+                    <Link
+                      href={project.href}
+                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover"
+                    >
+                      {project.cta} <ArrowRightIcon className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-12 sm:mt-16">
-            <div className="inline-block bg-gray-100 rounded-lg px-6 py-3">
-              <a href="#menu-footer" className="text-gray-600 hover:text-gray-800 font-medium">
-                Read More Pages
-              </a>
-            </div>
+          <div className="mt-10 text-center sm:mt-12">
+            <a
+              href="#menu-footer"
+              className="inline-flex rounded-full bg-gray-100 px-6 py-3 font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900"
+            >
+              Browse All Pages
+            </a>
           </div>
         </div>
       </section>
 
       {/* Favorite Quotes Section */}
       <section className="bg-gray-100 py-12 sm:py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-gray-800">Favorite Quotes</h2>
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="mb-8 text-2xl font-bold text-gray-800 sm:text-3xl">
+            Principles I Work By
+          </h2>
 
           <div className="space-y-8">
-            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
-              <p className="text-xl text-gray-700 italic mb-4">
+            <blockquote className="rounded-r-lg border-l-4 border-orange-600 bg-white p-6 shadow-md">
+              <p className="mb-4 text-xl italic text-gray-700">
                 &ldquo;Always Be Caught Doing the Right Thing&rdquo;
               </p>
-              <cite className="text-gray-600 not-italic font-semibold">Greg Davis - DoD SME</cite>
+              <cite className="font-semibold not-italic text-gray-600">Greg Davis - DoD SME</cite>
             </blockquote>
 
-            <blockquote className="border-l-4 border-orange-600 bg-white p-6 shadow-md rounded-r-lg">
-              <p className="text-xl text-gray-700 italic mb-4">
+            <blockquote className="rounded-r-lg border-l-4 border-orange-600 bg-white p-6 shadow-md">
+              <p className="mb-4 text-xl italic text-gray-700">
                 &ldquo;The Best Way to Win New Work Is to Do a Good Job on Your Current Work&rdquo;
               </p>
-              <cite className="text-gray-600 not-italic font-semibold">
+              <cite className="font-semibold not-italic text-gray-600">
                 Bryan Tebo - Semper Valens VP
               </cite>
             </blockquote>
@@ -268,9 +295,9 @@ export default async function Home() {
 
       {/* Dialogue Section */}
       <section className="bg-gray-50 py-12 sm:py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-6">Let&apos;s Start a Dialogue</h3>
-          <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h3 className="mb-6 text-2xl font-bold sm:text-3xl">Let&apos;s Start a Dialogue</h3>
+          <p className="mx-auto mb-8 max-w-3xl text-base leading-relaxed text-gray-700 sm:text-lg">
             At the basic level I am a Husband and Father, a DoD Contractor, a Charity Supporter, and
             an Education Supporter. I am seeking to expand upon my existing experiences and
             relationships by representing what I am involved in and taking inputs from the greater
@@ -280,19 +307,22 @@ export default async function Home() {
             href="https://linkedin.com/in/clarkemoyer"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand text-white px-8 py-3 rounded font-semibold hover:bg-brand-hover transition-colors"
+            className="rounded-full bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
           >
-            CONNECT TODAY
+            Contact Clarke
           </a>
         </div>
       </section>
 
       {/* WGU Referral CTA */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold mb-6">Click for a WGU Referral</h3>
-          <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg p-8 text-center">
-            <div className="relative w-20 h-20 mx-auto mb-4">
+      <section className="bg-white py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h3 className="mb-6 text-2xl font-bold sm:text-3xl">Request a WGU Referral</h3>
+          <Link
+            href="/wgu-referral"
+            className="block rounded-2xl bg-gradient-to-br from-blue-800 to-blue-950 p-8 text-center shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <div className="relative mx-auto mb-4 h-20 w-20">
               <Image
                 src={`${basePath}/images/wgu-logo.jpg`}
                 alt="Western Governors University Logo"
@@ -301,81 +331,81 @@ export default async function Home() {
                 className="object-contain"
               />
             </div>
-            <div className="text-yellow-400 text-3xl font-bold mb-2">PROUD</div>
-            <div className="text-yellow-400 text-2xl font-bold">WGU GRAD!</div>
-          </div>
+            <div className="mb-2 text-3xl font-bold text-yellow-400">PROUD</div>
+            <div className="text-2xl font-bold text-yellow-400">WGU GRAD!</div>
+          </Link>
         </div>
       </section>
 
       {/* Footer Navigation */}
       <footer id="menu-footer" className="bg-gray-100 py-10 sm:py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <nav className="text-center space-y-4" aria-label="Footer navigation">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="mx-auto max-w-4xl px-4">
+          <nav className="text-center" aria-label="Footer navigation">
+            <div className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
               <Link
                 href="/"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 HOME
               </Link>
               <Link
                 href="/fun"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 FUN
               </Link>
               <Link
                 href="/certification"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 CERTIFICATION GUIDES
               </Link>
               <Link
                 href="/wgu-referral"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 WGU REFERRAL PROGRAM
               </Link>
               <Link
                 href="/psu-arl-referral"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 PSU-ARL REFERRAL PROGRAM
               </Link>
               <Link
                 href="/charity"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900"
               >
                 FREE FOR CHARITY
               </Link>
               <Link
                 href="/certification"
-                className="block rounded-md bg-white/80 px-4 py-3 text-sm font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2"
+                className="block rounded-md bg-white/80 px-4 py-3 font-semibold tracking-wide text-gray-700 hover:bg-white hover:text-gray-900 lg:col-span-2"
               >
                 CLARKE MOYER CISSP CERTIFICATION PASSING GUIDE
               </Link>
             </div>
           </nav>
-          <div className="text-center mt-8 pt-8 border-t border-gray-300 text-gray-700">
+          <div className="mt-8 border-t border-gray-300 pt-8 text-center text-gray-700">
             <p className="text-sm sm:text-base">
               Copyright © 2010–2026 Hosted on Free For Charity Hosting
             </p>
-            <div className="mt-4 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-x-5 sm:gap-y-2 text-sm">
-              <Link href="/privacy-policy" className="text-gray-700 hover:text-gray-900 underline">
+            <div className="mt-4 flex flex-col flex-wrap items-center justify-center gap-3 text-sm sm:flex-row sm:gap-x-5 sm:gap-y-2">
+              <Link href="/privacy-policy" className="text-gray-700 underline hover:text-gray-900">
                 Privacy Policy
               </Link>
-              <Link href="/cookie-policy" className="text-gray-700 hover:text-gray-900 underline">
+              <Link href="/cookie-policy" className="text-gray-700 underline hover:text-gray-900">
                 Cookie Policy
               </Link>
               <Link
                 href="/affiliate-disclosure"
-                className="text-gray-700 hover:text-gray-900 underline"
+                className="text-gray-700 underline hover:text-gray-900"
               >
                 Affiliate Disclosure
               </Link>
-              <CookiePreferencesButton className="text-gray-700 hover:text-gray-900 text-sm underline" />
+              <CookiePreferencesButton className="text-sm text-gray-700 underline hover:text-gray-900" />
             </div>
-            <p className="mt-4 text-sm text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-600">
               This site contains affiliate links. As an Amazon Associate I earn from qualifying
               purchases at no extra cost to you.
             </p>
