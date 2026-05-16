@@ -103,26 +103,26 @@ export default async function Home() {
               Moyer.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                href="/walk-and-talk"
+                className="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+              >
+                Book a Walk and Talk
+              </Link>
               <a
                 href="https://linkedin.com/in/clarkemoyer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+                className="rounded-full border border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
               >
                 Connect on LinkedIn
               </a>
               <a
                 href="#projects"
-                className="rounded-full bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
+                className="rounded-full border border-white/70 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
               >
                 View Projects
               </a>
-              <Link
-                href="/walk-and-talk"
-                className="rounded-full border border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
-              >
-                Book a Walk and Talk
-              </Link>
             </div>
           </div>
         </div>
