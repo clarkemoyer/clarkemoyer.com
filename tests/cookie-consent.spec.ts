@@ -35,6 +35,20 @@ test.describe('Cookie Consent Banner', () => {
     await expect(banner).not.toBeVisible()
   })
 
+  test('footer Cookie Preferences is hidden until consent is stored', async ({ page }) => {
+    const banner = page.locator('[role="region"][aria-label="Cookie consent notice"]')
+    if (await banner.count() === 0) { test.skip(); return }
+
+    const footerPreferences = page.locator('footer').getByRole('button', { name: 'Cookie Preferences' })
+    await expect(footerPreferences).toHaveCount(0)
+
+    await page.getByRole('button', { name: 'Accept All' }).click()
+    await expect(footerPreferences).toBeVisible()
+
+    await footerPreferences.click()
+    await expect(page.locator('[role="dialog"][aria-modal="true"]')).toBeVisible()
+  })
+
   test('Customize opens modal', async ({ page }) => {
     const banner = page.locator('[role="region"][aria-label="Cookie consent notice"]')
     if (await banner.count() === 0) { test.skip(); return }

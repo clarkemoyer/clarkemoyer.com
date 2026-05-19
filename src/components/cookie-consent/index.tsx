@@ -64,6 +64,7 @@ export default function CookieConsent() {
     const secure = typeof window !== 'undefined' && window.location.protocol === 'https:' ? '; Secure' : ''
     document.cookie = `cookie-consent=${val}; path=/; max-age=31536000; SameSite=Lax${secure}`
     try { localStorage.setItem('cookie-consent', JSON.stringify(prefs)) } catch { /* ignore */ }
+    window.dispatchEvent(new Event('cookie-consent-updated'))
   }, [])
 
   const applyAnalytics = useCallback((prefs: CookiePreferences) => {
