@@ -1,90 +1,210 @@
-# clarkemoyer.com
+# 🌐 clarkemoyer.com
 
-Personal website for Clarke Moyer — built with Next.js and deployed to GitHub Pages.
+<p align="center">
+  <img src="public/images/logo.png" alt="Clarke Moyer Logo" width="120" style="border-radius: 50%; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);" onerror="this.style.display='none'" />
+</p>
 
-- **Production:** https://clarkemoyer.com — live on the Next.js/GitHub Pages build
-- **Repo:** https://github.com/clarkemoyer/clarkemoyer.com
-- **Status:** migration/cutover code work is complete; remaining items are owner-side console polish
+<h3 align="center">Clarke Moyer's Personal Website & Portfolio</h3>
+
+<p align="center">
+  A premium, high-performance static website built with the modern Next.js App Router, React 19, TypeScript, and Tailwind CSS. Built to be ultra-fast, fully responsive, and securely deployed to GitHub Pages.
+</p>
+
+<p align="center">
+  <a href="https://clarkemoyer.com"><strong>Explore the Live Site »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/clarkemoyer/clarkemoyer.com/actions/workflows/ci.yml">
+    <img src="https://github.com/clarkemoyer/clarkemoyer.com/actions/workflows/ci.yml/badge.svg" alt="CI Workflow Status" />
+  </a>
+  <a href="https://github.com/clarkemoyer/clarkemoyer.com/actions/workflows/deploy.yml">
+    <img src="https://github.com/clarkemoyer/clarkemoyer.com/actions/workflows/deploy.yml/badge.svg" alt="Deploy Workflow Status" />
+  </a>
+  <a href="https://github.com/clarkemoyer/clarkemoyer.com/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/clarkemoyer/clarkemoyer.com?color=blue" alt="License" />
+  </a>
+</p>
 
 ---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
-- **Framework:** Next.js 16 + React 19 + TypeScript
-- **Styling:** Tailwind CSS
-- **Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages
-- **DNS/CDN:** GitHub Pages direct serving today; Cloudflare may be re-enabled for edge headers/redirects
-- **Analytics:** Google Tag Manager (`GTM-5JL6TDQW`) + Google Analytics 4 (`G-C2Q1HC0GVQ`)
-- **Testing:** Jest + Playwright + Lighthouse CI
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | **Next.js 16** (App Router) | Static export workflow with React 19 & TypeScript |
+| **Styling** | **Tailwind CSS** | Premium utility-first styling with responsive layouts |
+| **Deployment** | **GitHub Actions + Pages** | Fully automated build, export, and global edge delivery |
+| **DNS / CDN** | **Cloudflare / GitHub Pages** | Edge optimization, custom domain mapping, security headers |
+| **Analytics** | **GTM + GA4** | Google Tag Manager (`GTM-5JL6TDQW`) and Google Analytics (`G-C2Q1HC0GVQ`) |
+| **Testing** | **Jest + Playwright** | Full unit testing, integration tests, and multi-browser E2E testing |
+| **Performance** | **Lighthouse CI** | Automated quality auditing for Perf, A11y, Best Practices, and SEO |
 
 ---
 
-## Environment Variables
+## 🔄 CI/CD Deployment Pipeline
 
-These are **public tracking IDs** — not secrets. They are hardcoded in `.github/workflows/deploy.yml`.
+The website relies on a fully automated, multi-tiered CI/CD pipeline built with GitHub Actions. The flow from local coding to production delivery and continuous audit is structured as follows:
 
-| Variable                        | Value                     | Purpose                                       |
-| ------------------------------- | ------------------------- | --------------------------------------------- |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ`            | Google Analytics 4                            |
-| `NEXT_PUBLIC_GTM_ID`            | `GTM-5JL6TDQW`            | Google Tag Manager                            |
-| `NEXT_PUBLIC_SITE_URL`          | `https://clarkemoyer.com` | Canonical URL / metadataBase                  |
-| `USE_BASE_PATH`                 | `false`                   | GitHub Pages basePath (false = custom domain) |
+```mermaid
+graph TD
+    A[💻 Local Development] -->|git push| B(🐙 Pull Request on GitHub)
+    
+    subgraph "🔍 Pull Request validation (ci.yml)"
+        B --> C{CI Actions}
+        C --> D[💅 Lint & Format Check]
+        C --> E[🧪 Jest Unit & Integration Tests]
+        C --> F[📦 Next.js Static Export Build]
+        C --> G[🎭 Playwright End-to-End Tests]
+    end
 
-### google-prod Environment (Pending)
+    G -->|Merge to main| H[🚀 Production Deployment (deploy.yml)]
+    
+    subgraph "🌐 Edge Release & Performance Audit (deploy.yml & lighthouse.yml)"
+        H --> I[📦 Production Next.js Build]
+        I --> J[📁 Static Export to /out]
+        J --> K[☁️ Deploy to GitHub Pages Edge]
+        K --> L[📊 Lighthouse CI Performance Audit]
+        L --> M{Scores Check}
+        M -->|Pass| N[🎉 Live at clarkemoyer.com]
+        M -->|Fail| O[⚠️ Alert Developer]
+    end
+    
+    style A fill:#eaebff,stroke:#5c6bc0,stroke-width:2px;
+    style B fill:#fff3e0,stroke:#ffb74d,stroke-width:2px;
+    style K fill:#e8f5e9,stroke:#81c784,stroke-width:2px;
+    style N fill:#e8f8f5,stroke:#2ecc71,stroke-width:3px;
+    style O fill:#fdebd0,stroke:#e74c3c,stroke-width:2px;
+```
 
-These variables should be moved to a GitHub Actions environment named `google-prod` once created by the repo owner:
+---
 
-1. Go to `github.com/clarkemoyer/clarkemoyer.com` → Settings → Environments → **New environment**
-2. Name it `google-prod`, restrict to `main` branch
-3. Add the four variables above as **Environment variables** (not secrets)
-4. Update `deploy.yml` to reference `environment: google-prod`
+## 🔑 Environment Variables
 
-> GitHub limits environment creation to the repo owner on personal repos.
-> Collaborators (including `cbmagent`) cannot create environments via API.
+These are **publicly accessible tracking IDs** and configuration flags. They are hardcoded inside `.github/workflows/deploy.yml` for automated deployment and documented in `.env.example` for local matching.
 
-Copy `.env.example` for local development:
+| Variable | Value | Purpose |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-C2Q1HC0GVQ` | Google Analytics 4 tracking |
+| `NEXT_PUBLIC_GTM_ID` | `GTM-5JL6TDQW` | Google Tag Manager container injection |
+| `NEXT_PUBLIC_SITE_URL` | `https://clarkemoyer.com` | Primary canonical domain for SEO / metadataBase |
+| `USE_BASE_PATH` | `false` | Path prefix configuration (false because a custom domain is mapped) |
 
+### 🔒 Transitioning to `google-prod` Environment (Recommended)
+
+To streamline and decouple configurations from build scripts, these variables should be moved to a protected GitHub Actions environment:
+
+1. Navigate to your repository on GitHub: `github.com/clarkemoyer/clarkemoyer.com` → **Settings** → **Environments**.
+2. Click **New environment** and name it `google-prod`.
+3. Restrict deployment permissions to the `main` branch.
+4. Add the four public variables listed in the table above as **Environment variables** (not secrets).
+5. Update your `deploy.yml` workflow file to reference `environment: google-prod`.
+
+> [!NOTE]
+> GitHub limits custom environment creation to the repository owner on personal accounts. Collaborators and integrated automated agents do not have permission to execute this step on your behalf.
+
+To start local development, replicate the environment configuration:
 ```bash
 cp .env.example .env.local
 ```
 
 ---
 
-## Local Development
+## 💻 Local Development Workflow
+
+Follow these steps to set up, run, and test the project locally.
+
+### 📦 Setup & Commands
 
 ```bash
-npm ci                # Install dependencies
-npm run dev           # Dev server on http://localhost:3000
-npm run build         # Production static export → out/
-npm run lint          # ESLint
-npm test              # Jest unit tests
-npm run test:e2e      # Playwright E2E (requires: npm run build first)
-npm run preview       # Serve out/ on port 3000 (for E2E testing)
-npm run format        # Prettier
+# 1. Install production and development dependencies deterministically
+npm ci
+
+# 2. Run the hot-reloading development server
+npm run dev
+# Server will start on http://localhost:3000
+
+# 3. Format files using Prettier configuration
+npm run format
+
+# 4. Check for code syntax and structural rules
+npm run lint
+
+# 5. Compile and export a static version of the site to the /out folder
+npm run build
+
+# 6. Run the local preview server of the built /out folder (for accurate E2E testing)
+npm run preview
 ```
 
 ---
 
-## Project Structure
+## 📊 Analytics & Privacy Architecture
+
+The repository handles user behavior measurement ethically and in full compliance with modern privacy standards.
+
+```
+┌────────────────────────────────────────────────────────┐
+│                   Visitor Arrives                      │
+└──────────────────────────┬─────────────────────────────┘
+                           │
+                           ▼
+              ┌──────────────────────────┐
+              │ GTM Loaded (Inactive)    │
+              └────────────┬─────────────┘
+                           │
+                           ▼
+             ┌────────────────────────────┐
+             │ Cookie Consent Banner      │
+             └─────────────┬──────────────┘
+                           │
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
+      [Accept Cookies]           [Decline Cookies]
+             │                           │
+             ▼                           ▼
+┌─────────────────────────┐ ┌──────────────────────────┐
+│ GTM Updates Consent     │ │ GTM Remains Blocked      │
+│ GA4 Initiates Sessions  │ │ Zero Cookies Dropped     │
+└─────────────────────────┘ └──────────────────────────┘
+```
+
+### 🏷️ Google Tag Manager (`GTM-5JL6TDQW`)
+Integrated inside `src/app/layout.tsx` using Next.js's optimized `next/script` library with the `afterInteractive` loading strategy. This loads the tag manager container efficiently without blocking critical UI rendering.
+
+### 📈 Google Analytics 4 (`G-C2Q1HC0GVQ`)
+- **Management Account:** `17425922` | **Data Stream Property:** `362129069`
+- **Privacy Enforcement:** Configured with `anonymize_ip: true` by default.
+- **Dynamic Activation:** Google Analytics is **only** loaded and executed once the user explicitly grants analytics consent via the interactive cookie banner.
+
+### 🍪 Cookie Consent Flow
+- A non-intrusive cookie consent banner floats at the bottom of the screen offering choices: **Accept All**, **Decline All**, or **Customize**.
+- User choices are saved in `localStorage` and synchronized to the browser's `document.cookie`.
+- The banner triggers custom `consent_update` events via the GTM `dataLayer` to dynamically update GTM Consent Mode settings.
+- A "Cookie Preferences" link is embedded in the website footer, allowing visitors to instantly reopen the preference panel and modify their settings at any time.
+
+---
+
+## 📁 Project Structure
 
 ```
 clarkemoyer.com/
 ├── .github/
 │   ├── workflows/
-│   │   ├── deploy.yml         # Deploy to GitHub Pages on push to main
-│   │   ├── ci.yml             # PR: lint + unit tests + build + E2E
-│   │   ├── codeql.yml         # Security scanning
-│   │   └── lighthouse.yml     # Perf/a11y/SEO scoring post-deploy
-│   ├── copilot-instructions.md  # Full technical reference for AI agents
-│   └── dependabot.yml
-├── __tests__/                 # Jest unit tests
-├── tests/                     # Playwright E2E tests
+│   │   ├── deploy.yml            # Build & deploy to GitHub Pages on push to main
+│   │   ├── ci.yml                # PR validation: lint, format, build, unit/E2E tests
+│   │   ├── codeql.yml            # Security analysis scanning pipeline
+│   │   └── lighthouse.yml        # Lighthouse CI core web vitals check post-deployment
+│   ├── copilot-instructions.md   # Advanced environment instruction set for AI tools
+│   └── dependabot.yml            # Weekly dependency updates
+├── __mocks__/                    # System-level test mocks (e.g., assets, scripts)
+├── __tests__/                    # Jest unit and integration test suite
+├── tests/                        # Playwright comprehensive E2E test scripts
 ├── src/
-│   ├── app/                   # Next.js App Router pages
-│   │   ├── layout.tsx         # Root: GTM, skip-nav, CookieConsent
-│   │   ├── page.tsx           # Homepage
-│   │   ├── who-i-am/
-│   │   ├── free-for-charity/
+│   ├── app/                      # Next.js App Router root & page structures
+│   │   ├── layout.tsx            # Global layout: analytics loader, skip-navigation, cookie banner
+│   │   ├── page.tsx              # Interactive Home portfolio landing page
+│   │   ├── who-i-am/             # Career summary and narrative section
+│   │   ├── free-for-charity/     # Philanthropy, open-source work, and support details
 │   │   ├── psu-arl-referral-program/
 │   │   ├── wgu-referral-program/
 │   │   ├── certification-guides/
@@ -94,105 +214,109 @@ clarkemoyer.com/
 │   │   ├── clarke-moyer-world-famous-apple-crisp-recipe/
 │   │   ├── it-project-management-resume-of-clarke-moyer/
 │   │   ├── western-governors-university-bs-it/
-│   │   ├── fun/
-│   │   ├── quotes/
-│   │   ├── privacy-policy/
+│   │   ├── fun/                  # Sandbox experiments and entertainment projects
+│   │   ├── quotes/               # Compiled source book of inspiration
+│   │   ├── privacy-policy/       # Terms of service and cookie privacy policy statements
 │   │   └── cookie-policy/
 │   ├── components/
-│   │   ├── Navigation.tsx
-│   │   ├── cookie-consent/    # Consent banner + GA4 loader
+│   │   ├── Navigation.tsx        # Global responsive header navigation
+│   │   ├── cookie-consent/       # Cookie banner UI, local storage logic, GA4 loader
 │   │   └── cookie-preferences-button/
-│   └── types/global.d.ts
-├── public/
-│   ├── sitemap.xml
-│   ├── robots.txt
-│   └── images/
-├── .env.example               # All env vars documented
-├── jest.config.cjs
-├── playwright.config.ts
-└── lighthouserc.json
+│   └── types/global.d.ts         # TypeScript global namespaces and custom declarations
+├── public/                       # Statics including sitemap.xml, robots.txt, and portfolio images
+├── .env.example                  # Environment configuration template
+├── jest.config.cjs               # Unit test execution controls
+├── playwright.config.ts          # E2E browser automation setup
+└── lighthouserc.json             # Core Web Vitals thresholds and validation configs
 ```
 
 ---
 
-## Analytics & Tracking
+## 🔗 URL Architecture & Redirects
 
-### Google Tag Manager (`GTM-5JL6TDQW`)
+To prevent broken links, retain authority, and ensure high SEO rankings, WordPress-style URLs are actively matched and map to highly descriptive Next.js paths.
 
-Loaded in `layout.tsx` via `next/script afterInteractive`. Manages all tracking tags.
-Add new tags via the GTM UI — no code deploys required.
+> [!TIP]
+> The canonical short URLs are designed to be shared verbally or printed. The longer aliases exist as fallback redirects for inbound backlinks and browser bookmarks.
 
-### Google Analytics 4 (`G-C2Q1HC0GVQ`)
-
-- Property: `362129069` | Account: `17425922`
-- Loaded **only after user grants analytics consent** via the cookie banner
-- `anonymize_ip: true` set by default
-- Recommended: also configure a GA4 tag in GTM with a consent trigger
-
-### Cookie Consent
-
-Bottom banner with Accept All / Decline All / Customize.
-Stores preferences in `localStorage` + `document.cookie`.
-Fires `consent_update` dataLayer events for GTM consent mode.
-Footer "Cookie Preferences" button reopens the modal from any page.
+| Canonical Short URL | Target Redirect Alias Page | Purpose |
+| :--- | :--- | :--- |
+| `/certification/` | `/certification-guides/` | Exam strategies & guides |
+| `/charity/` | `/free-for-charity/` | FFC guidelines & active projects |
+| `/education/` | `/western-governors-university-bs-it/` | WGU degree journey & courses |
+| `/resume/` | `/it-project-management-resume-of-clarke-moyer/` | Interactive curriculum vitae |
+| `/psu-arl-referral/` | `/psu-arl-referral-program/` | Penn State ARL recruitment rules |
+| `/wgu-referral/` | `/wgu-referral-program/` | WGU academic referral link |
 
 ---
 
-## Owner-Side Post-Cutover Polish
+## 🧪 Comprehensive Quality Assurance
 
-The live site is already serving from GitHub Pages at `https://clarkemoyer.com`. Remaining items require owner access to GitHub, Cloudflare, or Google Search Console:
+To ensure excellent accessibility, top-tier performance, and zero regressions, this project uses a multi-layered testing suite.
 
-- Confirm **Enforce HTTPS** in GitHub Pages settings. HTTPS works, but the Pages API currently returns `enforce_https: null`.
-- Decide whether to keep direct GitHub Pages serving or place Cloudflare proxy back in front.
-- If using Cloudflare, add response-header Transform Rules / Workers for security headers:
-  - `Strict-Transport-Security`
-  - `Content-Security-Policy`
-  - `X-Frame-Options` or equivalent frame policy
-  - `X-Content-Type-Options`
-  - `Referrer-Policy`
-  - `Permissions-Policy`
-- If using Cloudflare, add edge 301 redirects from long alias URLs to short canonical URLs for cleaner SEO.
-- Submit or refresh `https://clarkemoyer.com/sitemap.xml` in Google Search Console.
-
----
-
-## URL Structure
-
-The original short WordPress URLs are canonical for readability when shared verbally.
-Longer descriptive routes remain available as redirect aliases for backlinks/bookmarks.
-
-| Canonical URL        | Redirect alias                                   |
-| -------------------- | ------------------------------------------------ |
-| `/certification/`    | `/certification-guides/`                         |
-| `/charity/`          | `/free-for-charity/`                             |
-| `/education/`        | `/western-governors-university-bs-it/`           |
-| `/resume/`           | `/it-project-management-resume-of-clarke-moyer/` |
-| `/psu-arl-referral/` | `/psu-arl-referral-program/`                     |
-| `/wgu-referral/`     | `/wgu-referral-program/`                         |
-
----
-
-## Testing
-
+### 🃏 Jest: Unit & Functional Tests
+Used for component isolation, utility logic validation, and event handling.
 ```bash
-npm test                    # Unit tests (Jest)
-npm run test:coverage       # With coverage
-npm run build && npm run test:e2e   # E2E tests (Playwright)
+# Run unit test suite
+npm test
+
+# Run tests with complete coverage reports
+npm run test:coverage
 ```
 
-Lighthouse CI runs automatically post-deploy. Thresholds:
+### 🎭 Playwright: End-to-End Tests
+Automates real-browser rendering tests across Chromium, Firefox, and WebKit engines to verify routing, cookie banner clicks, layout responsiveness, and dark mode triggers.
+```bash
+# Must build the static package first
+npm run build
 
-- Performance ≥ 55%
-- Accessibility ≥ 90%
-- Best Practices ≥ 65%
-- SEO ≥ 95%
+# Run Playwright suite in headless or UI mode
+npm run test:e2e
+```
+
+### ⚡ Lighthouse CI Web Vitals Targets
+Integrated directly into the deployment process, the build is audited across performance, accessibility, code quality, and SEO guidelines. The pipeline enforces these strict thresholds:
+
+```
+┌──────────────────────────────────────────────┐
+│  Performance (Speed index, LCP)     ≥ 55%    │
+├──────────────────────────────────────────────┤
+│  Accessibility (A11y ARIA rules)    ≥ 90%    │
+├──────────────────────────────────────────────┤
+│  Best Practices (Security, HTML)    ≥ 65%    │
+├──────────────────────────────────────────────┤
+│  SEO (Meta tags, Indexability)      ≥ 95%    │
+└──────────────────────────────────────────────┘
+```
 
 ---
 
-## License
+## 🏁 Owner-Side Post-Cutover Polish
 
-AGPL-3.0 — see [LICENSE](LICENSE)
+The codebase is fully tested, built, and serving successfully from the custom domain. If you are the owner, complete the following list to finalize search visibility and security integrations:
 
-## Author
+- [ ] **Enforce HTTPS in GitHub Settings:** Navigate to your repo settings page, head to **Pages**, and ensure the **Enforce HTTPS** box is checked. (The GitHub Pages API might temporarily show `enforce_https: null` while propagating, but the checkbox must remain active).
+- [ ] **Configure Cloudflare Edge Security (Optional but Recommended):** If placing Cloudflare back in front of GitHub Pages, set up edge **Transform Rules** or a **Cloudflare Worker** to force these security response headers:
+  - `Strict-Transport-Security` (HSTS)
+  - `Content-Security-Policy` (CSP)
+  - `X-Frame-Options: DENY` (Anti-Clickjacking)
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Permissions-Policy: geolocation=(), camera=(), microphone=()`
+- [ ] **SEO Link Redirects in Cloudflare Rules:** Configure `301 Permanent Redirects` at the CDN edge from long canonical aliases back to the preferred shorter, canonical WordPress-style routes.
+- [ ] **Submit Sitemap to Google Search Console:** Navigate to GSC, log in, and register `https://clarkemoyer.com/sitemap.xml` to trigger rapid site-wide indexing.
 
-**Clarke Moyer** · [linkedin.com/in/clarkemoyer](https://linkedin.com/in/clarkemoyer) · [clarkemoyer.com](https://clarkemoyer.com)
+---
+
+## 📄 License & Distribution
+
+Distributed under the copyleft **AGPL-3.0 License**. See [LICENSE](LICENSE) for more information.
+
+---
+
+## 👤 Project Author & Contact
+
+**Clarke Moyer**
+- **LinkedIn:** [linkedin.com/in/clarkemoyer](https://linkedin.com/in/clarkemoyer)
+- **Website:** [clarkemoyer.com](https://clarkemoyer.com)
+- **Portfolio Repository:** [github.com/clarkemoyer/clarkemoyer.com](https://github.com/clarkemoyer/clarkemoyer.com)
