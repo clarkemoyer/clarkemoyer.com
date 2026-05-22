@@ -262,6 +262,18 @@ To prevent broken links, retain authority, and ensure high SEO rankings, WordPre
 | `/psu-arl-referral/` | `/psu-arl-referral-program/` | Penn State ARL recruitment rules |
 | `/wgu-referral/` | `/wgu-referral-program/` | WGU academic referral link |
 
+### 🛡️ Static Hosting Security Headers
+Because this portfolio is compiled as a static HTML site (`output: 'export'`) and deployed directly to GitHub Pages, standard server-side Next.js configuration rules—such as `headers()` or `redirects()` defined inside `next.config.js`—**do not apply** and are silently ignored by the hosting environment.
+
+To maintain a robust security posture (enforcing rules like `Content-Security-Policy`, `Strict-Transport-Security`, and `X-Frame-Options`), developers should employ one of the following recommended architectures:
+
+*   **Option A: CDN/DNS Edge Ingestion (Preferred)**
+    Map a custom domain to a modern edge CDN (such as **Cloudflare**) and inject secure headers directly at the edge using:
+    *   **Cloudflare Transform Rules:** Configure response header modification rules to dynamically inject security headers on all edge-served paths.
+    *   **Cloudflare Workers:** Deploy a lightweight edge worker to append strict-transport-security, CSP, frame policy, and other standard HTTP headers before traffic is forwarded to the client browser.
+*   **Option B: HTML Meta Injection**
+    For configurations where edge CDNs cannot be used, inject rules directly into the client browser using HTML `<meta http-equiv="...">` tags within the Next.js root layout file (`src/app/layout.tsx`). Note that while highly accessible, this approach does not support security headers requiring strict transport controls (e.g., `Strict-Transport-Security`).
+
 ---
 
 ## 🧪 Comprehensive Quality Assurance
