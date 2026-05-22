@@ -39,6 +39,10 @@
 | **Testing** | **Jest + Playwright** | Full unit testing, integration tests, and multi-browser E2E testing |
 | **Performance** | **Lighthouse CI** | Automated quality auditing for Perf, A11y, Best Practices, and SEO |
 
+> [!IMPORTANT]
+> **Static Image Optimization Troubleshooting Note:**
+> Since this repository uses static HTML exports (`output: 'export'`), Next.js's default server-side image optimization (resizing, WebP conversion, etc.) is disabled. Consequently, all images must have `unoptimized: true` configured in `images` settings inside `next.config.js` to prevent build-time or runtime errors, or custom loaders (like Cloudflare Images, Imgix, or Akamai) must be integrated for dynamic resizing and delivery.
+
 ---
 
 ## 🔄 CI/CD Deployment Pipeline
@@ -75,6 +79,13 @@ graph TD
     style N fill:#e8f8f5,stroke:#2ecc71,stroke-width:3px;
     style O fill:#fdebd0,stroke:#e74c3c,stroke-width:2px;
 ```
+
+> [!NOTE]
+> **Pipeline Flowchart Accessibility Description:**
+> - **Local Development:** Developers edit code locally and push changes to a remote **GitHub Pull Request (PR)**.
+> - **PR Validation Workflow (ci.yml):** Automatically triggers checks including code linting/formatting, Jest unit/integration tests, a Next.js production static export build, and multi-browser Playwright E2E testing.
+> - **Production Deployment Workflow (deploy.yml):** Triggered upon merging to `main`. It compiles a clean Next.js build, exports the static markup to the `/out` directory, and deploys it to the GitHub Pages edge CDN.
+> - **Continuous Audit (lighthouse.yml):** Runs post-deploy performance audits via Lighthouse CI against performance, accessibility, best practices, and SEO targets. The pipeline triggers alerts to developers if any criteria fail.
 
 ---
 
@@ -229,6 +240,9 @@ clarkemoyer.com/
 ├── playwright.config.ts          # E2E browser automation setup
 └── lighthouserc.json             # Core Web Vitals thresholds and validation configs
 ```
+
+### 🗺️ Sitemap Update Flow
+The sitemap (`public/sitemap.xml`) is maintained as a **static XML document**. Whenever new pages or alias links are created or modified under `src/app/`, developers must manually update the corresponding `<url>` blocks in `public/sitemap.xml` to include their `<loc>`, `<changefreq>`, and `<priority>` tags to ensure search engines continue indexing the portfolio accurately.
 
 ---
 
