@@ -1,6 +1,6 @@
 > **Status: Migration Complete — Live on GitHub Pages (May 2026)**
 > The `clarkemoyer.com` DNS cutover is complete and the live site serves the Next.js/GitHub Pages build.
-> Remaining work is owner-side console polish documented in `README.md`, `docs/DEPLOYMENT.md`, and `content/gap-analysis.md`.
+> The historical migration is complete. Current operations and the small owner-side backlog are documented in `README.md`, `docs/DEPLOYMENT.md`, and `content/gap-analysis.md`.
 
 # WordPress to Next.js Migration Methodology
 
@@ -229,19 +229,9 @@ jobs:
 
 ### Phase 5: Launch and Validation
 
-#### Content Verification Checklist
-- [ ] All original pages accessible
-- [ ] Media files properly linked
-- [ ] Internal links updated
-- [ ] Contact forms functional
-- [ ] Referral programs working
-- [ ] Mobile responsiveness verified
+#### Historical Validation Outcome
 
-#### Performance Validation
-- [ ] Lighthouse scores: 90+ all categories
-- [ ] Core Web Vitals: Good ratings
-- [ ] Page load times: <2 seconds
-- [ ] Mobile performance optimized
+The migration validation is complete. Page availability, internal links, media loading, responsive behavior, metadata, and the static export are covered by the repository's Jest, Playwright, image, and Lighthouse checks. Current operational checks—including HTTPS, DNS, `robots.txt`, and sitemap verification—live in `docs/DEPLOYMENT.md` rather than in an open migration checklist.
 
 ## 🛠️ Tools and Technologies
 
@@ -309,11 +299,11 @@ The migration to Next.js with static generation provides significant theoretical
 
 ## 🔮 Post-Migration Optimizations
 
-### Immediate Improvements
-- Content delivery network (CDN) integration
-- Advanced image optimization
-- Search functionality implementation
-- Analytics integration
+### Completed Follow-up Improvements
+- Static asset delivery through GitHub Pages
+- Image-path and loading validation
+- Search integration
+- Consent-aware analytics integration
 
 ### Long-term Enhancements
 - Headless CMS integration for easier content management
@@ -357,7 +347,7 @@ The WordPress to Next.js migration of clarkemoyer.com successfully achieved the 
 
 This methodology can be adapted for similar WordPress to Next.js migrations, providing a proven framework for successful content migrations while preserving SEO value and improving maintainability.
 
-*The migration continues to evolve with recent additions of professional imagery, improved GitHub Pages configuration, and enhanced visual design elements.*
+*The migration is complete; ongoing site work is normal maintenance rather than migration activity.*
 
 ## 📖 Additional Resources
 

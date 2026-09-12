@@ -4,7 +4,7 @@
 
 - **Production URL:** `https://clarkemoyer.com` — live on GitHub Pages
 - **Hosting:** GitHub Pages (static export via `next build`)
-- **CDN/Proxy:** GitHub Pages direct serving today; Cloudflare may be re-enabled for edge headers/redirects
+- **CDN/Proxy:** GitHub Pages direct serving; Cloudflare records must remain DNS-only (not proxied)
 
 ---
 
@@ -99,17 +99,40 @@ A   185.199.111.153
 CNAME   www   clarkemoyer.github.io
 ```
 
+Cloudflare may host the DNS zone, but its proxy must remain disabled for these records. The orange-cloud/proxied mode is not part of the production architecture; traffic should go directly to GitHub Pages so GitHub owns HTTPS termination and certificate management.
+
 ---
 
-## Owner-Side Post-Cutover Checklist
+## Routine Production Verification
 
-The live custom domain is already serving the GitHub Pages build. Remaining console tasks:
+Run these checks during routine status reviews and after any deployment or DNS change:
 
-- [ ] **GitHub Pages HTTPS** — confirm Enforce HTTPS is enabled. The Pages API currently reports `enforce_https: null` even though HTTPS works.
-- [ ] **Cloudflare posture** — decide whether to keep direct GitHub Pages serving or re-enable Cloudflare proxy.
-- [ ] **Security response headers** — if Cloudflare is used, add `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options` or equivalent, `X-Content-Type-Options`, `Referrer-Policy`, and `Permissions-Policy` via Transform Rules or Workers.
-- [ ] **Edge redirects** — if Cloudflare is used, add 301 redirects from long alias URLs to the short canonical URLs for cleaner SEO.
+1. Confirm `http://clarkemoyer.com` redirects to `https://clarkemoyer.com/` and the HTTPS endpoint returns `200`.
+2. Confirm response headers identify GitHub Pages rather than a Cloudflare proxy.
+3. Confirm apex DNS resolves to GitHub Pages addresses and `www` remains a CNAME to `clarkemoyer.github.io`.
+4. Confirm `https://clarkemoyer.com/robots.txt` and `https://clarkemoyer.com/sitemap.xml` both return `200`.
+5. Confirm `robots.txt` contains `Sitemap: https://clarkemoyer.com/sitemap.xml`.
+6. Parse the sitemap as XML and check for duplicate URLs before submitting it to Google Search Console.
+
+Example PowerShell checks:
+
+```powershell
+curl.exe -I http://clarkemoyer.com
+curl.exe -I https://clarkemoyer.com
+curl.exe -I https://clarkemoyer.com/robots.txt
+curl.exe -I https://clarkemoyer.com/sitemap.xml
+Resolve-DnsName clarkemoyer.com -Type A
+Resolve-DnsName www.clarkemoyer.com -Type CNAME
+$sitemap = [xml](Invoke-WebRequest https://clarkemoyer.com/sitemap.xml).Content
+$sitemap.urlset.url.loc | Group-Object | Where-Object Count -gt 1
+```
+
+Verified on 2026-09-12: HTTP redirected to HTTPS with `301`; HTTPS, `robots.txt`, and `sitemap.xml` returned `200` from `GitHub.com`; the GitHub Pages API reported `https_enforced: true` and an approved certificate; apex A records resolved to the four GitHub Pages IPv4 addresses; and `www` resolved by CNAME to `clarkemoyer.github.io`.
+
+## Remaining Owner-Side Actions
+
 - [ ] **Search Console** — submit/refresh `https://clarkemoyer.com/sitemap.xml` and inspect/request indexing for key canonical pages.
+- [ ] **GitHub environment (optional)** — create `google-prod` and move the public build variables from the workflow if environment scoping is desired.
 
 ---
 

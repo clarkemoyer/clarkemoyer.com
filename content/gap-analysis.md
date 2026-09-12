@@ -17,13 +17,12 @@ See the closed issue for history: https://github.com/clarkemoyer/clarkemoyer.com
 - Google Tag Manager (GTM-5JL6TDQW) in layout ✅
 - Full test suite: Jest + Playwright + Lighthouse CI ✅
 
-## Remaining Owner-Side Polish
+## Production Decisions and Remaining Owner-Side Polish
 
-- Confirm GitHub Pages **Enforce HTTPS** in repo settings. HTTPS works, but the Pages API reports `enforce_https: null`.
-- Decide whether to keep direct GitHub Pages serving or place Cloudflare proxy back in front.
-- If using Cloudflare, add security response headers at the edge.
-- If using Cloudflare, add edge 301 redirects from long alias URLs to the short canonical URLs for stronger SEO.
-- Submit/refresh `https://clarkemoyer.com/sitemap.xml` in Google Search Console after cutover.
+- GitHub Pages **Enforce HTTPS** is enabled and the certificate is approved (verified 2026-09-12).
+- Production serves directly from GitHub Pages. Cloudflare records must remain DNS-only; do not enable the proxy.
+- Verify HTTPS, DNS, `robots.txt`, and `sitemap.xml` during routine status reviews using `docs/DEPLOYMENT.md`.
+- Submit/refresh `https://clarkemoyer.com/sitemap.xml` in Google Search Console and inspect key canonical pages after material content changes.
 
 ## Canonical URL Decision (May 2026)
 
