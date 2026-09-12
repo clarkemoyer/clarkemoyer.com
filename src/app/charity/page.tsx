@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import CTAButtons from '@/components/CTAButtons'
+import TrackedLink from '@/components/TrackedLink'
+import ConversionPanel from '@/components/ConversionPanel'
 import { getContentFile } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -52,14 +53,17 @@ export default async function CharityPage() {
 
                 {/* Learn More Button */}
                 <div className="text-center py-8">
-                  <a
+                  <TrackedLink
                     href="https://freeforcharity.org"
+                    conversionPath="free_for_charity"
+                    conversionAction="visit_free_for_charity"
+                    conversionLocation="charity_primary"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-blue-600 text-white px-10 py-4 rounded-md text-lg font-semibold hover:bg-blue-700 transition-colors shadow-md uppercase tracking-wide"
                   >
                     Learn More About Free For Charity
-                  </a>
+                  </TrackedLink>
                 </div>
 
                 {/* Remaining Content */}
@@ -78,8 +82,24 @@ export default async function CharityPage() {
       {/* Connect Section */}
       <section className="bg-white py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-900">Connect with me</h3>
-          <CTAButtons />
+          <ConversionPanel
+            eyebrow="Nonprofits and volunteers"
+            title="Continue with Free For Charity"
+            description="Learn about available nonprofit support and the current ways to get involved on the Free For Charity website."
+            path="free_for_charity"
+            location="charity_next_step"
+            primary={{
+              label: 'Visit Free For Charity',
+              href: 'https://freeforcharity.org',
+              action: 'visit_free_for_charity',
+              external: true,
+            }}
+            secondary={{
+              label: 'Contact Clarke',
+              href: '/contact/',
+              action: 'open_contact',
+            }}
+          />
         </div>
       </section>
     </>

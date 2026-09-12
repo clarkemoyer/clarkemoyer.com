@@ -9,7 +9,7 @@ describe('Clarke Moyer homepage visual polish', () => {
       screen.getByText(/Projects, referrals, certification guides, and community initiatives/i)
     ).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Book a Walk and Talk/i })).toHaveClass('bg-white')
-    expect(screen.getByRole('link', { name: /Connect on LinkedIn/i })).toHaveClass('border')
+    expect(screen.getAllByRole('link', { name: /Connect on LinkedIn/i })[0]).toHaveClass('border')
     expect(screen.getByRole('link', { name: /View Projects/i })).toHaveClass('border')
     expect(screen.getByRole('link', { name: /View Projects/i })).toHaveAttribute(
       'href',
@@ -35,5 +35,21 @@ describe('Clarke Moyer homepage visual polish', () => {
 
     expect(within(projects).queryByText(/Learn More/i)).not.toBeInTheDocument()
     expect(within(projects).queryByText(/Continue Reading/i)).not.toBeInTheDocument()
+  })
+
+  it('labels the five audience paths without promoting one referral audience twice', async () => {
+    render(await Home())
+
+    for (const audience of [
+      'PSU-ARL candidates',
+      'Prospective WGU students',
+      'Professional background',
+      'Nonprofits and volunteers',
+      'Certification readers',
+    ]) {
+      expect(screen.getByText(audience)).toBeInTheDocument()
+    }
+
+    expect(screen.getAllByRole('link', { name: 'Request a WGU Referral' })).toHaveLength(1)
   })
 })

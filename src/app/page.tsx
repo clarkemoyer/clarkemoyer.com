@@ -3,6 +3,7 @@ import Link from 'next/link'
 import CookiePreferencesButton from '@/components/cookie-preferences-button'
 import Image from 'next/image'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
+import TrackedLink from '@/components/TrackedLink'
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer Projects',
@@ -20,28 +21,30 @@ export const metadata: Metadata = {
 const featuredProjects = [
   {
     title: 'PSU-ARL Referral Program',
-    category: 'Referral',
+    category: 'PSU-ARL candidates',
     description:
       'Connect for PSU-ARL referrals when I can personally validate your experience and fit for the opportunity.',
     href: '/psu-arl-referral',
     cta: 'View PSU-ARL Referral Details',
     media: 'cm',
+    conversionPath: 'psu_arl_referral' as const,
   },
   {
     title: 'WGU Referral Program',
-    category: 'Education',
+    category: 'Prospective WGU students',
     description:
       'Request a free alumni referral to Western Governors University and learn what to expect next.',
     href: '/wgu-referral',
     cta: 'Request a WGU Referral',
     media: 'wgu',
+    conversionPath: 'wgu_referral' as const,
   },
 ]
 
 const secondaryProjects = [
   {
     title: 'Who I Am',
-    category: 'About',
+    category: 'Professional background',
     description:
       'A concise bio covering family, service, education, technology, and community work.',
     href: '/who-i-am',
@@ -49,20 +52,22 @@ const secondaryProjects = [
     image: '/images/Clarke-Moyer-Bio-Picture-2MP.jpg',
     alt: 'Clarke Moyer Bio Picture',
     imageClass: 'object-cover object-[center_28%]',
+    conversionPath: 'professional_consulting' as const,
   },
   {
     title: 'Free For Charity',
-    category: 'Community',
+    category: 'Nonprofits and volunteers',
     description: 'Nonprofit technology and business support work connected to Free For Charity.',
     href: '/charity',
     cta: 'View Charity Work',
     image: '/images/ffc-logo.png',
     alt: 'Free For Charity Logo',
     imageClass: 'object-contain p-8 bg-gradient-to-br from-emerald-700 to-emerald-900',
+    conversionPath: 'free_for_charity' as const,
   },
   {
     title: 'Certification Guides',
-    category: 'Guides',
+    category: 'Certification readers',
     description:
       'Study notes, certification reflections, and practical guide material for IT professionals.',
     href: '/certification',
@@ -70,6 +75,7 @@ const secondaryProjects = [
     image: '/images/certification-exam.png',
     alt: 'Technical Certification Exam',
     imageClass: 'object-cover object-center',
+    conversionPath: 'certification_reader' as const,
   },
 ]
 
@@ -103,20 +109,26 @@ export default async function Home() {
               Moyer.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link
+              <TrackedLink
                 href="/walk-and-talk"
-                className="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100"
+                conversionPath="professional_consulting"
+                conversionAction="open_walk_and_talk"
+                conversionLocation="homepage_hero"
+                className="rounded-full bg-white px-8 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Book a Walk and Talk
-              </Link>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href="https://linkedin.com/in/clarkemoyer"
+                conversionPath="professional_consulting"
+                conversionAction="open_linkedin"
+                conversionLocation="homepage_hero"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+                className="rounded-full border border-white px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Connect on LinkedIn
-              </a>
+              </TrackedLink>
               <a
                 href="#projects"
                 className="rounded-full border border-white/70 px-8 py-3 font-semibold text-white transition-colors hover:bg-white/10"
@@ -208,12 +220,15 @@ export default async function Home() {
                     </p>
                     <h3 className="mb-3 text-xl font-bold text-gray-900">{project.title}</h3>
                     <p className="mb-5 flex-1 text-gray-600">{project.description}</p>
-                    <Link
+                    <TrackedLink
                       href={project.href}
-                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover"
+                      conversionPath={project.conversionPath}
+                      conversionAction="open_audience_landing_page"
+                      conversionLocation="homepage_featured_paths"
+                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
                     >
                       {project.cta} <ArrowRightIcon className="ml-1 h-4 w-4" />
-                    </Link>
+                    </TrackedLink>
                   </div>
                 </article>
               ))}
@@ -242,12 +257,15 @@ export default async function Home() {
                     <p className="mb-5 flex-1 text-sm leading-6 text-gray-600">
                       {project.description}
                     </p>
-                    <Link
+                    <TrackedLink
                       href={project.href}
-                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover"
+                      conversionPath={project.conversionPath}
+                      conversionAction="open_audience_landing_page"
+                      conversionLocation="homepage_featured_paths"
+                      className="inline-flex items-center font-semibold text-brand hover:text-brand-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
                     >
                       {project.cta} <ArrowRightIcon className="ml-1 h-4 w-4" />
-                    </Link>
+                    </TrackedLink>
                   </div>
                 </article>
               ))}
@@ -303,37 +321,17 @@ export default async function Home() {
             relationships by representing what I am involved in and taking inputs from the greater
             community. Please contact me if you see some common ground.
           </p>
-          <a
+          <TrackedLink
             href="https://linkedin.com/in/clarkemoyer"
+            conversionPath="professional_consulting"
+            conversionAction="open_linkedin"
+            conversionLocation="homepage_dialogue"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
           >
-            Contact Clarke
-          </a>
-        </div>
-      </section>
-
-      {/* WGU Referral CTA */}
-      <section className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h3 className="mb-6 text-2xl font-bold sm:text-3xl">Request a WGU Referral</h3>
-          <Link
-            href="/wgu-referral"
-            className="block rounded-2xl bg-gradient-to-br from-blue-800 to-blue-950 p-8 text-center shadow-lg transition-transform hover:-translate-y-1"
-          >
-            <div className="relative mx-auto mb-4 h-20 w-20">
-              <Image
-                src={`${basePath}/images/wgu-logo.jpg`}
-                alt="Western Governors University Logo"
-                width={80}
-                height={80}
-                className="object-contain"
-              />
-            </div>
-            <div className="mb-2 text-3xl font-bold text-yellow-400">PROUD</div>
-            <div className="text-2xl font-bold text-yellow-400">WGU GRAD!</div>
-          </Link>
+            Connect on LinkedIn
+          </TrackedLink>
         </div>
       </section>
 

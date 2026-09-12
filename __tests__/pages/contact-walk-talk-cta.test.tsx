@@ -50,7 +50,7 @@ describe('sitewide Walk and Talk CTA hierarchy', () => {
     const walkAndTalk = screen.getByRole('link', { name: /Book a Walk and Talk/i })
 
     expect(links[0]).toBe(walkAndTalk)
-    expect(walkAndTalk).toHaveAttribute('href', '/walk-and-talk')
+    expect(walkAndTalk).toHaveAttribute('href', '/walk-and-talk/')
     expect(walkAndTalk).toHaveClass('bg-blue-600')
     expect(screen.getByRole('link', { name: /Connect on LinkedIn/i })).toHaveClass('border')
   })

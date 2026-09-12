@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ConversionPanel from '@/components/ConversionPanel';
+import CertificationGuideRegion from '@/components/CertificationGuideRegion';
 
 export const metadata: Metadata = {
   title: 'Certification Guides',
@@ -25,8 +27,8 @@ export default function CertificationGuidesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4 prose prose-lg">
+      <section id="certification-guides" className="scroll-mt-24 bg-white py-16">
+        <CertificationGuideRegion>
           <p className="text-xl text-gray-600">
             List of completed Management and Technical certifications, some with guides or methods of passing.
           </p>
@@ -354,7 +356,27 @@ export default function CertificationGuidesPage() {
             <li>BS-IT (Focus: Information Technology) — Western Governors University (Completed 07/16/2009)</li>
             <li>A.A.S. (Focus: Electronics Technology) — Cochise College (Awarded 12/2013)</li>
           </ul>
-        </div>
+
+          <div className="not-prose mt-12 border-t border-gray-200 pt-8">
+            <ConversionPanel
+              eyebrow="Certification readers"
+              title="Choose what to do next"
+              description="Use the guides for self-study, or bring a technology or career question to a focused Walk and Talk conversation."
+              path="certification_reader"
+              location="certification_next_step"
+              primary={{
+                label: 'Browse the guides from the top',
+                href: '#certification-guides',
+                action: 'browse_guides',
+              }}
+              secondary={{
+                label: 'Book a Walk and Talk',
+                href: '/walk-and-talk/',
+                action: 'open_walk_and_talk',
+              }}
+            />
+          </div>
+        </CertificationGuideRegion>
       </section>
     </>
   );

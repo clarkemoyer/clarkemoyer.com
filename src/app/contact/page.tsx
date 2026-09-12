@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
+import TrackedLink from '@/components/TrackedLink'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -39,9 +40,7 @@ export default function ContactPage() {
             <span className="text-gray-400">Contact</span>
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
-          <p className="text-gray-300 text-lg">
-            Two ways to reach Clarke — direct and no friction.
-          </p>
+          <p className="text-gray-300 text-lg">Choose the route that best fits the conversation.</p>
         </div>
       </section>
 
@@ -59,14 +58,17 @@ export default function ContactPage() {
                 Clarke&apos;s favorite way to connect: a focused conversation while walking through
                 the issue together.
               </p>
-              <a
+              <TrackedLink
                 href={BOOK_MAIN}
+                conversionPath="professional_consulting"
+                conversionAction="open_booking"
+                conversionLocation="contact_primary"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition-colors text-lg"
               >
                 Book a Walk and Talk →
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -80,12 +82,15 @@ export default function ContactPage() {
               <p className="text-gray-700 mb-4">
                 Need a quick note first? Text Clarke directly — no voicemail, no gatekeeper.
               </p>
-              <a
+              <TrackedLink
                 href="sms:5202228104"
+                conversionPath="professional_consulting"
+                conversionAction="start_text"
+                conversionLocation="contact_support"
                 className="inline-block border border-gray-900 text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-900 hover:text-white transition-colors text-lg"
               >
                 Text (520) 222-8104 →
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -99,15 +104,18 @@ export default function ContactPage() {
               <p className="text-blue-800 mb-4">
                 Send a connection request or message Clarke directly on LinkedIn.
               </p>
-              <a
+              <TrackedLink
                 href="https://www.linkedin.com/in/clarkemoyer"
+                conversionPath="professional_consulting"
+                conversionAction="open_linkedin"
+                conversionLocation="contact_support"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect with Clarke Moyer on LinkedIn"
                 className="inline-block border border-blue-700 text-blue-800 font-bold px-8 py-3 rounded-full hover:bg-blue-700 hover:text-white transition-colors text-lg"
               >
                 LinkedIn →
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -116,14 +124,17 @@ export default function ContactPage() {
             <p className="font-bold text-amber-900">🎁 Nonprofit? Walk and Talk is free.</p>
             <p className="text-amber-800 text-sm mt-1">
               Registered 501(c)(3) nonprofits receive Walk and Talk at no cost through{' '}
-              <a
+              <TrackedLink
                 href="https://freeforcharity.org"
+                conversionPath="free_for_charity"
+                conversionAction="visit_free_for_charity"
+                conversionLocation="contact_nonprofit"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline"
               >
                 Free For Charity
-              </a>
+              </TrackedLink>
               .
             </p>
           </div>

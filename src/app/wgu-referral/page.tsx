@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import CTAButtons from '@/components/CTAButtons'
+import ConversionPanel from '@/components/ConversionPanel'
 import { getContentFile } from '@/lib/content'
 import Link from 'next/link'
 
@@ -42,8 +42,24 @@ export default async function WGUReferralPage() {
           )}
 
           <div className="mt-12 pt-8 border-t">
-            <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
-            <CTAButtons />
+            <ConversionPanel
+              eyebrow="Prospective WGU students"
+              title="Use Clarke’s alumni referral details"
+              description="The referral instructions and referrer information are on this page. No separate form is collected by clarkemoyer.com."
+              path="wgu_referral"
+              location="wgu_next_step"
+              primary={{
+                label: 'Message Clarke on LinkedIn',
+                href: 'https://www.linkedin.com/in/clarkemoyer/',
+                action: 'open_linkedin_referral',
+                external: true,
+              }}
+              secondary={{
+                label: 'Review referral instructions',
+                href: '#referral-information',
+                action: 'view_referral_instructions',
+              }}
+            />
           </div>
         </div>
       </main>

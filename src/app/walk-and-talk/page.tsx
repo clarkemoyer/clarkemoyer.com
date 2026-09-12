@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { walkAndTalkServiceSchema, breadcrumbSchema, SchemaScript } from '@/lib/schema';
+import TrackedLink from '@/components/TrackedLink';
 
 export const metadata: Metadata = {
   title: 'Walk and Talk Consulting',
@@ -40,22 +41,28 @@ export default function WalkAndTalkPage() {
             No laptops. No decks. Just a walk, a conversation, and a plan.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <TrackedLink
               href={BOOK_MAIN}
+              conversionPath="professional_consulting"
+              conversionAction="open_booking"
+              conversionLocation="walk_and_talk_hero"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-gray-900 px-8 py-3 rounded font-semibold hover:bg-gray-100 transition-colors"
             >
               Book a Session
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href="https://freeforcharity.org"
+              conversionPath="free_for_charity"
+              conversionAction="visit_free_for_charity"
+              conversionLocation="walk_and_talk_hero"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white/10 transition-colors"
             >
               Nonprofit? It&rsquo;s Free →
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -178,14 +185,17 @@ export default function WalkAndTalkPage() {
               <p className="text-sm text-amber-700 font-medium mb-4">Mon–Fri · 1:30–2:30 PM EST · One session daily</p>
               <p className="text-4xl font-black text-gray-900 mb-1">$562.50</p>
               <p className="text-gray-500 text-sm mb-6">per session</p>
-              <a
+              <TrackedLink
                 href={BOOK_45}
+                conversionPath="professional_consulting"
+                conversionAction="open_booking_45_minute"
+                conversionLocation="walk_and_talk_pricing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto inline-block text-center bg-gray-900 text-white font-semibold px-6 py-3 rounded hover:bg-gray-700 transition-colors"
               >
                 Book 45-Minute Session →
-              </a>
+              </TrackedLink>
             </div>
 
             {/* 1-hour card */}
@@ -194,14 +204,17 @@ export default function WalkAndTalkPage() {
               <p className="text-sm text-amber-300 font-medium mb-4">Mon–Fri · 5:30–7:00 PM EST · One session daily</p>
               <p className="text-4xl font-black text-white mb-1">$750</p>
               <p className="text-gray-400 text-sm mb-6">per session</p>
-              <a
+              <TrackedLink
                 href={BOOK_60}
+                conversionPath="professional_consulting"
+                conversionAction="open_booking_60_minute"
+                conversionLocation="walk_and_talk_pricing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto inline-block text-center bg-white text-gray-900 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition-colors"
               >
                 Book 1-Hour Session →
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
@@ -236,14 +249,17 @@ export default function WalkAndTalkPage() {
               <strong>Free For Charity</strong>, Clarke&rsquo;s initiative dedicated to providing free IT and business
               services to charitable organizations.
             </p>
-            <a
+            <TrackedLink
               href="https://freeforcharity.org"
+              conversionPath="free_for_charity"
+              conversionAction="visit_free_for_charity"
+              conversionLocation="walk_and_talk_nonprofit"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded transition-colors"
             >
               Request a Free Session at freeforcharity.org →
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </section>
@@ -266,12 +282,15 @@ export default function WalkAndTalkPage() {
             existing relationship with. If your team has done a Walk and Talk session, a retreat engagement is a
             natural next step.
           </p>
-          <a
+          <TrackedLink
             href="mailto:clarke@moyermanagement.com"
+            conversionPath="professional_consulting"
+            conversionAction="start_speaking_email"
+            conversionLocation="walk_and_talk_speaking"
             className="inline-block bg-gray-900 hover:bg-gray-700 text-white font-semibold px-6 py-3 rounded transition-colors"
           >
             Inquire About Speaking →
-          </a>
+          </TrackedLink>
           <p className="text-gray-500 text-sm mt-4">
             Have questions first?{' '}
             <Link href="/contact/" className="text-gray-700 underline hover:text-gray-900">
@@ -290,14 +309,17 @@ export default function WalkAndTalkPage() {
             Book a Walk and Talk session and get expert perspective on your hardest technology problem — delivered on
             a walk, with no screens required.
           </p>
-          <a
+          <TrackedLink
             href={BOOK_MAIN}
+            conversionPath="professional_consulting"
+            conversionAction="open_booking"
+            conversionLocation="walk_and_talk_final"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-gray-900 px-12 py-5 rounded font-bold text-xl hover:bg-blue-50 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5"
           >
             Book a Session Now →
-          </a>
+          </TrackedLink>
           <p className="text-gray-500 text-sm mt-6">Two sessions available daily · Mon–Fri · Limited availability</p>
         </div>
       </section>

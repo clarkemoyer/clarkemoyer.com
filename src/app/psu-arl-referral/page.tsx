@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getContentFile } from '@/lib/content'
 import Link from 'next/link'
+import ConversionPanel from '@/components/ConversionPanel'
 import './psu-arl-referral.css'
 
 export const metadata: Metadata = {
@@ -40,6 +41,28 @@ export default async function PSUARLReferralPage() {
           ) : (
             <p className="text-gray-600">Content coming soon...</p>
           )}
+
+          <div className="mt-12 border-t border-gray-200 pt-8">
+            <ConversionPanel
+              eyebrow="PSU-ARL candidates"
+              title="Start with a LinkedIn message"
+              description="Referral requests begin on LinkedIn and are limited to candidates whose experience Clarke can personally validate. You can also apply directly without a referral."
+              path="psu_arl_referral"
+              location="psu_arl_next_step"
+              primary={{
+                label: 'Connect with Clarke on LinkedIn',
+                href: 'https://www.linkedin.com/in/clarkemoyer/',
+                action: 'open_linkedin_referral',
+                external: true,
+              }}
+              secondary={{
+                label: 'View open PSU-ARL roles',
+                href: 'https://psu.wd1.myworkdayjobs.com/PSU_Staff?q=ARL&locations=b0858b72065c0154f935e400c501ef12',
+                action: 'open_arl_jobs',
+                external: true,
+              }}
+            />
+          </div>
         </div>
       </main>
     </>
