@@ -1,6 +1,8 @@
-# Cloudflare canonical redirect rules
+# Archived Cloudflare canonical redirect rules
 
-Use these edge redirects if/when Cloudflare is placed in front of `clarkemoyer.com` again. The Next.js static export keeps these aliases usable with canonical/noindex metadata and browser-side replacement, but GitHub Pages cannot emit true HTTP 301/308 redirects for static-exported app routes. Cloudflare Bulk Redirects or Redirect Rules are the correct place for permanent SEO consolidation at the HTTP edge.
+This export is retained as historical planning material only. The approved production architecture serves directly from GitHub Pages with Cloudflare records in DNS-only mode. Do not enable the Cloudflare proxy or activate these rules without an explicit future architecture decision.
+
+The Next.js static export keeps these aliases usable with canonical/noindex metadata and browser-side replacement. GitHub Pages cannot emit route-specific HTTP 301/308 redirects for static-exported app routes.
 
 ## Canonical URL decision
 
@@ -18,7 +20,7 @@ The original short WordPress-era URLs are canonical because they are easier to s
 | `https://clarkemoyer.com/psu-arl-referral-program/` | `https://clarkemoyer.com/psu-arl-referral/` |
 | `https://clarkemoyer.com/wgu-referral-program/` | `https://clarkemoyer.com/wgu-referral/` |
 
-## Recommended Cloudflare behavior
+## Historical rule behavior
 
 - Status code: `301` or `308` permanent redirect.
 - Preserve query string: yes.

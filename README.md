@@ -13,7 +13,7 @@ Personal website for Clarke Moyer — built with Next.js and deployed to GitHub 
 - **Framework:** Next.js 16 + React 19 + TypeScript
 - **Styling:** Tailwind CSS
 - **Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages
-- **DNS/CDN:** GitHub Pages direct serving today; Cloudflare may be re-enabled for edge headers/redirects
+- **DNS/CDN:** GitHub Pages direct serving; Cloudflare records must remain DNS-only (not proxied)
 - **Analytics:** Google Tag Manager (`GTM-5JL6TDQW`) + Google Analytics 4 (`G-C2Q1HC0GVQ`)
 - **Testing:** Jest + Playwright + Lighthouse CI
 
@@ -138,21 +138,16 @@ Footer "Cookie Preferences" button reopens the modal from any page.
 
 ---
 
-## Owner-Side Post-Cutover Polish
+## Production Operations and Owner-Side Polish
 
-The live site is already serving from GitHub Pages at `https://clarkemoyer.com`. Remaining items require owner access to GitHub, Cloudflare, or Google Search Console:
+The live site is served directly by GitHub Pages at `https://clarkemoyer.com`. The production policy is to keep Cloudflare DNS-only; do not enable the Cloudflare proxy for the apex or `www` records.
 
-- Confirm **Enforce HTTPS** in GitHub Pages settings. HTTPS works, but the Pages API currently returns `enforce_https: null`.
-- Decide whether to keep direct GitHub Pages serving or place Cloudflare proxy back in front.
-- If using Cloudflare, add response-header Transform Rules / Workers for security headers:
-  - `Strict-Transport-Security`
-  - `Content-Security-Policy`
-  - `X-Frame-Options` or equivalent frame policy
-  - `X-Content-Type-Options`
-  - `Referrer-Policy`
-  - `Permissions-Policy`
-- If using Cloudflare, add edge 301 redirects from long alias URLs to short canonical URLs for cleaner SEO.
-- Submit or refresh `https://clarkemoyer.com/sitemap.xml` in Google Search Console.
+- **HTTPS:** Enforce HTTPS is enabled in GitHub Pages and the certificate is approved (verified 2026-09-12).
+- **Routine status review:** verify the HTTP-to-HTTPS redirect, HTTPS response, `robots.txt`, and `sitemap.xml`; confirm `robots.txt` still references the canonical sitemap. See [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md#routine-production-verification).
+- **Search Console (owner access):** submit or refresh `https://clarkemoyer.com/sitemap.xml` and inspect/request indexing for key canonical pages.
+- **GitHub environment (owner access):** optionally create `google-prod` and move the public build variables there as described above.
+
+The historical Cloudflare redirect export is retained for reference only. It must not be activated while the production site uses the approved DNS-only architecture.
 
 ---
 

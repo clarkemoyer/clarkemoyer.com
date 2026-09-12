@@ -2,11 +2,11 @@
 
 ## Repository Overview
 
-Personal website for Clarke Moyer — Next.js static site deployed to GitHub Pages at **https://staging.clarkemoyer.com** (staging) and **https://clarkemoyer.com** (production post-cutover).
+Personal website for Clarke Moyer — Next.js static site deployed to GitHub Pages at **https://clarkemoyer.com**.
 
-**Stack:** Next.js 15 + React 19 + TypeScript + Tailwind CSS  
-**Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages  
-**DNS/CDN:** Cloudflare (proxy, security headers, 301 redirects)
+**Stack:** Next.js 16 + React 19 + TypeScript + Tailwind CSS
+**Deployment:** GitHub Actions → static export (`out/`) → GitHub Pages
+**DNS/CDN:** GitHub Pages direct serving. Cloudflare may host DNS, but its proxy must remain disabled.
 
 ---
 
@@ -147,11 +147,11 @@ The `CookieConsent` component (`src/components/cookie-consent/index.tsx`):
 
 ---
 
-## URL Structure & Redirects
+## URL Structure & Aliases
 
-All canonical WordPress URLs are preserved. Old short slugs redirect client-side:
+The original short WordPress URLs are canonical. Longer descriptive routes remain available as backward-compatible client-side aliases:
 
-| Old slug | Canonical URL |
+| Canonical URL | Alias |
 |---|---|
 | `/certification/` | `/certification-guides/` |
 | `/charity/` | `/free-for-charity/` |
@@ -160,32 +160,16 @@ All canonical WordPress URLs are preserved. Old short slugs redirect client-side
 | `/psu-arl-referral/` | `/psu-arl-referral-program/` |
 | `/wgu-referral/` | `/wgu-referral-program/` |
 
-**Note:** These are client-side Next.js redirects (not HTTP 301s). True 301s must be
-configured in **Cloudflare Bulk Redirects** before DNS cutover for SEO link equity transfer.
+**Note:** GitHub Pages cannot emit route-specific HTTP 301/308 responses for this static export. The aliases use canonical/noindex metadata and browser-side replacement. Do not enable the Cloudflare proxy to add edge redirects.
 
 ---
 
-## Cloudflare Configuration (Pre-Cutover Checklist)
+## Production DNS and HTTPS Policy
 
-### Bulk Redirects (Traffic → Bulk Redirects)
-Add 301s for all old slug pairs listed above.
+- Keep Cloudflare records DNS-only (gray cloud); do not proxy the apex or `www` host.
+- GitHub Pages terminates HTTPS and manages the certificate.
+- Keep the apex A records pointed to GitHub Pages:
 
-### Transform Rules — Response Headers (all requests)
-| Header | Value |
-|---|---|
-| `X-Content-Type-Options` | `nosniff` |
-| `X-Frame-Options` | `SAMEORIGIN` |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` |
-| `Permissions-Policy` | `camera=(), microphone=(), geolocation=()` |
-
-### SSL/TLS
-- Mode: Full (strict)
-- Always Use HTTPS: On
-- HSTS: On, max-age 6 months
-- Minimum TLS: 1.2
-
-### DNS Cutover
-Point `clarkemoyer.com` A/CNAME records to GitHub Pages IPs:
 ```
 185.199.108.153
 185.199.109.153
@@ -193,13 +177,16 @@ Point `clarkemoyer.com` A/CNAME records to GitHub Pages IPs:
 185.199.111.153
 ```
 
+- Keep `www` as a CNAME to `clarkemoyer.github.io`.
+- During routine status reviews, verify the HTTP-to-HTTPS redirect, HTTPS response, `robots.txt`, and `sitemap.xml` as documented in `docs/DEPLOYMENT.md`.
+
 ---
 
 ## Google Search Console
 
 - Verify via **Cloudflare DNS TXT record** (survives the WordPress→Next.js cutover)
 - DNS record: Type TXT, Name `@`, Value `google-site-verification=XXXXXXX`
-- After cutover: submit `https://clarkemoyer.com/sitemap.xml`
+- Submit or refresh `https://clarkemoyer.com/sitemap.xml` and inspect key canonical pages after material content changes.
 
 ---
 

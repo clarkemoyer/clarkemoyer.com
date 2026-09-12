@@ -11,7 +11,6 @@ This directory contains GitHub Actions workflows and GitHub-specific configurati
 │   ├── ci.yml            # Lint + test + build + Playwright E2E on PRs
 │   ├── codeql.yml        # Security scanning (weekly + push/PR)
 │   ├── lighthouse.yml    # Post-deploy Perf/A11y/SEO scoring
-│   └── nextjs.yml        # (legacy, unused)
 ├── dependabot.yml        # Weekly npm + Actions dependency updates
 └── README.md             # This file
 ```
