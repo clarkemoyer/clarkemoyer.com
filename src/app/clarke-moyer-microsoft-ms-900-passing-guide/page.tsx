@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer Microsoft MS-900 Microsoft 365 Fundamentals Passing Guide',
-  description: "Clarke Moyer's guide to passing the Microsoft MS-900 Microsoft 365 Fundamentals exam — the entry point for the Microsoft 365 certification track.",
+  description: "Clarke Moyer's guide to the Microsoft MS-900 Microsoft 365 Fundamentals exam, retired March 31, 2026, and the AB-900 Copilot and Agent Administration Fundamentals exam that is now the closest current option.",
   openGraph: {
     title: 'Clarke Moyer Microsoft MS-900 Microsoft 365 Fundamentals Passing Guide | Clarke Moyer',
     description: "Clarke Moyer's guide to passing the Microsoft MS-900 Microsoft 365 Fundamentals exam.",
@@ -46,22 +46,27 @@ export default function MS900GuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-6">
-            <p className="text-amber-800 text-sm">
-              Clarke holds this certification and maintains Microsoft credentials as the platform evolves.
-              The exam content and objectives are updated regularly by Microsoft — always verify current
-              objectives at <a href="https://learn.microsoft.com" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a> before purchasing study materials.
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by Microsoft on March 31, 2026</p>
+            <p className="text-gray-700 text-sm mt-1">
+              Microsoft retired the MS-900 exam and the Microsoft 365 Certified: Fundamentals certification.
+              Clarke still holds it, since fundamentals certifications don&rsquo;t expire, but new candidates
+              can no longer earn it. This guide stays up for historical context.
             </p>
           </div>
 
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
-            <p className="font-bold text-green-900">✅ Currently Recommended by Clarke</p>
+            <p className="font-bold text-green-900">✅ Take AB-900 instead</p>
             <p className="text-green-800 text-sm mt-1">
-              The MS-900 is a solid entry-level credential for anyone working in or transitioning into a
-              Microsoft 365 environment — cloud productivity, collaboration, security, and compliance concepts.
-              It&rsquo;s particularly useful for DoD contractors and enterprise IT professionals where M365
-              is the standard productivity platform. Clarke holds this cert and recommends it as an accessible
-              starting point for the Microsoft certification track.
+              Microsoft hasn&rsquo;t named an official replacement, but the closest current exam is{' '}
+              <a href="https://learn.microsoft.com/en-us/credentials/certifications/copilot-and-agent-administration-fundamentals/" target="_blank" rel="noopener noreferrer" className="underline">
+                AB-900: Microsoft 365 Certified: Copilot and Agent Administration Fundamentals
+              </a>
+              . It covers the same Microsoft 365 core services, security, identity and governance as MS-900,
+              plus administering Microsoft 365 Copilot and agents. The study approach below still applies.
+            </p>
+            <p className="text-sm mt-3">
+              {amznSearch('AB-900 Microsoft 365 Copilot and Agent Administration Fundamentals exam guide', 'AB-900 Study Guides on Amazon')}
             </p>
           </div>
 
@@ -93,9 +98,9 @@ export default function MS900GuidePage() {
           <div className="not-prose bg-yellow-50 border-l-4 border-yellow-500 p-5 mb-8">
             <h3 className="font-bold text-yellow-900 mb-1">📋 Recommended Path</h3>
             <p className="text-yellow-800 text-sm">
-              Consider pairing MS-900 with{' '}
+              Consider pairing AB-900 with{' '}
               <Link href="/clarke-moyer-microsoft-az-900-passing-guide" className="underline">AZ-900</Link> and{' '}
-              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline">AI-900</Link> —
+              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline">AI-901 (formerly AI-900)</Link> —
               together they cover the full Microsoft cloud landscape: productivity, infrastructure, and AI.
               All three are approachable fundamentals-level exams.
             </p>
@@ -103,10 +108,10 @@ export default function MS900GuidePage() {
 
           <h2>Free Resource: Microsoft Learn</h2>
           <p>
-            Microsoft&rsquo;s free MS-900 learning path maps directly to exam objectives and is the best
-            starting point.{' '}
-            <a href="https://learn.microsoft.com/en-us/credentials/certifications/microsoft-365-fundamentals/" target="_blank" rel="noopener noreferrer">
-              Microsoft MS-900 Learning Path ↗
+            The MS-900 learning path retired with the exam. For AB-900, Microsoft&rsquo;s free study guide
+            and training map directly to the exam objectives and are the best starting point.{' '}
+            <a href="https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-900" target="_blank" rel="noopener noreferrer">
+              AB-900 Study Guide on Microsoft Learn ↗
             </a>
           </p>
 
@@ -116,10 +121,12 @@ export default function MS900GuidePage() {
             MS-900 Study Guide <span className="text-green-700 text-base font-semibold ml-2">← Get for the Practice Tests</span>
           </h3>
           <p className="not-prose text-gray-700 mt-2 mb-3">
-            Buy primarily to access the digital practice test bank. The online test portal is the real value.
+            Clarke used the Packt <em>Microsoft 365 Certified Fundamentals MS-900 Exam Guide (3rd Edition)</em> by
+            Aaron Guilmette, Yura Lee and Marcos Zanre. Buy a guide like it primarily to access the digital practice
+            test bank. The online test portal is the real value.
           </p>
           <p className="not-prose">
-            {amznSearch('Microsoft MS-900 Microsoft 365 Fundamentals study guide exam prep', 'Microsoft MS-900 Microsoft 365 Fundamentals Study Guide')}
+            {amznSearch('Microsoft 365 Certified Fundamentals MS-900 Exam Guide Guilmette Lee Zanre', 'Microsoft 365 Certified Fundamentals MS-900 Exam Guide (3rd Edition)')}
           </p>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">Audio Study Content</h3>

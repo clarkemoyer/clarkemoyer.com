@@ -8,6 +8,7 @@ describe('Page metadata', () => {
     ['Free For Charity', () => import('../../src/app/charity/page')],
     ['Fun', () => import('../../src/app/fun/page')],
     ['Quotes', () => import('../../src/app/quotes/page')],
+    ['Books', () => import('../../src/app/books/page')],
     [
       'CISSP Guide',
       () => import('../../src/app/clarke-moyer-cissp-certification-passing-guide/page'),

@@ -49,6 +49,7 @@ const navLinks: NavLink[] = [
     children: [
       { id: 'fun-cooking', href: '/cooking', label: 'COOKING' },
       { id: 'fun-quotes', href: '/quotes', label: 'QUOTES' },
+      { id: 'fun-books', href: '/books', label: 'BOOKS & READING' },
     ],
   },
   { id: 'wgu-referral', href: '/wgu-referral', label: 'WGU REFERRAL PROGRAM' },

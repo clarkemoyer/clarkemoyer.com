@@ -58,10 +58,10 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
-              <h2 className="text-2xl font-bold text-green-900">Microsoft AI-900 Azure AI Fundamentals Guide</h2>
+              <h2 className="text-2xl font-bold text-green-900">Microsoft AI-901 (formerly AI-900) Azure AI Fundamentals Guide</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
             </div>
-            <p className="text-green-800 mb-4">Entry-level Azure AI certification — essential for understanding AI workloads in enterprise and DoD environments before anyone can advise on AI policy or procurement.</p>
+            <p className="text-green-800 mb-4">Entry-level Azure AI certification, now earned through exam AI-901 — essential for understanding AI workloads in enterprise and DoD environments before anyone can advise on AI policy or procurement.</p>
             <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the AI-900 Guide →
             </Link>
@@ -103,9 +103,9 @@ export default function CertificationGuidesPage() {
           <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-3 mb-2">
               <h2 className="text-2xl font-bold text-green-900">Microsoft MS-900 Microsoft 365 Fundamentals Guide</h2>
-              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
+              <span className="text-gray-700 text-sm font-semibold bg-gray-200 px-2 py-0.5 rounded-full">🗂 Retired 2026</span>
             </div>
-            <p className="text-green-800 mb-4">Clarke&rsquo;s guide to the MS-900 — the entry point for the Microsoft 365 track covering productivity, collaboration, security, and compliance fundamentals.</p>
+            <p className="text-green-800 mb-4">Microsoft retired the MS-900 on March 31, 2026. Clarke&rsquo;s guide now points new candidates to AB-900, Microsoft 365 Copilot and Agent Administration Fundamentals, the closest current Microsoft 365 entry exam.</p>
             <Link href="/clarke-moyer-microsoft-ms-900-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the MS-900 Guide →
             </Link>

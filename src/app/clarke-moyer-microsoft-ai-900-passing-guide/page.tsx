@@ -4,10 +4,10 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer Microsoft AI-900 Azure AI Fundamentals Passing Guide',
-  description: "Clarke Moyer's guide to passing the Microsoft AI-900 Azure AI Fundamentals exam — study materials, practice tests, and why Clarke recommends this cert.",
+  description: "Clarke Moyer's guide to the Microsoft Azure AI Fundamentals certification, now earned through exam AI-901 (formerly AI-900) — study materials, practice tests, and why Clarke recommends this cert.",
   openGraph: {
     title: 'Clarke Moyer Microsoft AI-900 Azure AI Fundamentals Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to passing the Microsoft AI-900 Azure AI Fundamentals exam — study materials, practice tests, and why Clarke recommends this cert.",
+    description: "Clarke Moyer's guide to the Microsoft Azure AI Fundamentals certification, now earned through exam AI-901 (formerly AI-900) — study materials, practice tests, and why Clarke recommends this cert.",
     type: 'article',
     url: '/clarke-moyer-microsoft-ai-900-passing-guide/',
   },
@@ -54,9 +54,22 @@ export default function AI900GuidePage() {
             </p>
           </div>
 
+          <div className="not-prose bg-blue-50 border-l-4 border-blue-600 p-5 mb-6">
+            <p className="font-bold text-blue-900">🔄 AI-900 is now AI-901</p>
+            <p className="text-blue-800 text-sm mt-1">
+              On April 15, 2026 Microsoft updated the Azure AI Fundamentals certification and replaced exam AI-900
+              with{' '}
+              <a href="https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/" target="_blank" rel="noopener noreferrer" className="underline">
+                AI-901: Microsoft Azure AI Fundamentals
+              </a>
+              . It covers the same AI concepts plus generative AI and building solutions in Microsoft Foundry. Clarke
+              earned the certification through AI-900, and the study approach below works the same for AI-901.
+            </p>
+          </div>
+
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8 rounded-r-lg">
             <p className="text-green-800 font-semibold text-lg">✅ Currently Recommended by Clarke</p>
-            <p className="text-green-700 mt-1">Clarke actively recommends the AI-900 to colleagues and recommends it as a starting point for understanding AI in the enterprise.</p>
+            <p className="text-green-700 mt-1">Clarke actively recommends Azure AI Fundamentals (now AI-901) to colleagues and recommends it as a starting point for understanding AI in the enterprise.</p>
           </div>
 
           <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 not-prose">
@@ -76,9 +89,11 @@ export default function AI900GuidePage() {
             for anyone who wants to understand how AI workloads work in an enterprise cloud environment.
           </p>
           <p>
-            The exam covers five main areas: AI workloads and considerations, fundamental principles of machine learning,
-            computer vision workloads on Azure, natural language processing (NLP) workloads, and conversational AI workloads.
-            None of this requires a coding background.
+            The original AI-900 covered five main areas: AI workloads and considerations, fundamental principles of machine
+            learning, computer vision workloads on Azure, natural language processing (NLP) workloads, and conversational AI
+            workloads. None of this requires a coding background. The current AI-901 splits into identifying AI concepts and
+            capabilities (40&ndash;45%) and implementing AI solutions with Microsoft Foundry (55&ndash;60%), with generative AI
+            added throughout.
           </p>
 
           <h2>Why Clarke Recommends It</h2>
@@ -96,12 +111,12 @@ export default function AI900GuidePage() {
 
           <h2>Free Resource: Microsoft Learn</h2>
           <p>
-            Microsoft&rsquo;s own free learning path for AI-900 is excellent and should be your starting point.
+            Microsoft&rsquo;s own free learning path, now for AI-901, is excellent and should be your starting point.
             It&rsquo;s well-structured, maps directly to exam objectives, and costs nothing.
           </p>
           <p>
             <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline font-medium">
-              Microsoft Learn — Azure AI Fundamentals (AI-900) ↗
+              Microsoft Learn — Azure AI Fundamentals (AI-901) ↗
             </a>
           </p>
 
@@ -115,6 +130,12 @@ export default function AI900GuidePage() {
             re-run wrong ones until zero, then restart with a mixed set until you&rsquo;re clearing 90%+.
           </p>
           <p className="not-prose">
+            <a href={`https://www.amazon.com/s?k=AI-901+Azure+AI+Fundamentals+study+guide&tag=${AMZN_TAG}`} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
+              Search Amazon: AI-901 Azure AI Fundamentals Study Guides ↗
+            </a>
+          </p>
+          <p className="not-prose text-gray-700 text-sm mt-2">
+            The AI-900 edition Clarke used, still useful for the core concepts:{' '}
             {amzn('B0CLRN4Y8G', 'Microsoft Azure AI Fundamentals AI-900 Study Guide')}
           </p>
 
@@ -125,8 +146,8 @@ export default function AI900GuidePage() {
             Audio-first is the method. AI fundamentals concepts translate well to audio — great for commutes and walks.
           </p>
           <p className="not-prose">
-            <a href={`https://www.amazon.com/s?k=Azure+AI+Fundamentals+AI-900+exam+prep&tag=${AMZN_TAG}`} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
-              Search Amazon: Azure AI Fundamentals AI-900 Exam Prep ↗
+            <a href={`https://www.amazon.com/s?k=Azure+AI+Fundamentals+AI-901+exam+prep&tag=${AMZN_TAG}`} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
+              Search Amazon: Azure AI Fundamentals AI-901 Exam Prep ↗
             </a>
           </p>
 

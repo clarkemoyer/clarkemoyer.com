@@ -45,6 +45,7 @@ export const testConfig = {
     '/clarke-moyer-sweet-tea-recipe/',
     '/clarke-moyer-philly-cheesesteak-recipe/',
     '/cooking/',
+    '/books/',
     '/affiliate-disclosure/',
     '/privacy-policy/',
     '/cookie-policy/',
