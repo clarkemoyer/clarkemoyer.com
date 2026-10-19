@@ -83,7 +83,7 @@ export default function CertificationGuidesPage() {
               <h2 className="text-2xl font-bold text-green-900">SC-500: Cloud &amp; AI Security Engineer</h2>
               <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">✅ Recommended</span>
             </div>
-            <p className="text-green-800 mb-4">Clarke&rsquo;s overview of the full Microsoft SC security certification track — SC-900 through SC-100 — and how each cert maps to DoD and enterprise security roles.</p>
+            <p className="text-green-800 mb-4">The closest current exam to the retired AZ-500. Clarke&rsquo;s overview of the full Microsoft SC security certification track — SC-900 through SC-100 — and how each cert maps to DoD and enterprise security roles.</p>
             <Link href="/clarke-moyer-microsoft-sc-500-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the SC Series Guide →
             </Link>
@@ -92,9 +92,9 @@ export default function CertificationGuidesPage() {
           <div className="not-prose bg-green-50 border border-green-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-bold text-green-900">AZ-500: Azure Security Technologies</h2>
-              <span className="text-green-700 text-sm font-semibold bg-green-100 px-2 py-0.5 rounded-full">🔒 Security</span>
+              <span className="text-gray-700 text-sm font-semibold bg-gray-200 px-2 py-0.5 rounded-full">🗂 Retired 2026</span>
             </div>
-            <p className="text-green-800 mb-4">Associate-level Azure security cert for security engineers implementing security controls, managing identity/access, and securing Azure workloads. Clarke holds this certification.</p>
+            <p className="text-green-800 mb-4">Microsoft retired the AZ-500 and the Azure Security Engineer Associate certification on August 31, 2026. Clarke earned it, and the guide now points new candidates to SC-500, Cloud and AI Security Engineer Associate, the closest current exam.</p>
             <Link href="/clarke-moyer-microsoft-az-500-passing-guide" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the AZ-500 Guide →
             </Link>
@@ -186,7 +186,7 @@ export default function CertificationGuidesPage() {
                   <h3 className="text-xl font-bold text-gray-900">CompTIA A+ Passing Guide</h3>
                   <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
                 </div>
-                <p className="text-gray-700 mb-4">DoD 8570 IAT Level I baseline qualifier. Earned August 2008. Hardware and OS fundamentals — a common career starting point.</p>
+                <p className="text-gray-700 mb-4">DoD 8570 IAT Level I baseline qualifier. Earned August 2008. Hardware and OS fundamentals — a common career starting point. Updated for the current 220-1201 and 220-1202 exams.</p>
                 <Link href="/clarke-moyer-comptia-a-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
                   Read the A+ Guide →
                 </Link>
@@ -215,7 +215,8 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP-AM Application Modernization Guide</h3>
-            <p className="text-gray-700 mb-4">VCP-AM covers Tanzu, Kubernetes, and container orchestration — VMware&rsquo;s modern cloud-native platform. License: VMW-02637767W.</p>
+            <p className="mb-2"><span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired 2023</span></p>
+            <p className="text-gray-700 mb-4">VCP-AM covers Tanzu, Kubernetes, and container orchestration. VMware retired it in July 2023; the guide points to VCAP Administrator VKS 9.0, Broadcom&rsquo;s current Kubernetes exam. License: VMW-02637767W.</p>
             <Link href="/clarke-moyer-vcp-am-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the VCP-AM Guide →
             </Link>
@@ -223,7 +224,8 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP6-CMA Cloud Management &amp; Automation Guide</h3>
-            <p className="text-gray-700 mb-4">VCP6-CMA validates skills in vRealize Automation, vRealize Operations, and cloud management. Obtained May 2018.</p>
+            <p className="mb-2"><span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired 2019</span></p>
+            <p className="text-gray-700 mb-4">VCP6-CMA validates skills in vRealize Automation, vRealize Operations, and cloud management. Obtained May 2018; retired by VMware in August 2019. The guide points to today&rsquo;s VCF Automation exams.</p>
             <Link href="/clarke-moyer-vcp6-cma-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the VCP6-CMA Guide →
             </Link>
@@ -231,7 +233,8 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP5-DCV Data Center Virtualization Guide</h3>
-            <p className="text-gray-700 mb-4">VCP5-DCV covers vSphere 5 — ESXi, vCenter, HA, DRS, and vMotion. Legacy credential. Obtained February 2012.</p>
+            <p className="mb-2"><span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired 2017</span></p>
+            <p className="text-gray-700 mb-4">VCP5-DCV covers vSphere 5 — ESXi, vCenter, HA, DRS, and vMotion. Obtained February 2012; retired by VMware in March 2017.</p>
             <Link href="/clarke-moyer-vcp5-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the VCP5-DCV Guide →
             </Link>
@@ -239,7 +242,8 @@ export default function CertificationGuidesPage() {
 
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <h3 className="text-xl font-bold text-gray-900 mb-2">VMware VCP4-DCV Data Center Virtualization Guide</h3>
-            <p className="text-gray-700 mb-4">VCP4-DCV — the original DCV credential, based on vSphere 4. Historical cert. Obtained November 2010.</p>
+            <p className="mb-2"><span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired 2014</span></p>
+            <p className="text-gray-700 mb-4">VCP4-DCV — the original DCV credential, based on vSphere 4. Obtained November 2010; retired by VMware in May 2014.</p>
             <Link href="/clarke-moyer-vcp4-dcv-passing-guide" className="inline-block bg-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the VCP4-DCV Guide →
             </Link>
@@ -262,9 +266,9 @@ export default function CertificationGuidesPage() {
           <div className="not-prose bg-gray-50 border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
             <div className="flex items-center gap-2 mb-2">
               <h3 className="text-xl font-bold text-gray-900">CIW Professional &amp; Database Design Specialist Guide</h3>
-              <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Legacy</span>
+              <span className="text-xs font-semibold bg-gray-300 text-gray-700 px-2 py-0.5 rounded-full">🗂 Retired 2011</span>
             </div>
-            <p className="text-gray-700 mb-4">Foundational web technology credential from 2009. Limited current market recognition. Clarke recommends Microsoft or CompTIA certs instead for market value today.</p>
+            <p className="text-gray-700 mb-4">Foundational web technology credential from 2009. CIW stopped awarding the CIW Professional title in June 2011. Clarke recommends Microsoft or CompTIA certs instead for market value today.</p>
             <Link href="/clarke-moyer-ciw-professional-passing-guide" className="inline-block bg-gray-500 hover:bg-gray-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the CIW Professional Guide →
             </Link>
@@ -273,8 +277,11 @@ export default function CertificationGuidesPage() {
           <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-blue-400 pl-4">Service Management Certifications</h2>
 
           <div className="not-prose bg-blue-50 border border-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-8">
-            <h3 className="text-xl font-bold text-blue-900 mb-2">ITIL 4 Foundation Passing Guide</h3>
-            <p className="text-blue-800 mb-4">Entry-level IT service management credential — required on certain DoD and enterprise contracts. Covers the ITIL service value system, four dimensions model, and guiding principles.</p>
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="text-xl font-bold text-blue-900">ITIL 4 Foundation Passing Guide</h3>
+              <span className="text-xs font-semibold bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full">🔄 Version 5 out</span>
+            </div>
+            <p className="text-blue-800 mb-4">Entry-level IT service management credential — required on certain DoD and enterprise contracts. PeopleCert released ITIL Foundation (Version 5) in 2026 and plans to sunset ITIL 4 at the end of 2027; the guide covers both.</p>
             <Link href="/clarke-moyer-itil-4-foundation-passing-guide" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
               Read the ITIL 4 Foundation Guide →
             </Link>

@@ -67,7 +67,7 @@ export default function SC900GuidePage() {
               Clarke completed an earlier version of this certification when it was more heavily focused on
               Azure and Microsoft 365 security fundamentals. The exam has since evolved. If you&rsquo;re deciding
               where to start in the Microsoft certification track, Clarke now recommends beginning with the{' '}
-              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline font-semibold">AI-900 (Azure AI Fundamentals)</Link>{' '}
+              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline font-semibold">AI-901 (Azure AI Fundamentals, formerly AI-900)</Link>{' '}
               as it better reflects where enterprise and DoD environments are heading. SC-900 remains a solid
               credential for compliance and identity fundamentals.
             </p>
@@ -149,11 +149,16 @@ export default function SC900GuidePage() {
           <ul>
             <li><strong>SC-200</strong> — Security Operations Analyst (SOC, threat detection, Sentinel)</li>
             <li><strong>SC-300</strong> — Identity and Access Administrator (Entra ID, IAM, ZTA)</li>
-            <li><strong>SC-400</strong> — Information Protection and Compliance Administrator (Purview, DLP, eDiscovery)</li>
+            <li><strong>SC-401</strong> — Information Security Administrator (Purview, DLP, sensitivity labels). It replaced SC-400, which Microsoft retired on May 31, 2025.</li>
+            <li>
+              <strong>SC-500</strong> — Cloud and AI Security Engineer (identity, storage, network and compute security,
+              security posture). It is the closest current exam to AZ-500, which Microsoft retired on August 31, 2026. See{' '}
+              <Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="underline">Clarke&rsquo;s SC-500 guide</Link>.
+            </li>
           </ul>
           <p>
-            SC-100 (Cybersecurity Architect Expert) sits at the top as the capstone, requiring one of the above
-            as a prerequisite.
+            SC-100 (Cybersecurity Architect Expert) sits at the top as the capstone and expects an associate-level
+            security certification first.
           </p>
 
           <p className="not-prose text-xs text-gray-400 mt-12">

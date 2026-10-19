@@ -5,7 +5,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Clarke Moyer CIW Professional Certification Passing Guide',
   description:
-    "Clarke Moyer's guide to the CIW Professional and CIW Database Design Specialist certifications — foundational web technology credentials.",
+    "Clarke Moyer's guide to the CIW Professional and CIW Database Design Specialist certifications, foundational web technology credentials. CIW retired the CIW Professional title in 2011.",
   openGraph: {
     title: 'Clarke Moyer CIW Professional Certification Passing Guide | Clarke Moyer',
     description:
@@ -64,12 +64,41 @@ export default function CIWProfessionalGuidePage() {
             </p>
           </div>
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
-            <p className="text-amber-800 font-semibold">📋 Market Recognition Note</p>
-            <p className="text-amber-700 text-sm mt-1">
-              The CIW certification program has limited current market recognition compared to
-              modern cloud certifications. Clarke recommends pursuing Microsoft or CompTIA
-              certifications instead for current market value.
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by CIW on June 30, 2011</p>
+            <p className="text-gray-700 text-sm mt-1">
+              CIW stopped awarding the CIW Professional certification on June 30, 2011, according to its{' '}
+              <a href="https://ciwcertified.com/exam-retirement/" target="_blank" rel="noopener noreferrer" className="underline">
+                exam retirement list
+              </a>
+              . Clarke still holds it, but new candidates can no longer earn it. CIW&rsquo;s current program
+              is built around its Web Foundations series. This guide stays up for historical context.
+            </p>
+          </div>
+
+          <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
+            <p className="font-bold text-green-900">✅ Start with AZ-900 instead</p>
+            <p className="text-green-800 text-sm mt-1">
+              The CIW program has limited market recognition compared to modern cloud certifications. For current
+              market value, Clarke recommends{' '}
+              <a href="https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/" target="_blank" rel="noopener noreferrer" className="underline">
+                AZ-900: Microsoft Certified: Azure Fundamentals
+              </a>{' '}
+              as a first certification. Read{' '}
+              <Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="underline">
+                Clarke&rsquo;s AZ-900 guide
+              </Link>
+              .
+            </p>
+            <p className="text-sm mt-3">
+              <a
+                href={`https://www.amazon.com/s?k=AZ-900+Azure+Fundamentals+study+guide&tag=${AMZN_TAG}`}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="text-blue-600 hover:underline font-medium"
+              >
+                AZ-900 Study Guides on Amazon ↗
+              </a>
             </p>
           </div>
 

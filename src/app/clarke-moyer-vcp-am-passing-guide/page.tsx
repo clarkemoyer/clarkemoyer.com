@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer VMware VCP-AM Application Modernization Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP-AM (Application Modernization) certification — containers, Kubernetes, and modern app delivery on VMware.",
+  description: "Clarke Moyer's guide to the VMware VCP-AM (Application Modernization) certification, retired in 2023, and the VCAP Administrator VKS 9.0 exam that now covers Kubernetes on VMware.",
   openGraph: {
     title: 'Clarke Moyer VMware VCP-AM Application Modernization Passing Guide | Clarke Moyer',
     description: "Clarke Moyer's guide to the VMware VCP-AM (Application Modernization) certification — containers, Kubernetes, and modern app delivery on VMware.",
@@ -44,6 +44,34 @@ export default function VCPAMGuidePage() {
 
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
+
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by VMware in 2023</p>
+            <p className="text-gray-700 text-sm mt-1">
+              VMware retired the last VCP-AM version (2023) on July 31, 2023 and folded the track into VCP-TKO,
+              according to Broadcom&rsquo;s{' '}
+              <a href="https://docs.broadcom.com/doc/vmware-retired-exams-certifications-and-badges" target="_blank" rel="noopener noreferrer" className="underline">
+                retired exams list
+              </a>
+              . Clarke still holds VCP-AM, but new candidates can no longer earn it. This guide stays up for
+              historical context.
+            </p>
+          </div>
+
+          <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
+            <p className="font-bold text-green-900">✅ Closest current exam: VCAP Administrator VKS 9.0</p>
+            <p className="text-green-800 text-sm mt-1">
+              Under Broadcom, Kubernetes on VMware is now vSphere Kubernetes Service (VKS), covered by the{' '}
+              <a href="https://www.broadcom.com/support/education/vmware/certification/vks-9.0" target="_blank" rel="noopener noreferrer" className="underline">
+                VMware Certified Advanced Professional &ndash; Administrator VKS 9.0
+              </a>{' '}
+              (exam 3V0-24.25). It is an advanced-level exam, so expect more depth than VCP-AM. The study approach
+              below still applies, and the training prerequisite still holds.
+            </p>
+            <p className="text-sm mt-3">
+              {amznSearch(`https://www.amazon.com/s?k=VMware+Cloud+Foundation+9+vSphere+Kubernetes+Service&tag=${AMZN_TAG}`, 'VMware Cloud Foundation and Kubernetes Books on Amazon')}
+            </p>
+          </div>
 
           <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
             <p className="text-amber-800 font-semibold">⚠️ VMware Training Prerequisite</p>
