@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer ITIL 4 Foundation Certification Passing Guide',
-  description: 'Clarke Moyer\'s guide to passing the ITIL 4 Foundation exam — the entry-level IT service management certification required for certain DoD and enterprise contracts.',
+  description: 'Clarke Moyer\'s guide to passing ITIL Foundation, the entry-level IT service management certification required for certain DoD and enterprise contracts, covering ITIL 4 and the new ITIL Foundation (Version 5).',
   openGraph: {
     title: 'Clarke Moyer ITIL 4 Foundation Certification Passing Guide | Clarke Moyer',
     description: 'Clarke Moyer\'s guide to passing the ITIL 4 Foundation exam — the entry-level IT service management certification required for certain DoD and enterprise contracts.',
@@ -44,6 +44,34 @@ export default function ITIL4FoundationGuidePage() {
 
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
+
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🔄 ITIL 4 is being replaced by ITIL Version 5</p>
+            <p className="text-gray-700 text-sm mt-1">
+              PeopleCert released ITIL Foundation (Version 5) in 2026 and plans to sunset all ITIL 4 modules on
+              December 31, 2027, per its{' '}
+              <a href="https://www.peoplecert.org/help-and-support/faq-itil" target="_blank" rel="noopener noreferrer" className="underline">
+                ITIL FAQ
+              </a>
+              . Clarke holds ITIL 4 Foundation, and PeopleCert says ITIL 4 certificates remain valid prerequisites
+              for the Version 5 higher levels. The two run in parallel until then.
+            </p>
+          </div>
+
+          <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
+            <p className="font-bold text-green-900">✅ New candidates: take ITIL Foundation (Version 5)</p>
+            <p className="text-green-800 text-sm mt-1">
+              <a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154" target="_blank" rel="noopener noreferrer" className="underline">
+                ITIL Foundation (Version 5)
+              </a>{' '}
+              keeps the same format (40 questions, 60 minutes, 65% to pass) and the same guiding principles and
+              four dimensions, with more on digital products and AI-enabled work. The study method below works the
+              same for either version.
+            </p>
+            <p className="text-sm mt-3">
+              {amzn(`https://www.amazon.com/s?k=ITIL+Foundation+Version+5+exam+guide&tag=${AMZN_TAG}`, 'ITIL Foundation (Version 5) Study Guides on Amazon')}
+            </p>
+          </div>
 
           {/* Neutral info callout */}
           <div className="not-prose bg-blue-50 border-l-4 border-blue-500 p-6 mb-8 rounded-r-lg">

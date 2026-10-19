@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer VMware VCP5-DCV Certification Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP5-DCV (vSphere 5 Data Center Virtualization) certification.",
+  description: "Clarke Moyer's guide to the VMware VCP5-DCV (vSphere 5 Data Center Virtualization) certification, retired by VMware in 2017.",
   openGraph: {
     title: 'Clarke Moyer VMware VCP5-DCV Certification Passing Guide | Clarke Moyer',
     description: "Clarke Moyer's guide to the VMware VCP5-DCV (vSphere 5 Data Center Virtualization) certification.",
@@ -38,15 +38,43 @@ export default function VCP5DCVGuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
-            <p className="text-amber-800 font-semibold">📋 Legacy Certification Note</p>
-            <p className="text-amber-700 text-sm mt-1">
-              The VCP5-DCV is a legacy credential based on vSphere 5, which has been end-of-lifed by VMware.
-              It is no longer available as a new certification. Clarke holds this credential as part of his DoD 8570
-              Computing Environment track history. It demonstrates foundational data center virtualization knowledge
-              that carries forward to modern vSphere versions.
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by VMware on March 31, 2017</p>
+            <p className="text-gray-700 text-sm mt-1">
+              VMware retired VCP5-DCV on March 31, 2017 and replaced it with VCP6-DCV, according to Broadcom&rsquo;s{' '}
+              <a href="https://docs.broadcom.com/doc/vmware-retired-exams-certifications-and-badges" target="_blank" rel="noopener noreferrer" className="underline">
+                retired exams list
+              </a>
+              . Clarke still holds it as part of his DoD 8570 Computing Environment track history, but new candidates
+              can no longer earn it. Its data center virtualization knowledge carries forward to modern vSphere.
             </p>
-            <p className="text-amber-800 font-semibold mt-3">⚠️ VMware Training Prerequisite</p>
+          </div>
+
+          <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
+            <p className="font-bold text-green-900">✅ Closest current exams: VCP-VVF and VCP-VCF Administrator</p>
+            <p className="text-green-800 text-sm mt-1">
+              Broadcom now certifies vSphere administrators through VMware vSphere Foundation (VCP-VVF
+              Administrator, exam 2V0-16.25) and VMware Cloud Foundation (VCP-VCF Administrator, exam 2V0-17.25).
+              See Broadcom&rsquo;s{' '}
+              <a href="https://docs.broadcom.com/doc/vmw-certification-paths" target="_blank" rel="noopener noreferrer" className="underline">
+                VMware certification paths
+              </a>
+              .
+            </p>
+            <p className="text-sm mt-3">
+              <a
+                href={`https://www.amazon.com/s?k=VMware+Cloud+Foundation+9+vSphere+administration&tag=${AMZN_TAG}`}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="text-blue-600 hover:underline font-medium"
+              >
+                VMware Cloud Foundation and vSphere Books on Amazon ↗
+              </a>
+            </p>
+          </div>
+
+          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
+            <p className="text-amber-800 font-semibold">⚠️ VMware Training Prerequisite</p>
             <p className="text-amber-700 text-sm mt-1">All VMware certifications require attending an official VMware authorized training course to be eligible for the exam.</p>
           </div>
 

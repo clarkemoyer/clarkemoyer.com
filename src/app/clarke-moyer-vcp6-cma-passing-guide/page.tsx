@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer VMware VCP6-CMA Certification Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP6-CMA (Cloud Management and Automation) certification.",
+  description: "Clarke Moyer's guide to the VMware VCP6-CMA (Cloud Management and Automation) certification, retired in 2019, and the VMware Cloud Foundation automation exams that replace it today.",
   openGraph: {
     title: 'Clarke Moyer VMware VCP6-CMA Certification Passing Guide | Clarke Moyer',
     description: "Clarke Moyer's guide to the VMware VCP6-CMA (Cloud Management and Automation) certification.",
@@ -44,6 +44,36 @@ export default function VCP6CMAGuidePage() {
 
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
+
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by VMware on August 1, 2019</p>
+            <p className="text-gray-700 text-sm mt-1">
+              VMware retired VCP6-CMA on August 1, 2019 and replaced it with VCP-CMA 2019, according to
+              Broadcom&rsquo;s{' '}
+              <a href="https://docs.broadcom.com/doc/vmware-retired-exams-certifications-and-badges" target="_blank" rel="noopener noreferrer" className="underline">
+                retired exams list
+              </a>
+              . The vRealize products it covered are now VMware Cloud Foundation (VCF) Automation and Operations.
+              Clarke still holds VCP6-CMA, but new candidates can no longer earn it. This guide stays up for
+              historical context.
+            </p>
+          </div>
+
+          <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8">
+            <p className="font-bold text-green-900">✅ Closest current exams: VCF Automation</p>
+            <p className="text-green-800 text-sm mt-1">
+              Broadcom now tests cloud automation through the VMware Cloud Foundation track: the VCP-VCF
+              Administrator exam (2V0-17.25) at the professional level, and the advanced VCF Automation exam
+              (3V0-21.25). See Broadcom&rsquo;s{' '}
+              <a href="https://docs.broadcom.com/doc/vmw-certification-paths" target="_blank" rel="noopener noreferrer" className="underline">
+                VMware certification paths
+              </a>{' '}
+              for the current list. The study approach below still applies.
+            </p>
+            <p className="text-sm mt-3">
+              {amznSearch(`https://www.amazon.com/s?k=VMware+Cloud+Foundation+VCF+Automation&tag=${AMZN_TAG}`, 'VMware Cloud Foundation Automation Books on Amazon')}
+            </p>
+          </div>
 
           <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-4 mb-8 rounded">
             <p className="text-amber-800 font-semibold">⚠️ VMware Training Prerequisite</p>

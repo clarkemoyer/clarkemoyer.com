@@ -91,7 +91,7 @@ export default function AZ900GuidePage() {
           <p>
             It&rsquo;s also short and low-risk — a half-day of exam prep over a few weeks, and you come out with a
             Microsoft-recognized credential and a solid conceptual base for every more advanced Azure cert that follows.
-            AI-900 and SC-900 both become easier after AZ-900.
+            AI-901 (formerly AI-900) and SC-900 both become easier after AZ-900.
           </p>
 
           <h2>Free Resource: Microsoft Learn</h2>
@@ -153,7 +153,7 @@ export default function AZ900GuidePage() {
           <p>
             AZ-900 is the right first Azure cert for anyone — DoD contractors, enterprise IT professionals, security
             practitioners, or managers who want to speak credibly about cloud. After AZ-900, the natural next steps
-            are AI-900 (AI fundamentals), SC-900 (security fundamentals), or moving up the Azure Administrator (AZ-104)
+            are AI-901 (AI fundamentals, formerly AI-900), SC-900 (security fundamentals), or moving up the Azure Administrator (AZ-104)
             or Solutions Architect (AZ-305) path.
           </p>
 

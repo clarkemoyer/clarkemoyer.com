@@ -182,7 +182,7 @@ export default function APlusGuidePage() {
           <h2>Books / Materials</h2>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
-            Mike Meyers CompTIA A+ Core 1 (220-1101){' '}
+            Mike Meyers CompTIA A+ Core 1 (220-1201){' '}
             <span className="text-green-700 text-base font-semibold ml-2">← Must Buy</span>
           </h3>
           <p className="not-prose text-gray-700 mt-2 mb-3">
@@ -191,13 +191,13 @@ export default function APlusGuidePage() {
           </p>
           <p className="not-prose">
             {amzn(
-              `https://www.amazon.com/s?k=Mike+Meyers+CompTIA+A+Plus+Core+1&tag=${AMZN_TAG}`,
-              'Mike Meyers CompTIA A+ Core 1 (220-1101)'
+              `https://www.amazon.com/s?k=Mike+Meyers+CompTIA+A%2B+Core+1+220-1201&tag=${AMZN_TAG}`,
+              'Mike Meyers CompTIA A+ Core 1 (220-1201)'
             )}
           </p>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
-            Mike Meyers CompTIA A+ Core 2 (220-1102){' '}
+            Mike Meyers CompTIA A+ Core 2 (220-1202){' '}
             <span className="text-green-700 text-base font-semibold ml-2">← Must Buy</span>
           </h3>
           <p className="not-prose text-gray-700 mt-2 mb-3">
@@ -206,16 +206,27 @@ export default function APlusGuidePage() {
           </p>
           <p className="not-prose">
             {amzn(
-              `https://www.amazon.com/s?k=Mike+Meyers+CompTIA+A+Plus+Core+2&tag=${AMZN_TAG}`,
-              'Mike Meyers CompTIA A+ Core 2 (220-1102)'
+              `https://www.amazon.com/s?k=Mike+Meyers+CompTIA+A%2B+Core+2+220-1202&tag=${AMZN_TAG}`,
+              'Mike Meyers CompTIA A+ Core 2 (220-1202)'
             )}
           </p>
 
           <h2>Test Strategy</h2>
           <p>
-            A+ is two separate exams: Core 1 (220-1101) and Core 2 (220-1102). Each is 90 questions,
+            A+ is two separate exams: Core 1 (220-1201) and Core 2 (220-1202). Each is 90 questions,
             90 minutes, with a passing score of 675 and 700 respectively (on a 100–900 scale). Both
             include performance-based questions — flag them and return at the end.
+          </p>
+          <p>
+            CompTIA released the 220-1201 and 220-1202 exams on March 25, 2025 and retired the older 220-1101 and
+            220-1102 exams on September 25, 2025, so make sure any study guide you buy covers the 1200 series.{' '}
+            <a
+              href="https://www.professormesser.com/free-a-plus-training/a-plus-articles/differences-between-220-1101-and-220-1201/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              What changed between 220-1101 and 220-1201 ↗
+            </a>
           </p>
           <p>
             You can take them in any order. Some people knock out Core 1 first since it&rsquo;s

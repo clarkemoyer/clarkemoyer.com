@@ -4,7 +4,7 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer AZ-500 Microsoft Azure Security Technologies Passing Guide',
-  description: "Clarke Moyer's guide to the AZ-500 Microsoft Azure Security Technologies certification — Azure security operations, identity, network security, and data protection.",
+  description: "Clarke Moyer's guide to the AZ-500 Microsoft Azure Security Technologies exam, retired August 31, 2026, and the SC-500 Cloud and AI Security Engineer exam that is now the closest current option.",
   openGraph: {
     title: 'Clarke Moyer AZ-500 Microsoft Azure Security Technologies Passing Guide | Clarke Moyer',
     description: "Clarke Moyer's guide to the AZ-500 Microsoft Azure Security Technologies certification — Azure security operations, identity, network security, and data protection.",
@@ -38,20 +38,37 @@ export default function AZ500GuidePage() {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto px-4 prose prose-lg">
 
-          <div className="not-prose bg-amber-50 border-l-4 border-amber-500 p-5 mb-6">
-            <p className="text-amber-800 text-sm">
-              Clarke holds the AZ-500 and keeps it current as Azure security services and exam objectives evolve.
-              Always verify current objectives at{' '}
-              <a href="https://learn.microsoft.com" target="_blank" rel="noopener noreferrer" className="underline">Microsoft Learn</a>{' '}
-              before purchasing study materials.
+          <div className="not-prose bg-gray-100 border-l-4 border-gray-500 p-5 mb-6">
+            <p className="font-bold text-gray-900">🗂 Retired by Microsoft on August 31, 2026</p>
+            <p className="text-gray-700 text-sm mt-1">
+              Microsoft retired the AZ-500 exam, the Azure Security Engineer Associate certification and its renewal
+              assessment. Clarke earned the certification through AZ-500, but nobody can earn or renew it now. This
+              guide stays up for historical context.
             </p>
           </div>
 
           <div className="not-prose bg-green-50 border-l-4 border-green-600 p-5 mb-8 rounded-r-lg">
-            <p className="text-green-800 font-semibold text-lg">✅ Clarke&rsquo;s Recommendation</p>
+            <p className="text-green-800 font-semibold text-lg">✅ Take SC-500 instead</p>
             <p className="text-green-700 mt-1">
-              Clarke recommends AZ-500 for anyone with 1&ndash;2 years of Azure experience who wants to specialize
-              in cloud security. It pairs well with the CISSP for a strong security credentials stack.
+              The closest current exam is{' '}
+              <a href="https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/" target="_blank" rel="noopener noreferrer" className="underline">
+                SC-500: Microsoft Certified: Cloud and AI Security Engineer Associate
+              </a>
+              , which Clarke also holds. It covers much of the same ground as AZ-500: identity and access, securing
+              storage, databases and networking, securing compute, and managing security posture. Clarke recommends it for anyone with 1&ndash;2 years of
+              Azure experience who wants to specialize in cloud security, and it still pairs well with the CISSP.
+              Read{' '}
+              <Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="underline">Clarke&rsquo;s SC-500 guide</Link>.
+            </p>
+            <p className="text-sm mt-3">
+              <a
+                href={`https://www.amazon.com/s?k=SC-500+Cloud+and+AI+Security+Engineer+study+guide&tag=${AMZN_TAG}`}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="text-blue-600 hover:underline font-medium"
+              >
+                SC-500 Study Guides on Amazon ↗
+              </a>
             </p>
           </div>
 
@@ -113,7 +130,7 @@ export default function AZ500GuidePage() {
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline font-medium"
             >
-              Microsoft Learn — AZ-500 Azure Security Technologies ↗
+              Microsoft Learn — Azure Security Engineer Associate (retired) ↗
             </a>
           </p>
 
@@ -159,7 +176,7 @@ export default function AZ500GuidePage() {
           <ul>
             <li><Link href="/clarke-moyer-cissp-certification-passing-guide/" className="text-blue-600 hover:underline">CISSP Certification Passing Guide</Link> — pairs well with AZ-500 for a complete security credentials stack</li>
             <li><Link href="/clarke-moyer-microsoft-az-900-passing-guide/" className="text-blue-600 hover:underline">AZ-900 Azure Fundamentals Guide</Link> — start here if you&rsquo;re new to Azure</li>
-            <li><Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="text-blue-600 hover:underline">SC-500 Cloud &amp; AI Security Engineer Guide</Link> — complementary Microsoft security certification</li>
+            <li><Link href="/clarke-moyer-microsoft-sc-500-passing-guide/" className="text-blue-600 hover:underline">SC-500 Cloud &amp; AI Security Engineer Guide</Link> — the closest current Microsoft security engineer exam</li>
             <li><Link href="/industry-conferences/" className="text-blue-600 hover:underline">Industry Conferences</Link> — conferences Clarke attends for learning and certification</li>
           </ul>
 

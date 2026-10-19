@@ -57,8 +57,8 @@ export default function AI900GuidePage() {
           <div className="not-prose bg-blue-50 border-l-4 border-blue-600 p-5 mb-6">
             <p className="font-bold text-blue-900">🔄 AI-900 is now AI-901</p>
             <p className="text-blue-800 text-sm mt-1">
-              On April 15, 2026 Microsoft updated the Azure AI Fundamentals certification and replaced exam AI-900
-              with{' '}
+              Microsoft retired exam AI-900 on June 30, 2026. The Azure AI Fundamentals certification is now earned
+              through{' '}
               <a href="https://learn.microsoft.com/en-us/credentials/certifications/exams/ai-901/" target="_blank" rel="noopener noreferrer" className="underline">
                 AI-901: Microsoft Azure AI Fundamentals
               </a>
