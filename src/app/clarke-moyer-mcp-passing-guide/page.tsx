@@ -130,7 +130,7 @@ export default function MCPGuidePage() {
                 <Link href="/clarke-moyer-microsoft-ms-900-passing-guide/" className="text-blue-600 hover:underline font-semibold">
                   MS-900 Microsoft 365 Fundamentals
                 </Link>
-                <span className="text-gray-600"> — Covers productivity, collaboration, security, and compliance across the Microsoft 365 platform.</span>
+                <span className="text-gray-600"> — Retired in 2026; the guide points to AB-900, the closest current Microsoft 365 fundamentals exam.</span>
               </div>
             </li>
             <li className="flex items-start gap-2">
