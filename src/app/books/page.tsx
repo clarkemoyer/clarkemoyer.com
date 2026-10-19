@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { amznSearch } from '@/lib/amazon';
 
 export const metadata: Metadata = {
   title: 'Books & Reading',
@@ -108,7 +109,14 @@ export default function BooksPage() {
                 <ul className="space-y-3">
                   {shelf.books.map((book) => (
                     <li key={book.title}>
-                      <span className="font-semibold text-gray-900">{book.title}</span>
+                      <a
+                        href={amznSearch(`${book.title} ${book.author}`)}
+                        target="_blank"
+                        rel="noopener noreferrer sponsored"
+                        className="font-semibold text-blue-600 hover:underline"
+                      >
+                        {book.title}
+                      </a>
                       <span className="block text-gray-600 text-sm">{book.author}</span>
                       {book.href && (
                         <Link href={book.href} className="text-blue-600 hover:underline text-sm">
@@ -121,6 +129,9 @@ export default function BooksPage() {
               </div>
             ))}
           </div>
+          <p className="mt-10 text-sm text-gray-500 text-center">
+            As an Amazon Associate I earn from qualifying purchases. Book links help support this site at no extra cost to you. See <a href="/affiliate-disclosure" className="underline hover:text-gray-600">Affiliate Disclosure</a>.
+          </p>
         </div>
       </section>
     </>
