@@ -98,9 +98,9 @@ export default function MS900GuidePage() {
           <div className="not-prose bg-yellow-50 border-l-4 border-yellow-500 p-5 mb-8">
             <h3 className="font-bold text-yellow-900 mb-1">📋 Recommended Path</h3>
             <p className="text-yellow-800 text-sm">
-              Consider pairing MS-900 with{' '}
+              Consider pairing AB-900 with{' '}
               <Link href="/clarke-moyer-microsoft-az-900-passing-guide" className="underline">AZ-900</Link> and{' '}
-              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline">AI-900</Link> —
+              <Link href="/clarke-moyer-microsoft-ai-900-passing-guide" className="underline">AI-901 (formerly AI-900)</Link> —
               together they cover the full Microsoft cloud landscape: productivity, infrastructure, and AI.
               All three are approachable fundamentals-level exams.
             </p>

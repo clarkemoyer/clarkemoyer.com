@@ -119,7 +119,7 @@ export default function MCPGuidePage() {
               <span className="text-blue-600 font-bold mt-0.5">→</span>
               <div>
                 <Link href="/clarke-moyer-microsoft-ai-900-passing-guide/" className="text-blue-600 hover:underline font-semibold">
-                  AI-900 Azure AI Fundamentals
+                  AI-901 (formerly AI-900) Azure AI Fundamentals
                 </Link>
                 <span className="text-gray-600"> — Essential for anyone advising on AI policy or procurement in enterprise or DoD environments.</span>
               </div>
