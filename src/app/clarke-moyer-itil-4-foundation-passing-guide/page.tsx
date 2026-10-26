@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import GuideConsultCta from '@/components/GuideConsultCta';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -206,6 +207,7 @@ export default function ITIL4FoundationGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
         </div>
