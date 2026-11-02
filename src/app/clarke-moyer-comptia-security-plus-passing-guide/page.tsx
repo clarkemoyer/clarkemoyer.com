@@ -6,11 +6,11 @@ import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Clarke Moyer CompTIA Security+ Certification Passing Guide',
   description:
-    "Clarke Moyer's guide to passing the CompTIA Security+ certification exam — study materials, practice tests, and test strategies.",
+    "Clarke Moyer's guide to passing CompTIA Security+ SY0-701 — study materials, practice tests, test strategy, and whether to wait for the new V8 exam.",
   openGraph: {
     title: 'Clarke Moyer CompTIA Security+ Certification Passing Guide | Clarke Moyer',
     description:
-      "Clarke Moyer's guide to passing the CompTIA Security+ certification exam — study materials, practice tests, and test strategies.",
+      "Clarke Moyer's guide to passing CompTIA Security+ SY0-701 — study materials, practice tests, test strategy, and whether to wait for the new V8 exam.",
     type: 'article',
     url: '/clarke-moyer-comptia-security-plus-passing-guide/',
   },
@@ -225,6 +225,24 @@ export default function SecurityPlusGuidePage() {
               `https://www.amazon.com/s?k=CompTIA+Security+Plus+audiobook+study+guide&tag=${AMZN_TAG}`,
               'CompTIA Security+ Audiobook Study Guide'
             )}
+          </p>
+
+          <h2>SY0-701 or the New V8 Exam?</h2>
+          <p>
+            CompTIA expects Security+ V8 to launch on or around November 17, 2026. SY0-701 stays
+            available until CompTIA retires it, and both earn the same Security+ certification. If
+            you are already studying for SY0-701, finish and take it: study guides and practice
+            tests for a brand-new exam version take months to catch up. If you are just starting,
+            check CompTIA&rsquo;s{' '}
+            <a
+              href="https://www.comptia.org/en-us/certifications/security/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              Security+ page
+            </a>{' '}
+            for the current retirement date before you pick a version.
           </p>
 
           <h2>Test Strategy</h2>
