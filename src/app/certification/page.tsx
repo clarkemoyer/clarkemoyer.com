@@ -156,7 +156,7 @@ export default function CertificationGuidesPage() {
                   <h3 className="text-xl font-bold text-gray-900">CompTIA Security+ Passing Guide</h3>
                   <span className="text-xs font-semibold bg-orange-200 text-orange-800 px-2 py-0.5 rounded-full">⚠️ Legacy Path</span>
                 </div>
-                <p className="text-gray-700 mb-4">DoD 8570 IAT Level II baseline qualifier. Earned November 2008. See CISSP guide for the recommended security track.</p>
+                <p className="text-gray-700 mb-4">Updated for SY0-801 (V8, Nov 2026) vs SY0-701 (retires June 2027). DoD 8570 IAT Level II baseline qualifier. Earned November 2008. See CISSP guide for the recommended security track.</p>
                 <Link href="/clarke-moyer-comptia-security-plus-passing-guide" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-2 rounded-full transition-colors no-underline">
                   Read the Security+ Guide →
                 </Link>
