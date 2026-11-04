@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import CookieConsent from '@/components/cookie-consent';
+import ConversionTracker from '@/components/ConversionTracker';
 import Navigation from '@/components/Navigation';
 import { personSchema, SchemaScript } from '@/lib/schema';
 
@@ -74,6 +75,7 @@ export default function RootLayout({
         <Navigation />
         <main id="main-content" tabIndex={-1} className="outline-none pt-16 lg:pt-40">{children}</main>
         <CookieConsent />
+        <ConversionTracker />
       </body>
     </html>
   );
