@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://clarkemoyer.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://clarkemoyer.com'
 
 // Base Person schema for Clarke Moyer — include on every page
 export function personSchema() {
@@ -72,6 +72,19 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
       position: index + 1,
       name: item.name,
       item: `${SITE_URL}${item.url}`,
+    })),
+  }
+}
+
+// FAQPage schema — pass array of {question, answer} items (plain-text answers)
+export function faqSchema(items: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
     })),
   }
 }
