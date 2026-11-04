@@ -30,9 +30,16 @@ function isAmazonHost(host: string): boolean {
   return /(^|\.)amazon\.[a-z.]+$/.test(host) || host === 'amzn.to' || host === 'a.co'
 }
 
-/** Strip a trailing slash so "/contact/" and "/contact" compare equal. */
+const BASE_PATH = '/clarkemoyer.com'
+
+/**
+ * Strip the GitHub Pages basePath (when USE_BASE_PATH=true) and any trailing
+ * slash so "/contact/", "/contact" and "/clarkemoyer.com/contact/" compare equal.
+ */
 function normalizePath(path: string): string {
-  return path.length > 1 ? path.replace(/\/+$/, '') : path
+  let p = path
+  if (p === BASE_PATH || p.startsWith(`${BASE_PATH}/`)) p = p.slice(BASE_PATH.length) || '/'
+  return p.length > 1 ? p.replace(/\/+$/, '') : p
 }
 
 function bookingType(url: URL): string {
@@ -66,10 +73,12 @@ export function classifyLink(
 
   const protocol = url.protocol
   if (protocol === 'mailto:' || protocol === 'sms:' || protocol === 'tel:') {
-    // Drop the address itself from link_url; GA4 must not receive contact details.
+    // GA4 must not receive contact details: the address can be in the URL and
+    // in the visible link text, so neither is sent.
+    const method = protocol.replace(':', '')
     return {
       event: 'contact_click',
-      params: { ...base, link_url: protocol, contact_method: protocol.replace(':', '') },
+      params: { ...base, link_url: protocol, link_text: method, contact_method: method },
     }
   }
   if (protocol !== 'http:' && protocol !== 'https:') return null
@@ -130,24 +139,27 @@ export function classifyLink(
 
 /** True only when the visitor has saved consent with analytics enabled. */
 export function hasAnalyticsConsent(): boolean {
-  const parse = (raw: string | null | undefined): boolean => {
-    if (!raw) return false
+  // Returns null for missing or unreadable values so the cookie fallback runs,
+  // matching how the cookie banner reads stored consent.
+  const parse = (raw: string | null | undefined): boolean | null => {
+    if (!raw) return null
     try {
       const v = JSON.parse(raw)
-      return typeof v === 'object' && v !== null && v.analytics === true
+      if (typeof v !== 'object' || v === null || typeof v.analytics !== 'boolean') return null
+      return v.analytics
     } catch {
-      return false
+      return null
     }
   }
   try {
-    const ls = localStorage.getItem('cookie-consent')
-    if (ls) return parse(ls)
+    const fromStorage = parse(localStorage.getItem('cookie-consent'))
+    if (fromStorage !== null) return fromStorage
   } catch {
     /* storage blocked */
   }
   try {
     const match = document.cookie.match(/(?:^|;\s*)cookie-consent=([^;]+)/)
-    if (match) return parse(decodeURIComponent(match[1]))
+    if (match) return parse(decodeURIComponent(match[1])) === true
   } catch {
     /* ignore */
   }

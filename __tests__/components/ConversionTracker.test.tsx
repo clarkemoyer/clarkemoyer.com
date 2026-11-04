@@ -30,13 +30,18 @@ describe('classifyLink', () => {
   })
 
   it('tracks mailto and sms without the address or number', () => {
-    const mail = classifyLink('mailto:clarke@moyermanagement.com', '/contact/')
+    const mail = classifyLink(
+      'mailto:clarke@moyermanagement.com',
+      '/contact/',
+      'clarke@moyermanagement.com'
+    )
     expect(mail?.event).toBe('contact_click')
     expect(mail?.params.contact_method).toBe('mailto')
     expect(JSON.stringify(mail)).not.toContain('moyermanagement')
-    const sms = classifyLink('sms:+15202228104', '/contact/')
+    const sms = classifyLink('sms:+15202228104', '/contact/', 'Text (520) 222-8104')
     expect(sms?.params.contact_method).toBe('sms')
     expect(JSON.stringify(sms)).not.toContain('5202228104')
+    expect(JSON.stringify(sms)).not.toContain('222-8104')
   })
 
   it('tracks LinkedIn profile links as contact', () => {
@@ -73,6 +78,11 @@ describe('classifyLink', () => {
     )
     expect(classifyLink('/contact', '/')?.params.cta_destination).toBe('/contact')
     expect(classifyLink('/walk-and-talk', '/walk-and-talk/')).toBeNull()
+    // GitHub Pages basePath builds
+    expect(
+      classifyLink('/clarkemoyer.com/walk-and-talk/', '/clarkemoyer.com/')?.params.cta_destination
+    ).toBe('/walk-and-talk')
+    expect(classifyLink('/clarkemoyer.com/contact/', '/clarkemoyer.com/contact/')).toBeNull()
   })
 
   it('ignores unrelated links', () => {
@@ -102,6 +112,14 @@ describe('trackEvent consent gate', () => {
     setConsent(true)
     expect(trackEvent(evt)).toBe(true)
     expect(window.dataLayer).toEqual([{ event: 'affiliate_click', link_url: 'x' }])
+  })
+
+  it('falls back to the cookie when localStorage holds invalid JSON', () => {
+    localStorage.setItem('cookie-consent', '{not json')
+    document.cookie = `cookie-consent=${encodeURIComponent(
+      JSON.stringify({ necessary: true, analytics: true, marketing: false })
+    )}; path=/`
+    expect(trackEvent(evt)).toBe(true)
   })
 
   it('falls back to the consent cookie', () => {

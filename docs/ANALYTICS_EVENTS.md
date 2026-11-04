@@ -13,15 +13,16 @@ one tag, described below, before the events show up in GA4 (`G-C2Q1HC0GVQ`).
 
 | Event | Fires when someone clicks | Parameters | Mark as key event? |
 | --- | --- | --- | --- |
-| `walk_and_talk_booking_click` | A Microsoft Bookings link (`outlook.office.com/bookwithme/...`) on any page | `booking_type` (meeting type id, or `booking_page`), `link_text`, `page_path` | **Yes.** Primary conversion. |
-| `contact_click` | `mailto:`, `sms:`, `tel:` links, or Clarke's LinkedIn profile | `contact_method` (`mailto`, `sms`, `tel`, `linkedin`), `link_text`, `page_path` | **Yes.** Secondary lead. |
+| `walk_and_talk_booking_click` | A Microsoft Bookings link (`outlook.office.com/bookwithme/...`) on any page | `booking_type` (meeting type id, or `booking_page`), `link_url` (always `https://outlook.office.com/bookwithme/`), `link_text`, `page_path` | **Yes.** Primary conversion. |
+| `contact_click` | `mailto:`, `sms:`, `tel:` links, or Clarke's LinkedIn profile | `contact_method` (`mailto`, `sms`, `tel`, `linkedin`), `link_url` and `link_text` (for mailto/sms/tel both are just the method name), `page_path` | **Yes.** Secondary lead. |
 | `affiliate_click` | Any Amazon link | `affiliate_network` (`amazon`), `affiliate_tag`, `asin` (when the link has one), `link_url`, `page_path` | **Yes**, if you want affiliate clicks in the key-event report. Revenue itself stays in Amazon Associates. |
 | `referral_click` | Outbound links for the WGU (`wgu.edu`) or Penn State ARL (`psu.wd1.myworkdayjobs.com`, `arl.army.mil`) programs | `referral_program` (`wgu`, `psu_arl`), `link_url`, `page_path` | Optional. Low volume, so a key event makes it easy to see. |
-| `walk_and_talk_cta_click` | An internal link to `/walk-and-talk/` or `/contact/` from another page | `cta_destination`, `link_text`, `page_path` | **No.** This is a funnel step, useful for seeing which pages send people to the booking page. |
+| `walk_and_talk_cta_click` | An internal link to `/walk-and-talk/` or `/contact/` from another page | `cta_destination`, `link_url`, `link_text`, `page_path` | **No.** This is a funnel step, useful for seeing which pages send people to the booking page. |
 
 Privacy notes: the Bookings URL contains a mailbox address and `mailto:`/`sms:`
-links contain an address or phone number. The tracker strips those before the
-push, so GA4 never receives personal contact details.
+links contain an address or phone number, and the visible text of those links
+often repeats it. For mailto/sms/tel clicks the tracker replaces both `link_url`
+and `link_text` with the method name, so GA4 never receives contact details.
 
 All events are click intent, not completed bookings. Microsoft Bookings runs
 on Microsoft's domain, so a finished booking can't be measured on this site.
