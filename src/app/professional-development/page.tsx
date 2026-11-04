@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ConsultCta from '@/components/ConsultCta';
 
 export const metadata: Metadata = {
   title: 'Professional Development',
@@ -346,6 +347,13 @@ export default function ProfessionalDevelopmentPage() {
               <p className="text-amber-700 text-xs mt-1">March 25, 2015</p>
             </div>
           </div>
+
+          <ConsultCta
+            className="mt-12"
+            testId="professional-development-consult-cta"
+            heading="Building a training plan for your team?"
+            body="Book a Walk and Talk to map certifications and training to the skills your organization actually needs."
+          />
 
           {/* Back links */}
           <div className="mt-12 text-center">
