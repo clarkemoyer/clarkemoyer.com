@@ -1,24 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer VMware VCP4-DCV Certification Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP4-DCV (vSphere 4 Data Center Virtualization) certification — the original DCV credential, retired by VMware in 2014.",
-  openGraph: {
-    title: 'Clarke Moyer VMware VCP4-DCV Certification Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the VMware VCP4-DCV (vSphere 4 Data Center Virtualization) certification — the original DCV credential.",
-    type: 'article',
-    url: '/clarke-moyer-vcp4-dcv-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-vcp4-dcv-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 
 export default function VCP4DCVGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-vcp4-dcv-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -156,6 +150,7 @@ export default function VCP4DCVGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-vcp4-dcv-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

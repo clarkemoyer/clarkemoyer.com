@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer SAFe SPC Certification Passing Guide',
-  description: 'Clarke Moyer\'s guide to passing the SAFe 5/6 Program Consultant (SPC) certification — the implementation professional credential for enterprise Lean-Agile transformation.',
-  openGraph: {
-    title: 'Clarke Moyer SAFe SPC Certification Passing Guide | Clarke Moyer',
-    description: 'Clarke Moyer\'s guide to passing the SAFe 5/6 Program Consultant (SPC) certification — the implementation professional credential for enterprise Lean-Agile transformation.',
-    type: 'article',
-    url: '/clarke-moyer-safe-spc-certification-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-safe-spc-certification-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
@@ -27,6 +20,7 @@ function amzn(asin: string, label: string) {
 export default function SAFeSPCGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-safe-spc-certification-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -169,6 +163,7 @@ export default function SAFeSPCGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-safe-spc-certification-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

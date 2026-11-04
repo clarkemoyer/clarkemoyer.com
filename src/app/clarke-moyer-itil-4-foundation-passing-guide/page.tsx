@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer ITIL 4 Foundation Certification Passing Guide',
-  description: 'Clarke Moyer\'s guide to passing ITIL Foundation, the entry-level IT service management certification required for certain DoD and enterprise contracts, covering ITIL 4 and the new ITIL Foundation (Version 5).',
-  openGraph: {
-    title: 'Clarke Moyer ITIL 4 Foundation Certification Passing Guide | Clarke Moyer',
-    description: 'Clarke Moyer\'s guide to passing the ITIL 4 Foundation exam — the entry-level IT service management certification required for certain DoD and enterprise contracts.',
-    type: 'article',
-    url: '/clarke-moyer-itil-4-foundation-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-itil-4-foundation-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amzn(url: string, label: string) {
@@ -26,6 +19,7 @@ function amzn(url: string, label: string) {
 export default function ITIL4FoundationGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-itil-4-foundation-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -207,6 +201,7 @@ export default function ITIL4FoundationGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-itil-4-foundation-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

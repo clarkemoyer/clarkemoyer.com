@@ -1,20 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideConsultCta from '@/components/GuideConsultCta'
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides'
+import { guideMetadata } from '@/lib/guides'
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer CompTIA Security+ Certification Passing Guide',
-  description:
-    "Clarke Moyer's guide to passing CompTIA Security+ SY0-701 — study materials, practice tests, test strategy, and whether to wait for the new V8 exam.",
-  openGraph: {
-    title: 'Clarke Moyer CompTIA Security+ Certification Passing Guide | Clarke Moyer',
-    description:
-      "Clarke Moyer's guide to passing CompTIA Security+ SY0-701 — study materials, practice tests, test strategy, and whether to wait for the new V8 exam.",
-    type: 'article',
-    url: '/clarke-moyer-comptia-security-plus-passing-guide/',
-  },
-}
+export const metadata: Metadata = guideMetadata('clarke-moyer-comptia-security-plus-passing-guide')
 
 const AMZN_TAG = 'clarkemoyer-20'
 function amzn(url: string, label: string) {
@@ -33,6 +24,7 @@ function amzn(url: string, label: string) {
 export default function SecurityPlusGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-comptia-security-plus-passing-guide" />
       <SchemaScript
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },
@@ -268,6 +260,7 @@ export default function SecurityPlusGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-comptia-security-plus-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">
               ← Back to Certification Guides

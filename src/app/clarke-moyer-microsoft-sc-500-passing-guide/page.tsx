@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer Microsoft SC-500 Cloud AI Security Engineer Passing Guide',
-  description: "Clarke Moyer's guide to the Microsoft SC-500 Cloud and AI Security Engineer Associate certification — Azure security for enterprise and DoD environments.",
-  openGraph: {
-    title: 'Clarke Moyer Microsoft SC-500 Cloud AI Security Engineer Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the Microsoft SC-500 Cloud and AI Security Engineer Associate certification.",
-    type: 'article',
-    url: '/clarke-moyer-microsoft-sc-500-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-microsoft-sc-500-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amznSearch(query: string, label: string) {
@@ -27,6 +20,7 @@ function amznSearch(query: string, label: string) {
 export default function SC500GuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-microsoft-sc-500-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -165,6 +159,7 @@ export default function SC500GuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-microsoft-sc-500-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

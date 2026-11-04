@@ -1,20 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideConsultCta from '@/components/GuideConsultCta'
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides'
+import { guideMetadata } from '@/lib/guides'
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer CompTIA Project+ Certification Passing Guide',
-  description:
-    "Clarke Moyer's guide to passing the CompTIA Project+ certification exam — study materials, practice tests, and test strategies.",
-  openGraph: {
-    title: 'Clarke Moyer CompTIA Project+ Certification Passing Guide | Clarke Moyer',
-    description:
-      "Clarke Moyer's guide to passing the CompTIA Project+ certification exam — study materials, practice tests, and test strategies.",
-    type: 'article',
-    url: '/clarke-moyer-comptia-project-plus-passing-guide/',
-  },
-}
+export const metadata: Metadata = guideMetadata('clarke-moyer-comptia-project-plus-passing-guide')
 
 const AMZN_TAG = 'clarkemoyer-20'
 function amzn(url: string, label: string) {
@@ -33,6 +24,7 @@ function amzn(url: string, label: string) {
 export default function ProjectPlusGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-comptia-project-plus-passing-guide" />
       <SchemaScript
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },
@@ -221,6 +213,7 @@ export default function ProjectPlusGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-comptia-project-plus-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">
               ← Back to Certification Guides

@@ -1,26 +1,18 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideConsultCta from '@/components/GuideConsultCta'
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides'
+import { guideMetadata } from '@/lib/guides'
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer CIW Professional Certification Passing Guide',
-  description:
-    "Clarke Moyer's guide to the CIW Professional and CIW Database Design Specialist certifications, foundational web technology credentials. CIW retired the CIW Professional title in 2011.",
-  openGraph: {
-    title: 'Clarke Moyer CIW Professional Certification Passing Guide | Clarke Moyer',
-    description:
-      "Clarke Moyer's guide to the CIW Professional and CIW Database Design Specialist certifications — foundational web technology credentials.",
-    type: 'article',
-    url: '/clarke-moyer-ciw-professional-passing-guide/',
-  },
-}
+export const metadata: Metadata = guideMetadata('clarke-moyer-ciw-professional-passing-guide')
 
 const AMZN_TAG = 'clarkemoyer-20'
 
 export default function CIWProfessionalGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-ciw-professional-passing-guide" />
       <SchemaScript
         schema={breadcrumbSchema([
           { name: 'Home', url: '/' },
@@ -193,6 +185,7 @@ export default function CIWProfessionalGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-ciw-professional-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">
               ← Back to Certification Guides

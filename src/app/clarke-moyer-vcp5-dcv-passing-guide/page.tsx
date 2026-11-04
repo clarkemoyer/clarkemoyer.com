@@ -1,24 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer VMware VCP5-DCV Certification Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP5-DCV (vSphere 5 Data Center Virtualization) certification, retired by VMware in 2017.",
-  openGraph: {
-    title: 'Clarke Moyer VMware VCP5-DCV Certification Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the VMware VCP5-DCV (vSphere 5 Data Center Virtualization) certification.",
-    type: 'article',
-    url: '/clarke-moyer-vcp5-dcv-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-vcp5-dcv-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 
 export default function VCP5DCVGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-vcp5-dcv-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -158,6 +152,7 @@ export default function VCP5DCVGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-vcp5-dcv-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
