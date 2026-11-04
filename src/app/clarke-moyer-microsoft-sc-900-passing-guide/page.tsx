@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer Microsoft SC-900 Security Fundamentals Passing Guide',
-  description: "Clarke Moyer's guide to passing the Microsoft SC-900 Security, Compliance, and Identity Fundamentals exam — Azure security entry point for enterprise and DoD.",
-  openGraph: {
-    title: 'Clarke Moyer Microsoft SC-900 Security Fundamentals Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to passing the Microsoft SC-900 Security, Compliance, and Identity Fundamentals exam — Azure security entry point for enterprise and DoD.",
-    type: 'article',
-    url: '/clarke-moyer-microsoft-sc-900-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-microsoft-sc-900-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
@@ -27,6 +20,7 @@ function amzn(asin: string, label: string) {
 export default function SC900GuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-microsoft-sc-900-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -168,6 +162,7 @@ export default function SC900GuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-microsoft-sc-900-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer VMware VCP6-CMA Certification Passing Guide',
-  description: "Clarke Moyer's guide to the VMware VCP6-CMA (Cloud Management and Automation) certification, retired in 2019, and the VMware Cloud Foundation automation exams that replace it today.",
-  openGraph: {
-    title: 'Clarke Moyer VMware VCP6-CMA Certification Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the VMware VCP6-CMA (Cloud Management and Automation) certification.",
-    type: 'article',
-    url: '/clarke-moyer-vcp6-cma-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-vcp6-cma-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amznSearch(url: string, label: string) {
@@ -26,6 +19,7 @@ function amznSearch(url: string, label: string) {
 export default function VCP6CMAGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-vcp6-cma-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -186,6 +180,7 @@ export default function VCP6CMAGuidePage() {
           </div>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-vcp6-cma-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>
