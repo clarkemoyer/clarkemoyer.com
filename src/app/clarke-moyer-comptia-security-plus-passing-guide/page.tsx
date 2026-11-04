@@ -82,7 +82,7 @@ export default function SecurityPlusGuidePage() {
             / Security+ Guide
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold">
-            Clarke Moyer CompTIA Security+ Certification Passing Guide
+            Clarke Moyer CompTIA Security+ Passing Guide: SY0-801 (V8) vs SY0-701
           </h1>
         </div>
       </section>
@@ -414,7 +414,7 @@ export default function SecurityPlusGuidePage() {
           <h2>Test Strategy</h2>
           <p>
             Both SY0-701 and SY0-801 have a maximum of 90 questions, a 90-minute limit, and a
-            passing score of 750 (on a 100–900 scale). It includes multiple choice and
+            passing score of 750 (on a 100–900 scale). Both include multiple-choice and
             performance-based questions (PBQs). PBQs appear first — don&rsquo;t get stuck on them.
             Flag them and move on, come back at the end.
           </p>
