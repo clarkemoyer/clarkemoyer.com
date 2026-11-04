@@ -303,14 +303,12 @@ export default async function Home() {
             relationships by representing what I am involved in and taking inputs from the greater
             community. Please contact me if you see some common ground.
           </p>
-          <a
-            href="https://linkedin.com/in/clarkemoyer"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/contact/"
             className="rounded-full bg-brand px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-hover"
           >
             Contact Clarke
-          </a>
+          </Link>
         </div>
       </section>
 
