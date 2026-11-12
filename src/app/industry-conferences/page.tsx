@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ConsultCta from '@/components/ConsultCta';
 
 export const metadata: Metadata = {
   title: 'Industry Conferences',
@@ -126,6 +127,13 @@ export default function IndustryConferencesPage() {
               Clarke plans to document additional conference experiences here as they happen.
             </p>
           </div>
+
+          <ConsultCta
+            className="not-prose mb-8"
+            testId="industry-conferences-consult-cta"
+            heading="Prefer the hallway track?"
+            body="A Walk and Talk is the hallway conversation, one on one: a focused, laptop-free session on your hardest technology question."
+          />
 
           <div className="mt-8 text-center not-prose">
             <Link href="/" className="text-blue-600 hover:underline font-medium">← Back to Home</Link>
