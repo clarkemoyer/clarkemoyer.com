@@ -46,6 +46,7 @@ export const testConfig = {
     '/clarke-moyer-philly-cheesesteak-recipe/',
     '/cooking/',
     '/books/',
+    '/comptia-ce/',
     '/affiliate-disclosure/',
     '/privacy-policy/',
     '/cookie-policy/',

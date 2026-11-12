@@ -104,7 +104,12 @@ export default function ProjectPlusGuidePage() {
               Project+<strong>ce</strong>) in his credentials. While Clarke no longer recommends
               this as a starting path, he keeps it current as part of his professional maintenance
               discipline. An active CE certification requires ongoing education and renewal —
-              it&apos;s not a one-time achievement left to expire.
+              it&apos;s not a one-time achievement left to expire. Project+ moved into CE on October
+              1, 2025; see{' '}
+              <Link href="/comptia-ce/" className="underline font-semibold">
+                Project+ CE and managing CompTIA renewals
+              </Link>{' '}
+              for the CEUs, fees and how it fits with your other CompTIA certs.
             </p>
           </div>
 
