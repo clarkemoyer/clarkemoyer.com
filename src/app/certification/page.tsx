@@ -159,6 +159,7 @@ export default function CertificationGuidesPage() {
 
           <h2 className="not-prose text-2xl font-bold text-gray-900 mt-12 mb-4 border-l-4 border-orange-400 pl-4">CompTIA Certifications</h2>
           <p className="not-prose text-sm text-gray-500 mb-6">Legacy path — see the <Link href="/clarke-moyer-cissp-certification-passing-guide" className="text-blue-600 hover:underline">CISSP guide</Link> for the recommended security track and the <Link href="/clarke-moyer-safe-spc-certification-passing-guide" className="text-blue-600 hover:underline">SAFe SPC guide</Link> for the recommended project management track.</p>
+          <p className="not-prose text-sm text-gray-700 mb-6">Holding more than one CompTIA cert? Read <Link href="/comptia-ce/" className="text-blue-600 hover:underline font-semibold">Project+ CE and managing CompTIA continuing education</Link> for CEU counts, fees and which certs renew which.</p>
 
           <div className="not-prose bg-orange-50 border border-orange-200 rounded-lg p-6 hover:shadow-lg transition-shadow mb-4">
             <div className="flex items-start gap-3">

@@ -9,6 +9,7 @@ describe('Page metadata', () => {
     ['Fun', () => import('../../src/app/fun/page')],
     ['Quotes', () => import('../../src/app/quotes/page')],
     ['Books', () => import('../../src/app/books/page')],
+    ['CompTIA CE', () => import('../../src/app/comptia-ce/page')],
     [
       'CISSP Guide',
       () => import('../../src/app/clarke-moyer-cissp-certification-passing-guide/page'),
