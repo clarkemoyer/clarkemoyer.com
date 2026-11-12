@@ -234,9 +234,9 @@ export default function ComptiaCePage() {
 
           <h2>What this means if you hold several CompTIA certs</h2>
           <p>
-            Take a common set as an example: A+, Network+, Security+ and Project+, all kept
-            current under CE. Before the change, renewing Security+ was enough to keep that whole
-            set in order. Now there are two separate renewals to manage:
+            Take a common set as an example: A+, Network+, Security+ and Project+, all kept current
+            under CE. Before the change, renewing Security+ was enough to keep that whole set in
+            order. Now there are two separate renewals to manage:
           </p>
           <ul>
             <li>
