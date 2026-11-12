@@ -17,7 +17,7 @@ One of the underrated benefits of WGU's IT program is that certification prepara
 **NOTE:** If WGU no longer has direct referral links you have to fill out a form.
 
 **Referrer Information:**
-- **Email:** [email protected]
+- **Email:** [contact Clarke](/contact/) for the referrer email address
 - **First Name:** Clarke
 - **Last Name:** Moyer
 
