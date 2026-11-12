@@ -1,18 +1,51 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import { amznSearch, amznUrl } from '@/lib/amazon';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Clarke Moyer Microsoft MCP Certification Passing Guide',
-  description: "Clarke Moyer's guide to the Microsoft MCP — the foundational Microsoft Professional credential.",
+  description: "Clarke Moyer's guide to the retired Microsoft MCP, plus the current Microsoft fundamentals exams and study guides to take instead.",
   openGraph: {
     title: 'Clarke Moyer Microsoft MCP Certification Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the Microsoft MCP — the foundational Microsoft Professional credential.",
+    description: "Clarke Moyer's guide to the retired Microsoft MCP, plus the current Microsoft fundamentals exams and study guides to take instead.",
     type: 'article',
     url: '/clarke-moyer-mcp-passing-guide/',
   },
 };
+
+function AmazonLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 hover:underline font-medium">
+      {label} ↗
+    </a>
+  );
+}
+
+const STUDY_RESOURCES = [
+  {
+    exam: 'AZ-900 Azure Fundamentals',
+    guide: '/clarke-moyer-microsoft-az-900-passing-guide/',
+    note: 'The study guide Clarke used. Its bundled practice tests are the core of the method.',
+    href: amznUrl('B0C8JKH9KM'),
+    label: 'Microsoft Azure Fundamentals AZ-900 Study Guide',
+  },
+  {
+    exam: 'SC-900 Security, Compliance & Identity Fundamentals',
+    guide: '/clarke-moyer-microsoft-sc-900-passing-guide/',
+    note: 'Best second step for anyone coming from a security or DoD background.',
+    href: amznUrl('B0BVFMY7ZH'),
+    label: 'Microsoft SC-900 Security Fundamentals Study Guide',
+  },
+  {
+    exam: 'AI-901 Azure AI Fundamentals',
+    guide: '/clarke-moyer-microsoft-ai-900-passing-guide/',
+    note: 'AI-901 replaced AI-900. Search for the current edition; the AI-900 guide Clarke used still covers the core concepts.',
+    href: amznSearch('AI-901 Azure AI Fundamentals study guide'),
+    label: 'Search Amazon: AI-901 Study Guides',
+  },
+];
 
 export default function MCPGuidePage() {
   return (
@@ -153,6 +186,39 @@ export default function MCPGuidePage() {
               </div>
             </li>
           </ul>
+
+          <h2 className="not-prose text-2xl font-bold text-gray-900 mb-4 mt-10 border-l-4 border-green-600 pl-4">Study Resources for the Current Track</h2>
+          <p>
+            The method that got me through the MCP still works today: learn the objectives for free on{' '}
+            <a href="https://learn.microsoft.com/credentials/" target="_blank" rel="noopener noreferrer">Microsoft Learn</a>,
+            then drill a study guide&rsquo;s practice tests until you clear 90% on mixed sets. These are the books I
+            point people to for the fundamentals exams that replaced the MCP.
+          </p>
+
+          <ul className="not-prose space-y-5 mt-4">
+            {STUDY_RESOURCES.map((r) => (
+              <li key={r.exam} className="border border-gray-200 rounded-lg p-4">
+                <p className="font-semibold text-gray-900">
+                  {r.exam}{' '}
+                  <Link href={r.guide} className="text-sm font-normal text-blue-600 hover:underline">
+                    (read the guide)
+                  </Link>
+                </p>
+                <p className="text-gray-600 text-sm mt-1 mb-2">{r.note}</p>
+                <AmazonLink href={r.href} label={r.label} />
+              </li>
+            ))}
+          </ul>
+
+          <p className="not-prose text-gray-700 mt-6">
+            Want more question variety?{' '}
+            <AmazonLink href={amznSearch('Microsoft fundamentals certification practice tests')} label="Microsoft fundamentals practice tests" />
+          </p>
+
+          <p className="not-prose text-xs text-gray-400 mt-8">
+            This page contains affiliate links. As an Amazon Associate I earn from qualifying purchases. Product links help support this site at no extra cost to you. See{' '}
+            <Link href="/affiliate-disclosure/" className="underline hover:text-gray-600">Affiliate Disclosure</Link>.
+          </p>
 
           <div className="mt-12 text-center not-prose">
             <p className="text-sm text-gray-600 mb-3">

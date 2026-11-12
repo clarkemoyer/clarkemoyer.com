@@ -97,3 +97,25 @@ test.describe('Amazon link compliance — Philly Cheesesteak', () => {
     await expect(page.locator('body')).toContainText('affiliate')
   })
 })
+
+test.describe('Amazon link compliance — MCP guide', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/clarke-moyer-mcp-passing-guide/')
+  })
+
+  test('all Amazon links are tagged and sponsored', async ({ page }) => {
+    const amazonLinks = page.locator('a[href*="amazon.com"]')
+    const count = await amazonLinks.count()
+    expect(count, 'Expected affiliate study-resource links').toBeGreaterThan(0)
+    for (let i = 0; i < count; i++) {
+      const link = amazonLinks.nth(i)
+      expect(await link.getAttribute('rel')).toContain('sponsored')
+      expect(await link.getAttribute('href')).toContain('clarkemoyer-20')
+    }
+  })
+
+  test('links to the affiliate disclosure', async ({ page }) => {
+    const count = await page.locator('a[href^="/affiliate-disclosure"]').count()
+    expect(count).toBeGreaterThan(0)
+  })
+})
