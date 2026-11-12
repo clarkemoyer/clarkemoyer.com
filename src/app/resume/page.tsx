@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ConsultCta from '@/components/ConsultCta';
 
 export const metadata: Metadata = {
   title: 'IT Project Management Resume of Clarke Moyer',
@@ -48,6 +49,13 @@ export default function ResumePage() {
           >
             Example Resume of Clarke Moyer (PDF)
           </a>
+          <ConsultCta
+            className="not-prose mt-12"
+            testId="resume-consult-cta"
+            heading="Need senior IT program leadership for a few focused hours?"
+            body="Book a Walk and Talk for direct advice on technology adoption, program and portfolio management, and security in regulated and DoD environments."
+            showContact
+          />
         </div>
       </section>
     </>

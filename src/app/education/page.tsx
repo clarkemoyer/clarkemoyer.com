@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ConsultCta from '@/components/ConsultCta';
 
 export const metadata: Metadata = {
   title: 'Education | Clarke Moyer',
@@ -117,6 +118,13 @@ export default function EducationPage() {
           >
             VIEW CERTIFICATION GUIDES →
           </Link>
+          <ConsultCta
+            className="mt-10"
+            testId="education-consult-cta"
+            heading="Put this research to work for your organization"
+            body="Clarke's doctoral research at Penn State Smeal focuses on why technology adoption stalls. A Walk and Talk gives your leadership team direct access to that work."
+            showContact
+          />
         </div>
       </section>
     </>

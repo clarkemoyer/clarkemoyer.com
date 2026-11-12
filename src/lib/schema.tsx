@@ -76,12 +76,25 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
   }
 }
 
+// FAQPage schema — pass array of {question, answer} items (plain-text answers)
+export function faqSchema(items: Array<{ question: string; answer: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+}
+
 // Helper to render schema as <script> tag
 export function SchemaScript({ schema }: { schema: object }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
     />
   )
 }

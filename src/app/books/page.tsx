@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { amznSearch } from '@/lib/amazon'
+import ConsultCta from '@/components/ConsultCta'
 
 export const metadata: Metadata = {
   title: 'Books & Reading',
@@ -216,6 +217,12 @@ export default function BooksPage() {
               </div>
             ))}
           </div>
+          <ConsultCta
+            className="mt-12"
+            testId="books-consult-cta"
+            heading="Want the conversation, not just the reading list?"
+            body="Book a Walk and Talk to work through the technology and leadership problems these books tackle, applied to your organization."
+          />
           <p className="mt-10 text-sm text-gray-500 text-center">
             As an Amazon Associate I earn from qualifying purchases. Book links help support this
             site at no extra cost to you. See{' '}

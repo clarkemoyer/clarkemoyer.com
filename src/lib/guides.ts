@@ -143,12 +143,12 @@ export const GUIDES: Guide[] = [
     shortName: 'Microsoft MCP',
     title: 'Microsoft MCP Certification (Retired) Guide',
     description:
-      "The story of Clarke Moyer's 2009 Microsoft Certified Professional (MCP) credential, why Microsoft retired the track, and which certifications to earn now.",
+      "Clarke Moyer's 2009 Microsoft Certified Professional (MCP) credential, why Microsoft retired it, and the current exams and study guides to take instead.",
     blurb: 'A retired classic, and what to take instead.',
     credential: 'Microsoft Certified Professional (MCP)',
     issuer: 'Microsoft',
     status: 'retired',
-    dateModified: '2026-10-19',
+    dateModified: '2026-11-12',
     related: [
       'clarke-moyer-microsoft-az-900-passing-guide',
       'clarke-moyer-microsoft-ai-900-passing-guide',
@@ -192,14 +192,14 @@ export const GUIDES: Guide[] = [
   {
     slug: 'clarke-moyer-comptia-security-plus-passing-guide',
     shortName: 'CompTIA Security+',
-    title: 'How to Pass Security+ SY0-701: Study Guide',
+    title: 'How to Pass Security+: SY0-801 (V8) vs SY0-701',
     description:
-      "How to pass CompTIA Security+ SY0-701: Clarke Moyer's study method, books, practice tests and test strategy, and whether to wait for the new V8 exam.",
-    blurb: 'SY0-701 now, and whether to wait for V8.',
+      'How to pass CompTIA Security+: SY0-801 (V8) launches Nov 17, 2026 and SY0-701 retires June 11, 2027. Which version to take, study guides and test strategy.',
+    blurb: 'SY0-801 vs SY0-701, and which one to take.',
     credential: 'CompTIA Security+',
     issuer: 'CompTIA',
     status: 'current',
-    dateModified: '2026-11-02',
+    dateModified: '2026-11-12',
     related: [
       'clarke-moyer-cissp-certification-passing-guide',
       'clarke-moyer-comptia-network-plus-passing-guide',
