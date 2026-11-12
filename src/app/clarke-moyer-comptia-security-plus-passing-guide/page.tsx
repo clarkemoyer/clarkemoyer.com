@@ -1,21 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import GuideConsultCta from '@/components/GuideConsultCta'
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides'
+import { guideMetadata } from '@/lib/guides'
 import { amznSearch } from '@/lib/amazon'
 import { breadcrumbSchema, faqSchema, SchemaScript } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'CompTIA Security+ Passing Guide: SY0-801 (V8) vs SY0-701',
-  description:
-    'How to pass CompTIA Security+ in 2026–2027: SY0-801 (V8, launching Nov 17, 2026) vs SY0-701 (retires June 11, 2027), which version to take, study guides, and test strategy.',
-  openGraph: {
-    title: 'CompTIA Security+ Passing Guide: SY0-801 (V8) vs SY0-701 | Clarke Moyer',
-    description:
-      'How to pass CompTIA Security+ in 2026–2027: SY0-801 (V8, launching Nov 17, 2026) vs SY0-701 (retires June 11, 2027), which version to take, study guides, and test strategy.',
-    type: 'article',
-    url: '/clarke-moyer-comptia-security-plus-passing-guide/',
-  },
-}
+export const metadata: Metadata = guideMetadata('clarke-moyer-comptia-security-plus-passing-guide')
 
 const FAQS = [
   {
@@ -61,6 +52,7 @@ function amzn(url: string, label: string) {
 export default function SecurityPlusGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-comptia-security-plus-passing-guide" />
       <SchemaScript schema={faqSchema(FAQS)} />
       <SchemaScript
         schema={breadcrumbSchema([
@@ -443,6 +435,7 @@ export default function SecurityPlusGuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-comptia-security-plus-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">
               ← Back to Certification Guides

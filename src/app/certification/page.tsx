@@ -1,12 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { GUIDES } from '@/lib/guides';
+import { breadcrumbSchema, guideListSchema, SchemaScript } from '@/lib/schema';
+
+const DESCRIPTION =
+  'Free certification passing guides from Clarke Moyer for CISSP, PMP, SAFe SPC, Security+, ITIL 4, AZ-900, SC-900 and AI-901, with study methods, books and practice tests.';
 
 export const metadata: Metadata = {
-  title: 'Certification Guides',
-  description: 'Clarke Moyer\'s completed management and technical certifications, with guides and methods for passing.',
+  title: 'Certification Passing Guides',
+  description: DESCRIPTION,
+  alternates: { canonical: '/certification/' },
   openGraph: {
-    title: 'Certification Guides | Clarke Moyer',
-    description: 'Clarke Moyer\'s completed management and technical certifications, with guides and methods for passing.',
+    title: 'Certification Passing Guides | Clarke Moyer',
+    description: DESCRIPTION,
     type: 'website',
     url: '/certification/',
     images: [{ url: '/og/certifications.png', width: 1200, height: 630, alt: 'Clarke Moyer Certification Guides' }],
@@ -16,6 +22,11 @@ export const metadata: Metadata = {
 export default function CertificationGuidesPage() {
   return (
     <>
+      <SchemaScript schema={breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Certification Guides', url: '/certification/' },
+      ])} />
+      <SchemaScript schema={guideListSchema(GUIDES)} />
       <section className="relative min-h-[40vh] bg-gray-900 flex items-center justify-center pt-28 pb-16 px-4">
         <div className="text-center text-white max-w-4xl">
           <div className="text-sm mb-2">

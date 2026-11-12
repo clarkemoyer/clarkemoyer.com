@@ -1,24 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer AZ-500 Microsoft Azure Security Technologies Passing Guide',
-  description: "Clarke Moyer's guide to the AZ-500 Microsoft Azure Security Technologies exam, retired August 31, 2026, and the SC-500 Cloud and AI Security Engineer exam that is now the closest current option.",
-  openGraph: {
-    title: 'Clarke Moyer AZ-500 Microsoft Azure Security Technologies Passing Guide | Clarke Moyer',
-    description: "Clarke Moyer's guide to the AZ-500 Microsoft Azure Security Technologies certification — Azure security operations, identity, network security, and data protection.",
-    type: 'article',
-    url: '/clarke-moyer-microsoft-az-500-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-microsoft-az-500-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 
 export default function AZ500GuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-microsoft-az-500-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -187,6 +181,7 @@ export default function AZ500GuidePage() {
           </p>
 
           <div className="mt-8 text-center not-prose">
+            <RelatedGuides slug="clarke-moyer-microsoft-az-500-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

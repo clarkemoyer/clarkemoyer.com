@@ -1,18 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import GuideConsultCta from '@/components/GuideConsultCta';
+import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides';
+import { guideMetadata } from '@/lib/guides';
 import { breadcrumbSchema, SchemaScript } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Clarke Moyer CISSP Certification Passing Guide',
-  description: 'Clarke Moyer\'s guide to passing the CISSP certification exam — study materials, training programs, and test strategies.',
-  openGraph: {
-    title: 'Clarke Moyer CISSP Certification Passing Guide | Clarke Moyer',
-    description: 'Clarke Moyer\'s guide to passing the CISSP certification exam — study materials, training programs, and test strategies.',
-    type: 'article',
-    url: '/clarke-moyer-cissp-certification-passing-guide/',
-  },
-};
+export const metadata: Metadata = guideMetadata('clarke-moyer-cissp-certification-passing-guide');
 
 const AMZN_TAG = 'clarkemoyer-20';
 function amzn(asin: string, label: string) {
@@ -27,6 +20,7 @@ function amzn(asin: string, label: string) {
 export default function CISSPGuidePage() {
   return (
     <>
+      <GuideArticleSchema slug="clarke-moyer-cissp-certification-passing-guide" />
       <SchemaScript schema={breadcrumbSchema([
         { name: 'Home', url: '/' },
         { name: 'Certification Guides', url: '/certification/' },
@@ -182,6 +176,7 @@ export default function CISSPGuidePage() {
                 Professional Development Events
               </Link>
             </p>
+            <RelatedGuides slug="clarke-moyer-cissp-certification-passing-guide" />
             <GuideConsultCta />
             <Link href="/certification" className="text-blue-600 hover:underline font-medium">← Back to Certification Guides</Link>
           </div>

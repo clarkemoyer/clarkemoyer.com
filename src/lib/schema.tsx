@@ -98,3 +98,51 @@ export function SchemaScript({ schema }: { schema: object }) {
     />
   )
 }
+
+// Article schema for a certification passing guide. Only states what the page
+// shows: who wrote it, when its content last changed, and which credential it covers.
+export function guideArticleSchema(guide: {
+  slug: string
+  title: string
+  description: string
+  credential: string
+  issuer: string
+  dateModified: string
+}) {
+  const url = `${SITE_URL}/${guide.slug}/`
+  const author = { '@type': 'Person', name: 'Clarke Moyer', url: SITE_URL }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.description,
+    url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${SITE_URL}/og/certifications.png`,
+    dateModified: guide.dateModified,
+    inLanguage: 'en-US',
+    author,
+    publisher: author,
+    about: {
+      '@type': 'EducationalOccupationalCredential',
+      name: guide.credential,
+      credentialCategory: 'certification',
+      recognizedBy: { '@type': 'Organization', name: guide.issuer },
+    },
+  }
+}
+
+// ItemList schema for the certification hub page.
+export function guideListSchema(guides: Array<{ slug: string; shortName: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Clarke Moyer Certification Passing Guides',
+    itemListElement: guides.map((guide, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${guide.shortName} Passing Guide`,
+      url: `${SITE_URL}/${guide.slug}/`,
+    })),
+  }
+}
