@@ -51,7 +51,7 @@
     "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^30.5.2",
     "postcss": "^8.5.32",
-    "prettier": "^3.9.10",
+    "prettier": "^3.10.1",
     "serve": "^14.2.7",
     "tailwindcss": "^4.3.4",
     "typescript": "^6.0.3"
