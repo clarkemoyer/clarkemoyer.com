@@ -3,16 +3,16 @@ import Link from 'next/link'
 import GuideConsultCta from '@/components/GuideConsultCta'
 import RelatedGuides, { GuideArticleSchema } from '@/components/RelatedGuides'
 import { guideMetadata } from '@/lib/guides'
-import { amznSearch } from '@/lib/amazon'
+import { amznSearch, amznUrl } from '@/lib/amazon'
 import { breadcrumbSchema, faqSchema, SchemaScript } from '@/lib/schema'
 
 export const metadata: Metadata = guideMetadata('clarke-moyer-comptia-security-plus-passing-guide')
 
 const FAQS = [
   {
-    question: 'When does Security+ SY0-801 (V8) launch?',
+    question: 'When did Security+ SY0-801 (V8) launch?',
     answer:
-      'CompTIA expects Security+ V8, exam code SY0-801, to launch on or around November 17, 2026.',
+      'CompTIA launched Security+ V8, exam code SY0-801, on November 17, 2026. You can schedule it now.',
   },
   {
     question: 'When does Security+ SY0-701 retire?',
@@ -88,8 +88,8 @@ export default function SecurityPlusGuidePage() {
             </p>
             <ul className="text-green-900 text-sm mt-2 space-y-1 list-disc ml-5">
               <li>
-                <strong>SY0-801 (V8)</strong> launches on or around{' '}
-                <strong>November 17, 2026</strong>.
+                <strong>SY0-801 (V8)</strong> launched on <strong>November 17, 2026</strong> and is
+                available now.
               </li>
               <li>
                 <strong>SY0-701 (V7)</strong> retires <strong>June 11, 2027</strong> in English
@@ -227,9 +227,9 @@ export default function SecurityPlusGuidePage() {
 
           <h2 id="which-version">SY0-701 or SY0-801: Which Version Should You Take?</h2>
           <p>
-            CompTIA expects Security+ V8 (exam code SY0-801) to launch on or around November 17,
-            2026. The English SY0-701 exam stays available until June 11, 2027. Both versions earn
-            the same Security+ certification, so pick the one that matches where you are today:
+            CompTIA launched Security+ V8 (exam code SY0-801) on November 17, 2026. The English
+            SY0-701 exam stays available until June 11, 2027. Both versions earn the same Security+
+            certification, so pick the one that matches where you are today:
           </p>
           <ul>
             <li>
@@ -312,9 +312,8 @@ export default function SecurityPlusGuidePage() {
 
           <h3>For SY0-801 (V8)</h3>
           <p>
-            New editions usually trail an exam launch by a few months. These searches pull up the
-            SY0-801 editions as publishers release them; make sure the cover says SY0-801 before you
-            buy.
+            The first SY0-801 editions are out or on preorder. Make sure the cover says SY0-801
+            before you buy.
           </p>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
@@ -326,24 +325,18 @@ export default function SecurityPlusGuidePage() {
             for the online practice test access. That&rsquo;s the real value.
           </p>
           <p className="not-prose">
-            {amzn(
-              amznSearch('CompTIA Security+ Get Certified Get Ahead SY0-801'),
-              'Get Certified Get Ahead SY0-801'
-            )}
+            {amzn(amznUrl('B0HRQ5DXR8'), 'Get Certified Get Ahead SY0-801')}
           </p>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
-            Sybex CompTIA Security+ Study Guide (SY0-801)
+            Sybex CompTIA Security+ Study Guide (SY0-801, 10th Edition)
           </h3>
           <p className="not-prose text-gray-700 mt-2 mb-3">
             Mike Chapple and David Seidl&rsquo;s Sybex guide comes with an online test bank and
             flashcards. A solid second source of practice questions.
           </p>
           <p className="not-prose">
-            {amzn(
-              amznSearch('Sybex CompTIA Security+ Study Guide SY0-801'),
-              'Sybex Security+ Study Guide SY0-801'
-            )}
+            {amzn(amznUrl('1394434308'), 'Sybex Security+ Study Guide SY0-801')}
           </p>
 
           <h3 className="not-prose mt-8 text-xl font-bold text-gray-900">
